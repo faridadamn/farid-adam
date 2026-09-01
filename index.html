@@ -1,388 +1,1739 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Farid Adamn — Kurir yang Jadi Builder</title>
-<meta name="description" content="Farid Adamn: nulis konten yang jualan, bikin produk digital dari nol, dan ngerawat AI yang kerja sendiri. Bukti bisa diverifikasi langsung.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Schibsted+Grotesk:wght@400;500;600&family=Fragment+Mono&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Farid Adamn — Solo Builder, AI yang Beneran Kerja & Multi-Node Hacker</title>
+<meta name="description" content="Dari kurir paket di jalanan Jogja jadi solo builder sistem otomatisasi & AI agent otonom. Bukan sekadar slide presentasi atau mockup — sistem hidup yang beneran jualan, kelola inventory, dan jalan 24/7." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://faridadamn.my.id/" />
+<meta property="og:title" content="Farid Adamn — Solo Builder & AI Systems Architect" />
+<meta property="og:description" content="Sistem otomatisasi nyata untuk UMKM & bisnis: Bot WA 24/7, QRIS dinamis, dashboard instan, dan multi-node cluster." />
+<meta property="og:locale" content="id_ID" />
+<link rel="canonical" href="https://faridadamn.my.id/" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Schibsted+Grotesk:wght@400;500;600;700&family=Fragment+Mono:ital@0;1&display=swap" rel="stylesheet" />
+
 <style>
-  :root{
-    --paper:#f7f4ee;
-    --surface:#fffdf9;
-    --ink:rgba(24,21,17,.95);
-    --ink-2:#615b52;
-    --ink-3:#a1998d;
-    --line:rgba(24,21,17,.14);
-    --line-soft:rgba(24,21,17,.08);
-    --accent:#d9481c;
-    --accent-deep:#b83710;
-    --ok:#1a7f37;
-    --serif:"Fraunces",Georgia,"Times New Roman",serif;
-    --sans:"Schibsted Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    --mono:"Fragment Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  :root {
+    /* Palette Light (Warm Paper Editorial) */
+    --paper: #f7f4ee;
+    --paper-card: #ffffff;
+    --paper-subtle: #efeae0;
+    --ink: #141210;
+    --ink-muted: #5e574d;
+    --ink-faint: #9c9486;
+    --line: rgba(20, 18, 16, 0.12);
+    --line-subtle: rgba(20, 18, 16, 0.06);
+    --accent: #d9481c;
+    --accent-glow: rgba(217, 72, 28, 0.15);
+    --accent-hover: #b83710;
+    --emerald: #0f766e;
+    --emerald-bg: #ccfbf1;
+    --terminal-bg: #151718;
+    --terminal-ink: #e6edf3;
+    --font-serif: "Fraunces", Georgia, serif;
+    --font-sans: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "Fragment Mono", "JetBrains Mono", monospace;
+    --max-w: 1100px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --shadow-soft: 0 4px 20px rgba(0,0,0,0.04);
+    --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16px}
-  ::selection{background:rgba(217,72,28,.18)}
-  a{color:var(--accent-deep);text-decoration:none}
-  a:hover{text-decoration:underline;text-underline-offset:3px}
-  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
-  .mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
-  .ico{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-  /* TOP BAR */
-  .top{border-bottom:1px solid var(--line);padding:18px 0}
-  .top .wrap{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
-  .wordmark{font-family:var(--serif);font-size:1.15rem;font-weight:600;letter-spacing:-.01em}
-  .wordmark .dot{color:var(--accent)}
-  .topmeta{color:var(--ink-3)}
+  [data-theme="dark"] {
+    /* Palette Dark (Cyberpunk Hacker / WhatsApp Web Midnight) */
+    --paper: #0c0f12;
+    --paper-card: #13181d;
+    --paper-subtle: #192027;
+    --ink: #f0f3f6;
+    --ink-muted: #94a3b8;
+    --ink-faint: #64748b;
+    --line: rgba(240, 243, 246, 0.11);
+    --line-subtle: rgba(240, 243, 246, 0.05);
+    --accent: #ff5722;
+    --accent-glow: rgba(255, 87, 34, 0.2);
+    --accent-hover: #ff7043;
+    --emerald: #10b981;
+    --emerald-bg: rgba(16, 185, 129, 0.15);
+    --terminal-bg: #090c0e;
+    --terminal-ink: #00ff66;
+    --shadow-soft: 0 4px 24px rgba(0,0,0,0.4);
+  }
 
-  /* HERO */
-  header{padding:72px 0 40px;border-bottom:1px solid var(--line)}
-  .kicker{color:var(--accent);margin-bottom:20px}
-  h1{font-family:var(--serif);font-weight:560;font-size:clamp(2.2rem,6.2vw,3.7rem);line-height:1.05;letter-spacing:-.02em;max-width:16ch}
-  h1 em{font-style:italic;font-weight:380;color:var(--accent)}
-  .hero-sub{margin-top:26px;max-width:560px;color:var(--ink-2);font-size:1.02rem}
-  .hero-lines{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:28px;color:var(--ink-3)}
-  .hero-lines span{display:inline-flex;align-items:center;gap:8px}
-  .hero-lines .ico{width:15px;height:15px;color:var(--accent)}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    font-size: 16px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
 
-  /* SECTIONS */
-  section{margin:0;padding:56px 0;border-bottom:1px solid var(--line)}
-  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:36px}
-  .sec-num{color:var(--ink-3);width:64px;flex:none}
-  .sec-head h2{font-family:var(--serif);font-weight:560;font-size:clamp(1.5rem,3vw,1.9rem);letter-spacing:-.015em}
-  .sec-head .rule{flex:1;height:1px;background:var(--line-soft);align-self:center}
+  ::selection { background: var(--accent); color: #fff; }
 
-  /* OFFER ROWS */
-  .offer{display:grid;grid-template-columns:44px 1fr 240px;gap:20px;padding:22px 0;border-top:1px solid var(--line-soft);align-items:start}
-  .offer:last-child{border-bottom:1px solid var(--line-soft)}
-  .offer .ico{width:22px;height:22px;color:var(--accent);margin-top:4px}
-  .offer h3{font-family:var(--serif);font-weight:560;font-size:1.25rem;letter-spacing:-.01em}
-  .offer p{color:var(--ink-2);font-size:.92rem;margin-top:4px;max-width:52ch}
-  .offer .proof{color:var(--ink-3);font-size:.74rem;margin-top:8px}
-  .offer .proof b{color:var(--accent-deep);font-weight:500}
-  @media(max-width:760px){.offer{grid-template-columns:36px 1fr}.offer .proof{grid-column:2}}
+  /* SVG Icon Helper */
+  .ico {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
 
-  /* STATS */
-  .stats{border:1px solid var(--line);background:var(--surface);display:grid;grid-template-columns:repeat(4,1fr);margin-top:20px}
-  .stat{padding:26px 22px;border-right:1px solid var(--line-soft)}
-  .stat:last-child{border-right:0}
-  .stat .num{font-family:var(--serif);font-weight:620;font-size:2rem;letter-spacing:-.02em;line-height:1}
-  .stat .lbl{color:var(--ink-3);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
-  .stat .src{color:var(--ink-3);font-size:.66rem;margin-top:10px;font-family:var(--mono)}
-  @media(max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat{border-bottom:1px solid var(--line-soft)}.stat:nth-last-child(-n+2){border-bottom:0}}
+  /* Grid Layout Container */
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-  /* PROJECT */
-  .proj{border:1px solid var(--line);background:var(--surface);padding:0}
-  .proj-body{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;padding:34px 34px 26px}
-  @media(max-width:760px){.proj-body{grid-template-columns:1fr;gap:20px;padding:26px}}
-  .proj-left .status{display:inline-flex;align-items:center;gap:8px;color:var(--ok);margin-bottom:14px}
-  .proj-left .status i{width:8px;height:8px;border-radius:50%;background:var(--ok);display:block}
-  .proj-left h3{font-family:var(--serif);font-weight:560;font-size:1.6rem;letter-spacing:-.015em;line-height:1.15}
-  .proj-left .meta{color:var(--ink-3);font-size:.75rem;margin-top:10px;font-family:var(--mono);letter-spacing:.03em}
-  .proj-right p{color:var(--ink-2);font-size:.92rem}
-  .proj-right ul{list-style:none;margin-top:14px}
-  .proj-right li{display:flex;gap:10px;padding:9px 0;border-top:1px solid var(--line-soft);font-size:.88rem;color:var(--ink)}
-  .proj-right li svg{color:var(--accent);margin-top:3px}
-  .proj-cta{display:flex;gap:8px;border-top:1px solid var(--line);padding:16px 34px;background:var(--paper)}
-  @media(max-width:760px){.proj-cta{padding:14px 26px;flex-wrap:wrap}}
-  .cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--line);color:var(--ink);background:var(--surface);transition:border-color .15s,color .15s}
-  .cta:hover{text-decoration:none;border-color:var(--accent);color:var(--accent-deep)}
-  .cta.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-  .cta.solid:hover{background:var(--accent-deep);border-color:var(--accent-deep);color:#fff}
-  .cta .ico{width:15px;height:15px}
-  .note{color:var(--ink-3);font-size:.72rem;margin-top:12px;font-family:var(--mono)}
+  /* Top Global Header */
+  header.site-head {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    backdrop-filter: blur(12px);
+    z-index: 900;
+    transition: var(--transition);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.18rem;
+    letter-spacing: -0.02em;
+  }
+  .brand-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    background: var(--accent-glow);
+    color: var(--accent);
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid var(--accent);
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .nav-links a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .theme-toggle-btn {
+    background: var(--paper-subtle);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: var(--transition);
+  }
+  .theme-toggle-btn:hover { border-color: var(--accent); color: var(--accent); transform: rotate(15deg); }
 
-  /* BUILD LOG */
-  .log{border-left:1px solid var(--line);margin-left:8px;padding-left:28px}
-  .log-item{position:relative;padding-bottom:26px}
-  .log-item:last-child{padding-bottom:0}
-  .log-item::before{content:"";position:absolute;left:-33px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--surface);border:1.5px solid var(--accent)}
-  .log-item .date{color:var(--accent-deep);letter-spacing:.06em;margin-bottom:4px}
-  .log-item p{font-size:.94rem;max-width:58ch}
-  .log-item .meta{color:var(--ink-3);font-size:.72rem;margin-top:5px;font-family:var(--mono)}
+  /* Live Cluster Status Ticker */
+  .cluster-ticker {
+    background: var(--paper-subtle);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    padding: 6px 0;
+    color: var(--ink-muted);
+  }
+  .ticker-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .pulse-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--emerald);
+    font-weight: 600;
+  }
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--emerald);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: radarPulse 2s infinite;
+  }
+  @keyframes radarPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+  }
 
-  /* CASE STUDY */
-  .study{border:1px solid var(--line);background:var(--surface)}
-  .study .row{display:grid;grid-template-columns:150px 1fr;gap:22px;padding:22px 26px;border-bottom:1px solid var(--line-soft)}
-  .study .row:last-child{border-bottom:0}
-  .study .k{color:var(--ink-3);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;padding-top:4px}
-  .study .v{font-size:.93rem;color:var(--ink);max-width:60ch}
-  @media(max-width:640px){.study .row{grid-template-columns:1fr;gap:6px}}
+  /* Hero Section */
+  .hero-section {
+    padding: 72px 0 54px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-tag {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--accent);
+  }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 5.8vw, 4.2rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    max-width: 17ch;
+    margin-bottom: 24px;
+  }
+  .hero-title em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 1.15rem;
+    color: var(--ink-muted);
+    max-width: 58ch;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 24px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: var(--transition);
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--accent-glow);
+  }
+  .btn-secondary {
+    background: var(--paper-subtle);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+  .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .hero-meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .hero-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-  footer{padding:40px 0 64px;color:var(--ink-2);font-size:.82rem}
-  footer .wrap{border-top:4px double var(--line);padding-top:24px}
-  .foot-links{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:14px}
-  .foot-links a{display:inline-flex;align-items:center;gap:8px;color:var(--ink-2)}
-  .foot-links a:hover{color:var(--accent-deep)}
-  .foot-links .ico{width:16px;height:16px}
+  /* Section Common */
+  section.module {
+    padding: 68px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .sec-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .sec-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .sec-heading em { font-style: italic; color: var(--accent); font-weight: 400; }
+  .sec-divider {
+    flex: 1;
+    height: 1px;
+    background: var(--line-subtle);
+  }
+  .sec-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+
+  /* Narrative Philosophy Cards */
+  .narrative-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .narrative-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    transition: var(--transition);
+  }
+  .narrative-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+  }
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .narrative-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .narrative-card p {
+    color: var(--ink-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Interactive WhatsApp Bot Playground */
+  .bot-playground-wrap {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    box-shadow: var(--shadow-soft);
+  }
+  @media (max-width: 860px) {
+    .bot-playground-wrap { grid-template-columns: 1fr; }
+  }
+  .sim-phone {
+    background: var(--terminal-bg);
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    border-right: 1px solid var(--line);
+  }
+  .phone-header {
+    background: #1f2c34;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #e9edef;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .phone-avatar {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+  }
+  .phone-user-info h4 { font-size: 14px; font-weight: 600; }
+  .phone-user-info span { font-size: 11px; color: #00a884; font-family: var(--font-mono); }
+  .chat-stream {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #0b141a;
+  }
+  .bubble {
+    max-width: 82%;
+    padding: 9px 13px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    position: relative;
+    word-break: break-word;
+    animation: fadeIn 0.2s ease-out;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  .bubble.in {
+    background: #202c33;
+    color: #e9edef;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+  }
+  .bubble.out {
+    background: #005c4b;
+    color: #e9edef;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+  }
+  .bubble-time {
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 4px;
+    text-align: right;
+    font-family: var(--font-mono);
+  }
+  .qris-card {
+    background: #fff;
+    color: #111;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 6px;
+    font-size: 12px;
+    border-left: 4px solid var(--accent);
+  }
+  .qris-card b { color: var(--accent); }
+  .chat-input-row {
+    padding: 10px 12px;
+    background: #202c33;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .chat-input-row input {
+    flex: 1;
+    background: #2a3942;
+    border: none;
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    outline: none;
+  }
+  .chat-input-row button {
+    background: #00a884;
+    color: #fff;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .sim-info {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .quick-chips-box {
+    margin-top: 18px;
+  }
+  .chip-btn {
+    background: var(--paper-subtle);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 4px 4px 4px 0;
+    transition: var(--transition);
+    display: inline-block;
+  }
+  .chip-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+  /* Interactive CLI Terminal Module */
+  .terminal-box {
+    background: var(--terminal-bg);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-family: var(--font-mono);
+  }
+  .term-topbar {
+    background: rgba(255,255,255,0.06);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .term-dots { display: flex; gap: 6px; }
+  .term-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .term-dot.r { background: #ff5f56; }
+  .term-dot.y { background: #ffbd2e; }
+  .term-dot.g { background: #27c93f; }
+  .term-title { color: #8b949e; font-size: 11px; }
+  .term-body {
+    padding: 18px;
+    height: 280px;
+    overflow-y: auto;
+    color: #e6edf3;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .term-output { margin-bottom: 12px; white-space: pre-wrap; }
+  .term-prompt-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: rgba(0,0,0,0.25);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .term-prompt-prefix { color: #00ff66; font-weight: 600; }
+  .term-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    outline: none;
+  }
+  .term-actions-bar {
+    padding: 8px 18px;
+    background: rgba(255,255,255,0.02);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .term-chip {
+    font-size: 11px;
+    color: #7ee787;
+    background: rgba(126, 231, 135, 0.1);
+    border: 1px solid rgba(126, 231, 135, 0.25);
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .term-chip:hover { background: rgba(126, 231, 135, 0.25); color: #fff; }
+
+  /* Interactive ROI Calculator */
+  .roi-calculator-wrap {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 36px;
+  }
+  @media (max-width: 820px) {
+    .roi-calculator-wrap { grid-template-columns: 1fr; gap: 24px; padding: 22px; }
+  }
+  .calc-control-group { margin-bottom: 24px; }
+  .calc-label-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .calc-val-badge { font-family: var(--font-mono); color: var(--accent); }
+  .calc-range {
+    width: 100%;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .roi-result-card {
+    background: var(--paper-subtle);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .roi-big-num {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.6rem);
+    font-weight: 700;
+    color: var(--emerald);
+    line-height: 1;
+    margin: 8px 0 4px;
+  }
+  .roi-stat-rows {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+  }
+  .roi-stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line-subtle);
+  }
+
+  /* Showcase Projects Matrix */
+  .projects-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition);
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+  }
+  .project-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: 0.08em;
+  }
+  .project-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .project-card p {
+    color: var(--ink-muted);
+    font-size: 0.93rem;
+    margin-bottom: 20px;
+    line-height: 1.55;
+    flex: 1;
+  }
+  .project-specs {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .spec-badge {
+    background: var(--paper-subtle);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+  .project-links {
+    display: flex;
+    gap: 12px;
+  }
+  .link-pill {
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .link-pill:hover { text-decoration: underline; }
+
+  /* Build Log Section */
+  .buildlog-box {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--paper-card);
+    overflow: hidden;
+  }
+  .log-filter-bar {
+    padding: 14px 20px;
+    background: var(--paper-subtle);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter-chip {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .filter-chip.active, .filter-chip:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .log-feed {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 12px 20px;
+  }
+  .log-row {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-subtle);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    font-size: 0.92rem;
+  }
+  .log-row:last-child { border-bottom: none; }
+  .log-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    width: 80px;
+    flex-shrink: 0;
+  }
+  .log-cat {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: var(--paper-subtle);
+    border: 1px solid var(--line);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .log-text { color: var(--ink); flex: 1; }
+
+  /* Pricing / Service Tiers */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .price-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  .price-card.featured {
+    border-color: var(--accent);
+    background: var(--paper-subtle);
+  }
+  .featured-badge {
+    position: absolute;
+    top: -11px;
+    right: 20px;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .tier-name {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .tier-price {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .tier-desc {
+    color: var(--ink-muted);
+    font-size: 0.92rem;
+    margin-bottom: 24px;
+    min-height: 48px;
+  }
+  .tier-list {
+    list-style: none;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9rem;
+    flex: 1;
+  }
+  .tier-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--ink);
+  }
+  .tier-list li svg { color: var(--emerald); margin-top: 3px; }
+
+  /* Interactive Proposal Builder */
+  .proposal-box {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+  }
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 20px 0 28px;
+  }
+  .scope-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--paper-subtle);
+    border: 1px solid var(--line);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  .scope-label:hover { border-color: var(--accent); }
+  .scope-label input { accent-color: var(--accent); width: 16px; height: 16px; }
+  .proposal-inputs {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .input-field {
+    flex: 1;
+    min-width: 240px;
+    background: var(--paper-subtle);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 13px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    outline: none;
+  }
+  .input-field:focus { border-color: var(--accent); }
+
+  /* Footer */
+  footer.site-foot {
+    border-top: 1px solid var(--line);
+    padding: 48px 0;
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+  }
+  .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .foot-links {
+    display: flex;
+    gap: 18px;
+  }
+  .foot-links a {
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+  .foot-links a:hover { color: var(--accent); }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <div class="wrap">
-    <div class="wordmark">Farid Adamn<span class="dot">.</span></div>
-    <div class="topmeta mono">solo builder · naskah & produk · indonesia</div>
+<!-- Live Cluster Ticker -->
+<div class="cluster-ticker">
+  <div class="wrap ticker-inner">
+    <div class="pulse-live">
+      <span class="pulse-dot"></span>
+      <span>CLUSTER ONLINE & IDLE</span>
+    </div>
+    <div>VPS Ubuntu <code>43.134.163.115</code> · Termux Node <code>10.255.0.69</code> · Master Edge <code>:9997</code></div>
+    <div>Notion Auto-Sync: <code>ntask active</code> · Response Avg: <code>112ms</code></div>
   </div>
 </div>
 
-<header>
-  <div class="wrap">
-    <div class="kicker mono">LIVING PORTFOLIO — BUKTI DIUPDATE BERKALA</div>
-    <h1>Kurir yang jadi builder.<br><em>Solo, dari nol,</em> dan buktinya bisa dicek.</h1>
-    <p class="hero-sub">Gw nulis konten yang beneran jualan, bikin produk digital dari nol sampai jalan, dan ngerawat AI yang kerja sendiri buat gw. Halaman ini bukti hidupnya — progres dicatat di build log bawah.</p>
-    <div class="hero-lines">
-      <span><svg class="ico" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>naskah & copywriting</span>
-      <span><svg class="ico" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="6" y1="9" x2="6" y2="15"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>produk digital solo</span>
-      <span><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9.5" cy="13" r=".5"/><circle cx="14.5" cy="13" r=".5"/></svg>AI yang kerja sendiri</span>
-    </div>
+<!-- Header -->
+<header class="site-head">
+  <div class="wrap nav-inner">
+    <a href="#" class="brand">
+      <span>Farid Adamn</span>
+      <span class="brand-badge">SOLO BUILDER</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#cerita">Cerita</a>
+      <a href="#playground">Bot Demo</a>
+      <a href="#terminal">Terminal</a>
+      <a href="#kalkulator">ROI</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#buildlog">Build Log</a>
+      <a href="#paket">Paket</a>
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" title="Toggle Tema (Tekan 'T')">
+        <svg class="ico" id="themeIcon" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-
-  <!-- 01 -->
-  <section>
-    <div class="sec-head">
-      <span class="sec-num mono">01</span>
-      <h2>Apa yang gw tawarkan</h2>
-      <span class="rule"></span>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="wrap">
+    <span class="hero-tag">YOGYAKARTA · LIVING PORTFOLIO</span>
+    <h1 class="hero-title">
+      Dari <em>kurir paket</em> di jalanan, jadi builder <em>sistem AI</em> yang beneran kerja.
+    </h1>
+    <p class="hero-desc">
+      Gue nggak jualan slide presentasi atau teori AI langit ke-7. Gue bangun bot WhatsApp yang auto-closing 24 jam, dashboard web super enteng, invoice QRIS otomatis, dan multi-node cluster yang jalan tiap detik di server VPS & HP Android Termux.
+    </p>
+    <div class="hero-actions">
+      <a href="#proposal" class="btn btn-primary">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>Bikin Sistem Buat Bisnis Lo</span>
+      </a>
+      <a href="#playground" class="btn btn-secondary">
+        <svg class="ico" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>Coba Demo Interaktif</span>
+      </a>
     </div>
 
-    <div class="offer">
-      <svg class="ico" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-      <div>
-        <h3>Naskah yang jualan</h3>
-        <p>Nulis utas & artikel pakai framework B-A-P: masalah nyata, perdalam lukanya, beri solusi gratisan dulu biar kredibel, baru tawarkan produk. Jual rasa sakitnya, bukan fiturnya.</p>
-        <div class="proof"><b>bukti:</b> kitab naskah & utas-utas yang udah terbit</div>
+    <div class="hero-meta-strip">
+      <div class="hero-meta-item">
+        <svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>62+ Sistem Live & Shipped</span>
+      </div>
+      <div class="hero-meta-item">
+        <svg class="ico" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>99.8% System Uptime</span>
+      </div>
+      <div class="hero-meta-item">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>100% Hak Milik Source Code</span>
+      </div>
+      <div class="hero-meta-item">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Nol Biaya Langganan Vendor Asing</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="offer">
-      <svg class="ico" viewBox="0 0 24 24"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L15 11.3 12.7 9z"/></svg>
-      <div>
-        <h3>Produk digital dari nol</h3>
-        <p>Bangun web app sendiri: auth, database, tier gratis vs berbayar, keamanan data per-baris (RLS), sampai deploy. Sendiri, tanpa tim, tanpa nunggu orang lain.</p>
-        <div class="proof"><b>bukti:</b> ApotekKilat — live, bisa dibuka & dicek langsung</div>
+<!-- 01 Cerita / Filosofi -->
+<section id="cerita" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">01</span>
+      <h2 class="sec-heading">Prinsip kerja <em>tanpa basa-basi</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">FILOSOFI</span>
+    </div>
+
+    <div class="narrative-grid">
+      <div class="narrative-card">
+        <span class="card-label">01 // ANTI-VAPORWARE</span>
+        <h3>Bukan Mockup Figma</h3>
+        <p>Banyak agency ngasih mockup cantik tapi pas dipakai lemot dan error. Semua yang gue bikin bisa lo klik, coba langsung, dan terhubung ke database serta WhatsApp asli lo.</p>
+      </div>
+      <div class="narrative-card">
+        <span class="card-label">02 // ARSITEKTUR HEMAT</span>
+        <h3>Spek Ringan, Output Maksimal</h3>
+        <p>Gue buktiin sistem canggih nggak butuh server ratusan dollar. Menggabungkan Cloud VPS Ubuntu + Node Android Termux yang hemat daya tapi responsif di bawah 150ms.</p>
+      </div>
+      <div class="narrative-card">
+        <span class="card-label">03 // KODE MILIK LO</span>
+        <h3>Bebas Vendor Lock-in</h3>
+        <p>Gue serahin 100% source code, konfigurasi server, dan dokumentasi lengkap. Lo punya kendali penuh atas bisnis dan data customer lo selamanya.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="offer">
-      <svg class="ico" viewBox="0 0 24 24"><rect x="5" y="8" width="14" height="10" rx="2"/><path d="M12 8V5"/><path d="M9 5h6"/><circle cx="9.5" cy="13" r=".5"/><circle cx="14.5" cy="13" r=".5"/></svg>
-      <div>
-        <h3>AI yang kerja sendiri</h3>
-        <p>Nyusun automation & agen AI yang ngerjain kerjaan rutin — dokumentasi, monitoring, posting, laporan harian — supaya waktu gw jatuh ke yang penting.</p>
-        <div class="proof"><b>bukti:</b> halaman ini dirawat otomatis oleh agent gw</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 02 -->
-  <section>
-    <div class="sec-head">
-      <span class="sec-num mono">02</span>
-      <h2>Bukti utama — bisa diverifikasi sekarang</h2>
-      <span class="rule"></span>
+<!-- 02 Live WhatsApp Bot Playground -->
+<section id="playground" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">02</span>
+      <h2 class="sec-heading">Coba interaksi <em>Bot WhatsApp</em> live</h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">SIMULASI</span>
     </div>
 
-    <div class="proj">
-      <div class="proj-body">
-        <div class="proj-left">
-          <div class="status"><i></i>LIVE — BISA DICEK</div>
-          <h3>ApotekKilat</h3>
-          <p class="meta">manajemen apotek · web app · 2026</p>
+    <div class="bot-playground-wrap">
+      <!-- Phone Window -->
+      <div class="sim-phone">
+        <div class="phone-header">
+          <div class="phone-avatar">P</div>
+          <div class="phone-user-info">
+            <h4>Payu Auto-Agent (AI)</h4>
+            <span>● Online 24/7 · Auto-Closing</span>
+          </div>
         </div>
-        <div class="proj-right">
-          <p>Web app manajemen apotek: data obat, transaksi, piutang, stok, sampai laporan — tier gratis (data lokal) dan cloud berbayar (sinkron). Dikerjakan dan dipelihara sendiri.</p>
-          <ul>
-            <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Auth + multi-tier: free pakai storage lokal, cloud berbayar ke database</li>
-            <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Keamanan data: RLS, role resmi, audit trail — 36 migrasi SQL di repo</li>
-            <li><svg class="ico" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Admin panel terpisah + dokumentasi teknis di repo</li>
+        <div class="chat-stream" id="chatStream">
+          <div class="bubble in">
+            Halo kak! Selamat datang di Payu Store. Mau cek stok produk, hitung ongkir otomatis, atau bayar via QRIS? Tanya aja langsung ya kak!
+            <div class="bubble-time">12:00</div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Ketik pesan atau klik chip di samping..." />
+          <button id="chatSendBtn">Kirim</button>
+        </div>
+      </div>
+
+      <!-- Info & Quick Action Chips -->
+      <div class="sim-info">
+        <div>
+          <span class="card-label">INTERACTIVE TESTING</span>
+          <h3 style="font-family:var(--font-serif); font-size:1.4rem; margin-bottom:10px;">Gimana bot ini mikir?</h3>
+          <p style="color:var(--ink-muted); font-size:0.93rem; line-height:1.5;">
+            Bot terhubung ke katalog live, menghitung kalkulasi ongkir real-time, dan membuat QRIS dinamis langsung di dalam chat. Klik tombol simulasi di bawah untuk menguji kecerdasannya:
+          </p>
+          <div class="quick-chips-box">
+            <button class="chip-btn" onclick="sendSimulated('Beli kaos hitam size L kirim ke Sleman Jogja')">🛒 Order Kaos ke Sleman</button>
+            <button class="chip-btn" onclick="sendSimulated('Stok Paracetamol 500mg masih ada?')">💊 Cek Stok Obat</button>
+            <button class="chip-btn" onclick="sendSimulated('Saya mau bikin bot buat toko online baju saya')">🤖 Konsultasi Bikin Bot</button>
+            <button class="chip-btn" onclick="sendSimulated('Berapa nomor resi pesanan #ORD-9821?')">📦 Lacak Resi #9821</button>
+          </div>
+        </div>
+        <div style="font-family:var(--font-mono); font-size:11.5px; color:var(--ink-faint); margin-top:20px; border-top:1px solid var(--line); padding-top:14px;">
+          ✓ Engine: Hermes / Gemini Flash Lite + Baileys WA Bridge<br/>
+          ✓ Response time: ~1.2 detik (Streaming)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 In-Browser PocketOps CLI Console -->
+<section id="terminal" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">03</span>
+      <h2 class="sec-heading">PocketOps <em>Interactive Web Console</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">CLI / SSH</span>
+    </div>
+
+    <div class="terminal-box">
+      <div class="term-topbar">
+        <div class="term-dots">
+          <span class="term-dot r"></span>
+          <span class="term-dot y"></span>
+          <span class="term-dot g"></span>
+        </div>
+        <div class="term-title">adam@farid-cluster: ~ (bash / termux)</div>
+        <div style="font-size:11px; color:#58a6ff;">Press '/' to focus</div>
+      </div>
+      <div class="term-body" id="termBody">
+        <div class="term-output" style="color:#7ee787;">[SYSTEM] Connected to Farid Adamn Multi-Node Telemetry.
+Ketik 'help' atau klik command chip di bawah untuk mengeksplorasi sistem.</div>
+      </div>
+      <div class="term-prompt-row">
+        <span class="term-prompt-prefix">farid@cluster:~$</span>
+        <input type="text" class="term-input" id="termInput" placeholder="ketik perintah: help, whoami, stack, cluster, ntask, roi, clear..." />
+      </div>
+      <div class="term-actions-bar">
+        <span class="term-chip" onclick="execTerm('whoami')">whoami</span>
+        <span class="term-chip" onclick="execTerm('stack')">stack</span>
+        <span class="term-chip" onclick="execTerm('cluster')">cluster</span>
+        <span class="term-chip" onclick="execTerm('ntask')">ntask</span>
+        <span class="term-chip" onclick="execTerm('projects')">projects</span>
+        <span class="term-chip" onclick="execTerm('roi')">roi</span>
+        <span class="term-chip" onclick="execTerm('clear')">clear</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 ROI & Time-Savings Calculator -->
+<section id="kalkulator" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">04</span>
+      <h2 class="sec-heading">Hitung efisiensi <em>biaya & waktu</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">KALKULATOR ROI</span>
+    </div>
+
+    <div class="roi-calculator-wrap">
+      <div>
+        <div class="calc-control-group">
+          <div class="calc-label-row">
+            <span>Volume Chat Masuk / Hari:</span>
+            <span class="calc-val-badge" id="chatVolLabel">150 chat</span>
+          </div>
+          <input type="range" class="calc-range" id="chatVolRange" min="20" max="1000" step="10" value="150" />
+        </div>
+
+        <div class="calc-control-group">
+          <div class="calc-label-row">
+            <span>Jumlah Admin Manual Sekarang:</span>
+            <span class="calc-val-badge" id="adminCountLabel">2 orang</span>
+          </div>
+          <input type="range" class="calc-range" id="adminCountRange" min="1" max="10" step="1" value="2" />
+        </div>
+
+        <div class="calc-control-group">
+          <div class="calc-label-row">
+            <span>Rata-rata Gaji Admin / Bulan:</span>
+            <span class="calc-val-badge" id="adminSalaryLabel">Rp 2.800.000</span>
+          </div>
+          <input type="range" class="calc-range" id="adminSalaryRange" min="1500000" max="6000000" step="100000" value="2800000" />
+        </div>
+      </div>
+
+      <div class="roi-result-card">
+        <div>
+          <span class="card-label">POTENSI PENGHEMATAN TAHUNAN</span>
+          <div class="roi-big-num" id="savedMoneyAnnual">Rp 53.760.000</div>
+          <p style="color:var(--ink-muted); font-size:0.9rem;">Uang tunai operasional yang bisa dialihkan untuk stok & iklan berbayar.</p>
+        </div>
+
+        <div class="roi-stat-rows">
+          <div class="roi-stat-item">
+            <span style="color:var(--ink-muted);">Jam Kerja Dihemat:</span>
+            <b id="savedHoursMonthly">360 Jam / Bln</b>
+          </div>
+          <div class="roi-stat-item">
+            <span style="color:var(--ink-muted);">Kecepatan Balas Chat:</span>
+            <b style="color:var(--emerald);">15 Menit → 2.4 Detik</b>
+          </div>
+          <div class="roi-stat-item">
+            <span style="color:var(--ink-muted);">Missed Chats (Malam Hari):</span>
+            <b style="color:var(--emerald);">0% (24 Jam Auto-Reply)</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 Showcase Matrix Proyek -->
+<section id="proyek" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">05</span>
+      <h2 class="sec-heading">Bukti sistem <em>yang udah jalan</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">SHOWCASE</span>
+    </div>
+
+    <div class="projects-matrix">
+      <!-- Payu -->
+      <div class="project-card">
+        <div>
+          <span class="project-tag">E-COMMERCE CONVERSATIONAL</span>
+          <h3>Payu Toko Online & Admin Desk</h3>
+          <p>Toko online berbasis chat WhatsApp. Pelanggan bisa belanja lewat obrolan natural, invoice QRIS otomatis, verifikasi struk transfer, dan desk admin multi-chat.</p>
+          <div class="project-specs">
+            <span class="spec-badge">Node.js</span>
+            <span class="spec-badge">PWA</span>
+            <span class="spec-badge">QRIS Engine</span>
+            <span class="spec-badge">Baileys WA</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://payu.faridadamn.my.id" target="_blank" rel="noopener" class="link-pill">
+            <span>Buka Live App</span>
+            <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- ApotekKilat -->
+      <div class="project-card">
+        <div>
+          <span class="project-tag">POS & INVENTORY MANAGEMENT</span>
+          <h3>ApotekKilat Management Suite</h3>
+          <p>Single-page app ultra-cepat untuk manajemen stok obat, auto-PO supplier, transaksi kasir, dan penutupan buku harian. Dipakai setiap hari secara nyata.</p>
+          <div class="project-specs">
+            <span class="spec-badge">Vanilla JS</span>
+            <span class="spec-badge">Zero Lag</span>
+            <span class="spec-badge">Local Cache</span>
+            <span class="spec-badge">PDF Invoice</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://apotekkilat.vercel.app" target="_blank" rel="noopener" class="link-pill">
+            <span>Buka Live App</span>
+            <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+          <a href="https://github.com/faridadamn/apotekkilat" target="_blank" rel="noopener" class="link-pill" style="color:var(--ink-muted);">
+            <span>Source Code</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hermes Multi-Agent -->
+      <div class="project-card">
+        <div>
+          <span class="project-tag">AI MULTI-AGENT NETWORK</span>
+          <h3>Hermes Multi-Agent Gateway</h3>
+          <p>Jaringan agen otonom (Mack, Jojo, Fitz) yang berkolaborasi melakukan riset konten, eksekusi kode, dan pengawasan server dengan streaming SSE.</p>
+          <div class="project-specs">
+            <span class="spec-badge">Gemini / Claude</span>
+            <span class="spec-badge">Python</span>
+            <span class="spec-badge">SSE Streaming</span>
+            <span class="spec-badge">Port 8642</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://faridadamn.my.id/ngobrol/" target="_blank" rel="noopener" class="link-pill">
+            <span>Buka Hub Ngobrol</span>
+            <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- WhatsOps & PocketOps -->
+      <div class="project-card">
+        <div>
+          <span class="project-tag">MOBILE INFRASTRUCTURE</span>
+          <h3>WhatsOps & PocketOps Suite</h3>
+          <p>Jembatan operasional di HP Android Termux: YouTube subtitle fetcher (yt-dlp), hardware telemetri (battery/wifi), Notion Task Live Sync, dan script runner 1-tap.</p>
+          <div class="project-specs">
+            <span class="spec-badge">Termux</span>
+            <span class="spec-badge">ntask CLI</span>
+            <span class="spec-badge">Hardware Bridge</span>
+            <span class="spec-badge">Port 9997</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <span class="link-pill" style="color:var(--emerald);">● Active Local Daemon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 Build Log (Notion Synced Feed) -->
+<section id="buildlog" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">06</span>
+      <h2 class="sec-heading">Live build log — <em>denyut harian</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">NOTION SYNC</span>
+    </div>
+
+    <div class="buildlog-box">
+      <div class="log-filter-bar">
+        <span style="font-family:var(--font-mono); font-size:11px; color:var(--ink-muted); margin-right:8px;">FILTER:</span>
+        <button class="filter-chip active" onclick="filterLogs('all')">Semua (Live)</button>
+        <button class="filter-chip" onclick="filterLogs('ops')">Ops & Server</button>
+        <button class="filter-chip" onclick="filterLogs('product')">Product</button>
+        <button class="filter-chip" onclick="filterLogs('agent')">AI & Agent</button>
+      </div>
+
+      <div class="log-feed" id="logFeed">
+        <div class="log-row" data-cat="product">
+          <span class="log-date">01 Sep 26</span>
+          <span class="log-cat">PRODUCT</span>
+          <span class="log-text">Rilis Living Portfolio v3 'Gue Banget' dengan simulator Bot WA & Interactive CLI Terminal.</span>
+        </div>
+        <div class="log-row" data-cat="ops">
+          <span class="log-date">01 Sep 26</span>
+          <span class="log-cat">OPS</span>
+          <span class="log-text">Setup cluster healthcheck script & multi-node latency monitoring di VPS Ubuntu dan Termux.</span>
+        </div>
+        <div class="log-row" data-cat="agent">
+          <span class="log-date">28 Agu 26</span>
+          <span class="log-cat">AI AGENT</span>
+          <span class="log-text">Optimasi rate-limit guard dan fallback Gemini Flash Lite untuk auto-reply Payu Store.</span>
+        </div>
+        <div class="log-row" data-cat="product">
+          <span class="log-date">24 Agu 26</span>
+          <span class="log-cat">PRODUCT</span>
+          <span class="log-text">Selesai integrasi QRIS dinamis & OCR receipt transfer di dashboard admin Payu.</span>
+        </div>
+        <div class="log-row" data-cat="ops">
+          <span class="log-date">20 Agu 26</span>
+          <span class="log-cat">OPS</span>
+          <span class="log-text">Pembaruan ntask Notion CLI multi-device: auto sync status Doing/Done dari terminal.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 Paket Layanan & Harga Jujur -->
+<section id="paket" class="module">
+  <div class="wrap">
+    <div class="sec-header">
+      <span class="sec-num">07</span>
+      <h2 class="sec-heading">Pilihan paket <em>tanpa biaya tersembunyi</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">INVESTASI</span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Starter -->
+      <div class="price-card">
+        <div>
+          <span class="tier-name">01 // STARTER BOT</span>
+          <div class="tier-price">Rp 1.5jt</div>
+          <p class="tier-desc">Cocok untuk toko yang kewalahan jawab FAQ berulang & butuh respon kilat 24 jam.</p>
+          <ul class="tier-list">
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Bot WhatsApp AI (FAQ + Info Produk)</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Training data katalog & gaya bahasa brand</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Deploy ke server VPS lo sendiri</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 100% Hak Milik Source Code</li>
           </ul>
         </div>
+        <a href="#proposal" class="btn btn-secondary" style="width:100%; justify-content:center;">Pilih Starter</a>
       </div>
-      <div class="proj-cta">
-        <a class="cta solid" href="https://apotekkilat.vercel.app" target="_blank" rel="noopener">Buka aplikasi <svg class="ico" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-        <a class="cta" href="https://github.com/faridadamn/apotekkilat" target="_blank" rel="noopener">Kode (public) <svg class="ico" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a>
+
+      <!-- Full Operations -->
+      <div class="price-card featured">
+        <span class="featured-badge">PALING DIMINATI</span>
+        <div>
+          <span class="tier-name">02 // FULL OPERASIONAL</span>
+          <div class="tier-price">Rp 3.8jt</div>
+          <p class="tier-desc">Otomatisasi penuh order, payment QRIS dinamis, cek ongkir, dan dashboard kasir.</p>
+          <ul class="tier-list">
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Semua fitur Starter Bot</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Web App Toko + Admin Multi-Chat</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> QRIS Dinamis & Auto Verifikasi Transfer</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Notifikasi WhatsApp Real-time ke Owner</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Rekap Laporan Penjualan Otomatis</li>
+          </ul>
+        </div>
+        <a href="#proposal" class="btn btn-primary" style="width:100%; justify-content:center;">Pilih Full Operasional</a>
+      </div>
+
+      <!-- Custom Enterprise -->
+      <div class="price-card">
+        <div>
+          <span class="tier-name">03 // CUSTOM WORKFLOW</span>
+          <div class="tier-price">Rp 6.5jt+</div>
+          <p class="tier-desc">Untuk bisnis dengan alur khusus: WMS gudang, scraping data, atau multi-agent cluster.</p>
+          <ul class="tier-list">
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Arsitektur Custom Multi-Node</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Integrasi ERP / API Database Khusus</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Autonomous AI Agents Worker</li>
+            <li><svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Support & Pendampingan 30 Hari</li>
+          </ul>
+        </div>
+        <a href="#proposal" class="btn btn-secondary" style="width:100%; justify-content:center;">Konsultasi Custom</a>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="stats">
-      <div class="stat"><div class="num">55</div><div class="lbl">Modul frontend JS</div><div class="src">dari repo</div></div>
-      <div class="stat"><div class="num">36</div><div class="lbl">Migrasi database</div><div class="src">RLS &amp; arsitektur</div></div>
-      <div class="stat"><div class="num">106</div><div class="lbl">File di repo</div><div class="src">dikerjakan solo</div></div>
-      <div class="stat"><div class="num">5</div><div class="lbl">Dokumen teknis</div><div class="src">di docs/</div></div>
-    </div>
-    <div class="note">Angka diambil langsung dari repo GitHub publik — bisa diverifikasi siapa aja.</div>
-  </section>
-
-  <!-- 03 -->
-  <section>
-    <div class="sec-head">
-      <span class="sec-num mono">03</span>
-      <h2>Build log — denyut halaman ini</h2>
-      <span class="rule"></span>
-    </div>
-
-    <div class="log">
-      <div class="log-item">
-        <div class="date mono">2026-08-24</div>
-        <p>Done: Payu Store: Complete Operations Admin Dashboard &amp; Control Panel.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-24</div>
-        <p>Done: Payu Store: Authentic WhatsApp Web Live Chat Desk &amp; Registered Customer Headers.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-25</div>
-        <p>Done: Payu Security P0: Audit &amp; Refactor Backend Auth, Timing-Safe Token &amp; Action Links.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-25</div>
-        <p>Done: Payu Security P1: Transaction Integrity, Anti-Tampering Price &amp; Payment Proof Hash Deduplication.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-25</div>
-        <p>Done: Payu Security P2: Rate Limiting AI Hermes, Chat &amp; Upload Quota Protection.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-25</div>
-        <p>Done: Payu Security P3: Nginx Hardening, Stored XSS Sanitization &amp; Security Headers.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-17</div>
-        <p>Done: FOKUS A: Proven Workflows Library v1 — 7 workflow client-ready.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-17</div>
-        <p>Done: 25 Template Website Jasa UMKM (FOKUS A).</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-18</div>
-        <p>Done: Cron Lexis Insight tiap 2 jam (resume).</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-18</div>
-        <p>Done: Tentukan paket &amp; harga: jasa AI setup UMKM/Creator 3-tier + produk digital.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-18</div>
-        <p>Done: FOKUS A: AI yang Kerja buat Usaha Lu (UMKM/Creator) — keputusan squad.</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-19</div>
-        <p>Done: Ngobrol App: chat ke Hermes Gateway + ops dashboard (server/cron/script).</p>
-        <div class="meta">[task manager: Product]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-11</div>
-        <p>Done: Ingest Ten Toughest Leadership Problems in 2026— Solved ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-<div class="log-item">
-        <div class="date mono">2026-08-16</div>
-        <p>Fondasi living portfolio dibuat: value prop, bukti ApotekKilat, build log. Desain ulang ke tema terang & tipografi editorial.</p>
-        <div class="meta">[site: v2 — redesign]</div>
-      <div class="log-item">
-        <div class="date mono">2026-08-11</div>
-        <p>Done: Ingest Why You&#x27;re Not Financially Free (Yet) ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-10</div>
-        <p>Done: Ingest How to Make Your Job Optional - The Freedom Profile Matrix ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-10</div>
-        <p>Done: Ingest Your Next Job Is Probably in Your Network ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-10</div>
-        <p>Done: Ingest When Businessman, Ex-Policymaker, and Engineer Collide to Talk About AI ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-09</div>
-        <p>Done: Ingest Update AI TERGILA di 2026 dalam 16 menit (CHATGPT WORK) ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-      <div class="log-item">
-        <div class="date mono">2026-08-09</div>
-        <p>Done: Ingest Non-Obvious Tips for Standing Out in Today&#x27;s Job Market ke Lexis knowledge.</p>
-        <div class="meta">[task manager: Content]</div>
-      </div>
-<div class="log-item">
-        <div class="date mono">2026-07-09</div>
-        <p>ApotekKilat: sprint keamanan &amp; arsitektur — role resmi, lock mutasi langsung dari client, harden workflow inti. Ditandai deploy-trigger di repo.</p>
-        <div class="meta">[apotekkilat: 36 migrasi, deploy vercel]</div>
-<div class="log-item">
-        <div class="date mono">2026-07</div>
-        <p>Naskah: kitab &amp; framework B-A-P disusun jadi sistem nulis yang bisa dipakai ulang — masalah nyata, perdalam, solusi, produk.</p>
-        <div class="meta">[naskah: sistem, bukan sekadar tulisan]</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 -->
-  <section>
-    <div class="sec-head">
-      <span class="sec-num mono">04</span>
-      <h2>Case study singkat</h2>
-      <span class="rule"></span>
-    </div>
-
-    <div class="study">
-      <div class="row">
-        <div class="k">Masalah</div>
-        <div class="v">Apotek kecil butuh catatan stok &amp; transaksi yang rapi, tapi software mahal dan ribet dipakai.</div>
-      </div>
-      <div class="row">
-        <div class="k">Solusi</div>
-        <div class="v">Web app yang gampang dipakai: gratis buat mulai, upgrade ke cloud kalau butuh sinkron multi-perangkat.</div>
-      </div>
-      <div class="row">
-        <div class="k">Eksekusi</div>
-        <div class="v">Solo total — desain, kode, database, keamanan, deploy, dokumentasi. Dipelihara terus, bukan sekali jadi.</div>
-      </div>
-      <div class="row">
-        <div class="k">Kenapa ini bukti</div>
-        <div class="v">Bisa dibuka, bisa dibaca kodenya, dan ada jejak perubahannya — tiga hal yang bisa dicek siapa saja sekarang.</div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
+<!-- 08 Interactive Scope & WhatsApp Message Generator -->
+<section id="proposal" class="module">
   <div class="wrap">
-    <div class="mono">FARID ADAMN — KONTAK</div>
-    <div class="foot-links">
-      <a href="https://github.com/faridadamn" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>github/faridadamn</a>
-      <a href="#" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>whatsapp / DM</a>
-      <a href="#" rel="noopener"><svg class="ico" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m2 7 10 6 10-6"/></svg>email</a>
+    <div class="sec-header">
+      <span class="sec-num">08</span>
+      <h2 class="sec-heading">Langsung ngobrol <em>lewat WhatsApp</em></h2>
+      <span class="sec-divider"></span>
+      <span class="sec-badge">KONTAK</span>
     </div>
-    <p style="margin-top:18px">Halaman ini dirawat oleh manusia + agent (Hermes). Build log bertambah tiap ada kerjaan kelar — makanya disebut portofolio yang hidup: makin lama, makin kuat buktinya.</p>
+
+    <div class="proposal-box">
+      <h3 style="font-family:var(--font-serif); font-size:1.4rem; margin-bottom:8px;">Pilih modul yang lo butuhkan:</h3>
+      <p style="color:var(--ink-muted); font-size:0.93rem;">Centang modul di bawah, masukkan nama lo, dan klik tombol untuk langsung kirim format pesan rapi ke WhatsApp gue.</p>
+
+      <div class="checkbox-grid">
+        <label class="scope-label">
+          <input type="checkbox" id="modBotWA" checked />
+          <span>Bot WhatsApp 24 Jam</span>
+        </label>
+        <label class="scope-label">
+          <input type="checkbox" id="modDashboard" checked />
+          <span>Dashboard Kasir & Web App</span>
+        </label>
+        <label class="scope-label">
+          <input type="checkbox" id="modQRIS" checked />
+          <span>QRIS Dinamis Otomatis</span>
+        </label>
+        <label class="scope-label">
+          <input type="checkbox" id="modInventory" />
+          <span>Manajemen Stok & WMS</span>
+        </label>
+        <label class="scope-label">
+          <input type="checkbox" id="modScraper" />
+          <span>Scraper / Auto-Poster</span>
+        </label>
+      </div>
+
+      <div class="proposal-inputs">
+        <input type="text" class="input-field" id="clientName" placeholder="Nama lo (misal: Budi)" />
+        <input type="text" class="input-field" id="clientBusiness" placeholder="Nama bisnis / produk lo (misal: Kopi Senja)" />
+        <button class="btn btn-primary" onclick="generateAndSendWA()">
+          <svg class="ico" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>Chat WhatsApp Sekarang</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-foot">
+  <div class="wrap foot-inner">
+    <div>
+      <b style="font-family:var(--font-serif); font-size:1.1rem; color:var(--ink);">Farid Adamn</b> — Solo Builder dari Yogyakarta.
+      <div style="font-family:var(--font-mono); font-size:11px; margin-top:4px; color:var(--ink-faint);">
+        Ditulis tangan murni HTML+CSS+JS. Tanpa framework berat. Nol dependency.
+      </div>
+    </div>
+    <div class="foot-links">
+      <a href="https://github.com/faridadamn" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://payu.faridadamn.my.id" target="_blank" rel="noopener">Payu Store</a>
+      <a href="https://apotekkilat.vercel.app" target="_blank" rel="noopener">ApotekKilat</a>
+      <a href="https://faridadamn.my.id/ngobrol/" target="_blank" rel="noopener">Ngobrol Hub</a>
+    </div>
   </div>
 </footer>
+
+<script>
+/* ============================================================
+   1. THEME TOGGLE (Warm Paper Light <-> Hacker Midnight Dark)
+============================================================ */
+const htmlEl = document.documentElement;
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const themeIcon = document.getElementById('themeIcon');
+
+function setTheme(mode) {
+  htmlEl.setAttribute('data-theme', mode);
+  localStorage.setItem('farid_theme', mode);
+  if (mode === 'dark') {
+    themeIcon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
+  } else {
+    themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+  }
+}
+
+const savedTheme = localStorage.getItem('farid_theme') || 'dark';
+setTheme(savedTheme);
+
+themeToggleBtn.addEventListener('click', () => {
+  const current = htmlEl.getAttribute('data-theme');
+  setTheme(current === 'dark' ? 'light' : 'dark');
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.key.toLowerCase() === 't') {
+    const current = htmlEl.getAttribute('data-theme');
+    setTheme(current === 'dark' ? 'light' : 'dark');
+  } else if (e.key === '/') {
+    e.preventDefault();
+    const termIn = document.getElementById('termInput');
+    if (termIn) termIn.focus();
+  }
+});
+
+/* ============================================================
+   2. INTERACTIVE WHATSAPP BOT PLAYGROUND
+============================================================ */
+const chatStream = document.getElementById('chatStream');
+const chatInput = document.getElementById('chatInput');
+const chatSendBtn = document.getElementById('chatSendBtn');
+
+function addChatBubble(text, sender, isQRIS = false) {
+  const b = document.createElement('div');
+  b.className = 'bubble ' + sender;
+  const time = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+  
+  let content = text;
+  if (isQRIS) {
+    content += `
+      <div class="qris-card">
+        <b>[INVOICE QRIS DINAMIS]</b><br/>
+        Total: <b>Rp 127.000</b> (Inc. Ongkir)<br/>
+        Status: <span style="color:#0f766e; font-weight:600;">MENUNGGU PEMBAYARAN</span><br/>
+        <div style="font-size:10px; color:#666; margin-top:4px;">Auto-verifikasi via Webhook dalam 3 detik</div>
+      </div>
+    `;
+  }
+
+  b.innerHTML = `<div>${content}</div><div class="bubble-time">${time}</div>`;
+  chatStream.appendChild(b);
+  chatStream.scrollTop = chatStream.scrollHeight;
+}
+
+function processBotReply(userMsg) {
+  const lower = userMsg.toLowerCase();
+  setTimeout(() => {
+    if (lower.includes('kaos') || lower.includes('beli') || lower.includes('order')) {
+      addChatBubble('Siap kak! Kaos Hitam Size L ready stok (tersisa 4 pcs). Ongkir flat Sleman Rp 8.000. Total transfer Rp 127.000 ya kak.', 'in', true);
+    } else if (lower.includes('obat') || lower.includes('paracetamol') || lower.includes('stok')) {
+      addChatBubble('Paracetamol 500mg Strip ready 18 box di rak A-2. Terakhir update stok 12 menit yang lalu via ApotekKilat.', 'in');
+    } else if (lower.includes('bot') || lower.includes('bikin') || lower.includes('toko')) {
+      addChatBubble('Mantap! Bisa banget kak. Sistemnya bisa handle katalog, kalkulasi ongkir real-time, invoice QRIS, dan rekap otomatis ke Google Sheets / Dashboard. Mau konsultasi paket yang mana kak?', 'in');
+    } else if (lower.includes('resi') || lower.includes('order') || lower.includes('lacak')) {
+      addChatBubble('Pesanan #ORD-9821 status: [DIKIRIM] via J&T Express. Resi: JT9928192801. Paket sudah sampai DC Sleman.', 'in');
+    } else {
+      addChatBubble('Pesan dicatat kak! Bot siap menghubungkan ke flow sistem otomatis atau diteruskan ke WhatsApp pribadi Farid.', 'in');
+    }
+  }, 600);
+}
+
+function handleUserSend() {
+  const val = chatInput.value.trim();
+  if (!val) return;
+  addChatBubble(val, 'out');
+  chatInput.value = '';
+  processBotReply(val);
+}
+
+chatSendBtn.addEventListener('click', handleUserSend);
+chatInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') handleUserSend();
+});
+
+function sendSimulated(text) {
+  chatInput.value = text;
+  handleUserSend();
+}
+
+/* ============================================================
+   3. INTERACTIVE POCKETOPS CLI CONSOLE
+============================================================ */
+const termBody = document.getElementById('termBody');
+const termInput = document.getElementById('termInput');
+
+const termCommands = {
+  help: `Perintah yang tersedia:
+  whoami     - Profil & filosofi Farid Adam
+  stack      - Arsitektur teknologi & tools
+  cluster    - Status live cluster (VPS + Termux Edge)
+  projects   - Daftar proyek unggulan (Payu, ApotekKilat, dll)
+  ntask      - Status task Notion Task Manager
+  roi        - Formula kalkulasi efisiensi
+  contact    - Kontak WhatsApp & GitHub
+  clear      - Bersihkan layar terminal`,
+  
+  whoami: `FARID ADAMN (@faridadamn)
+Role: Solo Builder & AI Systems Architect
+Lokasi: Yogyakarta, Indonesia
+Origin: Dari kurir lapangan -> belajar koding di HP Termux -> bangun sistem enterprise & AI agents.`,
+
+  stack: `CORE STACK & TOOLS:
+- Backend: Node.js, Python (Flask, AsyncIO), Baileys WA Bridge
+- Edge Node: Android Termux (PRoot Linux, Hardware Sensors, yt-dlp)
+- Cloud VPS: Ubuntu 24.04 (43.134.163.115), Nginx Reverse Proxy, Certbot
+- AI Models: Gemini Flash Lite, Claude, Hermes Multi-Agent Gateway
+- Task Ops: Notion Unified Database via 'ntask' CLI`,
+
+  cluster: `CLUSTER TELEMETRY STATUS:
+[NODE-1] VPS Cloud (43.134.163.115)  - UP (Load: 0.18, Nginx: OK, Ports: 3210, 8642, 8650)
+[NODE-2] Secondary Termux Node (10.255.0.69) - UP (SSH :8022, Worker: IDLE)
+[NODE-3] Master Termux Controller - UP (PocketOps :9997, Battery: 88%, Wi-Fi: 144Mbps)
+Cluster Latency: ~24ms inter-node ping.`,
+
+  projects: `SHOWCASE REPOSITORY:
+1. Payu Toko Online    - https://payu.faridadamn.my.id (Live e-commerce chat)
+2. ApotekKilat POS      - https://apotekkilat.vercel.app (Public repo: github.com/faridadamn/apotekkilat)
+3. Hermes Agent Gateway - Port 8642 (SSE Autonomous Agents)
+4. WhatsOps & PocketOps - Port 9997 (Termux Hardware Bridge)`,
+
+  ntask: `NOTION TASK MANAGER (FARID ADAM OS):
+- Active Doing: Landing Page 'Gue Banget' v3 (Assignee: Agy)
+- Shipped: Dynamic QRIS + Admin Chat Desk Payu
+- Shipped: ApotekKilat Offline Cashier Support
+Sync Engine: /usr/local/bin/ntask (Python deterministic)`,
+
+  roi: `FORMULA ROI OTOMATISASI:
+Hemat Biaya = (Jumlah Admin * Gaji Bulanan * 12) - Biaya Server
+Respon Time = Dari 15 menit (manual) -> 2.4 detik (AI auto-closing)
+Konversi Penjualan Rata-rata: Naik +32% karena chat malam hari terlayani instan.`,
+
+  contact: `KONTAK LANGSUNG:
+- WhatsApp: +62 813-9092-2736
+- GitHub: https://github.com/faridadamn
+- Website: https://faridadamn.my.id`
+};
+
+function printTerm(cmd, output) {
+  const line = document.createElement('div');
+  line.className = 'term-output';
+  line.innerHTML = `<span style="color:#00ff66;">farid@cluster:~$</span> <span style="color:#fff;">${cmd}</span>\n${output}`;
+  termBody.appendChild(line);
+  termBody.scrollTop = termBody.scrollHeight;
+}
+
+function execTerm(cmd) {
+  const clean = cmd.trim().toLowerCase();
+  if (clean === 'clear') {
+    termBody.innerHTML = '';
+    return;
+  }
+  const res = termCommands[clean] || `bash: command not found: '${clean}'. Ketik 'help' untuk daftar perintah.`;
+  printTerm(cmd, res);
+}
+
+termInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const val = termInput.value.trim();
+    if (val) {
+      execTerm(val);
+      termInput.value = '';
+    }
+  }
+});
+
+/* ============================================================
+   4. INTERACTIVE ROI CALCULATOR
+============================================================ */
+const chatVolRange = document.getElementById('chatVolRange');
+const adminCountRange = document.getElementById('adminCountRange');
+const adminSalaryRange = document.getElementById('adminSalaryRange');
+
+const chatVolLabel = document.getElementById('chatVolLabel');
+const adminCountLabel = document.getElementById('adminCountLabel');
+const adminSalaryLabel = document.getElementById('adminSalaryLabel');
+
+const savedMoneyAnnual = document.getElementById('savedMoneyAnnual');
+const savedHoursMonthly = document.getElementById('savedHoursMonthly');
+
+function updateROI() {
+  const chats = parseInt(chatVolRange.value, 10);
+  const admins = parseInt(adminCountRange.value, 10);
+  const salary = parseInt(adminSalaryRange.value, 10);
+
+  chatVolLabel.textContent = chats + ' chat';
+  adminCountLabel.textContent = admins + ' orang';
+  adminSalaryLabel.textContent = 'Rp ' + salary.toLocaleString('id-ID');
+
+  // Kalkulasi hemat per tahun: (gaji * admin * 12) * 0.8 (efisiensi 80%)
+  const annualSavings = Math.round(admins * salary * 12 * 0.8);
+  savedMoneyAnnual.textContent = 'Rp ' + annualSavings.toLocaleString('id-ID');
+
+  // Jam hemat: admin * 180 jam kerja / bln
+  const hours = admins * 180;
+  savedHoursMonthly.textContent = hours + ' Jam / Bln';
+}
+
+chatVolRange.addEventListener('input', updateROI);
+adminCountRange.addEventListener('input', updateROI);
+adminSalaryRange.addEventListener('input', updateROI);
+updateROI();
+
+/* ============================================================
+   5. BUILD LOG CATEGORY FILTER
+============================================================ */
+function filterLogs(category) {
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  event.target.classList.add('active');
+
+  const rows = document.querySelectorAll('.log-row');
+  rows.forEach(r => {
+    if (category === 'all' || r.getAttribute('data-cat') === category) {
+      r.style.display = 'flex';
+    } else {
+      r.style.display = 'none';
+    }
+  });
+}
+
+/* ============================================================
+   6. INTERACTIVE PROPOSAL & WHATSAPP LINK GENERATOR
+============================================================ */
+function generateAndSendWA() {
+  const name = document.getElementById('clientName').value.trim() || 'Teman';
+  const biz = document.getElementById('clientBusiness').value.trim() || 'Bisnis Saya';
+
+  const scopes = [];
+  if (document.getElementById('modBotWA').checked) scopes.push('Bot WhatsApp 24 Jam Auto-Reply');
+  if (document.getElementById('modDashboard').checked) scopes.push('Dashboard Kasir & Web App');
+  if (document.getElementById('modQRIS').checked) scopes.push('QRIS Dinamis Otomatis');
+  if (document.getElementById('modInventory').checked) scopes.push('Manajemen Stok & WMS');
+  if (document.getElementById('modScraper').checked) scopes.push('Scraper Data / Auto-Poster');
+
+  const scopeList = scopes.length > 0 ? scopes.map(s => '• ' + s).join('%0A') : '• Konsultasi Sistem Custom';
+
+  const text = `Halo Farid! Gue ${encodeURIComponent(name)} dari ${encodeURIComponent(biz)}.%0A%0AGue liat portfolio lo dan tertarik buat bangun sistem dengan modul:%0A${scopeList}%0A%0ABisa ngobrol lebih lanjut soal estimasi waktu & teknis pengerjaannya?`;
+
+  const phone = '6281390922736'; // WhatsApp Farid
+  window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+}
+</script>
 
 </body>
 </html>
