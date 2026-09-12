@@ -329,6 +329,11 @@
 
   .app:hover { background: var(--accent-wash); padding-left: 10px; }
 
+  /* Baris yang memang tidak punya tujuan klik: tanpa efek hover,
+     biar tidak menjanjikan sesuatu yang tidak terjadi. */
+  .app-static { cursor: default; }
+  .app-static:hover { background: transparent; padding-left: 4px; }
+
   .dot {
     width: 9px;
     height: 9px;
@@ -487,13 +492,14 @@
     <h1>Semua yang sudah jalan, <em>satu pintu masuk.</em></h1>
     <p class="lede">
       Ini halaman depan dari aplikasi yang <b>sudah live dan dipakai</b>. Toko chat, POS apotek, gudang,
-      planner harian, reader, sampai keuangan. Nggak ada mockup di daftar ini, dan tiap barisnya bisa langsung diklik.
+      planner harian, reader, sampai keuangan. Nggak ada mockup di daftar ini, dan tiap barisnya bisa langsung diklik. Yang lama, contoh, atau sedang mati aku taruh terpisah di bagian arsip.
     </p>
 
     <div class="tally">
-      <div><b>12</b><small>Pintu aplikasi</small></div>
+      <div><b>20</b><small>Pintu aktif</small></div>
+      <div><b>3</b><small>Di arsip</small></div>
       <div><b>35</b><small>Repo publik</small></div>
-      <div><b>1</b><small>Domain, 1 VPS</small></div>
+      <div><b>2</b><small>Domain, 1 VPS</small></div>
     </div>
   </div>
 
@@ -546,6 +552,36 @@
     </a>
   </section>
 
+    <a class="app" href="https://faridadamn.github.io/elaundry/elaundry.html" data-href="https://faridadamn.github.io/elaundry/elaundry.html" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">eLaundry</span>
+        <span class="app-desc">Manajemen pesanan laundry. Pelanggan, order, lacak riwayat, dan rekap pendapatan bulanan.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="app" href="https://faridadamn.github.io/creatou/" data-href="https://faridadamn.github.io/creatou/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">Creatou Hub</span>
+        <span class="app-desc">Workspace produk dan CRM. Siklus produk penuh, dari pipeline sampai manajemen produk.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="app" href="https://faridadamn.github.io/undangan-digital/" data-href="https://faridadamn.github.io/undangan-digital/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">Undanganku</span>
+        <span class="app-desc">Pembuat undangan digital. Isi detail, pilih template, publish, kelola RSVP tamu.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
   <!-- 02 -->
   <section class="wrap">
     <div class="sec-head">
@@ -595,6 +631,36 @@
     </a>
   </section>
 
+    <a class="app" href="https://faridadamn.github.io/training-system/" data-href="https://faridadamn.github.io/training-system/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">TrainUp</span>
+        <span class="app-desc">Sistem pelatihan karyawan. Materi, soal, dan data karyawan tarik dari Google Sheet.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="app" href="https://usholli.faridadam.my.id/" data-href="https://usholli.faridadam.my.id/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">Usholli Admin</span>
+        <span class="app-desc">Panel kelola artikel masjid untuk konten Usholli.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="app" href="https://faridadamn.github.io/problem-solver/" data-href="https://faridadamn.github.io/problem-solver/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">MindFrame</span>
+        <span class="app-desc">Problem solver dengan kumpulan framework: problem solving, improvement, keputusan.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
   <!-- 03 -->
   <section class="wrap">
     <div class="sec-head">
@@ -624,6 +690,16 @@
     </a>
   </section>
 
+    <a class="app" href="https://faridadamn.github.io/uangjajan/" data-href="https://faridadamn.github.io/uangjajan/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">UangJajan</span>
+        <span class="app-desc">Catatan keuangan anak. Saldo, uang masuk, uang keluar, plus dashboard buat orang tua.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
   <!-- 04 -->
   <section class="wrap">
     <div class="sec-head">
@@ -652,11 +728,66 @@
       <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
     </a>
 
+    <a class="app" href="https://fareader-v2.vercel.app/" data-href="https://fareader-v2.vercel.app/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">FA Reader V2</span>
+        <span class="app-desc">Versi kedua reader ringkasan buku. Basis eksperimen dari FA Reader.</span>
+      </span>
+      <span class="app-meta">Vercel</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
     <div class="aside">
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8.5v4.2M12 16.2v.1"/></svg>
       <p>
         <b>Kerja.id</b> belum punya URL live. Repo dan arsitekturnya sudah ada,
         <a href="https://github.com/faridadamn/kerja-id" target="_blank" rel="noopener">lihat di GitHub</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="sec-head">
+      <span class="idx">05</span>
+      <h2>Arsip dan demo</h2>
+      <span class="note">Lama, contoh, atau sedang mati</span>
+    </div>
+
+    <div class="app app-static" data-state="idle">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">Portofolio lama</span>
+        <span class="app-desc">Halaman profil versi lama di domain faridadam.my.id, belum ada sertifikat SSL jadi tidak bisa dibuka dari halaman ini.</span>
+      </span>
+      <span class="app-meta">Tanpa SSL, tidak bisa dibuka</span>
+    </div>
+
+    <a class="app" href="https://faridadamn.github.io/orderanmu/" data-href="https://faridadamn.github.io/orderanmu/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">Warung Makan Sejahtera</span>
+        <span class="app-desc">Landing page contoh untuk warung makan. Ini demo, bukan app yang dipakai.</span>
+      </span>
+      <span class="app-meta">GitHub Pages</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <a class="app" href="https://omnipost.codeworks.web.id/" data-href="https://omnipost.codeworks.web.id/" data-state="idle" target="_blank" rel="noopener">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="app-txt">
+        <span class="app-name">OmniPost AI</span>
+        <span class="app-desc">Auto-posting konten. Servernya sedang mati, ditulis apa adanya.</span>
+      </span>
+      <span class="app-meta">Offline</span>
+      <svg class="ico app-go" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+
+    <div class="aside">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8.5v4.2M12 16.2v.1"/></svg>
+      <p>
+        <b>AkademiPro</b> ada dua repo katalog kursus: <a href="https://faridadamn.github.io/pelajariapp/" target="_blank" rel="noopener">pelajariapp</a> (lebih baru, Mei 2026) dan <a href="https://faridadamn.github.io/pelajari/" target="_blank" rel="noopener">pelajari</a>.
+        Beda dari <b>Pelajari</b> di atas, yang isinya lima masterclass.
       </p>
     </div>
   </section>
