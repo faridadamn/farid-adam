@@ -134,6 +134,7 @@
       font-family: 'XLSMART_FONT', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.5;
       font-size: 15px;
+      padding-top: 102px; /* Offset for permanently fixed top-bar + fixed navbar */
     }
 
     p, h1, h2, h3, h4, span, div, li, a, td, th {
@@ -166,14 +167,18 @@
       flex-shrink: 0;
     }
 
-    /* Top Announcement Bar (1:1 Screenshot 1) */
+    /* Top Announcement Bar (Permanently Fixed & Never Scrolls) */
     .top-bar-sticky {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 38px;
+      z-index: 1000;
       background: var(--soft-xl-home);
       border-bottom: 1px solid #daeeff;
-      padding: 8px 16px;
+      padding: 0 16px;
       text-align: center;
       display: flex;
       align-items: center;
@@ -193,14 +198,18 @@
       gap: 4px;
     }
 
-    /* Navbar (1:1 Screenshot 1) */
+    /* Navbar (Fixed Under Top Bar) */
     .navbar {
       background: #ffffff;
       border-bottom: 1px solid var(--border-color);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-      position: sticky;
-      top: 37px;
-      z-index: 99;
+      position: fixed;
+      top: 38px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 64px;
+      z-index: 999;
     }
     .nav-inner {
       display: flex;
@@ -634,41 +643,103 @@
     .arrow-left { left: 4px; }
     .arrow-right { right: 4px; }
 
-    /* Video Promo Section (Native MP4 & Motion Engine) */
+    /* Video / First Media Section (1:1 Screenshot 3) */
     .fm-section {
       padding: 48px 0;
       background: #ffffff;
       border-top: 1px solid var(--border-color);
     }
     .fm-card-banner {
-      max-width: 820px;
+      max-width: 760px;
       margin: 0 auto;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 16px 40px -4px rgba(24, 68, 138, 0.18);
+      box-shadow: var(--shadow-card);
       position: relative;
       background: #000000;
       aspect-ratio: 16/9;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
-    .fm-html5-video {
+    .fm-banner-img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      background: #000000;
-      border-radius: 20px;
+      object-fit: cover;
       display: block;
-      outline: none;
+      opacity: 0.94;
+      transition: opacity 0.2s ease;
     }
-    .video-action-bar {
+    .fm-card-banner:hover .fm-banner-img {
+      opacity: 1;
+    }
+    .fm-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: #ffffff;
+      border: none;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 2;
+    }
+    .fm-card-banner:hover .fm-play-btn {
+      transform: translate(-50%, -50%) scale(1.12);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+    .fm-play-btn svg {
+      width: 26px;
+      height: 26px;
+      fill: var(--primary);
+      color: var(--primary);
+      margin-left: 3px;
+    }
+    .fm-iframe-wrap {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .fm-iframe-player {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .fm-close-video-btn {
+      display: none;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: background 0.2s ease;
+    }
+    .fm-close-video-btn:hover {
+      background: rgba(15, 23, 42, 1);
+    }
+    .fm-close-video-btn svg {
+      width: 14px;
+      height: 14px;
     }
 
     /* Calculator Section */
@@ -1046,11 +1117,12 @@
 
     /* Responsive Reflow (antislop-layoutmobile) */
     @media (max-width: 768px) {
+      body { padding-top: 94px; }
       .nav-links { display: none; }
       .slider-arrow-btn { display: none; }
       .calc-grid { grid-template-columns: 1fr; gap: 20px; }
-      .top-bar-sticky { font-size: 12px; padding: 6px 12px; }
-      .navbar { top: 33px; }
+      .top-bar-sticky { height: 34px; font-size: 12px; padding: 0 12px; }
+      .navbar { top: 34px; height: 60px; }
     }
 
     @media (max-width: 640px) {
@@ -1570,30 +1642,24 @@
     </div>
   </section>
 
-  <!-- SECTION: Video Promo Resmi XL SATU Fiber -->
+  <!-- SECTION: First Media Jadi XL SATU (1:1 Screenshot 3) -->
   <section class="fm-section">
     <div class="container">
       <div class="section-title-wrap">
-        <h2 class="section-title">Video Promo: Solusi Cepat <span class="hl-secondary">XL SATU Fiber</span></h2>
-        <p class="section-desc">Tonton video penjelasan resmi 30 detik: Alasan ribuan keluarga beralih ke XL SATU Fiber dengan teknologi 100% fiber optik, promo Speed Booster hingga 250 Mbps, dan bebas biaya instalasi.</p>
+        <h2 class="section-title">First Media Jadi <span class="hl-secondary">XL SATU</span></h2>
+        <p class="section-desc">Nikmati internet rumah tambah cepat dengan jaringan tepercaya <strong>XLSMART</strong> yang membuat setiap momen di rumah lebih nyaman bersama koneksi dan hiburan tanpa batas.</p>
       </div>
 
-      <div class="fm-card-banner">
-        <video id="promoVideoPlayer" class="fm-html5-video" controls playsinline preload="metadata" poster="/assets/poster-promo.jpg">
-          <source src="/assets/promo-xlsatu.mp4" type="video/mp4">
-          Browser Anda tidak mendukung tag video HTML5.
-        </video>
-      </div>
-
-      <div class="video-action-bar">
-        <a href="/assets/promo-xlsatu.mp4" download="promo-xlsatu-fiber-2026.mp4" class="btn btn-outline" style="font-size:13.5px; padding:9px 20px;">
-          <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Unduh Video MP4 (1080p)
-        </a>
-        <a href="/motion" target="_blank" class="btn btn-secondary" style="font-size:13.5px; padding:9px 20px;">
-          <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Tonton Versi 60 FPS (Web Motion)
-        </a>
+      <div class="fm-card-banner" id="fmVideoContainer" onclick="playFmVideo()">
+        <img src="/assets/firstmedia-video.jpg" alt="First Media Kini Menjadi XL SATU" class="fm-banner-img" id="fmCoverImg" />
+        <button type="button" class="fm-play-btn" id="fmPlayBtn" aria-label="Putar Video YouTube di Halaman Ini">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button type="button" class="fm-close-video-btn" id="fmCloseVideoBtn" onclick="stopFmVideo(event)" aria-label="Tutup Pemutar Video">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <span>Tutup Video</span>
+        </button>
+        <div class="fm-iframe-wrap" id="fmIframeWrap"></div>
       </div>
     </div>
   </section>
