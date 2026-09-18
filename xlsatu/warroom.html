@@ -1317,7 +1317,7 @@
           <div>
             <div style="font-size:12px; color:var(--xl-cyan); font-weight:700;">PAKET TAHUNAN</div>
             <h4 style="font-size:18px; font-weight:700; margin:4px 0;">BASIC SMART</h4>
-            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 50 Mbps (Booster $\rightarrow$ 75 Mbps)</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 50 Mbps (Booster → 75 Mbps)</div>
 
             <div class="pkg-price-wrap">
               <div class="pkg-price-old">Rp 2.988.000/thn</div>
@@ -1346,7 +1346,7 @@
           <div>
             <div style="font-size:12px; color:var(--xl-green); font-weight:700;">PAKET TAHUNAN</div>
             <h4 style="font-size:18px; font-weight:700; margin:4px 0;">BASIC FAMILY</h4>
-            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 100 Mbps (Booster $\rightarrow$ 150 Mbps)</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 100 Mbps (Booster → 150 Mbps)</div>
 
             <div class="pkg-price-wrap">
               <div class="pkg-price-old">Rp 3.828.000/thn</div>
@@ -1375,7 +1375,7 @@
           <div>
             <div style="font-size:12px; color:var(--xl-gold); font-weight:700;">PAKET TAHUNAN</div>
             <h4 style="font-size:18px; font-weight:700; margin:4px 0;">PRO SUPERUSER</h4>
-            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 150 Mbps (Booster $\rightarrow$ 200 Mbps)</div>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 150 Mbps (Booster → 200 Mbps)</div>
 
             <div class="pkg-price-wrap">
               <div class="pkg-price-old">Rp 4.428.000/thn</div>
@@ -1702,38 +1702,34 @@
       <div class="section-header">
         <h2 class="section-title">
           <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/></svg>
-          Kalkulator Simulasi Penghematan Bulanan
+          Kalkulator Simulasi Penghematan & Upgrade WiFi
         </h2>
-        <p class="section-sub">Tunjukkan simulasi ini langsung ke calon pelanggan saat presentasi atau kirim ringkasannya via WhatsApp.</p>
+        <p class="section-sub">Komparasi nyata penghematan biaya WiFi bulanan, lonjakan kecepatan (speed upgrade), dan gratis biaya pasang Rp 500rb.</p>
       </div>
 
-      <div class="calc-card searchable" data-search="kalkulator simulasi hemat hitung biaya perbandingan indihome telkomsel kuota">
+      <div class="calc-card searchable" data-search="kalkulator simulasi hemat hitung biaya perbandingan indihome biznet myrepublic speed kecepatan">
         <div class="calc-grid">
           <div>
             <div class="form-group">
-              <label class="form-label">Biaya WiFi Rumah Saat Ini (Rp/Bulan):</label>
+              <label class="form-label">Biaya WiFi Rumah Lama (Rp/Bulan):</label>
               <input type="number" id="calcOldWifi" class="form-input" value="350000" step="10000" oninput="runSavingsCalculator()" />
-              <small style="color: var(--text-faint); font-size: 11.5px;">Rata-rata IndiHome / Provider lain: Rp 320.000 - Rp 450.000</small>
+              <small style="color: var(--text-faint); font-size: 11.5px;">Rata-rata tagihan IndiHome / MyRepublic / Biznet: Rp 300.000 - Rp 450.000</small>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Jumlah Orang Beli Kuota HP Tiap Bulan:</label>
-              <input type="number" id="calcFamilyCount" class="form-input" value="3" min="1" max="8" oninput="runSavingsCalculator()" />
+              <label class="form-label">Kecepatan WiFi Lama Saat Ini (Mbps):</label>
+              <input type="number" id="calcOldSpeed" class="form-input" value="50" min="10" max="500" step="10" oninput="runSavingsCalculator()" />
+              <small style="color: var(--text-faint); font-size: 11.5px;">Umumnya paket lama pelanggan di kisaran 30 - 50 Mbps</small>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Rata-rata Beli Kuota HP per Orang (Rp/Bulan):</label>
-              <input type="number" id="calcQuotaPerPerson" class="form-input" value="75000" step="5000" oninput="runSavingsCalculator()" />
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Pilihan Paket XL SATU:</label>
+              <label class="form-label">Pilihan Paket XL SATU Fiber:</label>
               <select id="calcXlPlan" class="form-select" onchange="runSavingsCalculator()">
-                <option value="254190">SPARK 250 Mbps — Rp 254.190 / bln (Netto PPN)</option>
-                <option value="309690">SPARK 350 Mbps — Rp 309.690 / bln (Netto PPN)</option>
-                <option value="333000">SPARK 400 Mbps — Rp 333.000 / bln (Netto PPN)</option>
-                <option value="180375">FWA 50 Mbps 5G Promo — Rp 180.375 / bln (Bayar 4 Bln)</option>
-                <option value="262500">JOY Value 100 Mbps + TV 98 Ch — Rp 262.500 / bln</option>
+                <option value="254190" data-speed="250" data-name="SPARK 250 Mbps">SPARK 250 Mbps — Rp 254.190 / bln (Netto PPN)</option>
+                <option value="309690" data-speed="350" data-name="SPARK 350 Mbps">SPARK 350 Mbps — Rp 309.690 / bln (Netto PPN)</option>
+                <option value="333000" data-speed="400" data-name="SPARK 400 Mbps">SPARK 400 Mbps — Rp 333.000 / bln (Netto PPN)</option>
+                <option value="180375" data-speed="50" data-name="FWA 50 Mbps 5G">FWA 50 Mbps 5G Promo — Rp 180.375 / bln</option>
+                <option value="262500" data-speed="100" data-name="JOY Value 100 Mbps">JOY Value 100 Mbps + TV 98 Ch — Rp 262.500 / bln</option>
               </select>
             </div>
           </div>
@@ -1741,22 +1737,33 @@
           <div class="calc-result-box">
             <div>
               <div style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 12px;">
-                Hasil Komparasi Pengeluaran
+                Hasil Komparasi Nyata (Real & Akurat)
               </div>
               <div class="calc-stat-row">
-                <span>Total Biaya Lama (WiFi + Kuota HP):</span>
-                <strong id="resOldTotal" style="color:var(--text);">Rp 575.000</strong>
+                <span>Tagihan WiFi Provider Lama:</span>
+                <strong id="resOldTotal" style="color:var(--text);">Rp 350.000</strong>
               </div>
               <div class="calc-stat-row">
-                <span>Total Biaya Baru XL SATU (All-in):</span>
+                <span>Tagihan Baru XL SATU Fiber:</span>
                 <strong id="resNewXl" style="color:var(--xl-cyan);">Rp 254.190</strong>
               </div>
               <div class="calc-stat-row highlight">
-                <span>POTENSI HEMAT PER BULAN:</span>
+                <span>POTENSI HEMAT BIAYA WIFI:</span>
               </div>
-              <div class="savings-big" id="resSavingsMonth">Rp 320.810</div>
+              <div class="savings-big" id="resSavingsMonth">Rp 95.810 / bln</div>
               <div class="savings-yearly" id="resSavingsYear">
-                Setara Hemat: Rp 3.849.720 / Tahun!
+                Setara Hemat: Rp 1.149.720 / Tahun!
+              </div>
+
+              <div style="background:var(--bg-input); border:1px solid var(--border); border-radius:10px; padding:10px 12px; margin-top:12px;">
+                <div style="display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:4px;">
+                  <span style="color:var(--text-muted);">Peningkatan Kecepatan:</span>
+                  <strong id="resSpeedMultiplier" style="color:var(--xl-green);">5.0x Lebih Cepat (250 Mbps)</strong>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:12.5px;">
+                  <span style="color:var(--text-muted);">Bebas Biaya Pasang:</span>
+                  <strong style="color:var(--xl-gold);">Hemat Rp 500.000 di Awal</strong>
+                </div>
               </div>
             </div>
 
@@ -1815,11 +1822,11 @@
               <td>Tanpa FUP</td>
             </tr>
             <tr>
-              <td><strong>Bonus Kuota HP Keluarga</strong></td>
-              <td class="col-highlight"><span class="badge-win">DAPAT (Dibagi 2-5 No)</span></td>
-              <td>Hanya di Telkomsel One (Mahal)</td>
-              <td><span class="badge-lose">TIDAK ADA</span></td>
-              <td><span class="badge-lose">TIDAK ADA</span></td>
+              <td><strong>Rasio Upload : Download</strong></td>
+              <td class="col-highlight"><span class="badge-win">Simetris 1:1 (Upload = Download)</span></td>
+              <td><span class="badge-lose">Asimetris 1:3 / 1:5 (Upload lemot)</span></td>
+              <td>Simetris 1:1</td>
+              <td>Simetris 1:1</td>
             </tr>
             <tr>
               <td><strong>Biaya Instalasi</strong></td>
@@ -2100,52 +2107,64 @@ Mau saya bantu proseskan pengiriman modemnya kak?</div>
 
     function runSavingsCalculator() {
       const oldWifi = parseFloat(document.getElementById('calcOldWifi').value) || 0;
-      const familyCount = parseFloat(document.getElementById('calcFamilyCount').value) || 0;
-      const quotaPerPerson = parseFloat(document.getElementById('calcQuotaPerPerson').value) || 0;
-      const xlPrice = parseFloat(document.getElementById('calcXlPlan').value) || 254190;
+      const oldSpeed = parseFloat(document.getElementById('calcOldSpeed').value) || 1;
+      const selPlan = document.getElementById('calcXlPlan');
+      const xlPrice = parseFloat(selPlan.value) || 254190;
+      const newSpeed = parseFloat(selPlan.options[selPlan.selectedIndex].getAttribute('data-speed')) || 250;
 
-      const totalOldExpense = oldWifi + (familyCount * quotaPerPerson);
-      const savingsPerMonth = totalOldExpense - xlPrice;
+      const savingsPerMonth = oldWifi - xlPrice;
       const savingsPerYear = savingsPerMonth * 12;
+      const speedRatio = (newSpeed / oldSpeed).toFixed(1);
 
-      document.getElementById('resOldTotal').innerText = formatRupiah(totalOldExpense);
-      document.getElementById('resNewXl').innerText = formatRupiah(xlPrice);
+      document.getElementById('resOldTotal').innerText = formatRupiah(oldWifi) + ' / bln';
+      document.getElementById('resNewXl').innerText = formatRupiah(xlPrice) + ' / bln';
       
       const resSavingsMonth = document.getElementById('resSavingsMonth');
       const resSavingsYear = document.getElementById('resSavingsYear');
+      const resSpeedMultiplier = document.getElementById('resSpeedMultiplier');
 
       if (savingsPerMonth > 0) {
-        resSavingsMonth.innerText = formatRupiah(savingsPerMonth);
+        resSavingsMonth.innerText = formatRupiah(savingsPerMonth) + ' / bln';
         resSavingsMonth.style.color = 'var(--xl-green)';
         resSavingsYear.innerText = 'Setara Hemat: ' + formatRupiah(savingsPerYear) + ' / Tahun!';
         resSavingsYear.style.color = 'var(--xl-gold)';
       } else {
-        resSavingsMonth.innerText = 'Speed Naik Drastis!';
+        resSavingsMonth.innerText = 'Beda ' + formatRupiah(Math.abs(savingsPerMonth)) + ' / bln';
         resSavingsMonth.style.color = 'var(--xl-cyan)';
-        resSavingsYear.innerText = 'Koneksi simetris 1:1 tanpa FUP.';
+        resSavingsYear.innerText = 'Fokus Value: Speed Jauh Lebih Kencang & Stabil';
+        resSavingsYear.style.color = 'var(--text-muted)';
+      }
+
+      if (speedRatio >= 1) {
+        resSpeedMultiplier.innerText = speedRatio + 'x Lebih Cepat (' + newSpeed + ' Mbps 1:1)';
+        resSpeedMultiplier.style.color = 'var(--xl-green)';
+      } else {
+        resSpeedMultiplier.innerText = newSpeed + ' Mbps True Unlimited';
+        resSpeedMultiplier.style.color = 'var(--xl-cyan)';
       }
     }
 
     function copyCalculatorPitch() {
       const oldWifi = document.getElementById('calcOldWifi').value;
-      const familyCount = document.getElementById('calcFamilyCount').value;
-      const quotaPerPerson = document.getElementById('calcQuotaPerPerson').value;
+      const oldSpeed = document.getElementById('calcOldSpeed').value;
+      const selPlan = document.getElementById('calcXlPlan');
+      const planName = selPlan.options[selPlan.selectedIndex].getAttribute('data-name');
       const oldTotal = document.getElementById('resOldTotal').innerText;
       const newXl = document.getElementById('resNewXl').innerText;
       const savingsMonth = document.getElementById('resSavingsMonth').innerText;
       const savingsYear = document.getElementById('resSavingsYear').innerText;
+      const speedMultiplier = document.getElementById('resSpeedMultiplier').innerText;
 
-      const pitch = 'Halo Pak/Bu, ini simulasi penghematan beralih ke XL SATU:\n\n' +
-        '• Biaya WiFi lama: Rp ' + Number(oldWifi).toLocaleString('id-ID') + '/bln\n' +
-        '• Kuota HP (' + familyCount + ' orang @ Rp ' + Number(quotaPerPerson).toLocaleString('id-ID') + '): Rp ' + (familyCount*quotaPerPerson).toLocaleString('id-ID') + '/bln\n' +
+      const pitch = 'Halo Pak/Bu, ini simulasi perbandingan biaya WiFi beralih ke XL SATU Fiber:\n\n' +
+        '• Provider Lama: Rp ' + Number(oldWifi).toLocaleString('id-ID') + '/bln (' + oldSpeed + ' Mbps)\n' +
+        '• XL SATU ' + planName + ': ' + newXl + '\n' +
         '-----------------------------------------\n' +
-        'Total Biaya Lama: ' + oldTotal + '/bln\n\n' +
-        'Dengan XL SATU (All-in):\n' +
-        'Biaya Baru: ' + newXl + '/bln\n' +
-        '(Internet simetris 1:1 True Unlimited + Gratis Biaya Pasang 500rb)\n\n' +
-        '💰 POTENSI HEMAT: ' + savingsMonth + '/bulan\n' +
-        '🎉 ' + savingsYear + '\n\n' +
-        'Boleh saya bantu amankan slot teknisinya sekarang selagi gratis pasang?';
+        '💰 POTENSI HEMAT BIAYA WIFI: ' + savingsMonth + '\n' +
+        '🎉 ' + savingsYear + '\n' +
+        '⚡ LONJAKAN SPEED: ' + speedMultiplier + ' (Simetris 1:1 Upload=Download)\n' +
+        '🎁 BENEFIT PASANG: Bebas Biaya Instalasi (Hemat Rp 500.000)\n' +
+        '🛡️ True Unlimited murni tanpa batas kuota FUP.\n\n' +
+        'Boleh saya bantu amankan slot teknisinya sekarang selagi gratis biaya pasang, Pak/Bu?';
 
       copyTextToClipboard(pitch, 'Simulasi berhasil disalin!');
     }
