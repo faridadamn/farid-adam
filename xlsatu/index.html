@@ -1179,8 +1179,37 @@
       CUSTOM_TEMPLATES = [];
     }
 
+    let DB_TEMPLATES = [];
+
     function getAllTemplates() {
-      return [...DEFAULT_TEMPLATES, ...CUSTOM_TEMPLATES.map(t => ({ ...t, isCustom: true }))];
+      return [...DEFAULT_TEMPLATES, ...DB_TEMPLATES, ...CUSTOM_TEMPLATES.map(t => ({ ...t, isCustom: true }))];
+    }
+
+    function fetchDbTemplates() {
+      fetch('/api/xlsatu/contents?t=' + Date.now())
+        .then(res => {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(data => {
+          if (data && data.data && data.data.length) {
+            DB_TEMPLATES = data.data.map(item => {
+              let text = item.body || '';
+              if (!text.includes('{nama}')) {
+                text = 'Halo Kak {nama} ({blok}), ' + text;
+              }
+              return {
+                id: item.id,
+                title: '📚 ' + item.title,
+                text: text,
+                isDb: true
+              };
+            });
+            renderTemplateSelect();
+            renderTemplateList();
+          }
+        })
+        .catch(() => {});
     }
 
     function getActiveTemplate() {
@@ -1907,6 +1936,7 @@
 
     // Launch
     initData();
+    fetchDbTemplates();
   </script>
 </body>
 </html>
