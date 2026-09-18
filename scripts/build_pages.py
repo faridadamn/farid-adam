@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Builder untuk blog.html dan artikel.html
-Menghasilkan halaman katalog artikel dan dynamic reader artikel dengan template visual 1:1 XL SATU
+Clean Builder untuk blog.html dan artikel.html
+Menghasilkan katalog artikel dan dynamic reader dengan visual 1:1 XL SATU
 """
 
 import json
 import os
 
-def build_blog_html():
+def get_catalog_data():
     with open('/root/exelsatu/data/articles.json', 'r', encoding='utf-8') as f:
         articles = json.load(f)
 
@@ -22,7 +22,10 @@ def build_blog_html():
             'category': a['category'],
             'read_time': a['read_time']
         })
+    return catalog, articles
 
+def build_blog():
+    catalog, articles = get_catalog_data()
     catalog_json = json.dumps(catalog, ensure_ascii=False)
 
     html = r"""<!DOCTYPE html>
@@ -123,7 +126,7 @@ def build_blog_html():
       flex-shrink: 0;
     }
 
-    /* Top Announcement Bar */
+    /* Top Announcement Bar (Fixed) */
     .top-bar-sticky {
       position: fixed;
       top: 0;
@@ -151,7 +154,7 @@ def build_blog_html():
       cursor: pointer;
     }
 
-    /* Navbar */
+    /* Navbar (Fixed) */
     .navbar {
       background: #ffffff;
       border-bottom: 1px solid var(--border-color);
@@ -977,7 +980,1071 @@ def build_blog_html():
         <h2 class="cta-title">Siap Nikmati Internet Fiber Super Stabil Tanpa Batas FUP?</h2>
         <p class="cta-desc">Dapatkan koneksi 100% full fiber optik mulai 50 Mbps hingga 1 Gbps, gratis sewa router Wi-Fi 6, plus bonus kuota HP bersama XL sekeluarga.</p>
         <div class="cta-actions">
-          <button class="nav-toggle-btn" onclick="toggleSideDrawer()" aria-label="Buka Menu Samping">
+          <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20saya%20tertarik%20pasang%20setelah%20baca%20artikel%20blog" target="_blank" class="btn btn-secondary">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Daftar via WhatsApp (0878-4656-0510)
+          </a>
+          <a href="/#coverage" class="btn" style="background:rgba(255,255,255,0.15); color:#ffffff; border:1px solid rgba(255,255,255,0.3);">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            Cek Jangkauan Area
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20paket%20wifi%20rumah" target="_blank" class="floating-wa-btn" aria-label="Hubungi WhatsApp Sales">
+    <svg class="floating-wa-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+  </a>
+
+  <!-- Side Menu Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeSideDrawer()"></div>
+
+  <!-- Side Menu Drawer Container -->
+  <aside class="side-drawer" id="sideDrawer" aria-label="Menu Navigasi">
+    <div class="drawer-header">
+      <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="drawer-logo-img" />
+      <button class="drawer-close-btn" onclick="closeSideDrawer()" aria-label="Tutup Menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="drawer-menu-label">Menu Utama</div>
+      <nav class="drawer-nav-list">
+        <a href="/" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Beranda</span>
+        </a>
+        <a href="/paket" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>Daftar Paket</span>
+          <span class="drawer-badge">Terlengkap</span>
+        </a>
+        <a href="/promo" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span>Promo Spesial</span>
+          <span class="drawer-badge" style="background:#fee2e2; color:#dc2626;">Hemat 30%</span>
+        </a>
+        <a href="/blog" class="drawer-nav-item active">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+          <span>Berita & Blog</span>
+          <span class="drawer-badge">Baru</span>
+        </a>
+        <a href="/bantuan" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Pusat Bantuan</span>
+        </a>
+
+        <div class="drawer-divider"></div>
+        <div class="drawer-menu-label">Aksi Cepat</div>
+
+        <a href="/#coverage" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          <span>Cek Jangkauan Fiber</span>
+        </a>
+        <a href="/#kalkulator" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+          <span>Kalkulator Hemat</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-wa-box">
+        <div class="drawer-wa-title">Konsultasi WhatsApp</div>
+        <div class="drawer-wa-desc">Respon cepat & cek jangkauan langsung</div>
+        <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20tanya%20info%20paket%20wifi" target="_blank" class="btn btn-secondary drawer-wa-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          0878-4656-0510
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">XL SATU Fiber — Authorized Sales Partner</div>
+        <div>Pemasangan Internet Rumah Cepat & Hemat Area Jabodetabek & Seluruh Indonesia.</div>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted);">
+        &copy; 2026 exelsatu.my.id. Seluruh hak cipta dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Logic & Live Client Data -->
+  <script>
+    const ARTICLES_DATA = """ + catalog_json + r""";
+
+    let currentCategory = 'all';
+    let searchQuery = '';
+
+    function openSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.add('active');
+      if (backdrop) backdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.remove('active');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      if (drawer && drawer.classList.contains('active')) {
+        closeSideDrawer();
+      } else {
+        openSideDrawer();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSideDrawer();
+    });
+
+    function renderArticles() {
+      const q = searchQuery.toLowerCase().trim();
+      const filtered = ARTICLES_DATA.filter(function(item) {
+        const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+        const matchesSearch = !q || 
+          item.title.toLowerCase().indexOf(q) !== -1 || 
+          item.description.toLowerCase().indexOf(q) !== -1 ||
+          item.category.toLowerCase().indexOf(q) !== -1;
+        return matchesCategory && matchesSearch;
+      });
+
+      const countEl = document.getElementById('resultsCount');
+      const filterLabelEl = document.getElementById('activeFilterLabel');
+      const emptyStateEl = document.getElementById('emptyState');
+      const featuredContainer = document.getElementById('featuredContainer');
+      const gridContainer = document.getElementById('articlesGrid');
+
+      countEl.textContent = 'Menampilkan ' + filtered.length + ' dari ' + ARTICLES_DATA.length + ' artikel';
+      filterLabelEl.textContent = currentCategory === 'all' ? 'Semua Kategori' : currentCategory;
+
+      if (filtered.length === 0) {
+        featuredContainer.innerHTML = '';
+        gridContainer.innerHTML = '';
+        emptyStateEl.style.display = 'block';
+        return;
+      }
+
+      emptyStateEl.style.display = 'none';
+
+      let featuredItem = null;
+      let gridItems = filtered;
+
+      if (!q && currentCategory === 'all' && filtered.length > 0) {
+        featuredItem = filtered[0];
+        gridItems = filtered.slice(1);
+      }
+
+      if (featuredItem) {
+        featuredContainer.innerHTML = [
+          '<div class="featured-card" onclick="location.href=\'/artikel.html?slug=' + featuredItem.slug + '\'">',
+            '<div class="featured-img-wrap">',
+              '<img src="' + featuredItem.image + '" alt="' + featuredItem.title + '" class="featured-img" loading="lazy" />',
+            '</div>',
+            '<div class="featured-body">',
+              '<div class="featured-tag-row">',
+                '<span class="badge-category">' + featuredItem.category + '</span>',
+                '<span style="font-size:12px; color:var(--text-muted);">' + featuredItem.read_time + '</span>',
+              '</div>',
+              '<h2 class="featured-title">' + featuredItem.title + '</h2>',
+              '<p class="featured-desc">' + featuredItem.description + '</p>',
+              '<div class="featured-footer">',
+                '<span>' + featuredItem.date + '</span>',
+                '<span class="read-btn-link">',
+                  'Baca Selengkapnya',
+                  '<svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>',
+                '</span>',
+              '</div>',
+            '</div>',
+          '</div>'
+        ].join('');
+      } else {
+        featuredContainer.innerHTML = '';
+      }
+
+      const gridHtml = gridItems.map(function(item) {
+        return [
+          '<article class="article-card" onclick="location.href=\'/artikel.html?slug=' + item.slug + '\'">',
+            '<div class="card-thumb-wrap">',
+              '<img src="' + item.image + '" alt="' + item.title + '" class="card-thumb" loading="lazy" />',
+            '</div>',
+            '<div class="card-body">',
+              '<div class="card-meta-top">',
+                '<span class="badge-category">' + item.category + '</span>',
+                '<span>' + item.read_time + '</span>',
+              '</div>',
+              '<h3 class="card-title">' + item.title + '</h3>',
+              '<p class="card-desc">' + item.description + '</p>',
+              '<div class="card-footer">',
+                '<span>' + item.date + '</span>',
+                '<span class="card-read-link">',
+                  'Baca',
+                  '<svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>',
+                '</span>',
+              '</div>',
+            '</div>',
+          '</article>'
+        ].join('');
+      }).join('');
+
+      gridContainer.innerHTML = gridHtml;
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.pill-btn').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      if (btn) btn.classList.add('active');
+      renderArticles();
+    }
+
+    function handleSearch(val) {
+      searchQuery = val;
+      const clearBtn = document.getElementById('searchClearBtn');
+      if (clearBtn) {
+        clearBtn.style.display = val ? 'flex' : 'none';
+      }
+      renderArticles();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      searchQuery = '';
+      const clearBtn = document.getElementById('searchClearBtn');
+      if (clearBtn) clearBtn.style.display = 'none';
+      renderArticles();
+    }
+
+    function resetFilters() {
+      clearSearch();
+      filterCategory('all', document.querySelector('.pill-btn[data-cat="all"]'));
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      renderArticles();
+    });
+  </script>
+</body>
+</html>
+"""
+    with open('/root/exelsatu/blog.html', 'w', encoding='utf-8') as f:
+        f.write(html)
+    print(f"✓ blog.html berhasil di-generate ({len(catalog)} artikel)")
+
+def build_artikel():
+    catalog, articles = get_catalog_data()
+    summary_list = []
+    for a in articles:
+        summary_list.append({
+            'slug': a['slug'],
+            'title': a['title'],
+            'image': a['image'],
+            'category': a['category'],
+            'date': a['date'],
+            'read_time': a['read_time']
+        })
+
+    summary_json = json.dumps(summary_list, ensure_ascii=False)
+    first_article = articles[0]
+    first_article_json = json.dumps(first_article, ensure_ascii=False)
+
+    html = r"""<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Detail Artikel — XL SATU Fiber</title>
+  <meta name="description" id="pageMetaDesc" content="Baca ulasan lengkap tips internet rumah, panduan gaming streaming, dan solusi koneksi WiFi stabil dari XL SATU Fiber." />
+  <link rel="canonical" id="pageCanonical" href="https://exelsatu.my.id/blog" />
+  <meta property="og:title" id="pageOgTitle" content="Artikel XL SATU Fiber" />
+  <meta property="og:description" id="pageOgDesc" content="Baca ulasan lengkap tips internet rumah dari XL SATU Fiber." />
+  <meta property="og:image" id="pageOgImage" content="https://exelsatu.my.id/assets/logo-xlsatu.png" />
+  <meta property="og:type" content="article" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --primary: #18448A;
+      --secondary: #05A986;
+      --soft-xl-home: #ECF9FF;
+      --sky-blue: #1D90C9;
+      --chip-blue: #0284C7;
+      --accent: #E11D48;
+      --bg-main: #FFFFFF;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --card-bg: #FFFFFF;
+      --font-family: 'XLSmart', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 16px;
+      --container: 1180px;
+      --reader-width: 820px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 102px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .reader-container {
+      max-width: var(--reader-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Top Announcement Bar (Fixed) */
+    .top-bar-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 38px;
+      z-index: 1000;
+      background: var(--soft-xl-home);
+      border-bottom: 1px solid #daeeff;
+      padding: 0 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .top-bar-link {
+      color: var(--secondary);
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Navbar (Fixed) */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      position: fixed;
+      top: 38px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 64px;
+      z-index: 999;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand-logo-img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-align: center;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #0f2e62;
+      box-shadow: 0 4px 14px rgba(24, 68, 138, 0.25);
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: #ffffff;
+    }
+    .btn-secondary:hover {
+      background: #048a6d;
+      box-shadow: 0 4px 14px rgba(5, 169, 134, 0.25);
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs-bar {
+      padding: 20px 0 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .breadcrumbs-bar a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    .breadcrumbs-sep {
+      color: #cbd5e1;
+    }
+
+    /* Article Header */
+    .article-header {
+      padding: 14px 0 28px;
+    }
+    .article-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .badge-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(24, 68, 138, 0.1);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    .badge-time {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .article-main-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .article-author-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 13.5px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--soft-xl-home);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .share-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      color: var(--text-dark);
+      transition: all 0.15s ease;
+    }
+    .share-btn:hover {
+      background: var(--soft-xl-home);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .share-btn-wa {
+      background: #25D366;
+      color: #ffffff;
+      border-color: #25D366;
+    }
+    .share-btn-wa:hover {
+      background: #20ba59;
+      color: #ffffff;
+    }
+
+    /* Featured Hero Banner */
+    .article-hero-banner {
+      width: 100%;
+      margin: 24px 0 34px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: #0f172a;
+    }
+    .article-hero-banner img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Article Content Typography */
+    .article-content {
+      font-size: 17px;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .article-content p {
+      margin-bottom: 20px;
+    }
+    .article-content h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.35;
+      margin: 36px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--soft-xl-home);
+    }
+    .article-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f2e62;
+      line-height: 1.4;
+      margin: 28px 0 12px;
+    }
+    .article-content ul, .article-content ol {
+      margin: 16px 0 24px 24px;
+    }
+    .article-content li {
+      margin-bottom: 8px;
+    }
+    .article-content strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+    .article-content em {
+      font-style: italic;
+    }
+    .article-content a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .article-content a:hover {
+      color: var(--secondary);
+    }
+    .article-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+      margin: 20px 0;
+    }
+
+    /* In-Article Sales CTA Box */
+    .in-article-cta {
+      margin: 36px 0;
+      padding: 30px 28px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ECF9FF 0%, #E0F2FE 100%);
+      border: 1.5px solid #BAE6FD;
+      box-shadow: 0 8px 24px rgba(24, 68, 138, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .in-cta-text {
+      flex: 1;
+      min-width: 260px;
+    }
+    .in-cta-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      background: rgba(24, 68, 138, 0.1);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .in-cta-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .in-cta-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .in-cta-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* End-of-Article Author & Share Box */
+    .article-end-box {
+      padding: 24px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      margin: 40px 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Related Articles Section */
+    .related-section {
+      padding: 40px 0 70px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border-color);
+    }
+    .related-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .related-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(24, 68, 138, 0.08);
+    }
+    .related-thumb-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #e2e8f0;
+    }
+    .related-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .related-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .related-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .related-card:hover .related-card-title {
+      color: var(--primary);
+    }
+    .related-meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 998;
+      background: #25D366;
+      color: #ffffff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      transition: all 0.25s ease;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+    }
+    .floating-wa-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Side Menu Drawer */
+    .nav-toggle-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--primary);
+      transition: all 0.15s ease;
+    }
+    .nav-toggle-btn:hover {
+      background: var(--soft-xl-home);
+      border-color: #bee3f8;
+    }
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 85vw;
+      height: 100%;
+      background: #ffffff;
+      z-index: 1001;
+      box-shadow: -8px 0 28px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .side-drawer.active {
+      right: 0;
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .drawer-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .drawer-close-btn {
+      background: #f1f5f9;
+      border: none;
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.15s ease;
+    }
+    .drawer-close-btn:hover {
+      background: #e2e8f0;
+    }
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px;
+    }
+    .drawer-menu-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-left: 6px;
+    }
+    .drawer-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .drawer-nav-item:hover, .drawer-nav-item.active {
+      background: var(--soft-xl-home);
+      color: var(--primary);
+    }
+    .drawer-nav-item .icon {
+      width: 18px;
+      height: 18px;
+      color: var(--primary);
+    }
+    .drawer-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(24, 68, 138, 0.08);
+      color: var(--primary);
+    }
+    .drawer-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 14px 0 12px;
+    }
+    .drawer-footer {
+      padding: 16px 18px;
+      border-top: 1px solid var(--border-color);
+      background: #f8fafc;
+    }
+    .drawer-wa-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .drawer-wa-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .drawer-wa-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin: 2px 0 10px;
+    }
+    .drawer-wa-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0 30px;
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { padding-top: 94px; }
+      .nav-links { display: none; }
+      .article-main-title { font-size: 26px; }
+      .top-bar-sticky { height: 34px; font-size: 12px; padding: 0 12px; }
+      .navbar { top: 34px; height: 60px; }
+      .in-article-cta { padding: 22px; }
+      .in-cta-title { font-size: 18px; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .reader-container { padding: 0 16px; }
+      .floating-wa-btn { width: 50px; height: 50px; bottom: 20px; right: 16px; }
+      .floating-wa-icon { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Announcement Bar -->
+  <aside class="top-bar-sticky">
+    <span>Konsultasi Pasang Baru XL SATU:</span>
+    <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="top-bar-link">Chat WhatsApp 0878-4656-0510!</a>
+  </aside>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand-logo-wrap">
+        <a href="/">
+          <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="brand-logo-img" />
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="/">Beranda</a>
+        <a href="/paket">Paket</a>
+        <a href="/promo">Promo</a>
+        <a href="/blog" style="color:var(--primary);">Blog</a>
+        <a href="/bantuan">Bantuan</a>
+        <a href="/#coverage">Cek Jangkauan</a>
+        <a href="/#kalkulator">Kalkulator</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-toggle-btn" onclick="toggleSideDrawer()" aria-label="Buka Menu Samping">
           <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
       </div>
@@ -1176,7 +2243,6 @@ def build_blog_html():
     const DEFAULT_ARTICLE = """ + first_article_json + r""";
     let CURRENT_ARTICLE = DEFAULT_ARTICLE;
 
-    // Side Drawer Control
     function openSideDrawer() {
       const drawer = document.getElementById('sideDrawer');
       const backdrop = document.getElementById('drawerBackdrop');
@@ -1206,7 +2272,6 @@ def build_blog_html():
       if (e.key === 'Escape') closeSideDrawer();
     });
 
-    // Ambil slug dari query param (?slug=...) atau dari pathname (/blog/...)
     function getTargetSlug() {
       const params = new URLSearchParams(window.location.search);
       const querySlug = params.get('slug');
@@ -1222,22 +2287,18 @@ def build_blog_html():
       return DEFAULT_ARTICLE.slug;
     }
 
-    // Render data artikel ke DOM
     function renderArticleDetail(art) {
       CURRENT_ARTICLE = art;
 
-      // Update Meta
       document.title = art.title + ' — XL SATU Fiber';
       const metaDesc = document.getElementById('pageMetaDesc');
       if (metaDesc && art.description) metaDesc.setAttribute('content', art.description);
 
-      // Update Breadcrumbs
       const bcCat = document.getElementById('breadcrumbCategory');
       const bcTitle = document.getElementById('breadcrumbTitle');
       if (bcCat) bcCat.textContent = art.category;
       if (bcTitle) bcTitle.textContent = art.title;
 
-      // Update Header
       const catBadge = document.getElementById('articleCategoryBadge');
       const readTime = document.getElementById('articleReadTime');
       const titleEl = document.getElementById('articleTitle');
@@ -1257,23 +2318,19 @@ def build_blog_html():
         bodyEl.innerHTML = art.content || '<p>' + art.description + '</p>';
       }
 
-      // Update CTA WhatsApp Link dengan Pre-filled Topic
       const ctaWaLink = document.getElementById('ctaWaLink');
       if (ctaWaLink) {
         const waText = 'Halo Admin XL SATU, saya baru saja membaca artikel "' + art.title + '" dan tertarik konsultasi pasang wifi rumah.';
         ctaWaLink.href = 'https://wa.me/6287846560510?text=' + encodeURIComponent(waText);
       }
 
-      // Render Related Articles
       renderRelatedArticles(art.slug, art.category);
     }
 
-    // Render 3 Related Articles
     function renderRelatedArticles(currentSlug, currentCat) {
       const relatedGrid = document.getElementById('relatedGrid');
       if (!relatedGrid) return;
 
-      // Filter artikel lain dari kategori yang sama, jika kurang ambil dari lainnya
       let sameCat = SUMMARY_DATA.filter(function(item) {
         return item.slug !== currentSlug && item.category === currentCat;
       });
@@ -1302,7 +2359,6 @@ def build_blog_html():
       }).join('');
     }
 
-    // Share Functions
     function shareToWhatsApp() {
       const url = window.location.href;
       const title = CURRENT_ARTICLE ? CURRENT_ARTICLE.title : document.title;
@@ -1323,17 +2379,14 @@ def build_blog_html():
       }
     }
 
-    // Initialize Article Loading
     async function initArticle() {
       const targetSlug = getTargetSlug();
 
-      // Cek apakah targetSlug adalah default article
       if (targetSlug === DEFAULT_ARTICLE.slug) {
         renderArticleDetail(DEFAULT_ARTICLE);
         return;
       }
 
-      // Fetch full articles JSON
       try {
         const res = await fetch('/data/articles.json');
         if (!res.ok) throw new Error('Failed to fetch articles');
@@ -1342,7 +2395,6 @@ def build_blog_html():
         if (found) {
           renderArticleDetail(found);
         } else {
-          // Fallback ke default
           renderArticleDetail(DEFAULT_ARTICLE);
         }
       } catch (err) {
@@ -1358,11 +2410,10 @@ def build_blog_html():
 </body>
 </html>
 """
-
     with open('/root/exelsatu/artikel.html', 'w', encoding='utf-8') as f:
         f.write(html)
-    print("✓ Berhasil generate /root/exelsatu/artikel.html")
+    print(f"✓ artikel.html berhasil di-generate")
 
 if __name__ == '__main__':
-    build_blog_html()
-    build_artikel_html()
+    build_blog()
+    build_artikel()
