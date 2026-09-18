@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="pageTitle">Detail Artikel — XL SATU Fiber</title>
+  <meta name="description" id="pageMetaDesc" content="Baca ulasan lengkap tips internet rumah, panduan gaming streaming, dan solusi koneksi WiFi stabil dari XL SATU Fiber." />
+  <link rel="canonical" id="pageCanonical" href="https://exelsatu.my.id/blog" />
+  <meta property="og:title" id="pageOgTitle" content="Artikel XL SATU Fiber" />
+  <meta property="og:description" id="pageOgDesc" content="Baca ulasan lengkap tips internet rumah dari XL SATU Fiber." />
+  <meta property="og:image" id="pageOgImage" content="https://exelsatu.my.id/assets/logo-xlsatu.png" />
+  <meta property="og:type" content="article" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --primary: #18448A;
+      --secondary: #05A986;
+      --soft-xl-home: #ECF9FF;
+      --sky-blue: #1D90C9;
+      --chip-blue: #0284C7;
+      --accent: #E11D48;
+      --bg-main: #FFFFFF;
+      --text-dark: #0f172a;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --card-bg: #FFFFFF;
+      --font-family: 'XLSmart', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 16px;
+      --container: 1180px;
+      --reader-width: 820px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 102px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .reader-container {
+      max-width: var(--reader-width);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Top Announcement Bar */
+    .top-bar-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 38px;
+      z-index: 1000;
+      background: var(--soft-xl-home);
+      border-bottom: 1px solid #daeeff;
+      padding: 0 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .top-bar-link {
+      color: var(--secondary);
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      position: fixed;
+      top: 38px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 64px;
+      z-index: 999;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand-logo-img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 14px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-align: center;
+      justify-content: center;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #0f2e62;
+      box-shadow: 0 4px 14px rgba(24, 68, 138, 0.25);
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: #ffffff;
+    }
+    .btn-secondary:hover {
+      background: #048a6d;
+      box-shadow: 0 4px 14px rgba(5, 169, 134, 0.25);
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs-bar {
+      padding: 20px 0 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .breadcrumbs-bar a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+    .breadcrumbs-sep {
+      color: #cbd5e1;
+    }
+
+    /* Article Header */
+    .article-header {
+      padding: 14px 0 28px;
+    }
+    .article-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .badge-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(24, 68, 138, 0.1);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    .badge-time {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .article-main-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .article-author-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 13.5px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .author-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--soft-xl-home);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .share-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      color: var(--text-dark);
+      transition: all 0.15s ease;
+    }
+    .share-btn:hover {
+      background: var(--soft-xl-home);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .share-btn-wa {
+      background: #25D366;
+      color: #ffffff;
+      border-color: #25D366;
+    }
+    .share-btn-wa:hover {
+      background: #20ba59;
+      color: #ffffff;
+    }
+
+    /* Featured Hero Banner */
+    .article-hero-banner {
+      width: 100%;
+      margin: 24px 0 34px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      background: #0f172a;
+    }
+    .article-hero-banner img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Article Content Typography */
+    .article-content {
+      font-size: 17px;
+      color: var(--text-body);
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .article-content p {
+      margin-bottom: 20px;
+    }
+    .article-content h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.35;
+      margin: 36px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--soft-xl-home);
+    }
+    .article-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f2e62;
+      line-height: 1.4;
+      margin: 28px 0 12px;
+    }
+    .article-content ul, .article-content ol {
+      margin: 16px 0 24px 24px;
+    }
+    .article-content li {
+      margin-bottom: 8px;
+    }
+    .article-content strong {
+      color: var(--text-dark);
+      font-weight: 700;
+    }
+    .article-content em {
+      font-style: italic;
+    }
+    .article-content a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .article-content a:hover {
+      color: var(--secondary);
+    }
+    .article-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+      margin: 20px 0;
+    }
+
+    /* In-Article Sales CTA Box */
+    .in-article-cta {
+      margin: 36px 0;
+      padding: 30px 28px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #ECF9FF 0%, #E0F2FE 100%);
+      border: 1.5px solid #BAE6FD;
+      box-shadow: 0 8px 24px rgba(24, 68, 138, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .in-cta-text {
+      flex: 1;
+      min-width: 260px;
+    }
+    .in-cta-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      background: rgba(24, 68, 138, 0.1);
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .in-cta-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+    .in-cta-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .in-cta-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* End-of-Article Author & Share Box */
+    .article-end-box {
+      padding: 24px;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      margin: 40px 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Related Articles Section */
+    .related-section {
+      padding: 40px 0 70px;
+      background: #f8fafc;
+      border-top: 1px solid var(--border-color);
+    }
+    .related-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .related-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .related-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(24, 68, 138, 0.08);
+    }
+    .related-thumb-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #e2e8f0;
+    }
+    .related-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .related-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .related-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.4;
+      margin-bottom: 8px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .related-card:hover .related-card-title {
+      color: var(--primary);
+    }
+    .related-meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 998;
+      background: #25D366;
+      color: #ffffff;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      transition: all 0.25s ease;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+    }
+    .floating-wa-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Side Menu Drawer */
+    .nav-toggle-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--primary);
+      transition: all 0.15s ease;
+    }
+    .nav-toggle-btn:hover {
+      background: var(--soft-xl-home);
+      border-color: #bee3f8;
+    }
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 85vw;
+      height: 100%;
+      background: #ffffff;
+      z-index: 1001;
+      box-shadow: -8px 0 28px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .side-drawer.active {
+      right: 0;
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .drawer-logo-img {
+      height: 28px;
+      width: auto;
+      display: block;
+    }
+    .drawer-close-btn {
+      background: #f1f5f9;
+      border: none;
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.15s ease;
+    }
+    .drawer-close-btn:hover {
+      background: #e2e8f0;
+    }
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px;
+    }
+    .drawer-menu-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-left: 6px;
+    }
+    .drawer-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .drawer-nav-item:hover, .drawer-nav-item.active {
+      background: var(--soft-xl-home);
+      color: var(--primary);
+    }
+    .drawer-nav-item .icon {
+      width: 18px;
+      height: 18px;
+      color: var(--primary);
+    }
+    .drawer-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(24, 68, 138, 0.08);
+      color: var(--primary);
+    }
+    .drawer-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 14px 0 12px;
+    }
+    .drawer-footer {
+      padding: 16px 18px;
+      border-top: 1px solid var(--border-color);
+      background: #f8fafc;
+    }
+    .drawer-wa-box {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .drawer-wa-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .drawer-wa-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin: 2px 0 10px;
+    }
+    .drawer-wa-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 40px 0 30px;
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { padding-top: 94px; }
+      .nav-links { display: none; }
+      .article-main-title { font-size: 26px; }
+      .top-bar-sticky { height: 34px; font-size: 12px; padding: 0 12px; }
+      .navbar { top: 34px; height: 60px; }
+      .in-article-cta { padding: 22px; }
+      .in-cta-title { font-size: 18px; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .reader-container { padding: 0 16px; }
+      .floating-wa-btn { width: 50px; height: 50px; bottom: 20px; right: 16px; }
+      .floating-wa-icon { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Announcement Bar -->
+  <aside class="top-bar-sticky">
+    <span>Konsultasi Pasang Baru XL SATU:</span>
+    <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="top-bar-link">Chat WhatsApp 0878-4656-0510!</a>
+  </aside>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand-logo-wrap">
+        <a href="/">
+          <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="brand-logo-img" />
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="/">Beranda</a>
+        <a href="/paket">Paket</a>
+        <a href="/promo">Promo</a>
+        <a href="/blog" style="color:var(--primary);">Blog</a>
+        <a href="/bantuan">Bantuan</a>
+        <a href="/#coverage">Cek Jangkauan</a>
+        <a href="/#kalkulator">Kalkulator</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20tanya%20info%20paket%20dan%20promo" target="_blank" class="btn btn-secondary" style="padding: 8px 18px; font-size: 13.5px;">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>Chat WhatsApp</span>
+        </a>
+        <button class="nav-toggle-btn" onclick="toggleSideDrawer()" aria-label="Buka Menu Samping">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article View Container -->
+  <main class="reader-container">
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs-bar" aria-label="Breadcrumb">
+      <a href="/">Beranda</a>
+      <span class="breadcrumbs-sep">/</span>
+      <a href="/blog">Blog</a>
+      <span class="breadcrumbs-sep">/</span>
+      <span id="breadcrumbCategory" style="color:var(--primary); font-weight:600;">Edukasi</span>
+      <span class="breadcrumbs-sep">/</span>
+      <span id="breadcrumbTitle" style="color:var(--text-dark); max-width:320px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Detail Artikel</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="article-badge-row">
+        <span class="badge-category" id="articleCategoryBadge">Tips & Jaringan</span>
+        <span class="badge-time">
+          <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span id="articleReadTime">4 menit baca</span>
+        </span>
+      </div>
+
+      <h1 class="article-main-title" id="articleTitle">Memuat Judul Artikel...</h1>
+
+      <div class="article-author-row">
+        <div class="author-info">
+          <div class="author-avatar">
+            <svg class="icon" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          </div>
+          <div>
+            <div style="font-weight:700; color:var(--text-dark);">Tim Edukasi XL SATU</div>
+            <div style="font-size:12px; color:var(--text-muted);" id="articleDate">18 September 2026</div>
+          </div>
+        </div>
+
+        <div class="share-actions">
+          <button class="share-btn share-btn-wa" onclick="shareToWhatsApp()" aria-label="Bagikan ke WhatsApp">
+            <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>Share WA</span>
+          </button>
+          <button class="share-btn" onclick="copyArticleLink()" id="copyLinkBtn" aria-label="Salin Tautan Artikel">
+            <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            <span id="copyLinkText">Salin Link</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Article Featured Image -->
+    <div class="article-hero-banner" id="articleImageWrap">
+      <img src="/assets/logo-xlsatu.png" alt="Featured Banner" id="articleFeaturedImg" />
+    </div>
+
+    <!-- Article Body HTML -->
+    <article class="article-content" id="articleBody">
+      <p>Memuat konten artikel...</p>
+    </article>
+
+    <!-- High-Converting Sales CTA Box -->
+    <section class="in-article-cta" id="salesCtaBox">
+      <div class="in-cta-text">
+        <span class="in-cta-badge">Rekomendasi Terbaik</span>
+        <h3 class="in-cta-title">Ingin WiFi Rumah Kencang Tanpa Mikirin Batas FUP?</h3>
+        <p class="in-cta-desc">Pakai XL SATU Fiber: kecepatan 100% simetris, gratis instalasi & router Wi-Fi 6, plus bonus kuota HP bersama sekeluarga.</p>
+      </div>
+      <div class="in-cta-actions">
+        <a id="ctaWaLink" href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="btn btn-secondary">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Chat WhatsApp Sales
+        </a>
+        <a href="/#coverage" class="btn btn-primary">
+          Cek Jangkauan
+        </a>
+      </div>
+    </section>
+
+    <!-- End of Article Footer Box -->
+    <div class="article-end-box">
+      <div>
+        <div style="font-weight:700; color:var(--primary); font-size:15px; margin-bottom:4px;">Punya Pertanyaan Seputar Artikel Ini?</div>
+        <div style="font-size:13.5px; color:var(--text-muted);">Konsultasikan gratis dengan tim resmi XL SATU via WhatsApp kami.</div>
+      </div>
+      <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20tanya%20seputar%20artikel%20wifi%20rumah" target="_blank" class="btn btn-secondary" style="padding:9px 18px; font-size:13.5px;">
+        Hubungi WhatsApp (0878-4656-0510)
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Related Articles Section -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="related-title">Artikel Pilihan Lainnya</h2>
+      <div class="related-grid" id="relatedGrid">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20paket%20wifi%20rumah" target="_blank" class="floating-wa-btn" aria-label="Hubungi WhatsApp Sales">
+    <svg class="floating-wa-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+  </a>
+
+  <!-- Side Menu Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeSideDrawer()"></div>
+
+  <!-- Side Menu Drawer Container -->
+  <aside class="side-drawer" id="sideDrawer" aria-label="Menu Navigasi">
+    <div class="drawer-header">
+      <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="drawer-logo-img" />
+      <button class="drawer-close-btn" onclick="closeSideDrawer()" aria-label="Tutup Menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="drawer-menu-label">Menu Utama</div>
+      <nav class="drawer-nav-list">
+        <a href="/" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Beranda</span>
+        </a>
+        <a href="/paket" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>Daftar Paket</span>
+          <span class="drawer-badge">Terlengkap</span>
+        </a>
+        <a href="/promo" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span>Promo Spesial</span>
+          <span class="drawer-badge" style="background:#fee2e2; color:#dc2626;">Hemat 30%</span>
+        </a>
+        <a href="/blog" class="drawer-nav-item active">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+          <span>Berita & Blog</span>
+          <span class="drawer-badge">Baru</span>
+        </a>
+        <a href="/bantuan" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Pusat Bantuan</span>
+        </a>
+
+        <div class="drawer-divider"></div>
+        <div class="drawer-menu-label">Aksi Cepat</div>
+
+        <a href="/#coverage" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          <span>Cek Jangkauan Fiber</span>
+        </a>
+        <a href="/#kalkulator" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+          <span>Kalkulator Hemat</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-wa-box">
+        <div class="drawer-wa-title">Konsultasi WhatsApp</div>
+        <div class="drawer-wa-desc">Respon cepat & cek jangkauan langsung</div>
+        <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20tanya%20info%20paket%20wifi" target="_blank" class="btn btn-secondary drawer-wa-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          0878-4656-0510
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">XL SATU Fiber — Authorized Sales Partner</div>
+        <div>Pemasangan Internet Rumah Cepat & Hemat Area Jabodetabek & Seluruh Indonesia.</div>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted);">
+        &copy; 2026 exelsatu.my.id. Seluruh hak cipta dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Logic -->
+  <script>
+    const SUMMARY_DATA = [{"slug": "kecepatan-internet-untuk-live-streaming", "title": "Kecepatan Internet untuk Live Streaming Anda, Ini Informasinya", "image": "https://static-xlsatu.xl.co.id/images/post/29cb2d28-ae2b-4fad-9523-7f1b37a2c97c.jpg", "category": "Gaming & Streaming", "date": "21 Januari 2025", "read_time": "5 menit"}, {"slug": "cara-live-game-di-tiktok", "title": "Cara Live Game di TikTok lewat HP dan PC, Gampang!", "image": "https://static-xlsatu.xl.co.id/images/post/24a56924-36e5-4c4f-b107-d1d18a022efc.jpg", "category": "Gaming & Streaming", "date": "01 September 2026", "read_time": "4 menit"}, {"slug": "rekomendasi-aplikasi-cloud-gaming", "title": "7 Rekomendasi Aplikasi Cloud Gaming Terbaik dan Terlaris", "image": "https://static-xlsatu.xl.co.id/images/post/9156d4d2-f231-47fb-b424-72a83d0877cb.jpg", "category": "Gaming & Streaming", "date": "24 Juni 2025", "read_time": "4 menit"}, {"slug": "apa-itu-cloud-gaming", "title": "Pengertian Cloud Gaming: Gaming Seru Tanpa Makan Storage", "image": "https://static-xlsatu.xl.co.id/images/post/c3270fa9-f4d1-4d11-bc40-a0262e24d6b9.jpg", "category": "Gaming & Streaming", "date": "07 Januari 2025", "read_time": "4 menit"}, {"slug": "perbedaan-streaming-4k-vs-8k", "title": "Perbedaan Streaming 4K vs 8K yang Perlu Anda Tahu", "image": "https://static-xlsatu.xl.co.id/images/post/3ffdb5f6-066a-456f-b63a-400b8a001ca2.jpg", "category": "Gaming & Streaming", "date": "24 Juni 2025", "read_time": "4 menit"}, {"slug": "peralatan-live-streaming", "title": "13 Peralatan Live Streaming untuk Streamer Pemula", "image": "https://static-xlsatu.xl.co.id/images/post/ad08797e-c934-4e85-a934-5f0cf74f0fb0.jpg", "category": "Gaming & Streaming", "date": "24 Juni 2025", "read_time": "4 menit"}, {"slug": "cara-live-di-shopee", "title": "Cara Live di Shopee Buat Seller Pemula, Yuk Coba!", "image": "https://static-xlsatu.xl.co.id/images/post/9c1c824c-ad6c-4e38-a5d7-0091ebe938b2.jpg", "category": "Gaming & Streaming", "date": "01 September 2026", "read_time": "4 menit"}, {"slug": "rekomendasi-wifi-untuk-menonton-video-streaming", "title": "Apa Rekomendasi WiFi untuk Menonton Video Streaming?", "image": "https://static-xlsatu.xl.co.id/images/post/0855026e-7d30-4056-a8a6-2d193a8d4a64.jpg", "category": "Gaming & Streaming", "date": "05 Desember 2024", "read_time": "4 menit"}, {"slug": "memperkuat-sinyal-wifi", "title": "Bagaimana Cara Memperkuat Sinyal WiFi di Rumah? Cek di Sini", "image": "https://static-xlsatu.xl.co.id/images/post/c92607b7-278f-4b96-adcf-278c108cfd58.jpg", "category": "Tips & Jaringan", "date": "29 Agustus 2024", "read_time": "5 menit"}, {"slug": "cara-memperkuat-sinyal-wifi-hingga-ke-seluruh-sudut-rumah", "title": "Cara Ampuh Memperkuat Sinyal WiFi di Rumah", "image": "https://static-xlsatu.xl.co.id/images/post/b8515f6c-41b3-4c47-a1f5-26bb61ac148e.jpg", "category": "Tips & Jaringan", "date": "28 November 2023", "read_time": "6 menit"}, {"slug": "perbedaan-router-single-band-dan-dual-band", "title": "Mana yang Lebih Bagus? Router Single Band vs. Dual Band", "image": "https://static-xlsatu.xl.co.id/images/post/340af62d-ef1a-47ba-acfb-bfc62b43b9e3.jpg", "category": "Tips & Jaringan", "date": "23 Mei 2025", "read_time": "4 menit"}, {"slug": "perbedaan-dedicated-dan-up-to-bandwidth", "title": "Apa Perbedaan Dedicated dan Up To Bandwidth? Cek di Sini!", "image": "https://static-xlsatu.xl.co.id/images/post/230955a2-fa0f-42ad-8ff1-4bd805d5b0a6.jpg", "category": "Tips & Jaringan", "date": "07 Januari 2025", "read_time": "4 menit"}, {"slug": "kenapa-wifi-tidak-ada-internet-ini-cara-mengatasinya", "title": "Kenapa WiFi Tidak Ada Internet? Ini 5 Penyebab dan Solusinya", "image": "https://static-xlsatu.xl.co.id/images/post/fc149e1c-8e0b-4e61-b058-cc2c1d600b3c.jpg", "category": "Tips & Jaringan", "date": "23 April 2025", "read_time": "3 menit"}, {"slug": "penyebab-dan-cara-mengatasi-sinyal-wifi-naik-turun", "title": "Penyebab dan Cara Mengatasi Sinyal WiFi Naik Turun", "image": "https://static-xlsatu.xl.co.id/images/post/b39cab7d-e29f-4139-b29e-fb1ce468897a.jpg", "category": "Tips & Jaringan", "date": "30 Juli 2024", "read_time": "3 menit"}, {"slug": "apa-itu-mbps-pada-wifi-penjelasan-singkat-dan-cara-memaksimalkannya", "title": "Apa itu Mbps pada Wifi? Penjelasan Singkat dan Cara Memaksimalkannya", "image": "https://static-xlsatu.xl.co.id/images/post/e14fc5c8-2417-4435-9b35-f459e980585d.jpg", "category": "Tips & Jaringan", "date": "24 Juli 2024", "read_time": "3 menit"}, {"slug": "apa-itu-bandwidth-wifi", "title": "Bandwidth WIFI Fungsi dan Cara Mengeceknya", "image": "https://static-xlsatu.xl.co.id/images/post/d6bb8974-9615-4ec7-a214-18cd750902b0.jpg", "category": "Tips & Jaringan", "date": "29 November 2023", "read_time": "3 menit"}, {"slug": "blank-spot-wifi", "title": "Blank Spot WiFi: Pengertian, Penyebab, dan Cara Mengatasinya", "image": "https://static-xlsatu.xl.co.id/images/post/33823d4e-837a-4aaf-b598-f8de3b80f99f.jpg", "category": "Tips & Jaringan", "date": "23 Mei 2025", "read_time": "3 menit"}, {"slug": "manajemen-bandwidth", "title": "Apa Itu Manajemen Bandwidth? Ini Definisi dan Manfaatnya", "image": "https://static-xlsatu.xl.co.id/images/post/ca408279-d744-4dcc-bbba-0624e71f7cb4.jpg", "category": "Tips & Jaringan", "date": "05 Desember 2024", "read_time": "3 menit"}, {"slug": "interferensi-jaringan-wifi", "title": "Apa Itu Interferensi Jaringan WiFi? Ini Pengertian dan Solusinya", "image": "https://static-xlsatu.xl.co.id/images/post/4e8588ad-fbf0-4f7c-a4c0-6922941d553d.jpg", "category": "Tips & Jaringan", "date": "25 November 2024", "read_time": "4 menit"}, {"slug": "cara-menggunakan-wifi-extender-di-rumah", "title": "Anti Ribet, Ini Cara Menggunakan WiFi Extender di Rumah", "image": "https://static-xlsatu.xl.co.id/images/post/66959e1c-fcb8-4025-aef1-514a3200828b.jpg", "category": "Tips & Jaringan", "date": "16 Oktober 2024", "read_time": "4 menit"}, {"slug": "biaya-pasang-wifi", "title": "Cek Informasi Biaya Pasang WiFi XL SATU di Rumah di Sini", "image": "https://static-xlsatu.xl.co.id/images/post/cde2ee56-55d1-4a0a-9286-d8500e18f349.jpg", "category": "Panduan Pasang", "date": "14 Oktober 2024", "read_time": "4 menit"}, {"slug": "cara-memasang-wifi-di-rumah-untuk-kebutuhan-sehari-hari", "title": "Sudah Tahu Cara Memasang WiFi di Rumah? Simak Info Berikut", "image": "https://static-xlsatu.xl.co.id/images/post/c82112a3-059e-4885-a9a4-6714818e8ca4.jpg", "category": "Panduan Pasang", "date": "29 Juli 2024", "read_time": "3 menit"}, {"slug": "keuntungan-pasang-wifi-di-rumah", "title": "Apa Saja Keuntungan Pasang WiFi di Rumah?", "image": "https://static-xlsatu.xl.co.id/images/post/d252aac0-cda9-44b4-95fa-0eac670d3750.jpg", "category": "Panduan Pasang", "date": "26 November 2024", "read_time": "4 menit"}, {"slug": "apa-itu-internet-super-cepat", "title": "Apa Itu Internet Super Cepat dan Bagaimana Cara Kerjanya", "image": "https://static-xlsatu.xl.co.id/images/post/5055100b-29d4-4f9c-853c-9a7ca2803162.jpg", "category": "Panduan Pasang", "date": "24 Juni 2025", "read_time": "3 menit"}, {"slug": "wifi-terbaik-untuk-kantor", "title": "WiFi Terbaik untuk Kantor di Tahun 2024, Apa Rekomendasinya?", "image": "https://static-xlsatu.xl.co.id/images/post/b8a2715f-6da6-44a5-a3da-db3128612ed4.jpg", "category": "Panduan Pasang", "date": "16 Oktober 2024", "read_time": "4 menit"}, {"slug": "metode-pembayaran-first-media", "title": "Penting! Metode Pembayaran First Media Kini Berubah ke XL HOME", "image": "https://static-xlsatu.xl.co.id/images/post/1afcea80-78d0-4b59-bb52-693d4ceb3973.jpg", "category": "Info XL SATU", "date": "05 Mei 2025", "read_time": "2 menit"}, {"slug": "xl-satu-raih-penghargaan-opensignal", "title": "XL SATU Raih Penghargaan Opensignal Fixed Broadband Experience Award 2026", "image": "https://static-xlsatu.xl.co.id/images/post/861acfb8-3771-46cb-ab7f-1b6da395f733.jpg", "category": "Info XL SATU", "date": "30 Mei 2026", "read_time": "2 menit"}, {"slug": "cara-download-file-besar-dengan-cepat", "title": "Bagaimana Cara Download File Besar dengan Cepat?", "image": "https://static-xlsatu.xl.co.id/images/post/b8d967dd-dec9-42f4-a816-877f370519d6.jpg", "category": "Gadget & Trik", "date": "26 November 2024", "read_time": "6 menit"}, {"slug": "cara-bersihkan-cache-di-iphone", "title": "3 Cara Bersihkan Cache di iPone, Mudah & Bisa Bikin Lega!", "image": "https://static-xlsatu.xl.co.id/images/post/cb7ab240-b779-40f5-91e7-294d93054a7e.jpg", "category": "Gadget & Trik", "date": "01 September 2026", "read_time": "6 menit"}, {"slug": "cara-share-screen-di-wa", "title": "Cara Share Screen di WA di Android, iPhone, & Laptop, Mudah!", "image": "https://static-xlsatu.xl.co.id/images/post/81d323c0-b551-4ea1-bb68-45012dc8eb02.jpg", "category": "Gadget & Trik", "date": "01 September 2026", "read_time": "6 menit"}];
+    const DEFAULT_ARTICLE = {"slug": "kecepatan-internet-untuk-live-streaming", "title": "Kecepatan Internet untuk Live Streaming Anda, Ini Informasinya", "h1": "Berapa Kecepatan Internet untuk Live Streaming yang Ideal?", "description": "Ingin live streaming lancar tanpa buffering? Ketahui kecepatan internet untuk live streaming yang ideal di berbagai platform seperti TikTok & YouTube!", "image": "https://static-xlsatu.xl.co.id/images/post/29cb2d28-ae2b-4fad-9523-7f1b37a2c97c.jpg", "date": "21 Januari 2025", "category": "Gaming & Streaming", "read_time": "5 menit", "word_count": 1092, "content": "<p>Live streaming atau siaran langsung melalui situs atau aplikasi tertentu telah menjadi bagian penting dalam kehidupan digital modern. Baik Anda seorang gamer, content creator, atau hanya ingin berbagi momen spesial secara langsung, kecepatan internet untuk live streaming menjadi faktor utama yang menentukan kualitas siaran Anda. Dengan live-streaming, Anda bisa berinteraksi secara langsung dengan penonton. Sedangkan, penonton bisa memberikan umpan balik sberupa reaksi atau komentar.<br>\n<br>\nArtikel ini akan membahas kecepatan internet untuk streaming yang ideal dalam berbagai platform, seperti YouTube, Twitch, hingga live streaming game, serta cara memastikan pengalaman streaming Anda berjalan lancar.</p>\n<p><strong>BACA JUGA: </strong><strong><a href=\"artikel.html?slug=perbedaan-dedicated-dan-up-to-bandwidth\">Harus Tahu! Perbedaan Dedicated dan Up To Bandwidth</a></strong></p>\n<h2><strong>Mengapa Kecepatan Internet Penting untuk Live Streaming?</strong></h2>\n<p>Kecepatan internet adalah salah satu faktor paling krusial dalam live streaming karena langsung memengaruhi kualitas dan kelancaran siaran. Kecepatan internet untuk streaming yang baik akan memastikan gambar terlihat jernih, audio terdengar tanpa jeda, dan video ditayangkan tanpa gangguan, seperti buffering. Sebaliknya, jika koneksi internet Anda lambat atau tidak stabil, hasilnya bisa sangat mengganggu, seperti kualitas video yang buram, suara yang terpotong-potong, atau siaran yang tiba-tiba terhenti.<br>\n<br>\nSelain itu, kecepatan internet untuk live streaming yang rendah juga dapat memperpanjang jeda waktu (lag) antara saat Anda berbicara atau menunjukkan sesuatu dan ketika audiens melihatnya. Hal ini sangat mengurangi interaktivitas, terutama pada platform yang memungkinkan komunikasi dua arah, seperti Zoom atau Instagram Live. Dalam situasi yang lebih parah, streaming bisa gagal total karena koneksi tidak mampu mendukung transfer data yang dibutuhkan.</p>\n<p><strong>BACA JUGA: </strong><strong><a href=\"artikel.html?slug=negara-dengan-internet-tercepat/\">Daftar Negara-negara dengan Internet Tercepat, Ada Indonesia?</a></strong></p>\n<h2><strong>Kecepatan Internet untuk Live Streaming yang Ideal</strong></h2>\n<p style=\"text-align:center;\"><strong><img alt=\"kecepatan internet untuk live streaming\" src=\"https://static-xlsatu.xl.co.id/images/post/6f5657f3-b20e-44ad-b5ce-38d578a05799_1737311748.jpg\"></strong><br>\nSumber: Sideqik</p>\n<p>Berikut adalah rekomendasi kecepatan internet berdasarkan jenis streaming yang Anda lakukan di berbagai aplikasi.</p>\n<h3><strong>1. Live Streaming YouTube</strong></h3>\n<p>YouTube adalah salah satu platform streaming paling populer di dunia. Kecepatan internet untuk live streaming Youtube harus dipertimbangkan agar Anda dapat menyajikan gambar dan suara yang optimal. Untuk streaming video berkualitas SD (480p), kecepatan unggah yang disarankan adalah minimal 3 Mbps. Sementara itu, untuk kualitas HD (720p), kecepatan unggah yang ideal adalah sekitar 5 Mbps. Jika Anda berencana untuk melakukan live streaming dalam kualitas Full HD (1080p), pastikan memiliki kecepatan unggah setidaknya 7 Mbps untuk hasil terbaik.</p>\n<h3><strong>2. Live Streaming Game di Twitch atau Facebook Gaming</strong></h3>\n<p>Kecepatan internet untuk live streaming game biasanya lebih tinggi karena memerlukan stabilitas koneksi untuk memastikan permainan berjalan lancar tanpa lag. Untuk streaming dengan kualitas 720p pada 30fps, Twitch merekomendasikan bitrate antara 2.500 hingga 4.000 kbps, yang berarti Anda memerlukan kecepatan unggah minimal sekitar 3-5 Mbps. Jika Anda menginginkan kualitas 1080p pada 60fps, maka diperlukan bitrate antara 4.500 hingga 8.000 kbps, sehingga kecepatan unggah minimal yang dibutuhkan adalah sekitar 6-10 Mbps. Selain itu, pastikan latency Anda rendah, karena ini akan memengaruhi respons permainan dan interaksi dengan penonton.</p>\n<h3><strong>3. Live Streaming Instagram atau TikTok</strong></h3>\n<p>Platform, seperti Instagram dan TikTok, memiliki persyaratan kecepatan internet yang lebih rendah dibandingkan YouTube atau Twitch. Untuk streaming berkualitas baik, maka kecepatan unggah sekitar 2-4 Mbps sudah cukup. Namun, koneksi yang stabil tetap menjadi kunci agar video tidak terputus-putus. Selain itu, perhatikan bahwa kualitas streaming juga dipengaruhi oleh perangkat yang Anda gunakan dan kondisi jaringan saat itu. Pastikan Anda berada di area dengan sinyal yang kuat untuk menghindari gangguan selama siaran langsung.</p>\n<h3><strong>4. Live Streaming Shopee Live</strong></h3>\n<p>Shopee Live adalah platform streaming yang digunakan oleh penjual untuk berinteraksi langsung dengan pembeli. Meskipun Shopee tidak secara spesifik menyebutkan kecepatan unggah yang direkomendasikan, tetapi untuk memastikan kualitas streaming yang baik, disarankan memiliki kecepatan unggah minimal 3-5 Mbps. Koneksi yang stabil sangat penting untuk menjaga interaksi dengan audiens tetap lancar dan menghindari buffering. Selain itu, penggunaan perangkat dengan spesifikasi yang memadai juga akan membantu dalam menjaga kualitas video selama siaran langsung.</p>\n<p><strong>BACA JUGA: </strong><strong><a href=\"artikel.html?slug=manajemen-bandwidth/\">Pentingnya Manajemen Bandwidth dan Manfaatnya</a></strong></p>\n<h2><strong>Faktor yang Memengaruhi Kualitas Live Streaming</strong></h2>\n<p>Berikut adalah bermacam faktor yang harus diperhatikan karena dapat memengaruhi kualitas live streaming.</p>\n<h3><strong>1. Bandwidth</strong></h3>\n<p>Bandwidth adalah kapasitas maksimum jaringan Anda untuk mentransfer data. Bandwidth yang cukup memastikan Anda dapat mengunggah video tanpa gangguan, terutama jika ada perangkat lain yang menggunakan internet secara bersamaan. Dalam konteks live streaming, memiliki bandwidth yang memadai memungkinkan streaming berjalan lancar meskipun ada aktivitas lain di jaringan, seperti browsing atau mengunduh file. Sedangkan jika bandwidth terbatas, maka kualitas streaming bisa menurun drastis.</p>\n<h3><strong>2. Stabilitas Koneksi</strong></h3>\n<p>Kecepatan internet untuk live streaming bergantung pada stabilitas koneksi internet yang digunakan. Koneksi yang sering terputus atau mengalami fluktuasi kecepatan dapat menyebabkan buffering atau gangguan lainnya. Untuk memastikan stabilitas koneksi, gunakan layanan internet yang menawarkan jaringan stabil, terutama selama jam sibuk. Stabilitas koneksi itu penting, terutama jika Anda menggunakan platform streaming dengan persyaratan tinggi, seperti Twitch atau YouTube.</p>\n<h3><strong>3. Latency atau Ping</strong></h3>\n<p>Latency adalah waktu yang dibutuhkan data untuk berpindah dari perangkat Anda ke server dan kembali lagi. Latency yang rendah berarti respons yang cepat, di mana hal ini sangat penting untuk live streaming game atau acara interaktif. Sebab, latency tinggi bisa menyebabkan jeda antara tindakan Anda dan apa yang dilihat audiens. Oleh karena itu, pilih provider internet yang memiliki infrastruktur jaringan yang baik untuk menjaga latency tetap rendah.</p>\n<h3><strong>4. Perangkat yang Digunakan</strong></h3>\n<p>Kualitas perangkat Anda, seperti komputer atau smartphone, juga memengaruhi kecepatan internet untuk live streaming. Perangkat dengan spesifikasi rendah mungkin tidak mampu menangani proses encoding video dengan baik, sehingga dapat mengakibatkan penurunan kualitas gambar atau audio. Jadi, pastikan perangkat Anda memiliki prosesor yang cukup cepat dan RAM yang memadai untuk mendukung aktivitas streaming.</p>\n<h3><strong>5. Jarak ke Server</strong></h3>\n<p>Semakin dekat lokasi server ke tempat Anda, semakin kecil kemungkinan terjadinya delay atau lag. Pilih platform streaming yang memiliki server di wilayah Anda untuk mengurangi jeda. Beberapa platform juga menawarkan opsi untuk memilih server terdekat secara manual, yang bisa meningkatkan pengalaman streaming Anda secara signifikan.</p>\n<p><strong>BACA JUGA: </strong><strong><a href=\"artikel.html?slug=quality-of-service-pada-jaringan\">Apa Itu Quality of Service pada Jaringan? Definisi dan Manfaat</a></strong></p>\n<h2><strong>Live Streaming Tanpa Buffering dengan Internet Cepat dari XL SATU</strong><strong>!</strong></h2>\n<p>Itulah penjelasan mengenai kecepatan internet untuk live streaming yang ideal di berbagai aplikasi, serta faktor yang memengaruhinya. Jika Anda sering melakukan live streaming, memilih paket internet dengan kecepatan tinggi adalah investasi yang tepat. Dengan kecepatan unggah yang memadai, maka Anda dapat melakukan streaming berkualitas tinggi tanpa gangguan.<br>\n<br>\nSementara untuk memastikan live streaming Anda berjalan lancar, maka Anda wajib menggunakan koneksi internet yang andal, seperti internet rumah dari XL SATU yang memberikan kecepatan hingga 200 Mbps dengan Speed Booster. Tentunya hal ini sangat ideal untuk kebutuhan live streaming berkualitas tinggi. Dengan berbagai pilihan paket, Anda juga mendapatkan bonus Kuota HP Sekeluarga dan gratis biaya pemasangan.<br>\n<br>\nDengan XL SATU, Anda tidak perlu khawatir lagi tentang koneksi yang lambat atau putus di tengah streaming. Dapatkan pengalaman live streaming terbaik bersama keluarga di rumah. Klik <a href=\"index.html#cakupan\">tautan ini</a> untuk berlangganan dan nikmati streaming tanpa buffering dengan XL SATU!</p>", "url": "/blog/kecepatan-internet-untuk-live-streaming"};
+    let CURRENT_ARTICLE = DEFAULT_ARTICLE;
+
+    // Side Drawer Control
+    function openSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.add('active');
+      if (backdrop) backdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.remove('active');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      if (drawer && drawer.classList.contains('active')) {
+        closeSideDrawer();
+      } else {
+        openSideDrawer();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSideDrawer();
+    });
+
+    // Ambil slug dari query param (?slug=...) atau dari pathname (/blog/...)
+    function getTargetSlug() {
+      const params = new URLSearchParams(window.location.search);
+      const querySlug = params.get('slug');
+      if (querySlug) return querySlug.trim();
+
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      if (pathSegments.length >= 2 && pathSegments[0] === 'blog') {
+        const lastPart = pathSegments[1].replace('.html', '');
+        if (lastPart && lastPart !== 'index' && lastPart !== 'baca') {
+          return lastPart;
+        }
+      }
+      return DEFAULT_ARTICLE.slug;
+    }
+
+    // Render data artikel ke DOM
+    function renderArticleDetail(art) {
+      CURRENT_ARTICLE = art;
+
+      // Update Meta
+      document.title = art.title + ' — XL SATU Fiber';
+      const metaDesc = document.getElementById('pageMetaDesc');
+      if (metaDesc && art.description) metaDesc.setAttribute('content', art.description);
+
+      // Update Breadcrumbs
+      const bcCat = document.getElementById('breadcrumbCategory');
+      const bcTitle = document.getElementById('breadcrumbTitle');
+      if (bcCat) bcCat.textContent = art.category;
+      if (bcTitle) bcTitle.textContent = art.title;
+
+      // Update Header
+      const catBadge = document.getElementById('articleCategoryBadge');
+      const readTime = document.getElementById('articleReadTime');
+      const titleEl = document.getElementById('articleTitle');
+      const dateEl = document.getElementById('articleDate');
+      const imgEl = document.getElementById('articleFeaturedImg');
+      const bodyEl = document.getElementById('articleBody');
+
+      if (catBadge) catBadge.textContent = art.category;
+      if (readTime) readTime.textContent = art.read_time;
+      if (titleEl) titleEl.textContent = art.title;
+      if (dateEl) dateEl.textContent = art.date;
+      if (imgEl) {
+        imgEl.src = art.image;
+        imgEl.alt = art.title;
+      }
+      if (bodyEl) {
+        bodyEl.innerHTML = art.content || '<p>' + art.description + '</p>';
+      }
+
+      // Update CTA WhatsApp Link dengan Pre-filled Topic
+      const ctaWaLink = document.getElementById('ctaWaLink');
+      if (ctaWaLink) {
+        const waText = 'Halo Admin XL SATU, saya baru saja membaca artikel "' + art.title + '" dan tertarik konsultasi pasang wifi rumah.';
+        ctaWaLink.href = 'https://wa.me/6287846560510?text=' + encodeURIComponent(waText);
+      }
+
+      // Render Related Articles
+      renderRelatedArticles(art.slug, art.category);
+    }
+
+    // Render 3 Related Articles
+    function renderRelatedArticles(currentSlug, currentCat) {
+      const relatedGrid = document.getElementById('relatedGrid');
+      if (!relatedGrid) return;
+
+      // Filter artikel lain dari kategori yang sama, jika kurang ambil dari lainnya
+      let sameCat = SUMMARY_DATA.filter(function(item) {
+        return item.slug !== currentSlug && item.category === currentCat;
+      });
+      let otherCat = SUMMARY_DATA.filter(function(item) {
+        return item.slug !== currentSlug && item.category !== currentCat;
+      });
+
+      const related = sameCat.concat(otherCat).slice(0, 3);
+
+      relatedGrid.innerHTML = related.map(function(item) {
+        return [
+          '<div class="related-card" onclick="location.href=\'/artikel.html?slug=' + item.slug + '\'">',
+            '<div class="related-thumb-wrap">',
+              '<img src="' + item.image + '" alt="' + item.title + '" class="related-thumb" loading="lazy" />',
+            '</div>',
+            '<div class="related-body">',
+              '<div style="font-size:11px; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:6px;">' + item.category + '</div>',
+              '<h3 class="related-card-title">' + item.title + '</h3>',
+              '<div class="related-meta">',
+                '<span>' + item.date + '</span>',
+                '<span>' + item.read_time + '</span>',
+              '</div>',
+            '</div>',
+          '</div>'
+        ].join('');
+      }).join('');
+    }
+
+    // Share Functions
+    function shareToWhatsApp() {
+      const url = window.location.href;
+      const title = CURRENT_ARTICLE ? CURRENT_ARTICLE.title : document.title;
+      const text = title + '\n\n' + url;
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    function copyArticleLink() {
+      const url = window.location.href;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(function() {
+          const txt = document.getElementById('copyLinkText');
+          if (txt) {
+            txt.textContent = 'Tersalin!';
+            setTimeout(function() { txt.textContent = 'Salin Link'; }, 2000);
+          }
+        });
+      }
+    }
+
+    // Initialize Article Loading
+    async function initArticle() {
+      const targetSlug = getTargetSlug();
+
+      // Cek apakah targetSlug adalah default article
+      if (targetSlug === DEFAULT_ARTICLE.slug) {
+        renderArticleDetail(DEFAULT_ARTICLE);
+        return;
+      }
+
+      // Fetch full articles JSON
+      try {
+        const res = await fetch('/data/articles.json');
+        if (!res.ok) throw new Error('Failed to fetch articles');
+        const list = await res.json();
+        const found = list.find(function(item) { return item.slug === targetSlug; });
+        if (found) {
+          renderArticleDetail(found);
+        } else {
+          // Fallback ke default
+          renderArticleDetail(DEFAULT_ARTICLE);
+        }
+      } catch (err) {
+        console.error('Error loading article:', err);
+        renderArticleDetail(DEFAULT_ARTICLE);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      initArticle();
+    });
+  </script>
+</body>
+</html>

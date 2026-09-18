@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XL SATU Fiber — Cinematic Promo Motion</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-bold.otf') format('opentype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-medium.otf') format('opentype');
+      font-weight: 500;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'XLSmart', -apple-system, sans-serif;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #091322;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 16:9 Master Viewport Stage */
+    #stage {
+      width: 1920px;
+      height: 1080px;
+      position: relative;
+      overflow: hidden;
+      background: #091322;
+      transform-origin: center center;
+    }
+
+    /* Continuous World Canvas */
+    #world {
+      width: 4800px;
+      height: 2400px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    /* Background Grids & Ambience */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(24, 68, 138, 0.4) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(5, 169, 134, 0.3) 0%, transparent 40%),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+    }
+
+    /* World Nodes (Coordinates) */
+    .world-node {
+      position: absolute;
+      width: 1920px;
+      height: 1080px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px;
+    }
+
+    /* NODE 1: PROBLEM (x: 0, y: 0) */
+    #node-problem {
+      top: 0;
+      left: 0;
+    }
+
+    /* NODE 2: SOLUTION (x: 1920, y: 0) */
+    #node-solution {
+      top: 0;
+      left: 1920px;
+      background: radial-gradient(circle at center, rgba(24, 68, 138, 0.25) 0%, transparent 70%);
+    }
+
+    /* NODE 3: PROMO (x: 2880, y: 600) */
+    #node-promo {
+      top: 300px;
+      left: 2880px;
+      background: radial-gradient(circle at center, rgba(5, 169, 134, 0.25) 0%, transparent 70%);
+    }
+
+    /* NODE 4: CTA (x: 1440, y: 1320) */
+    #node-cta {
+      top: 1320px;
+      left: 1440px;
+      background: radial-gradient(circle at center, rgba(29, 144, 201, 0.2) 0%, transparent 70%);
+    }
+
+    /* Typography & Visual Elements */
+    .kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .badge-red {
+      background: rgba(225, 29, 72, 0.2);
+      border-color: #e11d48;
+      color: #fda4af;
+    }
+    .badge-tosca {
+      background: rgba(5, 169, 134, 0.2);
+      border-color: #05A986;
+      color: #6ee7b7;
+    }
+    .badge-blue {
+      background: rgba(24, 68, 138, 0.3);
+      border-color: #18448A;
+      color: #93c5fd;
+    }
+
+    .main-headline {
+      font-size: 76px;
+      line-height: 1.15;
+      font-weight: 700;
+      max-width: 1400px;
+      margin-bottom: 24px;
+    }
+    .hl-yellow { color: #facc15; }
+    .hl-tosca { color: #05A986; }
+    .hl-blue { color: #38bdf8; }
+
+    .sub-headline {
+      font-size: 32px;
+      color: #94a3b8;
+      max-width: 1000px;
+      line-height: 1.4;
+    }
+
+    /* Cards in Nodes */
+    .promo-box-container {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .promo-spec-card {
+      background: rgba(255, 255, 255, 0.07);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 28px;
+      padding: 36px 44px;
+      text-align: left;
+      backdrop-filter: blur(12px);
+      min-width: 420px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .spec-speed-meter {
+      font-size: 88px;
+      font-weight: 700;
+      color: #05A986;
+      line-height: 1;
+      margin: 16px 0;
+    }
+
+    /* Floating Logo */
+    .motion-logo {
+      height: 110px;
+      width: auto;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 10px 30px rgba(24, 68, 138, 0.8));
+    }
+
+    /* WA CTA Button Card */
+    .cta-card {
+      background: #ffffff;
+      color: #131313;
+      padding: 48px 64px;
+      border-radius: 36px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    .cta-wa-pill {
+      background: #05A986;
+      color: #ffffff;
+      font-size: 40px;
+      font-weight: 700;
+      padding: 16px 48px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 12px 36px rgba(5, 169, 134, 0.4);
+    }
+
+    /* Audio Master Element */
+    #audioMaster {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="stage">
+    <div id="world">
+      <div class="bg-grid"></div>
+
+      <!-- NODE 1: PROBLEM HOOK (0.0s - 6.5s) -->
+      <div class="world-node" id="node-problem">
+        <div class="kicker-badge badge-red" id="p-badge">Internet Rumah Masih Lemot?</div>
+        <h1 class="main-headline" id="p-head">
+          Sering Ngadat Pas Lagi <span class="hl-yellow">Streaming</span> atau <span class="hl-yellow">Kerja</span>?
+        </h1>
+        <p class="sub-headline" id="p-sub">
+          Batas FUP bikin jengkel di akhir bulan, sinyal putus-putus bikin kerjaan terhambat.
+        </p>
+      </div>
+
+      <!-- NODE 2: SOLUTION (6.5s - 14.0s) -->
+      <div class="world-node" id="node-solution">
+        <img src="/assets/logo-xlsatu.png" alt="XL SATU Fiber" class="motion-logo" id="s-logo" />
+        <div class="kicker-badge badge-tosca" id="s-badge">Solusi Internet Rumah Terbaik</div>
+        <h1 class="main-headline" id="s-head">
+          Saatnya Beralih ke <span class="hl-tosca">XL SATU Fiber</span>!
+        </h1>
+        <p class="sub-headline" id="s-sub">
+          100% Fiber Optik Murni · <strong style="color:#ffffff;">True Unlimited Tanpa Batas FUP</strong>
+        </p>
+      </div>
+
+      <!-- NODE 3: KILLER PROMO (14.0s - 22.5s) -->
+      <div class="world-node" id="node-promo">
+        <div class="kicker-badge badge-blue" id="pr-badge">Promo Spesial Bulan Ini</div>
+        <h1 class="main-headline" id="pr-head" style="font-size: 64px;">
+          Speed Booster Otomatis hingga <span class="hl-tosca">250 MBPS</span>!
+        </h1>
+        <div class="promo-box-container" id="pr-cards">
+          <div class="promo-spec-card">
+            <div style="font-size: 20px; color: #94a3b8; font-weight:700;">KECEPATAN INTERNET</div>
+            <div class="spec-speed-meter" id="speedCounter">250 <span style="font-size:36px; color:#ffffff;">Mbps</span></div>
+            <div style="font-size: 18px; color: #38bdf8;">True Unlimited · Router Wi-Fi 6</div>
+          </div>
+          <div class="promo-spec-card">
+            <div style="font-size: 20px; color: #94a3b8; font-weight:700;">BENEFIT TAMBAHAN</div>
+            <div style="font-size: 44px; font-weight:700; color:#facc15; margin:16px 0;">GRATIS!</div>
+            <div style="font-size: 18px; color: #ffffff;">• Bebas Pasang Rp 500.000<br>• Bonus Kuota HP Sekeluarga</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NODE 4: CTA (22.5s - 30.6s) -->
+      <div class="world-node" id="node-cta">
+        <div class="cta-card" id="c-card">
+          <img src="/assets/logo-xlsatu.png" alt="XL SATU" style="height: 64px; width:auto;" />
+          <h2 style="font-size: 46px; font-weight: 700; color: #18448A; text-align: center;">
+            Cek Jangkauan Alamat Rumahmu Sekarang!
+          </h2>
+          <p style="font-size: 24px; color: #64748B; text-align: center;">
+            Konsultasi gratis & pasang cepat tanpa ribet bersama tim resmi.
+          </p>
+          <div class="cta-wa-pill">
+            <svg style="width:40px; height:40px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.13 6.94C8.94 6.94 8.64 7.01 8.38 7.29C8.12 7.57 7.39 8.26 7.39 9.66C7.39 11.06 8.41 12.41 8.55 12.6C8.7 12.79 10.54 15.63 13.36 16.85C14.03 17.14 14.56 17.32 14.96 17.45C15.64 17.66 16.25 17.63 16.74 17.56C17.29 17.48 18.42 16.87 18.66 16.2C18.89 15.53 18.89 14.96 18.82 14.84C18.75 14.72 18.57 14.65 18.29 14.51C18.01 14.37 16.67 13.71 16.42 13.62C16.17 13.53 15.99 13.48 15.8 13.76C15.62 14.04 15.1 14.65 14.94 14.84C14.79 15.02 14.63 15.05 14.35 14.91C14.07 14.77 13.18 14.48 12.12 13.53C11.3 12.8 10.74 11.89 10.6 11.65C10.45 11.42 10.58 11.29 10.72 11.15C10.85 11.02 11.01 10.8 11.15 10.63C11.29 10.46 11.34 10.34 11.43 10.16C11.52 9.97 11.48 9.81 11.41 9.67C11.34 9.53 10.79 8.18 10.56 7.62C10.33 7.07 10.1 7.15 9.93 7.14C9.77 7.13 9.58 7.13 9.4 7.13C9.21 7.13 9.13 6.94 9.13 6.94Z"/></svg>
+            0878-4656-0510
+          </div>
+          <div style="font-size: 22px; font-weight: 700; color: #18448A; letter-spacing: 0.5px;">
+            exelsatu.my.id
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <audio id="audioMaster" src="/assets/vo_xlsatu.mp3" preload="auto"></audio>
+
+  <script>
+    // Responsive Stage Scaling to Fit Browser Window
+    function resizeStage() {
+      const stage = document.getElementById('stage');
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      const scale = Math.min(w / 1920, h / 1080);
+      stage.style.transform = 'scale(' + scale + ')';
+    }
+    window.addEventListener('resize', resizeStage);
+    resizeStage();
+
+    // GSAP Master Timeline Construction
+    const DURATION = 30.6;
+    const tl = gsap.timeline({ paused: true });
+
+    // Camera Rig function: moves world to center (tx, ty) at given scale
+    function cam(tx, ty, zoom) {
+      // Stage center is 960, 540
+      const x = 960 - tx * zoom;
+      const y = 540 - ty * zoom;
+      return { x: x, y: y, scale: zoom };
+    }
+
+    // Set Initial Position: Node 1 (Center: 960, 540)
+    const initCam = cam(960, 540, 1.0);
+    gsap.set('#world', { x: initCam.x, y: initCam.y, scale: initCam.scale });
+
+    // Build Animations
+    // --- TIMELINE: 0.0s - 6.5s (Problem Hook) ---
+    tl.fromTo('#p-badge', { y: -40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.7)' }, 0.2);
+    tl.fromTo('#p-head', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0, ease: 'power2.out' }, 0.5);
+    tl.fromTo('#p-sub', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }, 1.0);
+    tl.to('#node-problem', { opacity: 0, duration: 0.6, ease: 'power1.in' }, 5.8);
+
+    // --- TRANSITION TO NODE 2 (Solution): 6.0s - 7.2s ---
+    const sCam = cam(1920 + 960, 540, 1.05);
+    tl.to('#world', { x: sCam.x, y: sCam.y, scale: sCam.scale, duration: 1.4, ease: 'power3.inOut' }, 6.0);
+
+    // --- TIMELINE: 6.8s - 14.0s (XL SATU Solution) ---
+    tl.fromTo('#s-logo', { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 1.0, ease: 'elastic.out(1, 0.75)' }, 6.8);
+    tl.fromTo('#s-badge', { y: -20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, 7.5);
+    tl.fromTo('#s-head', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }, 8.0);
+    tl.fromTo('#s-sub', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.out' }, 8.8);
+    tl.to('#node-solution', { opacity: 0, duration: 0.6, ease: 'power1.in' }, 13.2);
+
+    // --- TRANSITION TO NODE 3 (Promo & Speed Booster): 13.0s - 14.4s ---
+    const prCam = cam(2880 + 960, 300 + 540, 1.0);
+    tl.to('#world', { x: prCam.x, y: prCam.y, scale: prCam.scale, duration: 1.4, ease: 'power3.inOut' }, 13.0);
+
+    // --- TIMELINE: 13.8s - 22.5s (Promo & Cards) ---
+    tl.fromTo('#pr-badge', { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.5)' }, 13.8);
+    tl.fromTo('#pr-head', { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: 'power2.out' }, 14.3);
+    tl.fromTo('#pr-cards', { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.0, ease: 'power3.out' }, 15.0);
+
+    // Speed Counter Animation
+    const speedObj = { val: 100 };
+    tl.to(speedObj, {
+      val: 250,
+      duration: 2.0,
+      ease: 'power2.out',
+      onUpdate: function() {
+        const el = document.getElementById('speedCounter');
+        if (el) el.innerHTML = Math.round(speedObj.val) + ' <span style="font-size:36px; color:#ffffff;">Mbps</span>';
+      }
+    }, 15.5);
+    tl.to('#node-promo', { opacity: 0, duration: 0.6, ease: 'power1.in' }, 21.8);
+
+    // --- TRANSITION TO NODE 4 (Call to Action): 21.5s - 23.0s ---
+    const cCam = cam(1440 + 960, 1320 + 540, 1.1);
+    tl.to('#world', { x: cCam.x, y: cCam.y, scale: cCam.scale, duration: 1.5, ease: 'power3.inOut' }, 21.5);
+
+    // --- TIMELINE: 22.8s - 30.6s (CTA Card) ---
+    tl.fromTo('#c-card', { scale: 0.8, opacity: 0, y: 50 }, { scale: 1, opacity: 1, y: 0, duration: 1.0, ease: 'back.out(1.7)' }, 22.8);
+    tl.to('#c-card', { scale: 1.03, duration: 1.5, yoyo: true, repeat: -1, ease: 'sine.inOut' }, 24.5);
+
+    // Export & Seek API for Puppeteer Headless Renderer
+    window.OPENER = {
+      ready: true,
+      DURATION: DURATION,
+      seek: function(timeInSeconds) {
+        tl.time(timeInSeconds);
+      }
+    };
+
+    // Autoplay & loop control for interactive browser preview
+    const urlParams = new URLSearchParams(window.location.search);
+    const isClean = urlParams.get('clean') === '1';
+
+    if (!isClean) {
+      const audio = document.getElementById('audioMaster');
+      function startPlay() {
+        tl.play(0);
+        if (audio) {
+          audio.currentTime = 0;
+          audio.play().catch(() => {});
+        }
+      }
+
+      // Loop when complete
+      tl.eventCallback('onComplete', () => {
+        setTimeout(startPlay, 1000);
+      });
+
+      // Start on interaction or immediate
+      window.addEventListener('click', () => {
+        if (tl.paused()) startPlay();
+      }, { once: true });
+
+      startPlay();
+    }
+  </script>
+</body>
+</html>
