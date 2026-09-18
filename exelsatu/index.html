@@ -648,38 +648,89 @@
       box-shadow: var(--shadow-card);
       position: relative;
       background: #000000;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
     }
     .fm-banner-img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      opacity: 0.92;
+      opacity: 0.94;
+      transition: opacity 0.2s ease;
+    }
+    .fm-card-banner:hover .fm-banner-img {
+      opacity: 1;
     }
     .fm-play-btn {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
+      width: 64px;
+      height: 64px;
       background: #ffffff;
+      border: none;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      z-index: 2;
     }
-    .fm-play-btn:hover {
-      transform: translate(-50%, -50%) scale(1.1);
+    .fm-card-banner:hover .fm-play-btn {
+      transform: translate(-50%, -50%) scale(1.12);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
     }
     .fm-play-btn svg {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       fill: var(--primary);
       color: var(--primary);
       margin-left: 3px;
+    }
+    .fm-iframe-wrap {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .fm-iframe-player {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .fm-close-video-btn {
+      display: none;
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 10;
+      background: rgba(15, 23, 42, 0.85);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: background 0.2s ease;
+    }
+    .fm-close-video-btn:hover {
+      background: rgba(15, 23, 42, 1);
+    }
+    .fm-close-video-btn svg {
+      width: 14px;
+      height: 14px;
     }
 
     /* Calculator Section */
@@ -1589,11 +1640,16 @@
         <p class="section-desc">Nikmati internet rumah tambah cepat dengan jaringan tepercaya <strong>XLSMART</strong> yang membuat setiap momen di rumah lebih nyaman bersama koneksi dan hiburan tanpa batas.</p>
       </div>
 
-      <div class="fm-card-banner">
-        <img src="/assets/firstmedia-video.jpg" alt="First Media Kini Menjadi XL SATU" class="fm-banner-img" />
-        <a href="https://www.youtube.com/watch?v=AU_HZiZwwpQ" target="_blank" class="fm-play-btn" aria-label="Tonton Video Penjelasan">
+      <div class="fm-card-banner" id="fmVideoContainer" onclick="playFmVideo()">
+        <img src="/assets/firstmedia-video.jpg" alt="First Media Kini Menjadi XL SATU" class="fm-banner-img" id="fmCoverImg" />
+        <button type="button" class="fm-play-btn" id="fmPlayBtn" aria-label="Putar Video Penjelasan Langsung di Halaman">
           <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        </a>
+        </button>
+        <button type="button" class="fm-close-video-btn" id="fmCloseVideoBtn" onclick="stopFmVideo(event)" aria-label="Tutup Pemutar Video">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          <span>Tutup Video</span>
+        </button>
+        <div class="fm-iframe-wrap" id="fmIframeWrap"></div>
       </div>
     </div>
   </section>
@@ -2095,6 +2151,42 @@
       if (!isOpen) {
         item.classList.add('open');
       }
+    }
+
+    // In-Page Video Player Control (First Media -> XL SATU)
+    function playFmVideo() {
+      const container = document.getElementById('fmVideoContainer');
+      const coverImg = document.getElementById('fmCoverImg');
+      const playBtn = document.getElementById('fmPlayBtn');
+      const closeBtn = document.getElementById('fmCloseVideoBtn');
+      const iframeWrap = document.getElementById('fmIframeWrap');
+
+      if (iframeWrap && !iframeWrap.querySelector('iframe')) {
+        if (coverImg) coverImg.style.display = 'none';
+        if (playBtn) playBtn.style.display = 'none';
+        if (closeBtn) closeBtn.style.display = 'inline-flex';
+        iframeWrap.style.display = 'block';
+        iframeWrap.innerHTML = '<iframe class="fm-iframe-player" src="https://www.youtube-nocookie.com/embed/AU_HZiZwwpQ?autoplay=1&rel=0&modestbranding=1" title="First Media Kini Jadi XL SATU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+        if (container) container.style.cursor = 'default';
+      }
+    }
+
+    function stopFmVideo(event) {
+      if (event) event.stopPropagation();
+      const container = document.getElementById('fmVideoContainer');
+      const coverImg = document.getElementById('fmCoverImg');
+      const playBtn = document.getElementById('fmPlayBtn');
+      const closeBtn = document.getElementById('fmCloseVideoBtn');
+      const iframeWrap = document.getElementById('fmIframeWrap');
+
+      if (iframeWrap) {
+        iframeWrap.innerHTML = '';
+        iframeWrap.style.display = 'none';
+      }
+      if (coverImg) coverImg.style.display = 'block';
+      if (playBtn) playBtn.style.display = 'flex';
+      if (closeBtn) closeBtn.style.display = 'none';
+      if (container) container.style.cursor = 'pointer';
     }
 
     runCustomerCalculator();
