@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>XL SATU Sales War Room & Product Knowledge Hub</title>
+  <meta name="description" content="Pusat intelijen resmi sales XL SATU Fiber: lini paket SPARK, FWA 5G, JOY TV Cable, SOP registrasi KTP/PLN, matriks resiko WO & refund guard." />
+  <meta name="theme-color" content="#070d1e" />
+
+  <!-- Official XL Brand Fonts -->
+  <style>
+    @font-face {
+      font-family: 'XLSMART_FONT';
+      src: url('fonts/xlsmart-regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSMART_FONT';
+      src: url('fonts/xlsmart-medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSMART_FONT';
+      src: url('fonts/xlsmart-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+
+  <!-- Prevent Theme Flashing -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('xlsatu_theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    :root {
+      /* Dark Theme (Default) */
+      --bg: #070d1e;
+      --bg-surface: #0e172e;
+      --bg-card: #131f38;
+      --bg-card-hover: #19294a;
+      --bg-input: rgba(0, 0, 0, 0.35);
+      --bg-script: rgba(0, 0, 0, 0.45);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-focus: #00d2ff;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-faint: #64748b;
+      --xl-blue: #0047ff;
+      --xl-cyan: #00d2ff;
+      --xl-green: #00e5a3;
+      --xl-gold: #fbbf24;
+      --xl-red: #f43f5e;
+      --topbar-bg: rgba(7, 13, 30, 0.92);
+      --card-highlight-bg: linear-gradient(180deg, #132244 0%, #0e172e 100%);
+      --table-th-bg: #111d38;
+      --table-highlight-col: rgba(0, 210, 255, 0.06);
+      --box-shadow: 0 10px 30px -10px rgba(0, 71, 255, 0.2);
+    }
+
+    [data-theme="light"] {
+      /* Light Theme */
+      --bg: #f4f6fb;
+      --bg-surface: #ffffff;
+      --bg-card: #ffffff;
+      --bg-card-hover: #f8fafc;
+      --bg-input: #ffffff;
+      --bg-script: #f1f5f9;
+      --border: #e2e8f0;
+      --border-focus: #0047ff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --text-faint: #64748b;
+      --xl-blue: #0038cb;
+      --xl-cyan: #0077c8;
+      --xl-green: #059669;
+      --xl-gold: #d97706;
+      --xl-red: #e11d48;
+      --topbar-bg: rgba(255, 255, 255, 0.94);
+      --card-highlight-bg: linear-gradient(180deg, #eef6ff 0%, #ffffff 100%);
+      --table-th-bg: #f1f5f9;
+      --table-highlight-col: rgba(0, 71, 255, 0.05);
+      --box-shadow: 0 8px 24px -6px rgba(0, 71, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'XLSMART_FONT', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      font-size: 15px;
+      padding-bottom: 90px;
+      overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+      width: 100%;
+    }
+
+    /* Top Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--topbar-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 10px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, var(--xl-blue), var(--xl-cyan));
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand-title span {
+      color: var(--xl-cyan);
+    }
+    
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--border-focus);
+      transform: scale(1.05);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 229, 163, 0.12);
+      color: var(--xl-green);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 229, 163, 0.25);
+      white-space: nowrap;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--xl-green);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--xl-green);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 26px 0 20px;
+      position: relative;
+    }
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--xl-cyan);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+    .hero-h1 {
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+      word-break: break-word;
+    }
+    .hero-h1 span.gradient {
+      background: linear-gradient(135deg, var(--xl-blue) 0%, var(--xl-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    [data-theme="dark"] .hero-h1 span.gradient {
+      background: linear-gradient(135deg, #ffffff 40%, var(--xl-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      max-width: 760px;
+      margin-bottom: 20px;
+      word-break: break-word;
+    }
+
+    /* Search Bar */
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 16px 13px 44px;
+      color: var(--text);
+      font-size: 14.5px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.15);
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Tabs */
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .tab-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      flex-shrink: 0;
+    }
+    .tab-btn:hover {
+      color: var(--text);
+      border-color: var(--border-focus);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--xl-blue), #002ca8);
+      border-color: var(--xl-cyan);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 71, 255, 0.3);
+    }
+    .badge-count {
+      background: var(--xl-cyan);
+      color: #070d1e;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin-left: 2px;
+    }
+
+    /* Section Typography */
+    .section-header {
+      margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      word-break: break-word;
+    }
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    /* Grids */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+      width: 100%;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+      width: 100%;
+    }
+
+    /* Card */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      box-shadow: var(--box-shadow);
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-2px);
+    }
+    .card.highlight {
+      border-color: var(--xl-cyan);
+      background: var(--card-highlight-bg);
+      box-shadow: 0 10px 30px -8px rgba(0, 210, 255, 0.22);
+    }
+    .card-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--xl-cyan);
+      color: #070d1e;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      letter-spacing: 0.5px;
+    }
+
+    .pkg-speed {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .pkg-speed-num {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--xl-cyan);
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .pkg-speed-unit {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .pkg-base-info {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .pkg-base-info .booster {
+      color: var(--xl-green);
+      font-weight: 700;
+    }
+
+    .pkg-price-wrap {
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px;
+      margin-bottom: 16px;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .pkg-price-old {
+      font-size: 12px;
+      color: var(--text-faint);
+      text-decoration: line-through;
+    }
+    .pkg-price-main {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .pkg-price-num {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+    .pkg-price-period {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .pkg-price-ppn {
+      font-size: 12px;
+      color: var(--xl-green);
+      font-weight: 600;
+      margin-top: 3px;
+      word-break: break-word;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13.5px;
+      color: var(--text);
+      word-break: break-word;
+      min-width: 0;
+    }
+    .feature-item .icon {
+      color: var(--xl-cyan);
+      margin-top: 3px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 13.5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: none;
+      font-family: inherit;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--xl-blue), var(--xl-cyan));
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 71, 255, 0.25);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover {
+      background: rgba(0, 71, 255, 0.08);
+      border-color: var(--border-focus);
+    }
+    .btn-copy {
+      background: rgba(0, 210, 255, 0.12);
+      color: var(--xl-cyan);
+      border: 1px solid rgba(0, 210, 255, 0.25);
+      padding: 7px 13px;
+      font-size: 12.5px;
+      width: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .btn-copy:hover {
+      background: var(--xl-cyan);
+      color: #070d1e;
+    }
+    .btn-wa {
+      background: rgba(0, 229, 163, 0.15);
+      color: var(--xl-green);
+      border: 1px solid rgba(0, 229, 163, 0.35);
+      padding: 7px 13px;
+      font-size: 12.5px;
+      width: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+    .btn-wa:hover {
+      background: var(--xl-green);
+      color: #070d1e;
+    }
+
+    /* Table */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      margin-bottom: 28px;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+      min-width: 600px;
+    }
+    th, td {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--border);
+      word-break: break-word;
+    }
+    th {
+      background: var(--table-th-bg);
+      font-weight: 700;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    td {
+      color: var(--text-muted);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .col-highlight {
+      background: var(--table-highlight-col);
+      font-weight: 600;
+      color: var(--text);
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    th.col-highlight {
+      color: var(--xl-cyan);
+    }
+    .badge-win {
+      background: rgba(0, 229, 163, 0.15);
+      color: var(--xl-green);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .badge-lose {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--xl-red);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Script Vault Card */
+    .script-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .script-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .script-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      word-break: break-word;
+      min-width: 0;
+    }
+    .script-body {
+      background: var(--bg-script);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 13.5px;
+      color: var(--text);
+      white-space: pre-wrap;
+      font-family: inherit;
+      line-height: 1.6;
+      border-left: 3.5px solid var(--xl-cyan);
+      word-break: break-word;
+      overflow-wrap: anywhere;
+      min-width: 0;
+    }
+
+    /* Accordion */
+    .accordion-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .accordion-item.open {
+      border-color: var(--border-focus);
+    }
+    .accordion-trigger {
+      width: 100%;
+      text-align: left;
+      padding: 15px 18px;
+      background: transparent;
+      border: none;
+      color: var(--text);
+      font-size: 14.5px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      word-break: break-word;
+    }
+    .accordion-content {
+      padding: 0 18px 16px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      display: none;
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      word-break: break-word;
+    }
+    .accordion-item.open .accordion-content {
+      display: block;
+    }
+    .tangkisan-box {
+      background: rgba(0, 210, 255, 0.08);
+      border-left: 3px solid var(--xl-cyan);
+      padding: 12px 14px;
+      border-radius: 6px;
+      color: var(--text);
+      margin-top: 10px;
+      word-break: break-word;
+    }
+
+    .callout-warning {
+      background: rgba(244, 63, 94, 0.1);
+      border: 1.5px solid rgba(244, 63, 94, 0.35);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      color: #fecdd3;
+    }
+    [data-theme="light"] .callout-warning {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      color: #9f1239;
+    }
+
+    /* Calculator */
+    .calc-card {
+      background: var(--bg-card);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: var(--box-shadow);
+      min-width: 0;
+      word-break: break-word;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      min-width: 0;
+    }
+    @media (max-width: 820px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .form-group {
+      margin-bottom: 15px;
+      min-width: 0;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+      word-break: break-word;
+    }
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--text);
+      font-size: 14.5px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color: var(--border-focus);
+    }
+    .calc-result-box {
+      background: var(--bg-surface);
+      border: 1px solid rgba(0, 229, 163, 0.3);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .calc-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: 13px;
+      flex-wrap: wrap;
+    }
+    .calc-stat-row.highlight {
+      border-bottom: none;
+      padding-top: 12px;
+      margin-top: 6px;
+    }
+    .savings-big {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--xl-green);
+      letter-spacing: -0.5px;
+      word-break: break-word;
+    }
+    .savings-yearly {
+      font-size: 13px;
+      color: var(--xl-gold);
+      font-weight: 600;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    .order-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 32px;
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--xl-cyan);
+      color: #070d1e;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 8px 24px rgba(0, 210, 255, 0.35);
+      z-index: 999;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    #toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .hotline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .hotline-num {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--xl-cyan);
+      word-break: break-all;
+    }
+
+    @media (max-width: 640px) {
+      .hero-h1 { font-size: 22px; }
+      .card { padding: 16px; }
+      .calc-card { padding: 16px; }
+      .order-box { padding: 16px; }
+      .brand-title { font-size: 14px; }
+      .brand-badge { font-size: 11px; padding: 3px 8px; }
+      .status-pill span { display: none; }
+      .status-pill { padding: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-badge">XL SATU</span>
+        <div class="brand-title">Sales <span>War Room</span></div>
+      </div>
+      
+      <div class="topbar-actions">
+        <a href="./" class="btn-crm-link" style="display:inline-flex; align-items:center; gap:6px; background:rgba(0,229,163,0.15); color:var(--xl-green); border:1px solid rgba(0,229,163,0.3); padding:6px 13px; border-radius:999px; font-size:12px; font-weight:700; text-decoration:none; transition:all 0.2s;">
+          <svg class="icon" style="width:14px;height:14px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          CRM Follow-Up
+        </a>
+
+        <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Ganti Tema">
+          <svg id="themeIconDark" class="icon" style="display:none;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg id="themeIconLight" class="icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <div class="status-pill">
+          <div class="status-dot"></div>
+          <span>Auto-Scan Dicas Aktif</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-tagline">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span>Sales Intelligence & Field Playbook</span>
+      </div>
+      <h1 class="hero-h1">
+        Panduan Riset & Senjata Closing <br />
+        <span class="gradient">Internet Rumah XL SATU Fiber</span>
+      </h1>
+      <p class="hero-desc">
+        Hub resmi sales Farid Adam: komparasi paket SPARK, FWA 5G, JOY TV Cable, SOP registrasi KTP/PLN, matriks resiko cancelation/refund, kalkulator hemat interaktif, dan inbox prospek otomatis saat hape dicas.
+      </p>
+
+      <!-- Quick Search -->
+      <div class="search-box">
+        <svg class="search-icon icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input 
+          type="text" 
+          id="quickSearch" 
+          class="search-input" 
+          placeholder="Cari materi (cth: spark, fwa, joy, tv cable, kwh listrik, eligible, refund, 250 mbps)..." 
+          oninput="handleQuickSearch()"
+        />
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="nav-tabs" id="navTabs">
+        <button class="tab-btn active" onclick="switchTab('inbox')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-7z"/><path d="M5.45 5.11 2 12v0h20v0l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+          Inbox Prospek Masuk <span class="badge-count" id="badgeProspectCount">2</span>
+        </button>
+        <button class="tab-btn" onclick="switchTab('spark')">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          Lini FTTH SPARK
+        </button>
+        <button class="tab-btn" onclick="switchTab('fwa')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+          FWA 5G & Tahunan
+        </button>
+        <button class="tab-btn" onclick="switchTab('joy')">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          Paket JOY (TV Cable)
+        </button>
+        <button class="tab-btn" onclick="switchTab('sop')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+          SOP Registrasi & CA
+        </button>
+        <button class="tab-btn" onclick="switchTab('wo')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Matriks Resiko WO
+        </button>
+        <button class="tab-btn" onclick="switchTab('kalkulator')">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/></svg>
+          Kalkulator Hemat
+        </button>
+        <button class="tab-btn" onclick="switchTab('komparasi')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/></svg>
+          Battlecard Lawan
+        </button>
+        <button class="tab-btn" onclick="switchTab('skrip')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Skrip Sales WA
+        </button>
+        <button class="tab-btn" onclick="switchTab('closing')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+          Form Order WA
+        </button>
+      </div>
+    </section>
+
+    <!-- TAB 0: INBOX PROSPEK & MEDIA SCANNER -->
+    <section id="tab-inbox" class="tab-content">
+      <div class="section-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+        <div>
+          <h2 class="section-title">
+            <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><path d="M22 12h-6l-2 3h-4l-2-3H2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-7z"/><path d="M5.45 5.11 2 12v0h20v0l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+            Inbox Prospek & Media Scanner (Live Database)
+          </h2>
+          <p class="section-sub">Otomatis memindai WhatsApp, Screenshot & Kamera setiap hape dicas. Data calon pembeli & materi tersinkronisasi otomatis.</p>
+        </div>
+        <div style="display:flex; gap:8px; align-items:center;">
+          <button class="btn-copy" onclick="loadLiveDatabase()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            Refresh Database
+          </button>
+        </div>
+      </div>
+
+      <!-- Scanner Status Metrics -->
+      <div class="grid-3" style="margin-bottom:24px;">
+        <div class="card" style="padding:16px;">
+          <div style="font-size:12px; color:var(--text-muted); font-weight:600;">STATUS SCANNER HAPE</div>
+          <div style="font-size:20px; font-weight:700; color:var(--xl-green); margin:4px 0;" id="scannerStatusTxt">⚡ Watcher Dicas Aktif</div>
+          <div style="font-size:12px; color:var(--text-faint);" id="lastScanTriggerTxt">Terakhir: Otomatis saat dicas</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="font-size:12px; color:var(--text-muted); font-weight:600;">TOTAL PROSPEK TERDETEKSI</div>
+          <div style="font-size:28px; font-weight:700; color:var(--xl-cyan);" id="metricProspects">2</div>
+          <div style="font-size:12px; color:var(--text-faint);">Kontak dari WhatsApp / Screenshot</div>
+        </div>
+        <div class="card" style="padding:16px;">
+          <div style="font-size:12px; color:var(--text-muted); font-weight:600;">MATERI & BROSUR TERSIMPAN</div>
+          <div style="font-size:28px; font-weight:700; color:var(--xl-gold);" id="metricMaterials">7</div>
+          <div style="font-size:12px; color:var(--text-faint);">Brosur flyer & info product knowledge</div>
+        </div>
+      </div>
+
+      <!-- Prospects List -->
+      <div style="margin-bottom:32px;">
+        <h3 style="font-size:17px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+          Daftar Calon Pelanggan (Prospek Baru)
+        </h3>
+        <div id="prospectsContainer">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Materials List -->
+      <div style="margin-bottom:32px;">
+        <h3 style="font-size:17px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px;">
+          <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Materi & Brosur Terkoleksi dari Galeri
+        </h3>
+        <div id="materialsContainer">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 1: LINI FTTH SPARK -->
+    <section id="tab-spark" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Lini XL SATU FTTH SPARK (Internet Only 1:1 Simetris)
+        </h2>
+        <p class="section-sub">100% Kabel Fiber Optik murni tanpa TV cable, kecepatan simetris 1:1, True Unlimited tanpa batas FUP.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- SPARK 250 Mbps -->
+        <div class="card highlight searchable" data-search="spark 250 mbps internet only rp 229.000 254.190 simetris 1:1">
+          <div>
+            <div class="card-badge">Best Seller</div>
+            <div class="pkg-speed">
+              <span class="pkg-speed-num">250</span>
+              <span class="pkg-speed-unit">Mbps</span>
+            </div>
+            <div class="pkg-base-info">
+              <span>Base 100 Mbps</span>
+              <span>&bull;</span>
+              <span class="booster">Booster ke 250 Mbps</span>
+            </div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 289.000/bln</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 229.000</span>
+                <span class="pkg-price-period">/bln*</span>
+              </div>
+              <div class="pkg-price-ppn">Harga Bersih (Inc. PPN 11%): <strong>Rp 254.190</strong></div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Kecepatan Simetris 1:1 (Upload = Download)</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Hingga 10 perangkat & streaming 4K lancar</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>GRATIS</strong> Biaya Instalasi Senilai Rp 500rb</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Sewa Modem WiFi ONT dipinjamkan gratis</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" onclick="selectPackageForOrder('SPARK 250 Mbps (Rp 254.190/bln)')">
+            Pilih Paket SPARK 250
+          </button>
+        </div>
+
+        <!-- SPARK 350 Mbps -->
+        <div class="card searchable" data-search="spark 350 mbps internet only rp 279.000 309.690 simetris 1:1">
+          <div>
+            <div class="pkg-speed">
+              <span class="pkg-speed-num">350</span>
+              <span class="pkg-speed-unit">Mbps</span>
+            </div>
+            <div class="pkg-base-info">
+              <span>Base 150 Mbps</span>
+              <span>&bull;</span>
+              <span class="booster">Booster ke 350 Mbps</span>
+            </div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 359.000/bln</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 279.000</span>
+                <span class="pkg-price-period">/bln*</span>
+              </div>
+              <div class="pkg-price-ppn">Harga Bersih (Inc. PPN 11%): <strong>Rp 309.690</strong></div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Hingga 12 perangkat & gaming ultra-low latency</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Simetris 1:1 & True Unlimited tanpa FUP</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>GRATIS Biaya Instalasi + Sewa Modem</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('SPARK 350 Mbps (Rp 309.690/bln)')">
+            Pilih Paket SPARK 350
+          </button>
+        </div>
+
+        <!-- SPARK 400 Mbps -->
+        <div class="card searchable" data-search="spark 400 mbps internet only rp 300.000 333.000 simetris 1:1">
+          <div>
+            <div class="pkg-speed">
+              <span class="pkg-speed-num">400</span>
+              <span class="pkg-speed-unit">Mbps</span>
+            </div>
+            <div class="pkg-base-info">
+              <span>Base 300 Mbps</span>
+              <span>&bull;</span>
+              <span class="booster">Booster ke 400 Mbps</span>
+            </div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 389.000/bln</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 300.000</span>
+                <span class="pkg-price-period">/bln*</span>
+              </div>
+              <div class="pkg-price-ppn">Harga Bersih (Inc. PPN 11%): <strong>Rp 333.000</strong></div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Hingga 14 perangkat & studio konten kreator</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Upload file bergiga-giga tanpa hambatan</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>GRATIS Biaya Pasang + Modem Fiber</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('SPARK 400 Mbps (Rp 333.000/bln)')">
+            Pilih Paket SPARK 400
+          </button>
+        </div>
+      </div>
+
+      <!-- Ultra High-Speed SPARK 600 & 1000 Mbps -->
+      <div class="grid-2">
+        <div class="card searchable" data-search="spark 600 mbps 1000 mbps 1 gbps ultra fast gigabit">
+          <h3 style="font-size: 16.5px; font-weight: 700; color: var(--xl-cyan); margin-bottom: 6px;">
+            SPARK 600 Mbps & SPARK 1000 Mbps (1 Gbps)
+          </h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 12px;">
+            Paket tier tertinggi untuk ruko, villa, streamer profesional, atau kantor kecil yang butuh koneksi tanpa kompromi.
+          </p>
+          <div style="font-size: 12.5px; color: var(--xl-green); font-weight: 600;">
+            100% Fiber Optik Murni &bull; Kecepatan 1:1 Simetris &bull; Registrasi Mudah via Sales
+          </div>
+        </div>
+        <div class="card searchable" data-search="star pro ftth 300 mbps rp 850.000">
+          <h3 style="font-size: 16.5px; font-weight: 700; color: var(--xl-gold); margin-bottom: 6px;">
+            Star Pro FTTH 300 Mbps
+          </h3>
+          <p style="color: var(--text-muted); font-size: 13.5px; margin-bottom: 12px;">
+            Paket premium prioritas jaringan dengan garansi SLA tinggi: Rp 850.000 / bulan.
+          </p>
+          <div style="font-size: 12.5px; color: var(--xl-cyan); font-weight: 600;">
+            Prioritas Jalur Khusus &bull; Support Bisnis &bull; Router Kelas Enterprise
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: FWA 5G & TAHUNAN -->
+    <section id="tab-fwa" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+          XL SATU FWA (Wireless 5G) & Paket Tahunan
+        </h2>
+        <p class="section-sub">Solusi jitu untuk area yang belum ada tiang/kabel fiber optik, atau pelanggan yang ingin bayar setahun di muka.</p>
+      </div>
+
+      <!-- FWA Promo Box -->
+      <div class="card highlight searchable" data-search="fwa wireless broadband 5g 50 mbps rp 721.500 4 bulan bayar 3 gratis 1 bulan rp 180.375" style="margin-bottom:24px;">
+        <div class="card-badge">Killer Promo FWA</div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+          <div>
+            <h3 style="font-size: 20px; font-weight: 700; color: #fff;">FWA 50 Mbps: Bayar 3 Bulan GRATIS 1 Bulan!</h3>
+            <div style="font-size: 13px; color: var(--xl-cyan); margin-top:2px;">Wireless Home Broadband Menggunakan Jaringan 5G+ XL Axiata</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size: 26px; font-weight: 700; color: var(--xl-green);">Rp 721.500 <span style="font-size: 14px; font-weight: normal; color: var(--text-muted);">/ 4 Bulan</span></div>
+            <div style="font-size: 12px; color: var(--xl-gold); font-weight: 600;">Setara Cuma Rp 180.375 / Bulan! (Inc. PPN)</div>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-bottom:16px;">
+          <div style="background:var(--bg-input); padding:14px; border-radius:12px; border:1px solid var(--border);">
+            <div style="color:var(--xl-cyan); font-weight:700; font-size:14px; margin-bottom:4px;">Tanpa Tarik Kabel Tiang</div>
+            <div style="font-size:12.5px; color:var(--text-muted);">Pakai router nirkabel indoor. Begitu sampai rumah tinggal colok listrik, langsung online!</div>
+          </div>
+          <div style="background:var(--bg-input); padding:14px; border-radius:12px; border:1px solid var(--border);">
+            <div style="color:var(--xl-green); font-weight:700; font-size:14px; margin-bottom:4px;">Gratis Sewa Modem 5G</div>
+            <div style="font-size:12.5px; color:var(--text-muted);">Modem WiFi 5G dipinjamkan cuma-cuma selama berlangganan tanpa biaya beli alat.</div>
+          </div>
+          <div style="background:var(--bg-input); padding:14px; border-radius:12px; border:1px solid var(--border);">
+            <div style="color:var(--xl-gold); font-weight:700; font-size:14px; margin-bottom:4px;">Opsi Bulanan Tersedia</div>
+            <div style="font-size:12.5px; color:var(--text-muted);">Tersedia juga paket bulanan Rp 243.090 / bulan (Inc. PPN). Pembayaran di awal sebelum kirim alat.</div>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="selectPackageForOrder('FWA 50 Mbps (Rp 721.500 / 4 Bulan)')">
+          Pilih Paket FWA 5G Untuk Order
+        </button>
+      </div>
+
+      <!-- Paket Tahunan Advance Kuota Sekeluarga -->
+      <div class="section-header" style="margin-top:20px;">
+        <h3 style="font-size:17px; font-weight:700;">Paket Tahunan XL SATU + Kuota HP Se-Keluarga</h3>
+        <p class="section-sub">Bayar 1 tahun sekaligus di awal dengan diskon besar + kuota seluler bersama tiap bulan.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card searchable" data-search="basic smart tahunan 75 mbps kuota 10gb rp 2.490.000">
+          <div>
+            <div style="font-size:12px; color:var(--xl-cyan); font-weight:700;">PAKET TAHUNAN</div>
+            <h4 style="font-size:18px; font-weight:700; margin:4px 0;">BASIC SMART</h4>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 50 Mbps (Booster $\rightarrow$ 75 Mbps)</div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 2.988.000/thn</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 2.490.000</span>
+                <span class="pkg-price-period">/tahun</span>
+              </div>
+              <div class="pkg-price-ppn">Setara Rp 207.500 / bulan!</div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Bonus Kuota HP Se-Keluarga: <strong>10 GB / bln</strong></span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Gratis nelpon & SMS sesama XL/Axis</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('Tahunan Basic Smart (Rp 2.490.000/thn)')">Pilih Paket Ini</button>
+        </div>
+
+        <div class="card searchable" data-search="basic family tahunan 150 mbps kuota 25gb rp 3.190.000">
+          <div>
+            <div style="font-size:12px; color:var(--xl-green); font-weight:700;">PAKET TAHUNAN</div>
+            <h4 style="font-size:18px; font-weight:700; margin:4px 0;">BASIC FAMILY</h4>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 100 Mbps (Booster $\rightarrow$ 150 Mbps)</div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 3.828.000/thn</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 3.190.000</span>
+                <span class="pkg-price-period">/tahun</span>
+              </div>
+              <div class="pkg-price-ppn">Setara Rp 265.800 / bulan!</div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Bonus Kuota HP Se-Keluarga: <strong>25 GB / bln</strong></span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Gratis nelpon & SMS sepuasnya</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('Tahunan Basic Family (Rp 3.190.000/thn)')">Pilih Paket Ini</button>
+        </div>
+
+        <div class="card searchable" data-search="pro superuser tahunan 200 mbps kuota 50gb rp 3.690.000">
+          <div>
+            <div style="font-size:12px; color:var(--xl-gold); font-weight:700;">PAKET TAHUNAN</div>
+            <h4 style="font-size:18px; font-weight:700; margin:4px 0;">PRO SUPERUSER</h4>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 150 Mbps (Booster $\rightarrow$ 200 Mbps)</div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 4.428.000/thn</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 3.690.000</span>
+                <span class="pkg-price-period">/tahun</span>
+              </div>
+              <div class="pkg-price-ppn">Setara Rp 307.500 / bulan!</div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Bonus Kuota HP Se-Keluarga: <strong>50 GB / bln</strong></span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Bisa dibagi hingga 5 nomor XL</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('Tahunan Pro Superuser (Rp 3.690.000/thn)')">Pilih Paket Ini</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: PAKET JOY (TV CABLE FIRST MEDIA) -->
+    <section id="tab-joy" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-gold)" viewBox="0 0 24 24"><rect width="20" height="15" x="2" y="7" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          Lini JOY: Bundling Internet Fiber + TV Cable (First Media)
+        </h2>
+        <p class="section-sub">Hasil integrasi resmi First Media ke XL SATU: Internet unlimited + 98 sampai 167 siaran TV channel + gratis STB Android TV.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- JOY VALUE -->
+        <div class="card searchable" data-search="joy value 100 mbps 98 tv channel first media vidio catchplay stb">
+          <div>
+            <div style="font-size:12px; color:var(--xl-cyan); font-weight:700;">BUNDLING TV CABLE</div>
+            <h4 style="font-size:20px; font-weight:700; margin:4px 0;">JOY VALUE</h4>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 100 Mbps &bull; 98 Channel TV</div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 4.428.000/thn</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 3.150.000</span>
+                <span class="pkg-price-period">/tahun</span>
+              </div>
+              <div class="pkg-price-ppn">Setara: <strong>Rp 262.500 / bulan!</strong></div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>98 Channel TV</strong> Favorit Keluarga</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>GRATIS Set Top Box (STB) Android TV</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>GRATIS Akses <strong>Vidio.com Lite & Catchplay+</strong></span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('JOY Value (100 Mbps + 98 TV Ch)')">Pilih JOY Value</button>
+        </div>
+
+        <!-- JOY PRO -->
+        <div class="card highlight searchable" data-search="joy pro 150 mbps 99 tv channel first media vidio catchplay stb">
+          <div>
+            <div class="card-badge">Paling Populer TV</div>
+            <div style="font-size:12px; color:var(--xl-green); font-weight:700;">BUNDLING TV CABLE</div>
+            <h4 style="font-size:20px; font-weight:700; margin:4px 0;">JOY PRO</h4>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 150 Mbps &bull; 99 Channel TV</div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 5.146.000/thn</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 3.850.000</span>
+                <span class="pkg-price-period">/tahun</span>
+              </div>
+              <div class="pkg-price-ppn">Setara: <strong>Rp 320.800 / bulan!</strong></div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>99 Channel TV</strong> kualitas HD</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>GRATIS STB Android TV 4K</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Streaming Vidio & Catchplay+ gratis</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary" onclick="selectPackageForOrder('JOY Pro (150 Mbps + 99 TV Ch)')">Pilih JOY Pro</button>
+        </div>
+
+        <!-- JOY PREMIUM -->
+        <div class="card searchable" data-search="joy premium 200 mbps 167 tv channel first media channel terlengkap">
+          <div>
+            <div style="font-size:12px; color:var(--xl-gold); font-weight:700;">BUNDLING TV CABLE</div>
+            <h4 style="font-size:20px; font-weight:700; margin:4px 0;">JOY PREMIUM</h4>
+            <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">Speed 200 Mbps &bull; 167 Channel TV</div>
+
+            <div class="pkg-price-wrap">
+              <div class="pkg-price-old">Rp 6.708.000/thn</div>
+              <div class="pkg-price-main">
+                <span class="pkg-price-num">Rp 6.000.000</span>
+                <span class="pkg-price-period">/tahun</span>
+              </div>
+              <div class="pkg-price-ppn">Setara: <strong>Rp 500.000 / bulan</strong></div>
+            </div>
+
+            <ul class="feature-list">
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>167 Channel TV Terlengkap</strong></span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Premier movie, sports, kids, & news</span>
+              </li>
+              <li class="feature-item">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>STB Android 4K + Akun Streaming</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="selectPackageForOrder('JOY Premium (200 Mbps + 167 TV Ch)')">Pilih JOY Premium</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: SOP REGISTRASI & SYARAT CA -->
+    <section id="tab-sop" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          SOP Pengumpulan Data Registrasi & Syarat Custom Area (CA)
+        </h2>
+        <p class="section-sub">Panduan resmi apa saja dokumen & foto yang wajib dikirim ke sistem sales agar tidak rejected.</p>
+      </div>
+
+      <div class="grid-2">
+        <!-- Syarat Pendaftaran Standar -->
+        <div class="card searchable" data-search="syarat pendaftaran ktp no hp email alamat foto rumah kwh listrik pln vermuk">
+          <h3 style="font-size:18px; font-weight:700; color:var(--xl-cyan); margin-bottom:12px;">
+            9 Syarat Wajib Registrasi Pasang Baru:
+          </h3>
+          <ul class="feature-list" style="gap:12px;">
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">1</span>
+              <span><strong>Foto KTP Asli</strong> (Jelas, tidak blur, tidak terpotong)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">2</span>
+              <span><strong>Nomor HP 1</strong> (Nomor utama WhatsApp calon pelanggan)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">3</span>
+              <span><strong>Nomor HP 2</strong> (Nomor alternatif / pasangan / keluarga serumah)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">4</span>
+              <span><strong>Alamat Email Aktif</strong> (Untuk verifikasi akun & tagihan)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">5</span>
+              <span><strong>Alamat Pemasangan Lengkap</strong> (Jalan, No Rumah, RT/RW, Kel, Kec, Kota)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">6</span>
+              <span><strong>Foto Rumah Full Tampak Depan</strong> (Pagar & nomor rumah terlihat jelas)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">7</span>
+              <span><strong>Foto kWh Meteran Listrik PLN</strong> (Menampilkan barcode / nomor ID pelanggan PLN)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">8</span>
+              <span><strong>Vermuk (Verifikasi Muka)</strong> via link email / link WA resmi CST XL</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-cyan); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">9</span>
+              <span><strong>Paket yang Diambil</strong> (Misal: SPARK 250 Mbps / JOY Pro)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Syarat CA (Custom Area) -->
+        <div class="card searchable" data-search="syarat ca custom area fat video denah sharelok tikor">
+          <h3 style="font-size:18px; font-weight:700; color:var(--xl-gold); margin-bottom:12px;">
+            6 Syarat Pengajuan Custom Area (CA):
+          </h3>
+          <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:14px;">
+            Gunakan jalur <strong>Custom Area (CA)</strong> jika alamat rumah prospek belum masuk database sistem tapi dekat dengan tiang FAT / ODP XL SATU (First Media).
+          </p>
+          <ul class="feature-list" style="gap:12px;">
+            <li class="feature-item">
+              <span style="background:var(--xl-gold); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">1</span>
+              <span><strong>Foto KTP</strong> Calon Pelanggan</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-gold); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">2</span>
+              <span><strong>Gambar Denah Lokasi</strong> (Coretan sketsa posisi rumah dari jalan utama)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-gold); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">3</span>
+              <span><strong>Foto Rumah Tampak Depan</strong></span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-gold); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">4</span>
+              <span><strong>Video Rekaman Jalur dari FAT ke Rumah</strong> (Walkthrough jarak kabel optik)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-gold); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">5</span>
+              <span><strong>Foto Tiang FAT / ODP</strong> (Memperlihatkan kode boks terminal tiang)</span>
+            </li>
+            <li class="feature-item">
+              <span style="background:var(--xl-gold); color:#070d1e; font-weight:800; border-radius:50%; width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">6</span>
+              <span><strong>Sharelock / Titik Koordinat (Tikor)</strong> presisi via Google Maps</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: MATRIKS RESIKO WO & REFUND GUARD -->
+    <section id="tab-wo" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-red)" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+          Matriks Resiko WO: Alasan Cancelation & Refund Guard
+        </h2>
+        <p class="section-sub">Panduan keselamatan sales: Bedakan pembatalan yang AMAN (Eligible) vs yang BIKIN RUGI & SUSAH REFUND (Not Eligible).</p>
+      </div>
+
+      <div class="callout-warning">
+        <strong>PERINGATAN RESMI OPERASIONAL SALES:</strong><br />
+        <em>"Perhatian terkait refund, ada pembatalan yang TIDAK BISA di-refund! Jadi jangan coba-coba submit data spekulatif atau memaksakan closing sebelum pelanggan 100% siap!"</em>
+      </div>
+
+      <div class="table-responsive searchable" data-search="wo work order eligibility refund cancelation pembatalan penalti alasan">
+        <table>
+          <thead>
+            <tr>
+              <th>Kategori Masalah (Cause)</th>
+              <th>Detail Masalah (Sub-Cause)</th>
+              <th>Status Eligibility</th>
+              <th>Dampak Bagi Sales</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Address Issue</strong></td>
+              <td>Actual address different with WO / Homepass / Wrong address</td>
+              <td><span class="badge-win">Eligible</span></td>
+              <td>Aman (Kendala alamat teknis sistem, bisa revisi WO)</td>
+            </tr>
+            <tr>
+              <td><strong>Network Issue</strong></td>
+              <td>Signal Issue / Full Capacity (Tiang penuh) / Infrastructure Blocking</td>
+              <td><span class="badge-win">Eligible</span></td>
+              <td>Aman (Kendala fisik jaringan, sales tidak disalahkan)</td>
+            </tr>
+            <tr>
+              <td><strong>Coverage Issue</strong></td>
+              <td>Out of Coverage / No cable access / Permit Issue (Izin RT ditolak)</td>
+              <td><span class="badge-win">Eligible</span></td>
+              <td>Aman (Bisa diajukan refund uang muka jika ada)</td>
+            </tr>
+            <tr>
+              <td><strong>Technical Issue</strong></td>
+              <td>Product not suitable with network / Sales request technical</td>
+              <td><span class="badge-win">Eligible</span></td>
+              <td>Aman (Kendala perangkat/infrastruktur)</td>
+            </tr>
+            <tr style="background:rgba(244,63,94,0.08);">
+              <td><strong>Customer Reason</strong></td>
+              <td>Customer change their mind (Berubah pikiran)</td>
+              <td><span class="badge-lose">Not Eligible</span></td>
+              <td><strong>BAHAYA!</strong> Dihitung kegagalan sales, refund hangus/sulit</td>
+            </tr>
+            <tr style="background:rgba(244,63,94,0.08);">
+              <td><strong>Customer Reason</strong></td>
+              <td>Still use another provider / Already use another provider</td>
+              <td><span class="badge-lose">Not Eligible</span></td>
+              <td><strong>BAHAYA!</strong> Wajib ditanya di awal apakah masih kontrak lama!</td>
+            </tr>
+            <tr style="background:rgba(244,63,94,0.08);">
+              <td><strong>Customer Reason</strong></td>
+              <td>No permission from family / spouse (Belum izin suami/istri)</td>
+              <td><span class="badge-lose">Not Eligible</span></td>
+              <td><strong>BAHAYA!</strong> Pastikan pengambil keputusan serumah sudah setuju</td>
+            </tr>
+            <tr style="background:rgba(244,63,94,0.08);">
+              <td><strong>Customer Reason</strong></td>
+              <td>Customer can't be contacted / No response / Reschedule many times</td>
+              <td><span class="badge-lose">Not Eligible</span></td>
+              <td><strong>BAHAYA!</strong> Jadwal mundur berulang kali bikin WO gugur</td>
+            </tr>
+            <tr style="background:rgba(244,63,94,0.08);">
+              <td><strong>Data Duplication</strong></td>
+              <td>Duplication HPID / Overlapping coverage / Suspect abuser</td>
+              <td><span class="badge-lose">Not Eligible</span></td>
+              <td><strong>BAHAYA!</strong> Jangan re-input data ganda tanpa konfirmasi admin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 6: KALKULATOR PENGHEMATAN -->
+    <section id="tab-kalkulator" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/></svg>
+          Kalkulator Simulasi Penghematan Bulanan
+        </h2>
+        <p class="section-sub">Tunjukkan simulasi ini langsung ke calon pelanggan saat presentasi atau kirim ringkasannya via WhatsApp.</p>
+      </div>
+
+      <div class="calc-card searchable" data-search="kalkulator simulasi hemat hitung biaya perbandingan indihome telkomsel kuota">
+        <div class="calc-grid">
+          <div>
+            <div class="form-group">
+              <label class="form-label">Biaya WiFi Rumah Saat Ini (Rp/Bulan):</label>
+              <input type="number" id="calcOldWifi" class="form-input" value="350000" step="10000" oninput="runSavingsCalculator()" />
+              <small style="color: var(--text-faint); font-size: 11.5px;">Rata-rata IndiHome / Provider lain: Rp 320.000 - Rp 450.000</small>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Jumlah Orang Beli Kuota HP Tiap Bulan:</label>
+              <input type="number" id="calcFamilyCount" class="form-input" value="3" min="1" max="8" oninput="runSavingsCalculator()" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Rata-rata Beli Kuota HP per Orang (Rp/Bulan):</label>
+              <input type="number" id="calcQuotaPerPerson" class="form-input" value="75000" step="5000" oninput="runSavingsCalculator()" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Pilihan Paket XL SATU:</label>
+              <select id="calcXlPlan" class="form-select" onchange="runSavingsCalculator()">
+                <option value="254190">SPARK 250 Mbps — Rp 254.190 / bln (Netto PPN)</option>
+                <option value="309690">SPARK 350 Mbps — Rp 309.690 / bln (Netto PPN)</option>
+                <option value="333000">SPARK 400 Mbps — Rp 333.000 / bln (Netto PPN)</option>
+                <option value="180375">FWA 50 Mbps 5G Promo — Rp 180.375 / bln (Bayar 4 Bln)</option>
+                <option value="262500">JOY Value 100 Mbps + TV 98 Ch — Rp 262.500 / bln</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-result-box">
+            <div>
+              <div style="font-size: 11.5px; text-transform: uppercase; font-weight: 700; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 12px;">
+                Hasil Komparasi Pengeluaran
+              </div>
+              <div class="calc-stat-row">
+                <span>Total Biaya Lama (WiFi + Kuota HP):</span>
+                <strong id="resOldTotal" style="color:var(--text);">Rp 575.000</strong>
+              </div>
+              <div class="calc-stat-row">
+                <span>Total Biaya Baru XL SATU (All-in):</span>
+                <strong id="resNewXl" style="color:var(--xl-cyan);">Rp 254.190</strong>
+              </div>
+              <div class="calc-stat-row highlight">
+                <span>POTENSI HEMAT PER BULAN:</span>
+              </div>
+              <div class="savings-big" id="resSavingsMonth">Rp 320.810</div>
+              <div class="savings-yearly" id="resSavingsYear">
+                Setara Hemat: Rp 3.849.720 / Tahun!
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <button class="btn btn-primary" onclick="copyCalculatorPitch()">
+                <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                Salin Hitungan Ini ke WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: BATTLECARD VS KOMPETITOR -->
+    <section id="tab-komparasi" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/></svg>
+          Battlecard Head-to-Head: XL SATU vs Kompetitor
+        </h2>
+        <p class="section-sub">Kelemahan dan fakta lapangan lawan untuk membalikkan argumen calon pelanggan.</p>
+      </div>
+
+      <div class="table-responsive searchable" data-search="perbandingan kompetitor indihome biznet myrepublic telkomsel one fup harga biaya pasang">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th class="col-highlight">XL SATU Fiber</th>
+              <th>IndiHome / Telkomsel One</th>
+              <th>Biznet Home</th>
+              <th>MyRepublic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Kecepatan Promo</strong></td>
+              <td class="col-highlight"><span class="badge-win">250 - 400 Mbps</span></td>
+              <td>50 - 100 Mbps</td>
+              <td>100 - 300 Mbps</td>
+              <td>100 - 250 Mbps</td>
+            </tr>
+            <tr>
+              <td><strong>Harga Netto Mulai</strong></td>
+              <td class="col-highlight"><strong>Rp 254.190 / bln</strong></td>
+              <td>Rp 330.000 - Rp 450.000</td>
+              <td>Rp 277.500 (Belum sewa ONT)</td>
+              <td>Rp 280.000 - Rp 350.000</td>
+            </tr>
+            <tr>
+              <td><strong>Kebijakan Kuota (FUP)</strong></td>
+              <td class="col-highlight"><span class="badge-win">True Unlimited (Tanpa FUP)</span></td>
+              <td><span class="badge-lose">Ada FUP (Speed drop jika tembus)</span></td>
+              <td>Ada FUP di paket dasar</td>
+              <td>Tanpa FUP</td>
+            </tr>
+            <tr>
+              <td><strong>Bonus Kuota HP Keluarga</strong></td>
+              <td class="col-highlight"><span class="badge-win">DAPAT (Dibagi 2-5 No)</span></td>
+              <td>Hanya di Telkomsel One (Mahal)</td>
+              <td><span class="badge-lose">TIDAK ADA</span></td>
+              <td><span class="badge-lose">TIDAK ADA</span></td>
+            </tr>
+            <tr>
+              <td><strong>Biaya Instalasi</strong></td>
+              <td class="col-highlight"><span class="badge-win">GRATIS (Bebas Rp 500rb)</span></td>
+              <td>Rp 150rb - Rp 500rb</td>
+              <td>Rp 100rb - Rp 250rb</td>
+              <td>Sering ada syarat promo</td>
+            </tr>
+            <tr>
+              <td><strong>TV Cable & Streaming</strong></td>
+              <td class="col-highlight"><span class="badge-win">First Media + Vidio + Catchplay</span></td>
+              <td>IndiHome TV</td>
+              <td>Biznet IPTV</td>
+              <td>Vidio Addon</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 8: SCRIPT SALES WA -->
+    <section id="tab-skrip" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Sales Script & Copywriting Vault (1-Tap Copy)
+        </h2>
+        <p class="section-sub">Skrip chat WhatsApp siap kirim yang luwes, tidak kaku, dan punya konversi tinggi.</p>
+      </div>
+
+      <div class="script-card searchable" data-search="skrip ftth spark 250 mbps rp 229rb gratis pasang">
+        <div class="script-header">
+          <div class="script-title">
+            <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Pitching SPARK 250 Mbps (Promo 229rb)
+          </div>
+          <button class="btn-copy" onclick="copyScript('scriptSpark')">Salin Pesan</button>
+        </div>
+        <div class="script-body" id="scriptSpark">Halo kak [Nama], mau info santai barangkali butuh wifi rumah kencang & hemat..
+
+Lagi ada promo XL SATU FTTH SPARK khusus minggu ini:
+- Speed 250 Mbps Simetris 1:1 (Kenceng parah, upload/download imbang)
+- Cuma Rp 229.000/bln (Netto PPN: Rp 254.190)
+- GRATIS Biaya Instalasi senilai 500rb
+- True Unlimited tanpa batasan FUP kuota turun
+- Modem WiFi dipinjamkan gratis
+
+Mumpung slot teknisi di blok kakak masih buka, boleh shareloc alamat rumahnya kak biar saya cekin tiang FAT terdekatnya?</div>
+      </div>
+
+      <div class="script-card searchable" data-search="skrip fwa wireless 50 mbps bayar 3 gratis 1 bulan">
+        <div class="script-header">
+          <div class="script-title">
+            <svg class="icon" style="color:var(--xl-gold)" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/></svg>
+            Pitching FWA 5G (Area Belum Ada Tiang Fiber)
+          </div>
+          <button class="btn-copy" onclick="copyScript('scriptFwa')">Salin Pesan</button>
+        </div>
+        <div class="script-body" id="scriptFwa">Halo kak [Nama], untuk area rumah kakak yang belum tercover kabel fiber optik, ada solusi praktis XL SATU FWA (Wireless 5G):
+- Kecepatan 50 Mbps unlimited
+- Promo Bayar 3 Bulan GRATIS 1 Bulan (Cuma Rp 721.500 per 4 bulan, setara Rp 180 ribuan/bulan!)
+- Modem WiFi 5G gratis dipinjamkan
+- Tinggal colok ke stopkontak listrik, langsung aktif tanpa tarik kabel tiang
+
+Mau saya bantu proseskan pengiriman modemnya kak?</div>
+      </div>
+    </section>
+
+    <!-- TAB 9: FORM ORDER WA LENGKAP -->
+    <section id="tab-closing" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+          Fast-Closing WA Form Generator (Sesuai SOP 9 Data Wajib)
+        </h2>
+        <p class="section-sub">Formulir lengkap memenuhi SOP resmi registrasi XL SATU. Mengurangi risiko cancelation WO rejected.</p>
+      </div>
+
+      <div class="order-box searchable" data-search="form order pendaftaran data ktp pln kwh meteran foto rumah vermuk">
+        <div class="grid-2">
+          <div>
+            <div class="form-group">
+              <label class="form-label">1. Nama Lengkap (Sesuai KTP):</label>
+              <input type="text" id="ordName" class="form-input" placeholder="Contoh: Budi Santoso" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">2. No. HP 1 (WhatsApp Aktif):</label>
+              <input type="text" id="ordWa1" class="form-input" placeholder="08xxxxxxxxxx" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">3. No. HP 2 (Nomor Alternatif):</label>
+              <input type="text" id="ordWa2" class="form-input" placeholder="08xxxxxxxxxx" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">4. Alamat Email Aktif:</label>
+              <input type="email" id="ordEmail" class="form-input" placeholder="contoh@gmail.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">5. Pilihan Paket:</label>
+              <select id="ordPlan" class="form-select">
+                <option value="SPARK 250 Mbps (Rp 254.190/bln)">FTTH SPARK 250 Mbps — Rp 254.190/bln</option>
+                <option value="SPARK 350 Mbps (Rp 309.690/bln)">FTTH SPARK 350 Mbps — Rp 309.690/bln</option>
+                <option value="SPARK 400 Mbps (Rp 333.000/bln)">FTTH SPARK 400 Mbps — Rp 333.000/bln</option>
+                <option value="FWA 50 Mbps Promo 4 Bulan (Rp 721.500)">FWA 50 Mbps 5G (Rp 721.500 / 4 Bln — Rp 180rb/bln)</option>
+                <option value="FWA 50 Mbps Bulanan (Rp 243.090/bln)">FWA 50 Mbps 5G Bulanan (Rp 243.090/bln)</option>
+                <option value="JOY Value 100 Mbps + TV (Rp 262.500/bln)">JOY Value (100 Mbps + 98 Channel TV)</option>
+                <option value="JOY Pro 150 Mbps + TV (Rp 320.800/bln)">JOY Pro (150 Mbps + 99 Channel TV)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label class="form-label">6. Alamat Lengkap Pemasangan:</label>
+              <textarea id="ordAddress" class="form-input" rows="2" placeholder="Nama Jalan, Blok, Nomor Rumah, RT/RW, Kelurahan, Kecamatan, Kota"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">7. ID / No. kWh Meteran Listrik PLN:</label>
+              <input type="text" id="ordPln" class="form-input" placeholder="Nomor ID Pelanggan PLN Meteran" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">8. Link Shareloc Google Maps (Tikor):</label>
+              <input type="text" id="ordMaps" class="form-input" placeholder="https://maps.app.goo.gl/..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">9. Kelengkapan Foto & Vermuk:</label>
+              <select id="ordDocs" class="form-select">
+                <option value="Lengkap (KTP, Foto Rumah Depan, Foto kWh, Siap Vermuk)">Lengkap (KTP + Rumah Depan + kWh PLN + Siap Vermuk)</option>
+                <option value="Kurang Foto kWh Listrik">Kurang Foto kWh Listrik</option>
+                <option value="Custom Area (CA) Lengkap dengan Jalur FAT">Custom Area (CA) + Video Jalur FAT</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px;">
+          <button class="btn btn-primary" style="flex: 1; min-width: min(100%, 240px);" onclick="generateOrderWa()">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Buka & Kirim Data ke WhatsApp
+          </button>
+          <button class="btn btn-outline" style="flex: 1; min-width: min(100%, 240px);" onclick="copyBlankForm()">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Template Format Kosong
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);">
+      <div class="grid-3" style="margin-bottom: 24px;">
+        <div class="hotline-card">
+          <svg class="icon" style="color:var(--xl-cyan); width:24px; height:24px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div style="min-width: 0;">
+            <div style="font-size: 12px; color: var(--text-muted);">Sales Center Resmi</div>
+            <div class="hotline-num">8200 (XL) / 0818 123 820</div>
+          </div>
+        </div>
+
+        <div class="hotline-card">
+          <svg class="icon" style="color:var(--xl-green); width:24px; height:24px;" viewBox="0 0 24 24"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></svg>
+          <div style="min-width: 0;">
+            <div style="font-size: 12px; color: var(--text-muted);">CS Gangguan / Helpdesk</div>
+            <div class="hotline-num">820 (XL) / 0817 0123 442</div>
+          </div>
+        </div>
+
+        <div class="hotline-card">
+          <svg class="icon" style="color:var(--xl-gold); width:24px; height:24px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          <div style="min-width: 0;">
+            <div style="font-size: 12px; color: var(--text-muted);">Bantu Saya (WA Support)</div>
+            <div class="hotline-num">0817 0010 820</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; color: var(--text-faint); font-size: 12.5px;">
+        XL SATU Sales War Room &bull; faridadamn.my.id/xlsatu &bull; SPARK, FWA 5G & JOY TV Integration 2026
+      </div>
+    </footer>
+  </main>
+
+  <div id="toast">
+    <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastMsg">Teks berhasil disalin!</span>
+  </div>
+
+  <script>
+    // Theme Management
+    function syncThemeIcons(theme) {
+      const darkIcon = document.getElementById('themeIconDark');
+      const lightIcon = document.getElementById('themeIconLight');
+      if (theme === 'light') {
+        darkIcon.style.display = 'inline-block';
+        lightIcon.style.display = 'none';
+      } else {
+        darkIcon.style.display = 'none';
+        lightIcon.style.display = 'inline-block';
+      }
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const nextTheme = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', nextTheme);
+      try {
+        localStorage.setItem('xlsatu_theme', nextTheme);
+      } catch (e) {}
+      syncThemeIcons(nextTheme);
+      showToast('Tema diubah ke mode ' + (nextTheme === 'light' ? 'Terang' : 'Gelap'));
+    }
+
+    syncThemeIcons(document.documentElement.getAttribute('data-theme') || 'dark');
+
+    // Tab Switcher
+    function switchTab(tabId) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(c => c.style.display = 'none');
+      
+      const target = document.getElementById('tab-' + tabId);
+      if (target) target.style.display = 'block';
+
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+
+      const activeBtn = Array.from(buttons).find(b => b.getAttribute('onclick') && b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+      toastMsg.innerText = msg;
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 2500);
+    }
+
+    function copyTextToClipboard(text, successMessage) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMessage || 'Teks berhasil disalin!');
+        }).catch(() => { fallbackCopy(text, successMessage); });
+      } else {
+        fallbackCopy(text, successMessage);
+      }
+    }
+
+    function fallbackCopy(text, successMessage) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMessage || 'Teks berhasil disalin!');
+      } catch (err) {
+        showToast('Gagal menyalin otomatis.');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function copyScript(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        copyTextToClipboard(el.innerText, 'Skrip berhasil disalin ke WhatsApp!');
+      }
+    }
+
+    // Savings Calculator
+    function formatRupiah(num) {
+      return 'Rp ' + Math.round(num).toLocaleString('id-ID');
+    }
+
+    function runSavingsCalculator() {
+      const oldWifi = parseFloat(document.getElementById('calcOldWifi').value) || 0;
+      const familyCount = parseFloat(document.getElementById('calcFamilyCount').value) || 0;
+      const quotaPerPerson = parseFloat(document.getElementById('calcQuotaPerPerson').value) || 0;
+      const xlPrice = parseFloat(document.getElementById('calcXlPlan').value) || 254190;
+
+      const totalOldExpense = oldWifi + (familyCount * quotaPerPerson);
+      const savingsPerMonth = totalOldExpense - xlPrice;
+      const savingsPerYear = savingsPerMonth * 12;
+
+      document.getElementById('resOldTotal').innerText = formatRupiah(totalOldExpense);
+      document.getElementById('resNewXl').innerText = formatRupiah(xlPrice);
+      
+      const resSavingsMonth = document.getElementById('resSavingsMonth');
+      const resSavingsYear = document.getElementById('resSavingsYear');
+
+      if (savingsPerMonth > 0) {
+        resSavingsMonth.innerText = formatRupiah(savingsPerMonth);
+        resSavingsMonth.style.color = 'var(--xl-green)';
+        resSavingsYear.innerText = 'Setara Hemat: ' + formatRupiah(savingsPerYear) + ' / Tahun!';
+        resSavingsYear.style.color = 'var(--xl-gold)';
+      } else {
+        resSavingsMonth.innerText = 'Speed Naik Drastis!';
+        resSavingsMonth.style.color = 'var(--xl-cyan)';
+        resSavingsYear.innerText = 'Koneksi simetris 1:1 tanpa FUP.';
+      }
+    }
+
+    function copyCalculatorPitch() {
+      const oldWifi = document.getElementById('calcOldWifi').value;
+      const familyCount = document.getElementById('calcFamilyCount').value;
+      const quotaPerPerson = document.getElementById('calcQuotaPerPerson').value;
+      const oldTotal = document.getElementById('resOldTotal').innerText;
+      const newXl = document.getElementById('resNewXl').innerText;
+      const savingsMonth = document.getElementById('resSavingsMonth').innerText;
+      const savingsYear = document.getElementById('resSavingsYear').innerText;
+
+      const pitch = 'Halo Pak/Bu, ini simulasi penghematan beralih ke XL SATU:\n\n' +
+        '• Biaya WiFi lama: Rp ' + Number(oldWifi).toLocaleString('id-ID') + '/bln\n' +
+        '• Kuota HP (' + familyCount + ' orang @ Rp ' + Number(quotaPerPerson).toLocaleString('id-ID') + '): Rp ' + (familyCount*quotaPerPerson).toLocaleString('id-ID') + '/bln\n' +
+        '-----------------------------------------\n' +
+        'Total Biaya Lama: ' + oldTotal + '/bln\n\n' +
+        'Dengan XL SATU (All-in):\n' +
+        'Biaya Baru: ' + newXl + '/bln\n' +
+        '(Internet simetris 1:1 True Unlimited + Gratis Biaya Pasang 500rb)\n\n' +
+        '💰 POTENSI HEMAT: ' + savingsMonth + '/bulan\n' +
+        '🎉 ' + savingsYear + '\n\n' +
+        'Boleh saya bantu amankan slot teknisinya sekarang selagi gratis pasang?';
+
+      copyTextToClipboard(pitch, 'Simulasi berhasil disalin!');
+    }
+
+    function selectPackageForOrder(pkgName) {
+      switchTab('closing');
+      const select = document.getElementById('ordPlan');
+      if (select) {
+        for (let i = 0; i < select.options.length; i++) {
+          if (select.options[i].value.toLowerCase().includes(pkgName.toLowerCase().split(' ')[0])) {
+            select.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      showToast('Paket ' + pkgName + ' dipilih di Form!');
+    }
+
+    function generateOrderWa() {
+      const name = document.getElementById('ordName').value.trim() || '[Nama Pelanggan]';
+      const wa1 = document.getElementById('ordWa1').value.trim() || '[No WhatsApp 1]';
+      const wa2 = document.getElementById('ordWa2').value.trim() || '-';
+      const email = document.getElementById('ordEmail').value.trim() || '-';
+      const plan = document.getElementById('ordPlan').value;
+      const addr = document.getElementById('ordAddress').value.trim() || '[Alamat Pemasangan]';
+      const pln = document.getElementById('ordPln').value.trim() || '-';
+      const maps = document.getElementById('ordMaps').value.trim() || '-';
+      const docs = document.getElementById('ordDocs').value;
+
+      const text = '*FORM REGISTRASI RESMI PASANG BARU XL SATU*\n\n' +
+        '1. Nama Lengkap (KTP): ' + name + '\n' +
+        '2. No. HP 1 (WA): ' + wa1 + '\n' +
+        '3. No. HP 2: ' + wa2 + '\n' +
+        '4. Email: ' + email + '\n' +
+        '5. Pilihan Paket: ' + plan + '\n' +
+        '6. Alamat Pasang: ' + addr + '\n' +
+        '7. ID kWh Listrik PLN: ' + pln + '\n' +
+        '8. Tikor / Shareloc: ' + maps + '\n' +
+        '9. Status Dokumen: ' + docs + '\n\n' +
+        '_Mohon diproses untuk penguncian jadwal instalasi teknisi. Terima kasih!_';
+
+      window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(text), '_blank');
+    }
+
+    function copyBlankForm() {
+      const blank = '*SYARAT PENDAFTARAN PASANG BARU XL SATU*\n\n' +
+        'Mohon kirimkan data berikut:\n' +
+        '1. Foto KTP asli:\n' +
+        '2. No. HP 1 (WhatsApp aktif):\n' +
+        '3. No. HP 2:\n' +
+        '4. Email aktif:\n' +
+        '5. Alamat pemasangan lengkap:\n' +
+        '6. Foto rumah full tampak depan:\n' +
+        '7. Foto / ID kWh meteran listrik PLN:\n' +
+        '8. Paket yang diambil:\n' +
+        '9. Share location Google Maps:\n\n' +
+        'Setelah data lengkap, kami bantu amankan gratis biaya pasang Rp 500.000 & jadwal teknisi.';
+
+      copyTextToClipboard(blank, 'Template SOP pendaftaran tersalin!');
+    }
+
+    function handleQuickSearch() {
+      const query = document.getElementById('quickSearch').value.toLowerCase().trim();
+      const allSearchables = document.querySelectorAll('.searchable');
+
+      if (!query) {
+        allSearchables.forEach(el => el.style.display = '');
+        return;
+      }
+
+      document.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'block');
+
+      allSearchables.forEach(el => {
+        const text = ((el.getAttribute('data-search') || '') + ' ' + el.innerText).toLowerCase();
+        if (text.includes(query)) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    // Dynamic Database Loader
+    function renderDatabase(data) {
+      if (!data) return;
+
+      const prospects = data.prospects || [];
+      const materials = data.materials || [];
+
+      document.getElementById('metricProspects').innerText = prospects.length;
+      document.getElementById('badgeProspectCount').innerText = prospects.length;
+      document.getElementById('metricMaterials').innerText = materials.length;
+      
+      if (data.last_scan_trigger) {
+        document.getElementById('lastScanTriggerTxt').innerText = 'Pemicu: ' + data.last_scan_trigger;
+      }
+
+      // Prospects
+      const pContainer = document.getElementById('prospectsContainer');
+      if (prospects.length === 0) {
+        pContainer.innerHTML = '<div class="card" style="padding:16px; text-align:center; color:var(--text-muted);">Belum ada prospek terdeteksi. Saat hape dicas, foto/chat baru otomatis discan.</div>';
+      } else {
+        let pHtml = '';
+        prospects.forEach((p, idx) => {
+          const hasPhone = p.phones && p.phones[0] && p.phones[0] !== '-';
+          const phoneNum = hasPhone ? p.phones[0] : '';
+          const waLink = hasPhone ? 'https://wa.me/' + (phoneNum.startsWith('0') ? '62' + phoneNum.slice(1) : phoneNum) + '?text=' + encodeURIComponent(p.suggested_followup || 'Halo kak!') : '#';
+
+          pHtml += '<div class="card searchable" data-search="' + (p.phones.join(' ') + ' ' + p.nik + ' ' + p.address + ' ' + p.source_file).toLowerCase() + '" style="margin-bottom:14px; padding:18px;">' +
+            '<div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:10px;">' +
+              '<div>' +
+                '<span class="badge-win">' + p.status + '</span> ' +
+                '<span style="font-size:12px; color:var(--text-muted); margin-left:6px;">' + p.date + ' &bull; Sumber: ' + p.source_file + '</span>' +
+              '</div>' +
+              '<div style="font-size:13px; font-weight:700; color:var(--xl-cyan);">' + p.target_plan + '</div>' +
+            '</div>' +
+            '<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:12px; font-size:13.5px;">' +
+              '<div><strong>No. Handphone:</strong> ' + (hasPhone ? '<span style="color:var(--xl-green); font-weight:700;">' + phoneNum + '</span>' : '<span style="color:var(--text-faint);">-</span>') + '</div>' +
+              '<div><strong>NIK KTP:</strong> ' + (p.nik !== '-' ? p.nik : '<span style="color:var(--text-faint);">-</span>') + '</div>' +
+              '<div style="grid-column:1/-1;"><strong>Alamat / Catatan:</strong> ' + p.address + '</div>' +
+            '</div>' +
+            '<div class="script-body" style="margin-bottom:12px; font-size:13px;" id="pitch_' + idx + '">' + (p.suggested_followup || '-') + '</div>' +
+            '<div style="display:flex; gap:8px; flex-wrap:wrap;">' +
+              (hasPhone ? '<a href="' + waLink + '" target="_blank" class="btn-wa"><svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Chat WhatsApp Prospek</a>' : '') +
+              '<button class="btn-copy" onclick="copyScript(\'pitch_' + idx + '\')">Salin Sapaan Follow-up</button>' +
+            '</div>' +
+          '</div>';
+        });
+        pContainer.innerHTML = pHtml;
+      }
+
+      // Materials
+      const mContainer = document.getElementById('materialsContainer');
+      if (materials.length === 0) {
+        mContainer.innerHTML = '<div class="card" style="padding:16px; text-align:center; color:var(--text-muted);">Belum ada materi/flyer baru tersimpan.</div>';
+      } else {
+        let mHtml = '';
+        materials.forEach(m => {
+          mHtml += '<div class="card searchable" data-search="' + (m.title + ' ' + (m.tags ? m.tags.join(' ') : '')).toLowerCase() + '" style="margin-bottom:14px; padding:18px;">' +
+            '<div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; margin-bottom:6px;">' +
+              '<div style="font-size:15px; font-weight:700; color:var(--xl-gold);">' + m.title + '</div>' +
+              '<div style="font-size:11.5px; color:var(--text-muted);">' + m.date + '</div>' +
+            '</div>' +
+            '<div style="font-size:12px; color:var(--text-faint); margin-bottom:8px;">Sumber File: ' + m.source_file + '</div>' +
+            '<div style="font-size:13.5px; color:var(--text); line-height:1.55;">' + m.summary + '</div>' +
+          '</div>';
+        });
+        mContainer.innerHTML = mHtml;
+      }
+    }
+
+    function loadLiveDatabase() {
+      fetch('./data/xlsatu_db.json?t=' + Date.now())
+        .then(res => res.json())
+        .then(data => {
+          renderDatabase(data);
+          showToast('Data database berhasil diperbarui!');
+        })
+        .catch(() => {});
+    }
+
+    runSavingsCalculator();
+    loadLiveDatabase();
+    setInterval(loadLiveDatabase, 15000);
+  </script>
+</body>
+</html>

@@ -20,6 +20,7 @@
       --wa-dark: #128c7e;
       --blue: #2f6df6;
       --blue-dark: #1d4ed8;
+      --cyan: #00d2ff;
       --ok: #22c55e;
       --warn: #f59e0b;
       --bad: #ef4444;
@@ -82,6 +83,25 @@
       align-items: center;
     }
 
+    .btn-warroom {
+      color: var(--cyan);
+      background: rgba(0, 210, 255, 0.12);
+      border: 1px solid rgba(0, 210, 255, 0.35);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 11px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .btn-warroom:hover {
+      background: rgba(0, 210, 255, 0.2);
+      border-color: var(--cyan);
+    }
+
     /* Mode Switcher Tabs */
     .tabs {
       display: grid;
@@ -114,7 +134,7 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    button, select, input {
+    button, select, input, textarea {
       font: inherit;
       border-radius: 9px;
       border: 1px solid var(--line);
@@ -265,6 +285,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
+      gap: 6px;
     }
     .template-label {
       font-size: 12px;
@@ -278,22 +299,54 @@
       gap: 6px;
       flex-wrap: wrap;
       margin-bottom: 8px;
+      align-items: center;
     }
-    .chip {
+    .chip-wrap {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
       background: var(--card3);
       border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .chip {
+      background: transparent;
+      border: none;
       color: var(--dim);
+      font-size: 11.5px;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    .chip-wrap.active {
+      background: rgba(0, 168, 132, 0.2);
+      border-color: var(--acc);
+    }
+    .chip-wrap.active .chip {
+      color: #34d399;
+      font-weight: 600;
+    }
+    .chip-del {
+      background: transparent;
+      border: none;
+      color: var(--dim);
+      padding: 2px 6px;
+      font-size: 12px;
+      cursor: pointer;
+      opacity: 0.6;
+    }
+    .chip-del:hover { color: var(--bad); opacity: 1; }
+
+    .btn-add-tpl {
+      background: rgba(0, 210, 255, 0.1);
+      border: 1px dashed rgba(0, 210, 255, 0.4);
+      color: var(--cyan);
       font-size: 11.5px;
       padding: 4px 9px;
       border-radius: 6px;
       cursor: pointer;
     }
-    .chip.active {
-      background: rgba(0, 168, 132, 0.2);
-      color: #34d399;
-      border-color: var(--acc);
-      font-weight: 600;
-    }
+    .btn-add-tpl:hover { background: rgba(0, 210, 255, 0.2); }
+
     .template-preview {
       font-size: 12.5px;
       color: #cbd5e1;
@@ -493,13 +546,6 @@
       align-items: center;
       gap: 4px;
     }
-    .btn-row-open {
-      background: var(--card2);
-      border: 1px solid var(--line);
-      color: var(--dim);
-      padding: 8px;
-      border-radius: 8px;
-    }
 
     /* Modal Styling */
     .modal-overlay {
@@ -548,6 +594,24 @@
     .stat-val { font-size: 22px; font-weight: 750; color: var(--txt); }
     .stat-lbl { font-size: 11.5px; color: var(--dim); margin-top: 2px; }
 
+    /* Custom Template Form */
+    .tag-helpers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .btn-tag {
+      background: var(--card3);
+      border: 1px solid var(--line);
+      color: var(--cyan);
+      font-size: 11.5px;
+      padding: 3px 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-tag:hover { border-color: var(--cyan); }
+
     .toast {
       position: fixed;
       bottom: calc(20px + env(safe-area-inset-bottom));
@@ -593,6 +657,10 @@
       <div class="sub">Puri Permata Cipondoh &bull; 977 Prospek Winback</div>
     </div>
     <div class="top-actions">
+      <a href="warroom.html" class="btn-warroom" title="Buka Sales War Room & Product Knowledge Hub">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        War Room
+      </a>
       <button class="btn-icon" id="btnStats" title="Rekap & Statistik">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
       </button>
@@ -675,6 +743,47 @@
     </div>
   </div>
 
+  <!-- Custom Template Modal -->
+  <div class="modal-overlay" id="modalTemplate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="tplModalTitle">Tambah Template WhatsApp</h2>
+        <button class="btn-icon" id="btnCloseTpl">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div>
+          <label style="font-size:12px; color:var(--dim); font-weight:600; display:block; margin-bottom:5px;">Nama / Judul Template</label>
+          <input type="text" id="tplTitleInput" placeholder="Contoh: Promo Weekend, Follow-up 2" style="width:100%;">
+        </div>
+
+        <div>
+          <label style="font-size:12px; color:var(--dim); font-weight:600; display:block; margin-bottom:5px;">Sisipkan Variabel (Klik tombol):</label>
+          <div class="tag-helpers">
+            <button type="button" class="btn-tag" data-tag="{nama}">+ {nama}</button>
+            <button type="button" class="btn-tag" data-tag="{blok}">+ {blok}</button>
+            <button type="button" class="btn-tag" data-tag="{no}">+ {no}</button>
+            <button type="button" class="btn-tag" data-tag="{alamat}">+ {alamat}</button>
+            <button type="button" class="btn-tag" data-tag="{telepon}">+ {telepon}</button>
+          </div>
+          <textarea id="tplTextInput" rows="6" placeholder="Ketik pesan WhatsApp di sini... Gunakan {nama}, {blok} untuk menyisipkan data otomatis." style="width:100%; font-size:13px; line-height:1.45;"></textarea>
+        </div>
+
+        <div>
+          <label style="font-size:12px; color:var(--dim); font-weight:600; display:block; margin-bottom:5px;">Preview Tampilan Pesan:</label>
+          <div class="template-preview" id="tplPreviewBox" style="max-height:100px;">Ketik pesan di atas untuk melihat preview...</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:6px;">
+          <button style="background:var(--acc); color:#06301a; border:none; padding:11px;" id="btnSaveTemplate">Simpan Template</button>
+          <button style="background:var(--card2); border:1px solid var(--line); color:var(--dim); padding:11px;" id="btnCancelTemplate">Batal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast">Disalin ke clipboard</div>
 
   <script>
@@ -683,44 +792,53 @@
     const LS_KEY = "xlsatu_leads_v2";
     const LS_POS = "xlsatu_pos_v2";
     const LS_TMP = "xlsatu_tpl_v2";
+    const LS_CUSTOM_TPLS = "xlsatu_custom_tpls_v2";
 
-    const TEMPLATES = [
+    const DEFAULT_TEMPLATES = [
       {
         id: "winback",
         title: "Winback Re-aktivasi (Rekomendasi)",
-        getText: (d) => {
-          const nm = titleCase(d.nama || "Bapak/Ibu");
-          const blk = (d.blok ? "Blok " + d.blok : "") + (d.no ? " No. " + d.no : "");
-          return "Halo selamat siang Kak " + nm + ", salam dari tim XL SATU Fiber area Puri Permata Cipondoh 🙏\n\n" +
-                 "Mau info untuk warga " + blk + ", jaringan fiber di komplek kita sekarang sudah upgrade kecepatan & makin stabil. " +
-                 "Karena jalur kabel ke rumah Kakak sebelumnya sudah terpasang, khusus bulan ini ada promo re-aktivasi bebas biaya pasang + diskon khusus warga Cipondoh.\n\n" +
-                 "Kira-kira saat ini internet di rumah ada kendala atau boleh kami bantu cek promo hematnya dulu Kak?";
-        }
+        text: "Halo selamat siang Kak {nama}, salam dari tim XL SATU Fiber area Puri Permata Cipondoh 🙏\n\n" +
+              "Mau info untuk warga {blok}, jaringan fiber di komplek kita sekarang sudah upgrade kecepatan & makin stabil. " +
+              "Karena jalur kabel ke rumah Kakak sebelumnya sudah terpasang, khusus bulan ini ada promo re-aktivasi bebas biaya pasang + diskon khusus warga Cipondoh.\n\n" +
+              "Kira-kira saat ini internet di rumah ada kendala atau boleh kami bantu cek promo hematnya dulu Kak?"
       },
       {
         id: "singkat",
         title: "Sapaan Singkat & Ramah",
-        getText: (d) => {
-          const nm = titleCase(d.nama || "Bapak/Ibu");
-          const blk = (d.blok ? "Blok " + d.blok : "") + (d.no ? " No. " + d.no : "");
-          return "Halo Kak " + nm + " (" + blk + "), perkenalkan saya Adam dari tim XL SATU Fiber Puri Permata Cipondoh.\n\n" +
-                 "Mau info program khusus warga yang pernah berlangganan, ada promo bebas biaya pasang & bundling kuota HP sekeluarga khusus bulan ini. Apakah boleh saya kirimkan brosur paket hematnya Kak?";
-        }
+        text: "Halo Kak {nama} ({blok}), perkenalkan saya Adam dari tim XL SATU Fiber Puri Permata Cipondoh.\n\n" +
+              "Mau info program khusus warga yang pernah berlangganan, ada promo bebas biaya pasang & bundling kuota HP sekeluarga khusus bulan ini. Apakah boleh saya kirimkan brosur paket hematnya Kak?"
       },
       {
         id: "cek_jaringan",
         title: "Cek Kendala Internet Lapangan",
-        getText: (d) => {
-          const nm = titleCase(d.nama || "Bapak/Ibu");
-          const blk = (d.blok ? "Blok " + d.blok : "") + (d.no ? " No. " + d.no : "");
-          return "Selamat siang Kak " + nm + ". Kami dari tim lapangan XL SATU Fiber lagi pendataan jaringan di sekitar " + blk + ".\n\n" +
-                 "Mau tanya apakah koneksi internet di rumah saat ini sering ada kendala lemot atau putus-putus? Kebetulan lagi ada promo pasang baru tanpa biaya instalasi. Boleh diinfokan Kak?";
-        }
+        text: "Selamat siang Kak {nama}. Kami dari tim lapangan XL SATU Fiber lagi pendataan jaringan di sekitar {blok}.\n\n" +
+              "Mau tanya apakah koneksi internet di rumah saat ini sering ada kendala lemot atau putus-putus? Kebetulan lagi ada promo pasang baru tanpa biaya instalasi. Boleh diinfokan Kak?"
       }
     ];
 
+    let CUSTOM_TEMPLATES = [];
+    try {
+      CUSTOM_TEMPLATES = JSON.parse(localStorage.getItem(LS_CUSTOM_TPLS)) || [];
+    } catch (e) {
+      CUSTOM_TEMPLATES = [];
+    }
+
+    function getAllTemplates() {
+      return [...DEFAULT_TEMPLATES, ...CUSTOM_TEMPLATES.map(t => ({ ...t, isCustom: true }))];
+    }
+
+    function getActiveTemplate() {
+      const all = getAllTemplates();
+      return all.find(t => t.id === ACTIVE_TPL) || all[0];
+    }
+
+    function saveCustomTemplates() {
+      localStorage.setItem(LS_CUSTOM_TPLS, JSON.stringify(CUSTOM_TEMPLATES));
+    }
+
     let LEADS = [];
-    let CURRENT_VIEW = "queue"; // "queue" or "list"
+    let CURRENT_VIEW = "queue";
     let CURRENT_POS = 0;
     let ACTIVE_TPL = localStorage.getItem(LS_TMP) || "winback";
 
@@ -757,6 +875,23 @@
       el.textContent = msg;
       el.classList.add("show");
       setTimeout(() => el.classList.remove("show"), 2000);
+    }
+
+    function renderTemplateText(templateText, d) {
+      if (!templateText) return "";
+      const nm = titleCase(d.nama || "Bapak/Ibu");
+      const blkOnly = d.blok ? "Blok " + d.blok : "";
+      const noOnly = d.no ? "No. " + d.no : "";
+      const blkCombined = (blkOnly ? blkOnly : "") + (blkOnly && noOnly ? " " : "") + (noOnly ? noOnly : "");
+      const addr = d.alamat || "Puri Permata Cipondoh";
+      const tel = d.tel || "";
+
+      return templateText
+        .replace(/\{nama\}/gi, nm)
+        .replace(/\{blok\}/gi, blkCombined || "Puri Permata")
+        .replace(/\{no\}/gi, d.no || "")
+        .replace(/\{alamat\}/gi, addr)
+        .replace(/\{telepon\}/gi, tel);
     }
 
     function parseCSV(text) {
@@ -884,10 +1019,12 @@
       }
 
       const d = LEADS[CURRENT_POS] || LEADS[0];
-      const tpl = TEMPLATES.find(t => t.id === ACTIVE_TPL) || TEMPLATES[0];
-      const msgText = tpl.getText(d);
+      const activeTpl = getActiveTemplate();
+      const msgText = renderTemplateText(activeTpl.text, d);
       const waUrl = "https://wa.me/" + formatTel(d.tel) + "?text=" + encodeURIComponent(msgText);
       const telUrl = "tel:" + d.tel;
+
+      const allTemplates = getAllTemplates();
 
       container.innerHTML = `
         <div class="card-lead">
@@ -909,12 +1046,20 @@
           <div class="template-box">
             <div class="template-header">
               <span class="template-label">Template Pesan WhatsApp</span>
-              <button class="copy-phone-btn" id="btnCopyMsg">Salin Teks</button>
+              <div style="display:flex; gap:6px;">
+                <button class="copy-phone-btn" id="btnCopyMsg">Salin Teks</button>
+              </div>
             </div>
             <div class="template-chips">
-              ${TEMPLATES.map(t => `
-                <button class="chip ${t.id === ACTIVE_TPL ? "active" : ""}" data-tpl="${t.id}">${t.title.split(" ")[0]}</button>
+              ${allTemplates.map(t => `
+                <div class="chip-wrap ${t.id === ACTIVE_TPL ? "active" : ""}">
+                  <button class="chip" data-tpl="${t.id}" title="${esc(t.title)}">
+                    ${t.isCustom ? "★ " : ""}${esc(t.title.length > 15 ? t.title.slice(0, 15) + "..." : t.title)}
+                  </button>
+                  ${t.isCustom ? `<button class="chip-del" data-del-tpl="${t.id}" title="Hapus template custom">&times;</button>` : ""}
+                </div>
               `).join("")}
+              <button class="btn-add-tpl" id="btnOpenAddTpl">+ Custom</button>
             </div>
             <div class="template-preview">${esc(msgText)}</div>
           </div>
@@ -969,13 +1114,31 @@
         };
       });
 
+      document.querySelectorAll(".chip-del[data-del-tpl]").forEach(b => {
+        b.onclick = (e) => {
+          e.stopPropagation();
+          const tId = b.dataset.delTpl;
+          if (confirm("Hapus template custom ini?")) {
+            CUSTOM_TEMPLATES = CUSTOM_TEMPLATES.filter(x => x.id !== tId);
+            saveCustomTemplates();
+            if (ACTIVE_TPL === tId) ACTIVE_TPL = "winback";
+            localStorage.setItem(LS_TMP, ACTIVE_TPL);
+            showToast("Template dihapus");
+            renderQueue();
+          }
+        };
+      });
+
+      document.getElementById("btnOpenAddTpl").onclick = () => {
+        openTemplateModal();
+      };
+
       document.querySelectorAll(".btn-res[data-res]").forEach(b => {
         b.onclick = () => {
           d.hasil = b.dataset.res;
           d.tanggal = new Date().toISOString().slice(0, 10);
           saveLeads();
           showToast("Hasil disimpan: " + d.hasil);
-          // Auto advance to next lead on status set
           if (CURRENT_POS < LEADS.length - 1) {
             CURRENT_POS++;
             savePos();
@@ -1014,7 +1177,7 @@
         return true;
       });
 
-      const tpl = TEMPLATES.find(t => t.id === ACTIVE_TPL) || TEMPLATES[0];
+      const activeTpl = getActiveTemplate();
 
       container.innerHTML = `
         <div class="filter-bar">
@@ -1044,7 +1207,7 @@
 
         <div class="leads-list">
           ${filtered.slice(0, 100).map(d => {
-            const msg = tpl.getText(d);
+            const msg = renderTemplateText(activeTpl.text, d);
             const waUrl = "https://wa.me/" + formatTel(d.tel) + "?text=" + encodeURIComponent(msg);
             const originalIndex = LEADS.findIndex(x => x.id === d.id);
             return `
@@ -1171,6 +1334,70 @@
         initData();
         showToast("Data direset ke kondisi awal");
       }
+    };
+
+    /* ---------------- CUSTOM TEMPLATE MODAL ---------------- */
+    const modalTemplate = document.getElementById("modalTemplate");
+    const tplTitleInput = document.getElementById("tplTitleInput");
+    const tplTextInput = document.getElementById("tplTextInput");
+    const tplPreviewBox = document.getElementById("tplPreviewBox");
+
+    function updateTemplateModalPreview() {
+      const sample = LEADS[CURRENT_POS] || { nama: "Didi Riswadi", blok: "C2", no: "46", tel: "081706333446", alamat: "Puri Permata Cipondoh Blok C2 46" };
+      const txt = tplTextInput.value;
+      if (!txt.trim()) {
+        tplPreviewBox.textContent = "Ketik pesan di atas untuk melihat preview...";
+      } else {
+        tplPreviewBox.textContent = renderTemplateText(txt, sample);
+      }
+    }
+
+    function openTemplateModal() {
+      tplTitleInput.value = "";
+      tplTextInput.value = "Halo Kak {nama}, salam dari tim XL SATU Fiber area Puri Permata Cipondoh 🙏\n\nMau info promo khusus untuk warga {blok}...";
+      updateTemplateModalPreview();
+      modalTemplate.classList.add("open");
+    }
+
+    document.getElementById("btnCloseTpl").onclick = () => modalTemplate.classList.remove("open");
+    document.getElementById("btnCancelTemplate").onclick = () => modalTemplate.classList.remove("open");
+    modalTemplate.onclick = (e) => {
+      if (e.target === modalTemplate) modalTemplate.classList.remove("open");
+    };
+
+    tplTextInput.oninput = updateTemplateModalPreview;
+
+    document.querySelectorAll(".btn-tag[data-tag]").forEach(btn => {
+      btn.onclick = () => {
+        const tag = btn.dataset.tag;
+        const start = tplTextInput.selectionStart || tplTextInput.value.length;
+        const end = tplTextInput.selectionEnd || tplTextInput.value.length;
+        const val = tplTextInput.value;
+        tplTextInput.value = val.slice(0, start) + tag + val.slice(end);
+        tplTextInput.focus();
+        tplTextInput.selectionStart = tplTextInput.selectionEnd = start + tag.length;
+        updateTemplateModalPreview();
+      };
+    });
+
+    document.getElementById("btnSaveTemplate").onclick = () => {
+      const title = tplTitleInput.value.trim();
+      const text = tplTextInput.value.trim();
+      if (!title) return alert("Silakan masukkan nama / judul template.");
+      if (!text) return alert("Silakan masukkan isi pesan template.");
+
+      const newId = "cust_" + Date.now();
+      CUSTOM_TEMPLATES.push({
+        id: newId,
+        title: title,
+        text: text
+      });
+      saveCustomTemplates();
+      ACTIVE_TPL = newId;
+      localStorage.setItem(LS_TMP, ACTIVE_TPL);
+      modalTemplate.classList.remove("open");
+      showToast("Template custom disimpan & aktif!");
+      renderApp();
     };
 
     function esc(s) {
