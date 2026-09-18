@@ -706,6 +706,116 @@
       min-width: 0;
     }
 
+    /* Educational Content Hub & Diagnostic */
+    .edu-filter-wrap {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+      scrollbar-width: thin;
+    }
+    .edu-chip {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .edu-chip:hover {
+      border-color: var(--xl-cyan);
+      color: var(--text);
+    }
+    .edu-chip.active {
+      background: var(--xl-blue);
+      border-color: var(--xl-blue);
+      color: #ffffff;
+    }
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--box-shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .edu-card:hover {
+      border-color: var(--border-focus);
+    }
+    .edu-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .edu-badge-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .edu-badge-channel {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(0, 229, 255, 0.12);
+      color: var(--xl-cyan);
+      border: 1px solid rgba(0, 229, 255, 0.25);
+    }
+    .edu-badge-ratio {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--xl-green);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+    .edu-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .edu-hook {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+    .edu-body {
+      background: var(--bg-script);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 13.5px;
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.65;
+      border-left: 3.5px solid var(--xl-green);
+      margin-bottom: 14px;
+      overflow-wrap: anywhere;
+    }
+    .edu-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     /* Accordion */
     .accordion-item {
       background: var(--bg-card);
@@ -1024,6 +1134,10 @@
         <button class="tab-btn" onclick="switchTab('skrip')">
           <svg class="icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Skrip Sales WA
+        </button>
+        <button class="tab-btn" onclick="switchTab('konten')">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Konten Edukasi & Soft-Sell
         </button>
         <button class="tab-btn" onclick="switchTab('closing')">
           <svg class="icon" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
@@ -1895,6 +2009,321 @@ Mau saya bantu proseskan pengiriman modemnya kak?</div>
       </div>
     </section>
 
+    <!-- TAB KONTEN: BANK KONTEN EDUKASI & SOFT-SELLING -->
+    <section id="tab-konten" class="tab-content" style="display:none;">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Bank Konten Edukasi & Soft-Selling (Engagement-First)
+        </h2>
+        <p class="section-sub">Edukasi dulu, selesaikan masalah internet warga, bangun trust & relasi, baru tawarkan solusi XL SATU secara natural tanpa spamming.</p>
+      </div>
+
+      <!-- Mini Bandwidth Diagnostic Tool -->
+      <div class="calc-card searchable" data-search="mini diagnostic cek kebutuhan bandwidth rumah alat hitung kalkulator" style="margin-bottom: 24px; border-left: 4px solid var(--xl-cyan);">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom: 8px;">
+          <svg class="icon" style="color:var(--xl-cyan);" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <h3 style="font-size:16px; font-weight:700;">Mini Diagnostic: Cek Kebutuhan Bandwidth Rumah Warga</h3>
+        </div>
+        <p style="font-size:13px; color:var(--text-muted); margin-bottom:16px;">Gunakan kalkulasi logis ini saat konsultasi dengan calon pelanggan untuk membuktikan kenapa paket lama mereka (30-50 Mbps) sering bottleneck.</p>
+        
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin-bottom:16px;">
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" style="font-size:12px;">Jumlah HP (Medsos/Video):</label>
+            <input type="number" id="diagHp" class="form-input" value="4" min="1" max="20" oninput="runBandwidthDiagnostic()" />
+            <span style="font-size:11px; color:var(--text-faint);">~8 Mbps/HP</span>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" style="font-size:12px;">Smart TV (Streaming 4K):</label>
+            <input type="number" id="diagTv" class="form-input" value="2" min="0" max="10" oninput="runBandwidthDiagnostic()" />
+            <span style="font-size:11px; color:var(--text-faint);">~30 Mbps/TV</span>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" style="font-size:12px;">Laptop/PC (WFH/Zoom):</label>
+            <input type="number" id="diagLaptop" class="form-input" value="2" min="0" max="10" oninput="runBandwidthDiagnostic()" />
+            <span style="font-size:11px; color:var(--text-faint);">~20 Mbps/Laptop</span>
+          </div>
+          <div class="form-group" style="margin-bottom:0;">
+            <label class="form-label" style="font-size:12px;">Kamera CCTV Cloud (Upload):</label>
+            <input type="number" id="diagCctv" class="form-input" value="2" min="0" max="20" oninput="runBandwidthDiagnostic()" />
+            <span style="font-size:11px; color:var(--text-faint);">~10 Mbps Upload/CCTV</span>
+          </div>
+        </div>
+
+        <div style="background:var(--bg-input); border:1px solid var(--border); border-radius:10px; padding:14px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="font-size:11.5px; text-transform:uppercase; font-weight:700; color:var(--text-muted); letter-spacing:0.5px;">Kebutuhan Riil Bandwidth Rumah:</div>
+            <div style="font-size:20px; font-weight:800; color:var(--xl-green);" id="diagTotalResult">~190 - 220 Mbps (Simetris 1:1)</div>
+            <div style="font-size:12.5px; color:var(--text-muted); margin-top:3px;" id="diagAdvice">Paket lama 30 - 50 Mbps sudah pasti macet parah saat TV & Zoom nyala barengan. Rekomendasi: XL SATU SPARK 250 Mbps simetris 1:1.</div>
+          </div>
+          <button class="btn btn-primary" onclick="copyDiagnosticPitch()">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Hasil Diagnostik ke WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Chips -->
+      <div class="edu-filter-wrap">
+        <button class="edu-chip active" onclick="filterEduCategory('all', this)">Semua Konten (6)</button>
+        <button class="edu-chip" onclick="filterEduCategory('story', this)">Status WhatsApp Story (2)</button>
+        <button class="edu-chip" onclick="filterEduCategory('grup', this)">Grup RT/RW & Warga (2)</button>
+        <button class="edu-chip" onclick="filterEduCategory('japri', this)">Japri Nurturing (1)</button>
+        <button class="edu-chip" onclick="filterEduCategory('teknis', this)">Bedah Teknis Awam (1)</button>
+      </div>
+
+      <!-- KONTEN 1: Edukasi Simetris 1:1 (Grup Warga / Facebook Komunitas) -->
+      <div class="edu-card searchable" data-category="grup" data-search="simetris asimetris upload download zoom putus kirim video wa muter edukasi grup warga">
+        <div class="edu-card-top">
+          <div class="edu-badge-group">
+            <span class="edu-badge-channel">Grup RT/RW & Warga</span>
+            <span class="edu-badge-ratio">85% Edukasi | 15% Soft-Sell</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted);">Target: Warga yang sering WFH / Zoom / CCTV</div>
+        </div>
+        <div class="edu-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+          Misteri: "Nonton YouTube Lancar, Tapi Pas Zoom Putus-Putus & Kirim WA Muter"
+        </div>
+        <div class="edu-hook">Solusi untuk tetangga yang bingung kenapa internet terasa kencang untuk nonton, tapi jeblok pas dipakai kerja.</div>
+        <div class="edu-body" id="eduTxtSimetris">Pernah heran gak bapak/ibu tetangga, nonton film atau buka YouTube di rumah rasanya lancar-lancar aja, tapi giliran bapaknya meeting Zoom kantor suaranya putus-putus, atau pas ibu kirim video di WhatsApp loading-nya muter lama banget?
+
+Ternyata penyebabnya bukan HP kita yang rusak, melainkan teknologi internet lama yang kita pakai itu menganut sistem "ASIMETRIS".
+
+Apa itu Asimetris?
+1. Download Kencang: Misalnya di brosur tertulis 50 Mbps, itu cuma kecepatan narik data (nonton/baca).
+2. Upload Dicekik: Kecepatan kirim data (Zoom, kirim file di WA, backup foto, rekaman CCTV) biasanya cuma dikasih 10% - 20% doang (cuma 5 - 10 Mbps!).
+
+Akibatnya, begitu ada yang nonton TV sambil ada yang kirim kerjaan atau meeting online, jalurnya langsung macet total karena jalur upload-nya kekecilan.
+
+💡 Tips Bijak Memilih WiFi Rumah Sekarang:
+Pastikan tanya ke provider apakah kecepatannya "Simetris 1:1" (Download dan Upload sama kencangnya).
+
+Kabar baik untuk warga komplek kita, sekarang jaringan XL SATU Fiber di komplek sudah 100% Simetris 1:1. Kalau langganan 250 Mbps, Download dapet 250 Mbps, Upload-nya juga ngebut 250 Mbps murni tanpa dicekik.
+
+Tetangga yang mau dibantu tes atau cek apakah koneksi WiFi rumahnya saat ini sudah simetris atau masih asimetris, boleh japri saya santai ya. Gratis bantu cek 🙏</div>
+        <div class="edu-actions">
+          <button class="btn btn-sm btn-primary" onclick="copyEduContent('eduTxtSimetris', 'Misteri Simetris 1:1')">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Teks
+          </button>
+          <button class="btn btn-sm btn-outline" onclick="shareEduToWa('eduTxtSimetris')">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Buka di WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- KONTEN 2: Tips Posisi Router & WiFi Kamar Lemot (Status WhatsApp Story) -->
+      <div class="edu-card searchable" data-category="story" data-search="tips posisi router wifi kamar lantai 2 lemot tembok sinyal 5ghz 2.4ghz status wa">
+        <div class="edu-card-top">
+          <div class="edu-badge-group">
+            <span class="edu-badge-channel">Status WhatsApp Story</span>
+            <span class="edu-badge-ratio">90% Edukasi | 10% Soft-Sell</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted);">Format: 3-Slide Story WhatsApp</div>
+        </div>
+        <div class="edu-title">
+          <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" x2="12.01" y1="20" y2="20"/></svg>
+          Serial Status WA: "Kenapa WiFi di Kamar Cuma Dapet 1 Bar Padahal Deket?"
+        </div>
+        <div class="edu-hook">Bisa di-post jadi 3 update status WA berurutan untuk memicu warga curhat dan tanya solusi.</div>
+        <div class="edu-body" id="eduTxtRouter">[SLIDE 1 - STATUS WA]
+Sering kesel gak pas di ruang tamu WiFi ngebut, tapi begitu masuk kamar tidur atau naik ke lantai 2 langsung drop tinggal 1 bar dan muter? 🥲
+Bukan salah HP-nya, ini 3 kesalahan fatal penempatan router yang sering terjadi di rumah:
+
+[SLIDE 2 - STATUS WA]
+1. Ditaruh di lantai atau kolong meja TV. Sinyal WiFi itu memancar melingkar seperti donat ke bawah dan samping. Kalau di lantai, 50% energinya diserap lantai beton.
+2. Didekatkan ke Microwave / Kulkas / Cermin besar. Benda logam dan kaca cermin memantulkan dan memecah gelombang frekuensi 2.4 GHz.
+3. Mengira frekuensi 5 GHz bisa tembus 3 lapis tembok bata. (5 GHz super ngebut tapi rapuh tembok, 2.4 GHz lambat tapi tembus jarak jauh).
+
+Posisi terbaik: Taruh di ketinggian dada/mata (1.2 - 1.5 meter) di ruang terbuka tengah rumah!
+
+[SLIDE 3 - STATUS WA]
+Buat tetangga komplek yang udah coba geser router tapi kamar tetap blankspot atau butuh modem dual-band gigabit generasi terbaru, boleh colek saya ya.
+Kebetulan lagi ada program upgrade XL SATU Fiber bebas biaya pasang + modem dual-band gratis di komplek kita 🚀</div>
+        <div class="edu-actions">
+          <button class="btn btn-sm btn-primary" onclick="copyEduContent('eduTxtRouter', 'Tips Posisi Router')">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Teks
+          </button>
+          <button class="btn btn-sm btn-outline" onclick="shareEduToWa('eduTxtRouter')">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Buka di WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- KONTEN 3: Jebakan Batman FUP (Grup Warga / FB Komunitas) -->
+      <div class="edu-card searchable" data-category="grup" data-search="jebakan fup kuota tersembunyi akhir bulan lemot tanggal 20 true unlimited grup warga">
+        <div class="edu-card-top">
+          <div class="edu-badge-group">
+            <span class="edu-badge-channel">Grup RT/RW & Warga</span>
+            <span class="edu-badge-ratio">80% Edukasi | 20% Soft-Sell</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted);">Target: Korban FUP provider sebelah yang sering lemot di akhir bulan</div>
+        </div>
+        <div class="edu-title">
+          <svg class="icon" style="color:var(--xl-gold)" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/></svg>
+          Mitos "Unlimited": Kenapa WiFi Rumah Tiba-Tiba Lemot Parah di Tanggal 20?
+        </div>
+        <div class="edu-hook">Membongkar istilah Fair Usage Policy (FUP) yang sering disembunyikan dalam syarat dan ketentuan kecil.</div>
+        <div class="edu-body" id="eduTxtFup">Bapak/Ibu tetangga, pernah ngalamin fenomena aneh kayak gini?
+Di tanggal 1 sampai 15 internet rumah ngebut banget, streaming lancar jaya. Tapi pas masuk tanggal 20 ke atas sampai akhir bulan, tiba-tiba buka Instagram atau Google aja muter-muter kayak keong?
+
+Jawabannya: Anda terkena sistem "FUP" (Fair Usage Policy).
+
+Banyak provider mengiklankan paket internet mereka sebagai "UNLIMITED", tapi di syarat & ketentuan yang tulisannya kecil-kecil, sebenarnya ada kuota tersembunyi (misalnya batas 500 GB atau 1000 GB).
+
+Ketika pemakaian sekeluarga (nonton Smart TV 4K, YouTube anak, WFH, update aplikasi) sudah melebihi batas kuota itu, kecepatan internet Anda langsung "DIHUKUM" alias dicekik turun drastis jadi 1 Mbps sampai 3 Mbps saja sampai ganti bulan!
+
+🛡️ Apa Bedanya dengan TRUE UNLIMITED?
+True Unlimited murni adalah internet tanpa batasan kuota FUP sama sekali. Mau habis 1.000 GB, 3.000 GB, atau download tiap hari sekeluarga, kecepatannya TIDAK AKAN PERNAH DITURUNKAN.
+
+Nah, paket XL SATU Fiber SPARK di komplek kita adalah 100% TRUE UNLIMITED murni tanpa batasan FUP. Mau streaming 4K tiap hari di 3 TV barengan, speed 250 Mbps tetap utuh dari tanggal 1 sampai akhir bulan.
+
+Yang mau terbebas dari drama lemot akhir bulan, boleh info ke saya ya warga, lagi ada program pasang baru gratis biaya instalasi 500rb khusus blok kita 🤝</div>
+        <div class="edu-actions">
+          <button class="btn btn-sm btn-primary" onclick="copyEduContent('eduTxtFup', 'Mitos Unlimited & FUP')">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Teks
+          </button>
+          <button class="btn btn-sm btn-outline" onclick="shareEduToWa('eduTxtFup')">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Buka di WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- KONTEN 4: Audit Bandwidth Rumah (Japri Nurturing 1-on-1) -->
+      <div class="edu-card searchable" data-category="japri" data-search="audit bandwidth japri follow up 1 on 1 hitung kebutuhan gadget smart tv cctv">
+        <div class="edu-card-top">
+          <div class="edu-badge-group">
+            <span class="edu-badge-channel">Japri Nurturing (1-on-1)</span>
+            <span class="edu-badge-ratio">85% Edukasi | 15% Soft-Sell</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted);">Target: Calon pelanggan yang masih ragu / mikir-mikir</div>
+        </div>
+        <div class="edu-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/></svg>
+          Audit Kebutuhan Internet Rumah: "Berapa Mbps Sih yang Beneran Dibutuhkan?"
+        </div>
+        <div class="edu-hook">Mengedukasi prospek agar tahu angka kebutuhan riil keluarganya, bukan sekadar beli paket kucing dalam karung.</div>
+        <div class="edu-body" id="eduTxtAudit">Halo selamat siang Kak [Nama], salam kenal dari tim lingkungan sekitar [Blok] ya kak 🙏
+
+Seringkali banyak warga yang tanya ke kami: "Mas, sebenarnya buat rumah kayak kita itu butuh berapa Mbps sih? Takut kemahalan kalau kegedean, tapi kalau kekecilan takut lemot."
+
+Biar gak tebak-tebakan, ini rumus hitung kebutuhan bandwidth realistis per perangkat di era sekarang Kak:
+• 1 HP (Scroll TikTok/IG Reels & YouTube HD): Butuh 8 - 10 Mbps
+• 1 Smart TV (Nonton Netflix / YouTube 4K lancar tanpa buffer): Butuh 25 - 35 Mbps
+• 1 Laptop WFH (Meeting Zoom HD / kirim dokumen kerjaan): Butuh 20 - 25 Mbps
+• 1 Kamera CCTV Cloud: Butuh 8 - 12 Mbps (Jalur Upload)
+
+Kalau di rumah Kakak ada 4 HP + 2 Smart TV + 1 Laptop + 2 CCTV:
+Total kebutuhan bandwidth simultan saat jam santai malam hari itu minimal ada di kisaran 150 - 200 Mbps!
+
+Makanya kalau saat ini masih pakai paket 30 - 50 Mbps lama tapi bayar tiap bulan 350 - 400 ribuan, wajar banget sering buffering kalau lagi dipakai barengan sekeluarga.
+
+Di XL SATU Fiber lagi ada program upgrade warga perumahan:
+Speed 250 Mbps Simetris 1:1 cuma Rp 229.000/bln (Netto Rp 254.190) + bebas biaya pasang 500rb. Speed naik 5x lipat, tagihan bulanan justru lebih hemat 100 ribuan.
+
+Kalau boleh tahu, saat ini di rumah ada berapa gadget yang aktif Kak? Biar saya bantu hitungkan simulasi optimalnya santai aja kak 🙂</div>
+        <div class="edu-actions">
+          <button class="btn btn-sm btn-primary" onclick="copyEduContent('eduTxtAudit', 'Audit Bandwidth Japri')">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Teks
+          </button>
+          <button class="btn btn-sm btn-outline" onclick="shareEduToWa('eduTxtAudit')">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Buka di WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- KONTEN 5: Cara Cek Orang Nebeng WiFi (Bedah Teknis Awam) -->
+      <div class="edu-card searchable" data-category="teknis" data-search="cara cek orang nebeng wifi maling wifi hacker wps password keamanan router bedah teknis">
+        <div class="edu-card-top">
+          <div class="edu-badge-group">
+            <span class="edu-badge-channel">Bedah Teknis Awam</span>
+            <span class="edu-badge-ratio">90% Edukasi | 10% Soft-Sell</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted);">Target: Tips keamanan praktis yang disukai bapak-bapak & anak muda</div>
+        </div>
+        <div class="edu-title">
+          <svg class="icon" style="color:var(--xl-cyan)" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Cara Gampang Cek Apakah Ada Perangkat Asing yang "Nebeng" WiFi Rumah
+        </div>
+        <div class="edu-hook">Tips keamanan jaringan praktis yang langsung memberi solusi dan membangun reputasi sales sebagai teknisi terpercaya.</div>
+        <div class="edu-body" id="eduTxtSecurity">Curiga WiFi rumah sering ngedrop padahal orang rumah lagi gak ada yang download berat?
+Bisa jadi ada perangkat tak dikenal dari luar rumah yang diam-diam nyambung ke WiFi Anda.
+
+Ini 3 langkah mudah ngecek dan mengamankannya:
+
+1. Download aplikasi "Fing" di HP (Tersedia gratis di Play Store / App Store)
+Buka aplikasi sambil terhubung ke WiFi rumah, lalu klik "Scan for devices". Aplikasi akan menampilkan semua gadget yang lagi tersambung (Merk HP, Smart TV, Laptop, dll). Kalau ada merk perangkat yang gak dikenal, berarti ada penyusup!
+
+2. Matikan Fitur "WPS" (Wi-Fi Protected Setup) di Router
+Banyak router lama punya fitur WPS yang aktif secara default. Fitur ini punya celah keamanan (PIN 8 digit) yang gampang dibobol aplikasi pembobol WiFi di HP Android. Masuk ke halaman admin router, lalu nonaktifkan tombol WPS.
+
+3. Gunakan Password Minimal 10 Karakter Kombinasi
+Hindari password tanggal lahir, nomor HP, atau nama jalan. Gunakan kombinasi huruf besar, kecil, angka, dan simbol (misalnya: `Kopihitam!2026`).
+
+Semoga bermanfaat ya bapak/ibu! Buat warga yang mau konsultasi gratis setting keamanan router atau pengen upgrade ke router gigabit XL SATU yang lebih canggih & aman, boleh kontak saya ya 🙏</div>
+        <div class="edu-actions">
+          <button class="btn btn-sm btn-primary" onclick="copyEduContent('eduTxtSecurity', 'Cek Nebeng WiFi')">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Teks
+          </button>
+          <button class="btn btn-sm btn-outline" onclick="shareEduToWa('eduTxtSecurity')">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Buka di WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- KONTEN 6: Cerita Serial Empati Tetangga Ujian Online (Status WhatsApp Story) -->
+      <div class="edu-card searchable" data-category="story" data-search="cerita empati tetangga anak ujian online zoom putus status wa serial storytelling">
+        <div class="edu-card-top">
+          <div class="edu-badge-group">
+            <span class="edu-badge-channel">Status WhatsApp Story</span>
+            <span class="edu-badge-ratio">75% Edukasi | 25% Soft-Sell</span>
+          </div>
+          <div style="font-size:12px; color:var(--text-muted);">Format: Storytelling Pengalaman Lapangan</div>
+        </div>
+        <div class="edu-title">
+          <svg class="icon" style="color:var(--xl-green)" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Cerita Lapangan: Tetangga yang Curhat Anaknya Gagal Ujian Online
+        </div>
+        <div class="edu-hook">Storytelling humanis yang menyentuh emosi para orang tua dan pekerja jarak jauh.</div>
+        <div class="edu-body" id="eduTxtStory">[STORY 1]
+Kemarin sore sempat ngobrol sama salah satu tetangga blok sebelah yang lagi geleng-geleng kepala.
+Ceritanya anaknya lagi ujian sertifikasi online dari kampus, tapi pas sesi presentasi video, koneksi internetnya mendadak putus nyambung. Padahal tagihan bulanan internetnya lumayan mahal di angka 400 ribuan.
+
+[STORY 2]
+Pas kita cek barengan, kendalanya ternyata simpel tapi fatal:
+Di jam yang sama, TV di ruang tengah lagi muter video YouTube, dan ibunya lagi kirim video dagangan di grup WA.
+Karena koneksi lamanya cuma ngasih upload 5 Mbps, giliran anak butuh upload video presentasi, jalurnya langsung drop habis.
+Pelajaran penting: Kecepatan UPLOAD itu krusial banget buat jaman sekarang, gak bisa cuma ngandelin download kenceng doang!
+
+[STORY 3]
+Untungnya sekarang jalur kabel fiber optik baru XL SATU sudah aktif di komplek kita.
+Rasionya sudah 100% Simetris 1:1 (Upload dapet 250 Mbps, Download dapet 250 Mbps).
+Jadi mau anak ujian online, ibu kirim video, sama bapak nonton TV barengan, jalurnya plong gak pake antri.
+
+Kebetulan bulan ini kuota promo bebas biaya pasang 500rb masih ada buat warga komplek. Yang mau amankan slot sebelum kuota habis, boleh japri santai ya tetangga 🙏</div>
+        <div class="edu-actions">
+          <button class="btn btn-sm btn-primary" onclick="copyEduContent('eduTxtStory', 'Cerita Lapangan Ujian Online')">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            Salin Teks
+          </button>
+          <button class="btn btn-sm btn-outline" onclick="shareEduToWa('eduTxtStory')">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Buka di WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- TAB 9: FORM ORDER WA LENGKAP -->
     <section id="tab-closing" class="tab-content" style="display:none;">
       <div class="section-header">
@@ -2326,7 +2755,94 @@ Mau saya bantu proseskan pengiriman modemnya kak?</div>
         .catch(() => {});
     }
 
+    // TAB KONTEN & BANDWIDTH DIAGNOSTIC
+    function runBandwidthDiagnostic() {
+      const hpEl = document.getElementById('diagHp');
+      const tvEl = document.getElementById('diagTv');
+      const laptopEl = document.getElementById('diagLaptop');
+      const cctvEl = document.getElementById('diagCctv');
+
+      if (!hpEl || !tvEl || !laptopEl || !cctvEl) return;
+
+      const hp = parseInt(hpEl.value) || 0;
+      const tv = parseInt(tvEl.value) || 0;
+      const laptop = parseInt(laptopEl.value) || 0;
+      const cctv = parseInt(cctvEl.value) || 0;
+
+      const baseNeed = (hp * 8) + (tv * 30) + (laptop * 20) + (cctv * 10);
+      const totalMin = Math.max(50, Math.round(baseNeed * 0.9));
+      const totalMax = Math.max(100, Math.round(baseNeed * 1.25));
+
+      const resEl = document.getElementById('diagTotalResult');
+      const adviceEl = document.getElementById('diagAdvice');
+
+      if (resEl) {
+        resEl.innerText = '~' + totalMin + ' - ' + totalMax + ' Mbps (Simetris 1:1)';
+      }
+
+      if (adviceEl) {
+        if (totalMax <= 100) {
+          adviceEl.innerText = 'Kebutuhan keluarga tergolong ringan. Paket JOY 100 Mbps atau SPARK 250 Mbps sudah sangat lega dan bebas lemot.';
+        } else if (totalMax <= 260) {
+          adviceEl.innerText = 'Paket WiFi 30-50 Mbps lama sudah pasti bottleneck parah saat jam sibuk malam hari. Rekomendasi paling pas: XL SATU SPARK 250 Mbps Simetris 1:1.';
+        } else {
+          adviceEl.innerText = 'Aktivitas internet keluarga sangat padat (banyak TV 4K/CCTV/WFH). Sangat disarankan paket SPARK 350 Mbps atau 400 Mbps agar streaming & backup CCTV tidak tersendat.';
+        }
+      }
+    }
+
+    function copyDiagnosticPitch() {
+      const hp = document.getElementById('diagHp').value;
+      const tv = document.getElementById('diagTv').value;
+      const laptop = document.getElementById('diagLaptop').value;
+      const cctv = document.getElementById('diagCctv').value;
+      const result = document.getElementById('diagTotalResult').innerText;
+      const advice = document.getElementById('diagAdvice').innerText;
+
+      const pitch = 'Halo Kak, ini hasil audit simulasi kebutuhan bandwidth internet di rumah:\n\n' +
+        '📱 Jumlah Smartphone: ' + hp + ' unit\n' +
+        '📺 Smart TV 4K: ' + tv + ' unit\n' +
+        '💻 Laptop / PC WFH: ' + laptop + ' unit\n' +
+        '📹 Kamera CCTV Cloud: ' + cctv + ' unit\n' +
+        '-----------------------------------------\n' +
+        '⚡ Kebutuhan Riil Bandwidth: ' + result + '\n' +
+        '💡 Analisis: ' + advice + '\n\n' +
+        'Di XL SATU Fiber SPARK 250 Mbps, kecepatannya sudah Simetris 1:1 murni True Unlimited tanpa FUP seharga Rp 229rb/bln (Netto PPN: Rp 254.190) + bebas biaya instalasi 500rb.\n\n' +
+        'Mau saya bantu cek titik tiang terdekat dari rumah Kakak?';
+
+      copyTextToClipboard(pitch, 'Hasil diagnostik bandwidth berhasil disalin!');
+    }
+
+    function filterEduCategory(cat, btn) {
+      document.querySelectorAll('.edu-chip').forEach(c => c.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const cards = document.querySelectorAll('.edu-card');
+      cards.forEach(card => {
+        const cCat = card.getAttribute('data-category');
+        if (cat === 'all' || cCat === cat) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function copyEduContent(elId, title) {
+      const el = document.getElementById(elId);
+      if (!el) return;
+      copyTextToClipboard(el.innerText, 'Konten "' + title + '" berhasil disalin ke clipboard!');
+    }
+
+    function shareEduToWa(elId) {
+      const el = document.getElementById(elId);
+      if (!el) return;
+      const encoded = encodeURIComponent(el.innerText);
+      window.open('https://api.whatsapp.com/send?text=' + encoded, '_blank');
+    }
+
     runSavingsCalculator();
+    runBandwidthDiagnostic();
     loadLiveDatabase();
     setInterval(loadLiveDatabase, 15000);
   </script>
