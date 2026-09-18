@@ -1,0 +1,198 @@
+{
+  "last_updated": "2026-09-18 01:19:42",
+  "last_scan_trigger": "Otomatis Saat Dicas (3%) (18 Sep 01:19)",
+  "summary": {
+    "total_prospects": 4,
+    "total_qa": 0,
+    "total_materials": 7
+  },
+  "prospects": [
+    {
+      "id": "item_1789640182_7506",
+      "date": "2026-09-17 17:16",
+      "source_file": "IMG-20260917-WA0023.jpg",
+      "phones": [
+        "088979743311"
+      ],
+      "nik": "-",
+      "address": "Alamat A",
+      "target_plan": "250 Mbps (Promo Hemat)",
+      "status": "Prospek Baru",
+      "extracted_text_preview": "Lo Jeeew . Dm Profil £ e 2 RINING ERNAWATI 8 Rekaning Utama 1660-1700-0098-55 (3 \\' Informasi Profil A SUrayE ektronikg riningernawatis0@gmail.com g g Na Telepen 628979743311 XUOMS",
+      "suggested_followup": "Halo kak, salam kenal saya Adam dari XL SATU. Mau konfirmasi info pasang internet fiber 250 Mbps (Promo Hemat) kemarin kak, apakah alamatnya di Alamat A mau saya bantu amankan slot teknisi gratis pasangnya?"
+    },
+    {
+      "id": "item_1789617469_6856",
+      "date": "2026-09-17 10:57",
+      "source_file": "Screenshot_20260917-105749.jpg",
+      "phones": [
+        "081210996098"
+      ],
+      "nik": "-",
+      "address": "-",
+      "target_plan": "400 Mbps (High Speed)",
+      "status": "Prospek Baru",
+      "extracted_text_preview": "10.57 >- & Gl el 32 balyan 3 ~+ ) 33 menit yang lalu = > QJ NF XL satu XL SATU i “n — INTERNET ONLY — — Dae > XL SATU XL SATU XL SATU SPARK 250 Mbps SPARK 350 Mbps SPARK 400 Mbps M",
+      "suggested_followup": "Halo kak, salam kenal saya Adam dari XL SATU. Mau konfirmasi info pasang internet fiber 400 Mbps (High Speed) kemarin kak, apakah alamatnya di rumah kakak mau saya bantu amankan slot teknisi gratis pasangnya?"
+    },
+    {
+      "id": "item_1789574708_8649",
+      "date": "2026-09-16 23:05",
+      "source_file": "IMG-20260916-WA0118.jpg",
+      "phones": [
+        "-"
+      ],
+      "nik": "7604012002810001",
+      "address": "Alamat — » @ Registrasi e-Channel",
+      "target_plan": "250 Mbps (Promo Hemat)",
+      "status": "Prospek Baru",
+      "extracted_text_preview": "00.03 .l il F @ M Pembukaan Tabungan ibadi y @ Informasi Alamat — » @ Registrasi e-Channel Ambil foto lagi  NIK 7604012002810001 LEKOPADIS 20 02 1981 Agama o v",
+      "suggested_followup": "Halo kak, salam kenal saya Adam dari XL SATU. Mau konfirmasi info pasang internet fiber 250 Mbps (Promo Hemat) kemarin kak, apakah alamatnya di Alamat — » @ Registrasi e-Channel mau saya bantu amankan slot teknisi gratis pasangnya?"
+    },
+    {
+      "id": "item_1789308746_2463",
+      "date": "2026-09-13 21:12",
+      "source_file": "Screenshot_20260913-211226.jpg",
+      "phones": [
+        "087761037266"
+      ],
+      "nik": "-",
+      "address": "-",
+      "target_plan": "250 Mbps (Promo Hemat)",
+      "status": "Prospek Baru",
+      "extracted_text_preview": "« Postingan yang sudah Anda lihat Kesempatan kerja terbuka untuk kamu yang siap berkembang, suka tantangan, dan ingin langsung bekerja di lapangan!  Kualifikasi:  Pria/Wanita usia ",
+      "suggested_followup": "Halo kak, salam kenal saya Adam dari XL SATU. Mau konfirmasi info pasang internet fiber 250 Mbps (Promo Hemat) kemarin kak, apakah alamatnya di rumah kakak mau saya bantu amankan slot teknisi gratis pasangnya?"
+    }
+  ],
+  "qa_inquiries": [],
+  "materials": [
+    {
+      "id": "mat_wo_eligibility_refund_2026",
+      "date": "17 Sep 2026 10:59",
+      "source_file": "Screenshot_20260917-105943.jpg",
+      "title": "Matriks Resiko WO: Alasan Cancelation Eligible vs Not Eligible (Refund Guard)",
+      "summary": "PENTING: Jangan sampai cancelation Not Eligible karena sales disalahkan & susah refund! Pastikan sebelum submit prospek tidak terikat kontrak provider lain dan sudah izin pasangan. Kendala teknis (Port ODP penuh, alamat beda, no cable access, out of coverage) dihitung ELIGIBLE.",
+      "tags": [
+        "wo",
+        "cancelation",
+        "eligibility",
+        "refund",
+        "sop sales",
+        "anti penalti"
+      ]
+    },
+    {
+      "id": "mat_annual_quota_2026",
+      "date": "17 Sep 2026 10:58",
+      "source_file": "Screenshot_20260917-105807.jpg",
+      "title": "Paket Tahunan XL SATU + Kuota HP Se-Keluarga s.d. 50 GB",
+      "summary": "Paket hemat bayar setahun di muka: BASIC SMART 75 Mbps + 10 GB Kuota HP (Rp 2.490.000/thn), BASIC FAMILY 150 Mbps + 25 GB Kuota HP (Rp 3.190.000/thn), PRO SUPERUSER 200 Mbps + 50 GB Kuota HP (Rp 3.690.000/thn). Sangat cocok untuk keluarga mapan yang anti ribet bayar bulanan.",
+      "tags": [
+        "tahunan",
+        "kuota sekeluarga",
+        "smart",
+        "family",
+        "superuser",
+        "50gb"
+      ]
+    },
+    {
+      "id": "mat_joy_tv_cable_2026",
+      "date": "17 Sep 2026 10:58",
+      "source_file": "Screenshot_20260917-105811.jpg",
+      "title": "Paket JOY First Media Bundling TV Cable (98 - 167 Channel)",
+      "summary": "Integrasi First Media & XL SATU: JOY VALUE 100 Mbps + 98 TV Ch (Setara Rp 262.500/bln), JOY PRO 150 Mbps + 99 TV Ch (Setara Rp 320.800/bln), JOY PREMIUM 200 Mbps + 167 TV Ch (Setara Rp 500.000/bln). Termasuk gratis STB Android TV, Vidio.com Lite, dan Catchplay+.",
+      "tags": [
+        "joy",
+        "first media",
+        "tv cable",
+        "vidio",
+        "catchplay",
+        "stb"
+      ]
+    },
+    {
+      "id": "mat_fwa_wireless_2026",
+      "date": "17 Sep 2026 10:57",
+      "source_file": "Screenshot_20260917-105701.jpg",
+      "title": "Paket XL SATU FWA (Wireless 5G) — Bayar 3 Bulan Gratis 1 Bulan",
+      "summary": "Solusi area belum ada kabel fiber optik: Speed 50 Mbps FWA hanya Rp 721.500 per 4 bulan (Promo bayar 3 bln gratis 1 bln, setara Rp 180.375/bln inc. PPN!). Atau opsi bulanan Rp 243.090/bln. Modem WiFi 5G dipinjamkan gratis, pembayaran di awal baru proses pengiriman modem.",
+      "tags": [
+        "fwa",
+        "wireless",
+        "5g",
+        "bayar 3 dapat 4",
+        "180rb",
+        "tanpa kabel"
+      ]
+    },
+    {
+      "id": "mat_ftth_spark_2026",
+      "date": "17 Sep 2026 10:57",
+      "source_file": "Screenshot_20260917-105749.jpg",
+      "title": "Lini Lengkap XL SATU FTTH SPARK (Internet Only 1:1 Simetris)",
+      "summary": "Koneksi 100% fiber optik simetris 1:1: SPARK 250 Mbps (Rp 254.190/bln), SPARK 350 Mbps (Rp 309.690/bln), SPARK 400 Mbps (Rp 333.000/bln), SPARK 600 Mbps, dan SPARK 1000 Mbps (1 Gbps). Gratis instalasi Rp 500rb, sewa modem ONT WiFi gratis, dan harga flat sudah termasuk PPN 11%.",
+      "tags": [
+        "ftth",
+        "spark",
+        "250mbps",
+        "350mbps",
+        "400mbps",
+        "1gbps",
+        "simetris"
+      ]
+    },
+    {
+      "id": "mat_sop_registrasi_2026",
+      "date": "17 Sep 2026 10:56",
+      "source_file": "Screenshot_20260917-105636.jpg",
+      "title": "SOP Registrasi Pasang Baru & Syarat Custom Area (CA)",
+      "summary": "Syarat wajib pendaftaran: (1) Foto KTP, (2) No HP 1 & 2, (3) Email, (4) Alamat pasang, (5) Foto rumah full tampak depan, (6) ID kWh meteran listrik, (7) Vermuk via email/WA CST, (8) Paket pilihan. Khusus pengajuan area baru (CA): tambah denah, foto/video tarikan kabel FAT ke rumah, dan shareloc tikor.",
+      "tags": [
+        "sop",
+        "registrasi",
+        "ktp",
+        "ca",
+        "pln",
+        "vermuk"
+      ]
+    },
+    {
+      "id": "mat_item_1781690717_2707",
+      "date": "2026-06-17 17:05",
+      "source_file": "ChatGPT Image Jun 17, 2026, 05_04_46 PM (4).png",
+      "title": "Materi / Brosur dari ChatGPT Image Jun 17, 2026, 05_04_46 PM (4).png",
+      "summary": "1a /—V\\\\ | . / \\ 'Farid Adam | = | Helping teams build systems that work — and grow. N )/ | @ im0 i | Ott | i S & i I ancang er o . r/ ) - i Al Implementation H! aal Mulai dari solusi kecil yang cepat terasa hasilnya. i | ] Jangan mulai dari proyek b...",
+      "tags": [
+        "ont",
+        "paket"
+      ]
+    }
+  ],
+  "scan_logs": [
+    {
+      "timestamp": "2026-09-18 01:19:42",
+      "trigger": "Otomatis Saat Dicas (3%)",
+      "files_checked": 30,
+      "new_prospects": 2,
+      "new_qa": 0,
+      "new_materials": 0
+    },
+    {
+      "timestamp": "2026-09-17 01:39:42",
+      "trigger": "Otomatis Saat Dicas (7%)",
+      "files_checked": 30,
+      "new_prospects": 0,
+      "new_qa": 0,
+      "new_materials": 0
+    },
+    {
+      "timestamp": "2026-09-17 01:27:21",
+      "trigger": "Test Manual Initial",
+      "files_checked": 30,
+      "new_prospects": 2,
+      "new_qa": 0,
+      "new_materials": 1
+    }
+  ]
+}

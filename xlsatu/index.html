@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>XL SATU Follow-Up &bull; Puri Permata Cipondoh</title>
+  <meta name="theme-color" content="#0b0e14">
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --card: #151921;
+      --card2: #1c2330;
+      --card3: #222a3a;
+      --line: #252e3d;
+      --txt: #eef2f8;
+      --dim: #8e9bb0;
+      --acc: #00a884;
+      --acc-dark: #008069;
+      --wa: #25d366;
+      --wa-dark: #128c7e;
+      --blue: #2f6df6;
+      --blue-dark: #1d4ed8;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+      --bad: #ef4444;
+      --gray: #64748b;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--txt);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-size: 14.5px;
+      line-height: 1.5;
+      padding: 12px 12px calc(24px + env(safe-area-inset-bottom));
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--acc);
+      background: rgba(0, 168, 132, 0.12);
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 168, 132, 0.25);
+    }
+    .badge-live::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--acc);
+    }
+    .sub {
+      color: var(--dim);
+      font-size: 12.5px;
+      margin-top: 2px;
+    }
+    .top-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    /* Mode Switcher Tabs */
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 3px;
+      margin-bottom: 12px;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--dim);
+      padding: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--card2);
+      color: var(--txt);
+      border: 1px solid var(--line);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    button, select, input {
+      font: inherit;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      background: var(--card2);
+      color: var(--txt);
+      padding: 9px 12px;
+    }
+    button {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 600;
+      transition: all 0.15s;
+    }
+    button:active { transform: scale(0.98); }
+
+    .btn-icon {
+      padding: 8px 10px;
+      background: var(--card2);
+      border: 1px solid var(--line);
+      color: var(--dim);
+      border-radius: 8px;
+    }
+    .btn-icon:hover { color: var(--txt); }
+
+    /* Progress Header */
+    .progress-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+    }
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      margin-bottom: 6px;
+      color: var(--dim);
+    }
+    .progress-meta b { color: var(--txt); }
+    .bar-bg {
+      height: 6px;
+      background: var(--card2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--acc), #10b981);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Card Queue View */
+    .card-lead {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      position: relative;
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .lead-blok {
+      display: inline-block;
+      background: rgba(0, 168, 132, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(0, 168, 132, 0.3);
+      border-radius: 6px;
+      padding: 3px 9px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .lead-status-badge {
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .status-belum { background: var(--card2); color: var(--dim); border: 1px solid var(--line); }
+    .status-tertarik { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .status-janji { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .status-no-ans { background: rgba(234, 179, 8, 0.12); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.25); }
+    .status-tolak { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .status-salah { background: rgba(100, 116, 139, 0.2); color: #94a3b8; border: 1px solid var(--line); }
+
+    .lead-name {
+      font-size: 20px;
+      font-weight: 750;
+      letter-spacing: -0.3px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    .lead-phone {
+      font-size: 16.5px;
+      font-variant-numeric: tabular-nums;
+      color: var(--txt);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .copy-phone-btn {
+      background: var(--card2);
+      border: 1px solid var(--line);
+      color: var(--dim);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+    }
+    .copy-phone-btn:hover { color: var(--txt); }
+    .lead-addr {
+      font-size: 13px;
+      color: var(--dim);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .lead-notice {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px dashed rgba(245, 158, 11, 0.35);
+      color: #fbbf24;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 7px;
+      margin-bottom: 12px;
+    }
+
+    /* Template Picker */
+    .template-box {
+      background: var(--card2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px;
+      margin-bottom: 14px;
+    }
+    .template-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .template-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .template-chips {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .chip {
+      background: var(--card3);
+      border: 1px solid var(--line);
+      color: var(--dim);
+      font-size: 11.5px;
+      padding: 4px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .chip.active {
+      background: rgba(0, 168, 132, 0.2);
+      color: #34d399;
+      border-color: var(--acc);
+      font-weight: 600;
+    }
+    .template-preview {
+      font-size: 12.5px;
+      color: #cbd5e1;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 9px 11px;
+      white-space: pre-wrap;
+      line-height: 1.45;
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    /* Main CTA Buttons */
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .btn-wa {
+      background: var(--wa);
+      color: #06301a;
+      border: none;
+      font-size: 15px;
+      padding: 13px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+    }
+    .btn-wa:active { transform: scale(0.98); }
+    .btn-tel {
+      background: var(--card2);
+      color: var(--txt);
+      border: 1px solid var(--line);
+      font-size: 14px;
+      padding: 13px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .btn-tel:hover { border-color: var(--blue); color: #60a5fa; }
+
+    /* Results / Status Buttons */
+    .results-label {
+      font-size: 12px;
+      color: var(--dim);
+      margin-bottom: 7px;
+      font-weight: 600;
+    }
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .btn-res {
+      padding: 10px 6px;
+      font-size: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--card2);
+      color: var(--txt);
+      text-align: center;
+      font-weight: 600;
+    }
+    .btn-res.active { box-shadow: 0 0 0 2px currentColor; }
+    .btn-res-ok { color: #4ade80; border-color: rgba(34, 197, 94, 0.35); }
+    .btn-res-ok:hover, .btn-res-ok.active { background: rgba(34, 197, 94, 0.15); }
+    .btn-res-janji { color: #fbbf24; border-color: rgba(245, 158, 11, 0.35); }
+    .btn-res-janji:hover, .btn-res-janji.active { background: rgba(245, 158, 11, 0.15); }
+    .btn-res-noans { color: #eab308; border-color: rgba(234, 179, 8, 0.35); }
+    .btn-res-noans:hover, .btn-res-noans.active { background: rgba(234, 179, 8, 0.15); }
+    .btn-res-tolak { color: #f87171; border-color: rgba(239, 68, 68, 0.35); }
+    .btn-res-tolak:hover, .btn-res-tolak.active { background: rgba(239, 68, 68, 0.15); }
+    .btn-res-salah { color: #94a3b8; border-color: var(--line); }
+    .btn-res-salah:hover, .btn-res-salah.active { background: rgba(100, 116, 139, 0.15); }
+
+    /* Nav Queue Bar */
+    .nav-bar {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: 7px;
+      margin-top: 10px;
+    }
+    .btn-nav {
+      padding: 11px;
+      font-size: 13px;
+      background: var(--card2);
+      border: 1px solid var(--line);
+      color: var(--txt);
+    }
+    .btn-skip { color: var(--dim); }
+
+    /* Table / List View */
+    .filter-bar {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px;
+      margin-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .search-input-box {
+      grid-column: 1 / -1;
+      position: relative;
+    }
+    .search-input-box input {
+      width: 100%;
+      padding-left: 34px;
+      font-size: 13.5px;
+    }
+    .search-input-box svg {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dim);
+    }
+    .filter-bar select {
+      width: 100%;
+      font-size: 12.5px;
+    }
+
+    .list-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--dim);
+      margin-bottom: 8px;
+      padding: 0 4px;
+    }
+
+    .leads-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .lead-row {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 10px;
+      transition: border-color 0.15s;
+    }
+    .lead-row:hover { border-color: var(--card3); }
+    .lead-row-info { overflow: hidden; }
+    .lead-row-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 3px;
+    }
+    .lead-row-name {
+      font-size: 15px;
+      font-weight: 650;
+      color: var(--txt);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lead-row-phone {
+      font-size: 13px;
+      color: var(--dim);
+      font-variant-numeric: tabular-nums;
+    }
+    .lead-row-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .btn-row-wa {
+      background: var(--wa);
+      color: #06301a;
+      border: none;
+      padding: 8px 11px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-row-open {
+      background: var(--card2);
+      border: 1px solid var(--line);
+      color: var(--dim);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-content {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-width: 500px;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .modal-title { font-size: 17px; font-weight: 700; margin: 0; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      background: var(--card2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+    .stat-val { font-size: 22px; font-weight: 750; color: var(--txt); }
+    .stat-lbl { font-size: 11.5px; color: var(--dim); margin-top: 2px; }
+
+    .toast {
+      position: fixed;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e293b;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #334155;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .toast.show { opacity: 1; }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--dim);
+    }
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      color: var(--dim);
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>
+        XL SATU CRM
+        <span class="badge-live">Live</span>
+      </h1>
+      <div class="sub">Puri Permata Cipondoh &bull; 977 Prospek Winback</div>
+    </div>
+    <div class="top-actions">
+      <button class="btn-icon" id="btnStats" title="Rekap & Statistik">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </button>
+      <button class="btn-icon" id="btnExport" title="Download Hasil CSV">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- View Switcher -->
+  <div class="tabs">
+    <button class="tab-btn active" id="tabQueue">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Antrean Fokus
+    </button>
+    <button class="tab-btn" id="tabList">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+      Tabel Data
+    </button>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-box">
+    <div class="progress-meta">
+      <span>Progres Follow-Up</span>
+      <span><b id="txtProcessed">0</b> / <span id="txtTotal">977</span> (<span id="txtPct">0%</span>)</span>
+    </div>
+    <div class="bar-bg">
+      <div class="bar-fill" id="barFill"></div>
+    </div>
+  </div>
+
+  <!-- App Container -->
+  <main id="appContent"></main>
+
+  <!-- Stats Modal -->
+  <div class="modal-overlay" id="modalStats">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Rekap Performa Follow-Up</h2>
+        <button class="btn-icon" id="btnCloseStats">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="stTotal">0</div>
+          <div class="stat-lbl">Total Prospek</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stSudah">0</div>
+          <div class="stat-lbl">Sudah Dihubungi</div>
+        </div>
+        <div class="stat-card" style="border-color: rgba(34,197,94,0.4)">
+          <div class="stat-val" id="stTertarik" style="color: #4ade80">0</div>
+          <div class="stat-lbl">Tertarik / Winback</div>
+        </div>
+        <div class="stat-card" style="border-color: rgba(245,158,11,0.4)">
+          <div class="stat-val" id="stJanji" style="color: #fbbf24">0</div>
+          <div class="stat-lbl">Janji Dihubungi</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stNoAns" style="color: #eab308">0</div>
+          <div class="stat-lbl">Tidak Angkat</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stTolak" style="color: #f87171">0</div>
+          <div class="stat-lbl">Tolak / Salah</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <button style="background:var(--acc); color:#06301a; border:none; padding:12px;" id="btnModalExport">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Rekap Lengkap (CSV)
+        </button>
+        <button style="background:var(--card2); border:1px solid var(--line); padding:10px; color:var(--dim);" id="btnResetData">
+          Reset / Muat Ulang Data Asli
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Disalin ke clipboard</div>
+
+  <script>
+    "use strict";
+
+    const LS_KEY = "xlsatu_leads_v2";
+    const LS_POS = "xlsatu_pos_v2";
+    const LS_TMP = "xlsatu_tpl_v2";
+
+    const TEMPLATES = [
+      {
+        id: "winback",
+        title: "Winback Re-aktivasi (Rekomendasi)",
+        getText: (d) => {
+          const nm = titleCase(d.nama || "Bapak/Ibu");
+          const blk = (d.blok ? "Blok " + d.blok : "") + (d.no ? " No. " + d.no : "");
+          return "Halo selamat siang Kak " + nm + ", salam dari tim XL SATU Fiber area Puri Permata Cipondoh 🙏\n\n" +
+                 "Mau info untuk warga " + blk + ", jaringan fiber di komplek kita sekarang sudah upgrade kecepatan & makin stabil. " +
+                 "Karena jalur kabel ke rumah Kakak sebelumnya sudah terpasang, khusus bulan ini ada promo re-aktivasi bebas biaya pasang + diskon khusus warga Cipondoh.\n\n" +
+                 "Kira-kira saat ini internet di rumah ada kendala atau boleh kami bantu cek promo hematnya dulu Kak?";
+        }
+      },
+      {
+        id: "singkat",
+        title: "Sapaan Singkat & Ramah",
+        getText: (d) => {
+          const nm = titleCase(d.nama || "Bapak/Ibu");
+          const blk = (d.blok ? "Blok " + d.blok : "") + (d.no ? " No. " + d.no : "");
+          return "Halo Kak " + nm + " (" + blk + "), perkenalkan saya Adam dari tim XL SATU Fiber Puri Permata Cipondoh.\n\n" +
+                 "Mau info program khusus warga yang pernah berlangganan, ada promo bebas biaya pasang & bundling kuota HP sekeluarga khusus bulan ini. Apakah boleh saya kirimkan brosur paket hematnya Kak?";
+        }
+      },
+      {
+        id: "cek_jaringan",
+        title: "Cek Kendala Internet Lapangan",
+        getText: (d) => {
+          const nm = titleCase(d.nama || "Bapak/Ibu");
+          const blk = (d.blok ? "Blok " + d.blok : "") + (d.no ? " No. " + d.no : "");
+          return "Selamat siang Kak " + nm + ". Kami dari tim lapangan XL SATU Fiber lagi pendataan jaringan di sekitar " + blk + ".\n\n" +
+                 "Mau tanya apakah koneksi internet di rumah saat ini sering ada kendala lemot atau putus-putus? Kebetulan lagi ada promo pasang baru tanpa biaya instalasi. Boleh diinfokan Kak?";
+        }
+      }
+    ];
+
+    let LEADS = [];
+    let CURRENT_VIEW = "queue"; // "queue" or "list"
+    let CURRENT_POS = 0;
+    let ACTIVE_TPL = localStorage.getItem(LS_TMP) || "winback";
+
+    // List Filters
+    let FILTER_BLOK = "Semua";
+    let FILTER_STATUS = "Semua";
+    let FILTER_SEARCH = "";
+
+    function titleCase(str) {
+      if (!str) return "";
+      return str.toLowerCase().split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+    }
+
+    function formatTel(t) {
+      if (!t) return "";
+      let d = String(t).replace(/\D/g, "");
+      if (d.startsWith("0")) d = "62" + d.slice(1);
+      else if (!d.startsWith("62") && d.startsWith("8")) d = "62" + d;
+      return d;
+    }
+
+    function displayTel(t) {
+      if (!t) return "-";
+      let s = String(t).replace(/\D/g, "");
+      if (s.startsWith("62")) s = "0" + s.slice(2);
+      if (s.length >= 10) {
+        return s.slice(0, 4) + "-" + s.slice(4, 8) + "-" + s.slice(8);
+      }
+      return s;
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.add("show");
+      setTimeout(() => el.classList.remove("show"), 2000);
+    }
+
+    function parseCSV(text) {
+      const lines = [];
+      let row = [], val = "", insideQuote = false;
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+        if (insideQuote) {
+          if (c === '"') {
+            if (text[i + 1] === '"') { val += '"'; i++; }
+            else insideQuote = false;
+          } else {
+            val += c;
+          }
+        } else {
+          if (c === '"') insideQuote = true;
+          else if (c === ',') { row.push(val); val = ""; }
+          else if (c === '\n') { row.push(val); lines.push(row); row = []; val = ""; }
+          else if (c !== '\r') val += c;
+        }
+      }
+      if (val !== "" || row.length) { row.push(val); lines.push(row); }
+      return lines;
+    }
+
+    async function initData() {
+      const saved = localStorage.getItem(LS_KEY);
+      if (saved) {
+        try {
+          LEADS = JSON.parse(saved);
+        } catch (e) {
+          LEADS = [];
+        }
+      }
+
+      if (!LEADS || !LEADS.length) {
+        document.getElementById("appContent").innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <div>Memuat data prospek Puri Permata...</div>
+          </div>`;
+        try {
+          const res = await fetch("daftar_followup_siap_kerja.csv");
+          const txt = await res.text();
+          const rows = parseCSV(txt);
+          if (rows.length > 1) {
+            const parsed = [];
+            for (let i = 1; i < rows.length; i++) {
+              const r = rows[i];
+              if (!r || r.length < 4 || !r[3]) continue;
+              parsed.push({
+                id: i,
+                blok: r[0] || "",
+                no: r[1] || "",
+                nama: r[2] || "",
+                tel: r[3] || "",
+                akun: r[6] || "",
+                alamat: r[7] || "",
+                catatan: r[8] || "",
+                hasil: r[10] || "Belum Diproses",
+                tanggal: r[9] || "",
+                paket: r[11] || ""
+              });
+            }
+            LEADS = parsed;
+            saveLeads();
+          }
+        } catch (err) {
+          console.error("Gagal load CSV default:", err);
+        }
+      }
+
+      CURRENT_POS = parseInt(localStorage.getItem(LS_POS) || "0", 10) || 0;
+      if (CURRENT_POS >= LEADS.length) CURRENT_POS = 0;
+      renderApp();
+    }
+
+    function saveLeads() {
+      localStorage.setItem(LS_KEY, JSON.stringify(LEADS));
+      updateProgress();
+    }
+
+    function savePos() {
+      localStorage.setItem(LS_POS, String(CURRENT_POS));
+    }
+
+    function updateProgress() {
+      if (!LEADS.length) return;
+      const total = LEADS.length;
+      const processed = LEADS.filter(d => d.hasil && d.hasil !== "Belum Diproses").length;
+      const pct = Math.round((processed / total) * 100);
+
+      document.getElementById("txtProcessed").textContent = processed;
+      document.getElementById("txtTotal").textContent = total;
+      document.getElementById("txtPct").textContent = pct + "%";
+      document.getElementById("barFill").style.width = pct + "%";
+    }
+
+    function getLeadStatusClass(status) {
+      switch (status) {
+        case "Tertarik": return "status-tertarik";
+        case "Janji Dihubungi": return "status-janji";
+        case "Tidak Angkat": return "status-no-ans";
+        case "Tolak": return "status-tolak";
+        case "Salah Nomor": return "status-salah";
+        default: return "status-belum";
+      }
+    }
+
+    function renderApp() {
+      updateProgress();
+      if (CURRENT_VIEW === "queue") {
+        renderQueue();
+      } else {
+        renderList();
+      }
+    }
+
+    /* ---------------- MODE ANTREAN FOKUS ---------------- */
+    function renderQueue() {
+      const container = document.getElementById("appContent");
+      if (!LEADS.length) {
+        container.innerHTML = `<div class="empty-state">Tidak ada data prospek.</div>`;
+        return;
+      }
+
+      const d = LEADS[CURRENT_POS] || LEADS[0];
+      const tpl = TEMPLATES.find(t => t.id === ACTIVE_TPL) || TEMPLATES[0];
+      const msgText = tpl.getText(d);
+      const waUrl = "https://wa.me/" + formatTel(d.tel) + "?text=" + encodeURIComponent(msgText);
+      const telUrl = "tel:" + d.tel;
+
+      container.innerHTML = `
+        <div class="card-lead">
+          <div class="card-top">
+            <span class="lead-blok">Blok ${esc(d.blok || "-")}${d.no ? " No. " + esc(d.no) : ""}</span>
+            <span class="lead-status-badge ${getLeadStatusClass(d.hasil)}">${esc(d.hasil || "Belum Diproses")}</span>
+          </div>
+
+          <div class="lead-name">${esc(titleCase(d.nama))}</div>
+          <div class="lead-phone">
+            <span>${esc(displayTel(d.tel))}</span>
+            <button class="copy-phone-btn" id="btnCopyPhone">Salin</button>
+          </div>
+          <div class="lead-addr">${esc(d.alamat || "Puri Permata Cipondoh")}</div>
+
+          ${d.catatan ? `<div class="lead-notice">${esc(d.catatan)}</div>` : ""}
+
+          <!-- Template Selector -->
+          <div class="template-box">
+            <div class="template-header">
+              <span class="template-label">Template Pesan WhatsApp</span>
+              <button class="copy-phone-btn" id="btnCopyMsg">Salin Teks</button>
+            </div>
+            <div class="template-chips">
+              ${TEMPLATES.map(t => `
+                <button class="chip ${t.id === ACTIVE_TPL ? "active" : ""}" data-tpl="${t.id}">${t.title.split(" ")[0]}</button>
+              `).join("")}
+            </div>
+            <div class="template-preview">${esc(msgText)}</div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="cta-grid">
+            <a class="btn-wa" href="${waUrl}" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.35 16.41C4.55 15.15 4.13 13.56 4.13 11.92C4.13 7.38 7.83 3.67 12.04 3.67ZM8.79 7.38C8.59 7.38 8.27 7.45 8 7.74C7.74 8.03 7 8.73 7 10.15C7 11.57 8.03 12.94 8.18 13.13C8.32 13.33 10.2 16.23 13.1 17.47C15.51 18.5 16 18.3 16.54 18.25C17.07 18.2 18.26 17.54 18.5 16.85C18.75 16.16 18.75 15.58 18.68 15.45C18.6 15.33 18.41 15.26 18.12 15.11C17.83 14.97 16.41 14.27 16.15 14.17C15.89 14.07 15.7 14.02 15.5 14.32C15.31 14.61 14.77 15.26 14.6 15.45C14.44 15.65 14.27 15.68 13.98 15.53C13.69 15.38 12.75 15.08 11.64 14.08C10.77 13.31 10.19 12.35 10.02 12.06C9.85 11.77 10 11.61 10.15 11.47C10.28 11.34 10.44 11.13 10.59 10.96C10.73 10.79 10.78 10.66 10.88 10.47C10.98 10.27 10.93 10.1 10.85 9.96C10.78 9.81 10.2 8.39 9.96 7.8C9.72 7.23 9.48 7.31 9.29 7.3C9.12 7.3 8.92 7.38 8.79 7.38Z"/></svg>
+              Chat WhatsApp
+            </a>
+            <a class="btn-tel" href="${telUrl}">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Telepon
+            </a>
+          </div>
+
+          <!-- Result Dispositions -->
+          <div class="results-label">Simpan Hasil Kontak:</div>
+          <div class="results-grid">
+            <button class="btn-res btn-res-ok ${d.hasil === 'Tertarik' ? 'active' : ''}" data-res="Tertarik">Tertarik</button>
+            <button class="btn-res btn-res-janji ${d.hasil === 'Janji Dihubungi' ? 'active' : ''}" data-res="Janji Dihubungi">Janji Hubungi</button>
+            <button class="btn-res btn-res-noans ${d.hasil === 'Tidak Angkat' ? 'active' : ''}" data-res="Tidak Angkat">Gak Angkat</button>
+            <button class="btn-res btn-res-tolak ${d.hasil === 'Tolak' ? 'active' : ''}" data-res="Tolak">Tolak</button>
+            <button class="btn-res btn-res-salah ${d.hasil === 'Salah Nomor' ? 'active' : ''}" data-res="Salah Nomor">Salah Nomor</button>
+            <button class="btn-res" data-res="Belum Diproses" style="color:var(--dim)">Reset</button>
+          </div>
+
+          <!-- Navigation -->
+          <div class="nav-bar">
+            <button class="btn-nav" id="btnPrev" ${CURRENT_POS === 0 ? "disabled style='opacity:0.4'" : ""}>&larr; Prev</button>
+            <button class="btn-nav btn-skip" id="btnSkip">Lewati Dulu</button>
+            <button class="btn-nav" id="btnNext" ${CURRENT_POS >= LEADS.length - 1 ? "disabled style='opacity:0.4'" : ""}>Next &rarr;</button>
+          </div>
+        </div>
+      `;
+
+      // Event bindings
+      document.getElementById("btnCopyPhone").onclick = () => {
+        navigator.clipboard.writeText(d.tel);
+        showToast("Nomor HP disalin: " + d.tel);
+      };
+      document.getElementById("btnCopyMsg").onclick = () => {
+        navigator.clipboard.writeText(msgText);
+        showToast("Pesan WhatsApp disalin!");
+      };
+
+      document.querySelectorAll(".chip[data-tpl]").forEach(b => {
+        b.onclick = () => {
+          ACTIVE_TPL = b.dataset.tpl;
+          localStorage.setItem(LS_TMP, ACTIVE_TPL);
+          renderQueue();
+        };
+      });
+
+      document.querySelectorAll(".btn-res[data-res]").forEach(b => {
+        b.onclick = () => {
+          d.hasil = b.dataset.res;
+          d.tanggal = new Date().toISOString().slice(0, 10);
+          saveLeads();
+          showToast("Hasil disimpan: " + d.hasil);
+          // Auto advance to next lead on status set
+          if (CURRENT_POS < LEADS.length - 1) {
+            CURRENT_POS++;
+            savePos();
+          }
+          renderApp();
+        };
+      });
+
+      document.getElementById("btnPrev").onclick = () => {
+        if (CURRENT_POS > 0) { CURRENT_POS--; savePos(); renderQueue(); }
+      };
+      document.getElementById("btnNext").onclick = () => {
+        if (CURRENT_POS < LEADS.length - 1) { CURRENT_POS++; savePos(); renderQueue(); }
+      };
+      document.getElementById("btnSkip").onclick = () => {
+        if (CURRENT_POS < LEADS.length - 1) { CURRENT_POS++; savePos(); renderQueue(); }
+      };
+    }
+
+    /* ---------------- MODE TABEL / LIST VIEW ---------------- */
+    function renderList() {
+      const container = document.getElementById("appContent");
+      const bloks = Array.from(new Set(LEADS.map(d => d.blok).filter(Boolean))).sort();
+
+      const filtered = LEADS.filter(d => {
+        if (FILTER_BLOK !== "Semua" && d.blok !== FILTER_BLOK) return false;
+        if (FILTER_STATUS !== "Semua" && d.hasil !== FILTER_STATUS) return false;
+        if (FILTER_SEARCH) {
+          const q = FILTER_SEARCH.toLowerCase();
+          const matchName = (d.nama || "").toLowerCase().includes(q);
+          const matchPhone = (d.tel || "").includes(q);
+          const matchBlok = (d.blok || "").toLowerCase().includes(q);
+          const matchAddr = (d.alamat || "").toLowerCase().includes(q);
+          if (!matchName && !matchPhone && !matchBlok && !matchAddr) return false;
+        }
+        return true;
+      });
+
+      const tpl = TEMPLATES.find(t => t.id === ACTIVE_TPL) || TEMPLATES[0];
+
+      container.innerHTML = `
+        <div class="filter-bar">
+          <div class="search-input-box">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="inpSearch" placeholder="Cari nama, nomor HP, blok..." value="${esc(FILTER_SEARCH)}">
+          </div>
+          <select id="selBlok">
+            <option value="Semua">Semua Blok (${bloks.length})</option>
+            ${bloks.map(b => `<option value="${esc(b)}" ${b === FILTER_BLOK ? "selected" : ""}>Blok ${esc(b)}</option>`).join("")}
+          </select>
+          <select id="selStatus">
+            <option value="Semua" ${FILTER_STATUS === "Semua" ? "selected" : ""}>Semua Status</option>
+            <option value="Belum Diproses" ${FILTER_STATUS === "Belum Diproses" ? "selected" : ""}>Belum Diproses</option>
+            <option value="Tertarik" ${FILTER_STATUS === "Tertarik" ? "selected" : ""}>Tertarik</option>
+            <option value="Janji Dihubungi" ${FILTER_STATUS === "Janji Dihubungi" ? "selected" : ""}>Janji Hubungi</option>
+            <option value="Tidak Angkat" ${FILTER_STATUS === "Tidak Angkat" ? "selected" : ""}>Tidak Angkat</option>
+            <option value="Tolak" ${FILTER_STATUS === "Tolak" ? "selected" : ""}>Tolak</option>
+            <option value="Salah Nomor" ${FILTER_STATUS === "Salah Nomor" ? "selected" : ""}>Salah Nomor</option>
+          </select>
+        </div>
+
+        <div class="list-meta">
+          <span>Menampilkan <b>${filtered.length}</b> prospek</span>
+          <span>Klik baris untuk buka antrean fokus</span>
+        </div>
+
+        <div class="leads-list">
+          ${filtered.slice(0, 100).map(d => {
+            const msg = tpl.getText(d);
+            const waUrl = "https://wa.me/" + formatTel(d.tel) + "?text=" + encodeURIComponent(msg);
+            const originalIndex = LEADS.findIndex(x => x.id === d.id);
+            return `
+              <div class="lead-row" data-idx="${originalIndex}">
+                <div class="lead-row-info">
+                  <div class="lead-row-top">
+                    <span class="lead-blok" style="font-size:11px; padding:1px 6px;">${esc(d.blok || "-")}${d.no ? " / " + esc(d.no) : ""}</span>
+                    <span class="lead-status-badge ${getLeadStatusClass(d.hasil)}" style="font-size:10.5px; padding:1px 6px;">${esc(d.hasil || "Belum")}</span>
+                  </div>
+                  <div class="lead-row-name">${esc(titleCase(d.nama))}</div>
+                  <div class="lead-row-phone">${esc(displayTel(d.tel))}</div>
+                </div>
+                <div class="lead-row-actions">
+                  <a class="btn-row-wa" href="${waUrl}" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.35 16.41C4.55 15.15 4.13 13.56 4.13 11.92C4.13 7.38 7.83 3.67 12.04 3.67ZM8.79 7.38C8.59 7.38 8.27 7.45 8 7.74C7.74 8.03 7 8.73 7 10.15C7 11.57 8.03 12.94 8.18 13.13C8.32 13.33 10.2 16.23 13.1 17.47C15.51 18.5 16 18.3 16.54 18.25C17.07 18.2 18.26 17.54 18.5 16.85C18.75 16.16 18.75 15.58 18.68 15.45C18.6 15.33 18.41 15.26 18.12 15.11C17.83 14.97 16.41 14.27 16.15 14.17C15.89 14.07 15.7 14.02 15.5 14.32C15.31 14.61 14.77 15.26 14.6 15.45C14.44 15.65 14.27 15.68 13.98 15.53C13.69 15.38 12.75 15.08 11.64 14.08C10.77 13.31 10.19 12.35 10.02 12.06C9.85 11.77 10 11.61 10.15 11.47C10.28 11.34 10.44 11.13 10.59 10.96C10.73 10.79 10.78 10.66 10.88 10.47C10.98 10.27 10.93 10.1 10.85 9.96C10.78 9.81 10.2 8.39 9.96 7.8C9.72 7.23 9.48 7.31 9.29 7.3C9.12 7.3 8.92 7.38 8.79 7.38Z"/></svg>
+                    WA
+                  </a>
+                </div>
+              </div>
+            `;
+          }).join("")}
+          ${filtered.length > 100 ? `<div style="text-align:center; padding:12px; color:var(--dim); font-size:12px;">Menampilkan 100 dari ${filtered.length} data. Gunakan pencarian untuk menyaring lebih spesifik.</div>` : ""}
+        </div>
+      `;
+
+      // Filter events
+      const inp = document.getElementById("inpSearch");
+      inp.oninput = (e) => { FILTER_SEARCH = e.target.value; renderList(); };
+      document.getElementById("selBlok").onchange = (e) => { FILTER_BLOK = e.target.value; renderList(); };
+      document.getElementById("selStatus").onchange = (e) => { FILTER_STATUS = e.target.value; renderList(); };
+
+      // Row click to open queue
+      document.querySelectorAll(".lead-row").forEach(row => {
+        row.onclick = (e) => {
+          if (e.target.closest(".btn-row-wa")) return;
+          const idx = parseInt(row.dataset.idx, 10);
+          if (!isNaN(idx) && idx >= 0) {
+            CURRENT_POS = idx;
+            savePos();
+            switchTab("queue");
+          }
+        };
+      });
+    }
+
+    /* ---------------- TAB SWITCHING ---------------- */
+    function switchTab(view) {
+      CURRENT_VIEW = view;
+      document.getElementById("tabQueue").classList.toggle("active", view === "queue");
+      document.getElementById("tabList").classList.toggle("active", view === "list");
+      renderApp();
+    }
+
+    document.getElementById("tabQueue").onclick = () => switchTab("queue");
+    document.getElementById("tabList").onclick = () => switchTab("list");
+
+    /* ---------------- EXPORT CSV ---------------- */
+    function exportCSV() {
+      if (!LEADS.length) return alert("Belum ada data untuk di-download.");
+      let csv = "Blok,No,Nama,Telepon,Link WA,Link Telepon,Akun,Alamat,Catatan,Tanggal Dihubungi,Hasil,Paket\n";
+      for (const d of LEADS) {
+        const waLink = "https://wa.me/" + formatTel(d.tel);
+        const telLink = "tel:" + d.tel;
+        const row = [
+          d.blok || "",
+          d.no || "",
+          d.nama || "",
+          d.tel || "",
+          waLink,
+          telLink,
+          d.akun || "",
+          d.alamat || "",
+          d.catatan || "",
+          d.tanggal || "",
+          d.hasil || "Belum Diproses",
+          d.paket || ""
+        ];
+        csv += row.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(",") + "\n";
+      }
+
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "rekap_followup_xlsatu_" + new Date().toISOString().slice(0, 10) + ".csv";
+      a.click();
+    }
+
+    document.getElementById("btnExport").onclick = exportCSV;
+    document.getElementById("btnModalExport").onclick = exportCSV;
+
+    /* ---------------- STATS MODAL ---------------- */
+    const modalStats = document.getElementById("modalStats");
+    document.getElementById("btnStats").onclick = () => {
+      const total = LEADS.length;
+      const sudah = LEADS.filter(d => d.hasil && d.hasil !== "Belum Diproses").length;
+      const tertarik = LEADS.filter(d => d.hasil === "Tertarik").length;
+      const janji = LEADS.filter(d => d.hasil === "Janji Dihubungi").length;
+      const noAns = LEADS.filter(d => d.hasil === "Tidak Angkat").length;
+      const tolak = LEADS.filter(d => d.hasil === "Tolak" || d.hasil === "Salah Nomor").length;
+
+      document.getElementById("stTotal").textContent = total;
+      document.getElementById("stSudah").textContent = sudah;
+      document.getElementById("stTertarik").textContent = tertarik;
+      document.getElementById("stJanji").textContent = janji;
+      document.getElementById("stNoAns").textContent = noAns;
+      document.getElementById("stTolak").textContent = tolak;
+
+      modalStats.classList.add("open");
+    };
+    document.getElementById("btnCloseStats").onclick = () => {
+      modalStats.classList.remove("open");
+    };
+    modalStats.onclick = (e) => {
+      if (e.target === modalStats) modalStats.classList.remove("open");
+    };
+
+    document.getElementById("btnResetData").onclick = () => {
+      if (confirm("Reset ulang semua status dan muat ulang data asli dari server?")) {
+        localStorage.removeItem(LS_KEY);
+        localStorage.removeItem(LS_POS);
+        LEADS = [];
+        CURRENT_POS = 0;
+        modalStats.classList.remove("open");
+        initData();
+        showToast("Data direset ke kondisi awal");
+      }
+    };
+
+    function esc(s) {
+      if (s === null || s === undefined) return "";
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    // Launch
+    initData();
+  </script>
+</body>
+</html>
