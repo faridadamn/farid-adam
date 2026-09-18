@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>XL SATU Follow-Up CRM &bull; Puri Permata Cipondoh</title>
-  <meta name="description" content="Sistem CRM Follow-Up Hot Leads Winback XL SATU Fiber area Puri Permata Cipondoh dengan integrasi WhatsApp terpersonalisasi." />
+  <meta name="description" content="Sistem CRM Follow-Up Hot Leads Winback XL SATU Fiber area Puri Permata Cipondoh dengan auto-tracking status chat dan respon pelanggan." />
   <meta name="theme-color" content="#070d1e" />
 
   <!-- Official XL Brand Fonts -->
@@ -73,7 +73,6 @@
     }
 
     [data-theme="light"] {
-      /* Light Theme */
       --bg: #f4f6fb;
       --bg-surface: #ffffff;
       --bg-card: #ffffff;
@@ -233,7 +232,7 @@
       transform: scale(1.05);
     }
 
-    /* Sub-header Banner */
+    /* Sender Banner */
     .sender-banner {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -287,7 +286,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 4px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .tab-pill {
       background: transparent;
@@ -308,6 +307,47 @@
       background: linear-gradient(135deg, var(--xl-blue), #0028a0);
       color: #ffffff;
       box-shadow: 0 4px 14px rgba(0, 71, 255, 0.35);
+    }
+
+    /* Segment Status Filters */
+    .segment-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      scrollbar-width: none;
+    }
+    .segment-bar::-webkit-scrollbar { display: none; }
+    .seg-btn {
+      white-space: nowrap;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .seg-btn.active {
+      background: rgba(0, 210, 255, 0.15);
+      border-color: var(--xl-cyan);
+      color: var(--xl-cyan);
+    }
+    .seg-badge {
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 10px;
+      padding: 1px 5px;
+      border-radius: 999px;
+    }
+    .seg-btn.active .seg-badge {
+      background: rgba(0, 210, 255, 0.3);
+      color: #ffffff;
     }
 
     /* Progress Indicator */
@@ -380,6 +420,7 @@
       border-radius: 7px;
     }
     .st-belum { background: var(--bg-surface); color: var(--text-muted); border: 1px solid var(--border); }
+    .st-chat { background: rgba(0, 210, 255, 0.15); color: var(--xl-cyan); border: 1px solid rgba(0, 210, 255, 0.35); }
     .st-tertarik { background: rgba(0, 229, 163, 0.15); color: var(--xl-green); border: 1px solid rgba(0, 229, 163, 0.35); }
     .st-janji { background: rgba(251, 191, 36, 0.15); color: var(--xl-gold); border: 1px solid rgba(251, 191, 36, 0.35); }
     .st-noans { background: rgba(234, 179, 8, 0.12); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3); }
@@ -422,7 +463,7 @@
     .lead-address {
       font-size: 13.5px;
       color: var(--text-muted);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       line-height: 1.45;
     }
     .lead-alert {
@@ -432,8 +473,23 @@
       font-size: 12px;
       padding: 7px 11px;
       border-radius: 8px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
+
+    /* Auto-Chat History Log Box */
+    .chat-history-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 12px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+    }
+    .chat-history-box b { color: var(--xl-cyan); }
 
     /* Template Selector Box */
     .template-card {
@@ -594,7 +650,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 7px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .btn-disp {
       padding: 10px 6px;
@@ -609,6 +665,8 @@
       transition: all 0.15s ease;
     }
     .btn-disp.active { box-shadow: 0 0 0 2px currentColor; }
+    .disp-chat { color: var(--xl-cyan); border-color: rgba(0, 210, 255, 0.35); }
+    .disp-chat:hover, .disp-chat.active { background: rgba(0, 210, 255, 0.15); }
     .disp-ok { color: var(--xl-green); border-color: rgba(0, 229, 163, 0.35); }
     .disp-ok:hover, .disp-ok.active { background: rgba(0, 229, 163, 0.15); }
     .disp-janji { color: var(--xl-gold); border-color: rgba(251, 191, 36, 0.35); }
@@ -619,6 +677,24 @@
     .disp-tolak:hover, .disp-tolak.active { background: rgba(244, 63, 94, 0.15); }
     .disp-salah { color: #94a3b8; border-color: var(--border); }
     .disp-salah:hover, .disp-salah.active { background: rgba(100, 116, 139, 0.15); }
+
+    /* Response Note Input */
+    .note-input-row {
+      margin-bottom: 14px;
+    }
+    .note-input-row input {
+      width: 100%;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 12px;
+      border-radius: 9px;
+      font-size: 13px;
+    }
+    .note-input-row input:focus {
+      outline: none;
+      border-color: var(--border-focus);
+    }
 
     /* Bottom Queue Bar */
     .queue-nav-bar {
@@ -646,7 +722,7 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
@@ -712,6 +788,7 @@
       align-items: center;
       gap: 7px;
       margin-bottom: 3px;
+      flex-wrap: wrap;
     }
     .tbl-lead-name {
       font-size: 15.5px;
@@ -725,6 +802,12 @@
       font-size: 13px;
       color: var(--xl-cyan);
       font-variant-numeric: tabular-nums;
+    }
+    .tbl-lead-note {
+      font-size: 12px;
+      color: var(--xl-gold);
+      margin-top: 3px;
+      line-height: 1.3;
     }
     .btn-tbl-wa {
       background: linear-gradient(135deg, #25d366, #128c7e);
@@ -903,6 +986,11 @@
       </button>
     </div>
 
+    <!-- Quick Segment Status Bar -->
+    <div class="segment-bar" id="segmentBar">
+      <!-- Generated Dynamically -->
+    </div>
+
     <!-- Progress Card -->
     <div class="progress-card">
       <div class="progress-top">
@@ -932,8 +1020,8 @@
           <div class="stat-label">Total Leads</div>
         </div>
         <div class="stat-box">
-          <div class="stat-num" id="stSudah" style="color:var(--xl-cyan);">0</div>
-          <div class="stat-label">Sudah Dihubungi</div>
+          <div class="stat-num" id="stSudahChat" style="color:var(--xl-cyan);">0</div>
+          <div class="stat-label">Sudah Di-Chat</div>
         </div>
         <div class="stat-box" style="border-color:rgba(0,229,163,0.35);">
           <div class="stat-num" id="stTertarik" style="color:var(--xl-green);">0</div>
@@ -1013,7 +1101,6 @@
     const LS_TMP = "xlsatu_tpl_v2";
     const LS_CUSTOM_TPLS = "xlsatu_custom_tpls_v2";
 
-    // Theme logic synced with War Room
     function initTheme() {
       const saved = localStorage.getItem("xlsatu_theme") || "dark";
       applyTheme(saved);
@@ -1085,7 +1172,7 @@
     let CURRENT_POS = 0;
     let ACTIVE_TPL = localStorage.getItem(LS_TMP) || "winback";
 
-    // List Filters
+    // Filters
     let FILTER_BLOK = "Semua";
     let FILTER_STATUS = "Semua";
     let FILTER_SEARCH = "";
@@ -1117,7 +1204,7 @@
       const el = document.getElementById("toast");
       el.textContent = msg;
       el.classList.add("show");
-      setTimeout(() => el.classList.remove("show"), 2000);
+      setTimeout(() => el.classList.remove("show"), 2200);
     }
 
     function renderTemplateText(templateText, d) {
@@ -1196,8 +1283,10 @@
                 akun: r[6] || "",
                 alamat: r[7] || "",
                 catatan: r[8] || "",
-                hasil: r[10] || "Belum Diproses",
+                hasil: r[10] || "Belum Di-chat",
                 tanggal: r[9] || "",
+                waktuChat: "",
+                responCatatan: "",
                 paket: r[11] || ""
               });
             }
@@ -1226,17 +1315,19 @@
     function updateProgress() {
       if (!LEADS.length) return;
       const total = LEADS.length;
-      const processed = LEADS.filter(d => d.hasil && d.hasil !== "Belum Diproses").length;
+      const processed = LEADS.filter(d => d.hasil && d.hasil !== "Belum Di-chat" && d.hasil !== "Belum Diproses").length;
       const pct = Math.round((processed / total) * 100);
 
       document.getElementById("txtProcessed").textContent = processed;
       document.getElementById("txtTotal").textContent = total;
       document.getElementById("txtPct").textContent = pct + "%";
       document.getElementById("barFill").style.width = pct + "%";
+      renderSegmentBar();
     }
 
     function getLeadStatusClass(status) {
       switch (status) {
+        case "Sudah Di-chat": return "st-chat";
         case "Tertarik": return "st-tertarik";
         case "Janji Dihubungi": return "st-janji";
         case "Tidak Angkat": return "st-noans";
@@ -1244,6 +1335,58 @@
         case "Salah Nomor": return "st-salah";
         default: return "st-belum";
       }
+    }
+
+    /* Auto-Mark Chat Function */
+    function recordAutoChat(d) {
+      const now = new Date();
+      const dateStr = now.toISOString().slice(0, 10);
+      const timeStr = now.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" });
+      
+      d.tanggal = dateStr;
+      d.waktuChat = timeStr;
+      if (!d.hasil || d.hasil === "Belum Di-chat" || d.hasil === "Belum Diproses") {
+        d.hasil = "Sudah Di-chat";
+      }
+      saveLeads();
+      showToast("Tercatat: Sudah di-chat jam " + timeStr + "!");
+    }
+
+    function renderSegmentBar() {
+      const bar = document.getElementById("segmentBar");
+      if (!bar) return;
+
+      const counts = {
+        "Semua": LEADS.length,
+        "Belum Di-chat": LEADS.filter(d => !d.hasil || d.hasil === "Belum Di-chat" || d.hasil === "Belum Diproses").length,
+        "Sudah Di-chat": LEADS.filter(d => d.hasil === "Sudah Di-chat").length,
+        "Tertarik": LEADS.filter(d => d.hasil === "Tertarik").length,
+        "Janji Dihubungi": LEADS.filter(d => d.hasil === "Janji Dihubungi").length,
+        "Tolak / Salah": LEADS.filter(d => d.hasil === "Tolak" || d.hasil === "Salah Nomor").length
+      };
+
+      const segs = [
+        { key: "Semua", label: "Semua" },
+        { key: "Belum Di-chat", label: "Belum Di-chat" },
+        { key: "Sudah Di-chat", label: "Sudah Di-chat" },
+        { key: "Tertarik", label: "Tertarik" },
+        { key: "Janji Dihubungi", label: "Janji Hubungi" },
+        { key: "Tolak / Salah", label: "Tolak / Salah" }
+      ];
+
+      bar.innerHTML = segs.map(s => `
+        <button class="seg-btn ${FILTER_STATUS === s.key ? "active" : ""}" data-seg="${s.key}">
+          <span>${s.label}</span>
+          <span class="seg-badge">${counts[s.key] || 0}</span>
+        </button>
+      `).join("");
+
+      bar.querySelectorAll(".seg-btn").forEach(btn => {
+        btn.onclick = () => {
+          FILTER_STATUS = btn.dataset.seg;
+          renderApp();
+        };
+      });
     }
 
     function renderApp() {
@@ -1263,7 +1406,33 @@
         return;
       }
 
-      const d = LEADS[CURRENT_POS] || LEADS[0];
+      // Filtered queue according to segment
+      let activeList = LEADS;
+      if (FILTER_STATUS === "Belum Di-chat") {
+        activeList = LEADS.filter(d => !d.hasil || d.hasil === "Belum Di-chat" || d.hasil === "Belum Diproses");
+      } else if (FILTER_STATUS === "Sudah Di-chat") {
+        activeList = LEADS.filter(d => d.hasil === "Sudah Di-chat");
+      } else if (FILTER_STATUS === "Tertarik") {
+        activeList = LEADS.filter(d => d.hasil === "Tertarik");
+      } else if (FILTER_STATUS === "Janji Dihubungi") {
+        activeList = LEADS.filter(d => d.hasil === "Janji Dihubungi");
+      } else if (FILTER_STATUS === "Tolak / Salah") {
+        activeList = LEADS.filter(d => d.hasil === "Tolak" || d.hasil === "Salah Nomor");
+      }
+
+      if (!activeList.length) {
+        container.innerHTML = `
+          <div class="empty-screen">
+            <div>Tidak ada prospek dalam kategori <b>${esc(FILTER_STATUS)}</b>.</div>
+            <button class="btn-copy-sm" style="margin-top:12px; padding:6px 14px;" id="btnResetFilter">Tampilkan Semua</button>
+          </div>`;
+        const br = document.getElementById("btnResetFilter");
+        if (br) br.onclick = () => { FILTER_STATUS = "Semua"; renderApp(); };
+        return;
+      }
+
+      if (CURRENT_POS >= activeList.length) CURRENT_POS = 0;
+      const d = activeList[CURRENT_POS] || activeList[0];
       const activeTpl = getActiveTemplate();
       const msgText = renderTemplateText(activeTpl.text, d);
       const waUrl = "https://wa.me/" + formatTel(d.tel) + "?text=" + encodeURIComponent(msgText);
@@ -1271,11 +1440,17 @@
 
       const allTemplates = getAllTemplates();
 
+      const chatHistoryText = d.waktuChat 
+        ? `Sudah di-chat pada ${d.tanggal || "hari ini"} pkl ${d.waktuChat}` 
+        : (d.hasil && d.hasil !== "Belum Di-chat" && d.hasil !== "Belum Diproses")
+          ? `Status kontak: ${d.hasil}` 
+          : "Belum pernah di-chat";
+
       container.innerHTML = `
         <div class="lead-card">
           <div class="lead-card-header">
             <span class="lead-blok-pill">Blok ${esc(d.blok || "-")}${d.no ? " No. " + esc(d.no) : ""}</span>
-            <span class="lead-status-pill ${getLeadStatusClass(d.hasil)}">${esc(d.hasil || "Belum Diproses")}</span>
+            <span class="lead-status-pill ${getLeadStatusClass(d.hasil)}">${esc(d.hasil || "Belum Di-chat")}</span>
           </div>
 
           <div class="lead-name">${esc(titleCase(d.nama))}</div>
@@ -1288,6 +1463,12 @@
           <div class="lead-address">${esc(d.alamat || "Puri Permata Cipondoh")}</div>
 
           ${d.catatan ? `<div class="lead-alert">${esc(d.catatan)}</div>` : ""}
+
+          <!-- Riwayat Chat Otomatis -->
+          <div class="chat-history-box">
+            <span>Riwayat: <b>${esc(chatHistoryText)}</b></span>
+            ${d.waktuChat ? `<span style="color:var(--xl-green); font-weight:700;">Sudah Dikirim</span>` : `<span style="color:var(--text-faint);">Antrean Baru</span>`}
+          </div>
 
           <!-- Template Selector Box -->
           <div class="template-card">
@@ -1323,22 +1504,27 @@
             </a>
           </div>
 
-          <!-- Result Dispositions -->
-          <div class="disp-section-title">Hasil Kontak Prospek:</div>
+          <!-- Dispositions / Respon Pelanggan -->
+          <div class="disp-section-title">Hasil Respon Pelanggan:</div>
           <div class="disp-grid">
+            <button class="btn-disp disp-chat ${d.hasil === 'Sudah Di-chat' ? 'active' : ''}" data-res="Sudah Di-chat">Menunggu Balasan</button>
             <button class="btn-disp disp-ok ${d.hasil === 'Tertarik' ? 'active' : ''}" data-res="Tertarik">Tertarik</button>
             <button class="btn-disp disp-janji ${d.hasil === 'Janji Dihubungi' ? 'active' : ''}" data-res="Janji Dihubungi">Janji Hubungi</button>
             <button class="btn-disp disp-noans ${d.hasil === 'Tidak Angkat' ? 'active' : ''}" data-res="Tidak Angkat">Gak Angkat</button>
             <button class="btn-disp disp-tolak ${d.hasil === 'Tolak' ? 'active' : ''}" data-res="Tolak">Tolak</button>
             <button class="btn-disp disp-salah ${d.hasil === 'Salah Nomor' ? 'active' : ''}" data-res="Salah Nomor">Salah Nomor</button>
-            <button class="btn-disp" data-res="Belum Diproses" style="color:var(--text-muted)">Reset</button>
+          </div>
+
+          <!-- Catatan Respon Pelanggan -->
+          <div class="note-input-row">
+            <input type="text" id="inpLeadNote" placeholder="Catatan respon (contoh: Nanya promo 50M, minta dihubungi malam)..." value="${esc(d.responCatatan || '')}">
           </div>
 
           <!-- Queue Navigation -->
           <div class="queue-nav-bar">
             <button class="btn-qnav" id="btnPrev" ${CURRENT_POS === 0 ? "disabled style='opacity:0.4'" : ""}>&larr; Prev</button>
             <button class="btn-qnav btn-qskip" id="btnSkip">Lewati Dulu</button>
-            <button class="btn-qnav" id="btnNext" ${CURRENT_POS >= LEADS.length - 1 ? "disabled style='opacity:0.4'" : ""}>Next &rarr;</button>
+            <button class="btn-qnav" id="btnNext" ${CURRENT_POS >= activeList.length - 1 ? "disabled style='opacity:0.4'" : ""}>Next &rarr;</button>
           </div>
         </div>
       `;
@@ -1351,6 +1537,19 @@
       document.getElementById("btnCopyMsg").onclick = () => {
         navigator.clipboard.writeText(msgText);
         showToast("Pesan WhatsApp disalin!");
+      };
+
+      // Auto-mark when Chat WhatsApp button clicked
+      document.getElementById("btnMainWa").onclick = () => {
+        recordAutoChat(d);
+        setTimeout(() => renderQueue(), 300);
+      };
+
+      // Realtime note input saving
+      const inpNote = document.getElementById("inpLeadNote");
+      inpNote.oninput = (e) => {
+        d.responCatatan = e.target.value;
+        saveLeads();
       };
 
       document.querySelectorAll(".tpl-chip-btn[data-tpl]").forEach(b => {
@@ -1385,8 +1584,8 @@
           d.hasil = b.dataset.res;
           d.tanggal = new Date().toISOString().slice(0, 10);
           saveLeads();
-          showToast("Status: " + d.hasil);
-          if (CURRENT_POS < LEADS.length - 1) {
+          showToast("Hasil disimpan: " + d.hasil);
+          if (CURRENT_POS < activeList.length - 1) {
             CURRENT_POS++;
             savePos();
           }
@@ -1398,10 +1597,10 @@
         if (CURRENT_POS > 0) { CURRENT_POS--; savePos(); renderQueue(); }
       };
       document.getElementById("btnNext").onclick = () => {
-        if (CURRENT_POS < LEADS.length - 1) { CURRENT_POS++; savePos(); renderQueue(); }
+        if (CURRENT_POS < activeList.length - 1) { CURRENT_POS++; savePos(); renderQueue(); }
       };
       document.getElementById("btnSkip").onclick = () => {
-        if (CURRENT_POS < LEADS.length - 1) { CURRENT_POS++; savePos(); renderQueue(); }
+        if (CURRENT_POS < activeList.length - 1) { CURRENT_POS++; savePos(); renderQueue(); }
       };
     }
 
@@ -1412,14 +1611,28 @@
 
       const filtered = LEADS.filter(d => {
         if (FILTER_BLOK !== "Semua" && d.blok !== FILTER_BLOK) return false;
-        if (FILTER_STATUS !== "Semua" && d.hasil !== FILTER_STATUS) return false;
+        
+        // Status filter matching
+        if (FILTER_STATUS === "Belum Di-chat") {
+          if (d.hasil && d.hasil !== "Belum Di-chat" && d.hasil !== "Belum Diproses") return false;
+        } else if (FILTER_STATUS === "Sudah Di-chat") {
+          if (d.hasil !== "Sudah Di-chat") return false;
+        } else if (FILTER_STATUS === "Tertarik") {
+          if (d.hasil !== "Tertarik") return false;
+        } else if (FILTER_STATUS === "Janji Dihubungi") {
+          if (d.hasil !== "Janji Dihubungi") return false;
+        } else if (FILTER_STATUS === "Tolak / Salah") {
+          if (d.hasil !== "Tolak" && d.hasil !== "Salah Nomor") return false;
+        }
+
         if (FILTER_SEARCH) {
           const q = FILTER_SEARCH.toLowerCase();
           const matchName = (d.nama || "").toLowerCase().includes(q);
           const matchPhone = (d.tel || "").includes(q);
           const matchBlok = (d.blok || "").toLowerCase().includes(q);
           const matchAddr = (d.alamat || "").toLowerCase().includes(q);
-          if (!matchName && !matchPhone && !matchBlok && !matchAddr) return false;
+          const matchNote = (d.responCatatan || "").toLowerCase().includes(q);
+          if (!matchName && !matchPhone && !matchBlok && !matchAddr && !matchNote) return false;
         }
         return true;
       });
@@ -1430,20 +1643,19 @@
         <div class="list-filter-bar">
           <div class="search-box-wrap">
             <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="inpSearch" placeholder="Cari nama, nomor HP, blok, alamat..." value="${esc(FILTER_SEARCH)}">
+            <input type="text" id="inpSearch" placeholder="Cari nama, no HP, blok, respon..." value="${esc(FILTER_SEARCH)}">
           </div>
           <select id="selBlok">
             <option value="Semua">Semua Blok (${bloks.length})</option>
             ${bloks.map(b => `<option value="${esc(b)}" ${b === FILTER_BLOK ? "selected" : ""}>Blok ${esc(b)}</option>`).join("")}
           </select>
           <select id="selStatus">
-            <option value="Semua" ${FILTER_STATUS === "Semua" ? "selected" : ""}>Semua Status</option>
-            <option value="Belum Diproses" ${FILTER_STATUS === "Belum Diproses" ? "selected" : ""}>Belum Diproses</option>
+            <option value="Semua" ${FILTER_STATUS === "Semua" ? "selected" : ""}>Semua Kategori</option>
+            <option value="Belum Di-chat" ${FILTER_STATUS === "Belum Di-chat" ? "selected" : ""}>Belum Di-chat</option>
+            <option value="Sudah Di-chat" ${FILTER_STATUS === "Sudah Di-chat" ? "selected" : ""}>Sudah Di-chat</option>
             <option value="Tertarik" ${FILTER_STATUS === "Tertarik" ? "selected" : ""}>Tertarik</option>
-            <option value="Janji Dihubungi" ${FILTER_STATUS === "Janji Dihubungi" ? "selected" : ""}>Janji Hubungi</option>
-            <option value="Tidak Angkat" ${FILTER_STATUS === "Tidak Angkat" ? "selected" : ""}>Tidak Angkat</option>
-            <option value="Tolak" ${FILTER_STATUS === "Tolak" ? "selected" : ""}>Tolak</option>
-            <option value="Salah Nomor" ${FILTER_STATUS === "Salah Nomor" ? "selected" : ""}>Salah Nomor</option>
+            <option value="Janji Dihubungi" ${FILTER_STATUS === "Janji Dihubungi" ? "selected" : ""}>Janji Dihubungi</option>
+            <option value="Tolak / Salah" ${FILTER_STATUS === "Tolak / Salah" ? "selected" : ""}>Tolak / Salah</option>
           </select>
         </div>
 
@@ -1462,13 +1674,15 @@
                 <div style="overflow:hidden;">
                   <div class="tbl-lead-meta">
                     <span class="lead-blok-pill" style="font-size:11px; padding:2px 7px;">${esc(d.blok || "-")}${d.no ? " / " + esc(d.no) : ""}</span>
-                    <span class="lead-status-pill ${getLeadStatusClass(d.hasil)}" style="font-size:10.5px; padding:2px 7px;">${esc(d.hasil || "Belum")}</span>
+                    <span class="lead-status-pill ${getLeadStatusClass(d.hasil)}" style="font-size:10.5px; padding:2px 7px;">${esc(d.hasil || "Belum Di-chat")}</span>
+                    ${d.waktuChat ? `<span style="font-size:11px; color:var(--text-muted);">${esc(d.waktuChat)}</span>` : ""}
                   </div>
                   <div class="tbl-lead-name">${esc(titleCase(d.nama))}</div>
                   <div class="tbl-lead-phone">${esc(displayTel(d.tel))}</div>
+                  ${d.responCatatan ? `<div class="tbl-lead-note">&bull; Respon: ${esc(d.responCatatan)}</div>` : ""}
                 </div>
                 <div>
-                  <a class="btn-tbl-wa" href="${waUrl}" target="_blank" rel="noopener">
+                  <a class="btn-tbl-wa" href="${waUrl}" target="_blank" rel="noopener" data-row-id="${d.id}">
                     <svg class="icon" viewBox="0 0 24 24" fill="currentColor" style="stroke:none; width:14px; height:14px;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.63C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2ZM12.04 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.16 12.04 20.16C10.66 20.16 9.3 19.8 8.1 19.09L7.81 18.92L4.7 19.74L5.53 16.71L5.35 16.41C4.55 15.15 4.13 13.56 4.13 11.92C4.13 7.38 7.83 3.67 12.04 3.67ZM8.79 7.38C8.59 7.38 8.27 7.45 8 7.74C7.74 8.03 7 8.73 7 10.15C7 11.57 8.03 12.94 8.18 13.13C8.32 13.33 10.2 16.23 13.1 17.47C15.51 18.5 16 18.3 16.54 18.25C17.07 18.2 18.26 17.54 18.5 16.85C18.75 16.16 18.75 15.58 18.68 15.45C18.6 15.33 18.41 15.26 18.12 15.11C17.83 14.97 16.41 14.27 16.15 14.17C15.89 14.07 15.7 14.02 15.5 14.32C15.31 14.61 14.77 15.26 14.6 15.45C14.44 15.65 14.27 15.68 13.98 15.53C13.69 15.38 12.75 15.08 11.64 14.08C10.77 13.31 10.19 12.35 10.02 12.06C9.85 11.77 10 11.61 10.15 11.47C10.28 11.34 10.44 11.13 10.59 10.96C10.73 10.79 10.78 10.66 10.88 10.47C10.98 10.27 10.93 10.1 10.85 9.96C10.78 9.81 10.2 8.39 9.96 7.8C9.72 7.23 9.48 7.31 9.29 7.3C9.12 7.3 8.92 7.38 8.79 7.38Z"/></svg>
                     WA
                   </a>
@@ -1480,11 +1694,23 @@
         </div>
       `;
 
-      // Filter events
+      // Bind search & filter
       const inp = document.getElementById("inpSearch");
       inp.oninput = (e) => { FILTER_SEARCH = e.target.value; renderList(); };
       document.getElementById("selBlok").onchange = (e) => { FILTER_BLOK = e.target.value; renderList(); };
-      document.getElementById("selStatus").onchange = (e) => { FILTER_STATUS = e.target.value; renderList(); };
+      document.getElementById("selStatus").onchange = (e) => { FILTER_STATUS = e.target.value; renderApp(); };
+
+      // Auto-record chat when clicking WA in table row
+      document.querySelectorAll(".btn-tbl-wa").forEach(b => {
+        b.onclick = () => {
+          const rowId = parseInt(b.dataset.rowId, 10);
+          const item = LEADS.find(x => x.id === rowId);
+          if (item) {
+            recordAutoChat(item);
+            setTimeout(() => renderList(), 300);
+          }
+        };
+      });
 
       // Row click to open queue
       document.querySelectorAll(".table-lead-row").forEach(row => {
@@ -1514,7 +1740,7 @@
     /* ---------------- EXPORT CSV ---------------- */
     function exportCSV() {
       if (!LEADS.length) return alert("Belum ada data untuk di-download.");
-      let csv = "Blok,No,Nama,Telepon,Link WA,Link Telepon,Akun,Alamat,Catatan,Tanggal Dihubungi,Hasil,Paket\n";
+      let csv = "Blok,No,Nama,Telepon,Link WA,Link Telepon,Akun,Alamat,Catatan,Tanggal Dihubungi,Waktu Chat,Hasil Kontak,Catatan Respon,Paket\n";
       for (const d of LEADS) {
         const waLink = "https://wa.me/" + formatTel(d.tel);
         const telLink = "tel:" + d.tel;
@@ -1529,7 +1755,9 @@
           d.alamat || "",
           d.catatan || "",
           d.tanggal || "",
-          d.hasil || "Belum Diproses",
+          d.waktuChat || "",
+          d.hasil || "Belum Di-chat",
+          d.responCatatan || "",
           d.paket || ""
         ];
         csv += row.map(v => '"' + String(v).replace(/"/g, '""') + '"').join(",") + "\n";
@@ -1549,14 +1777,14 @@
     const modalStats = document.getElementById("modalStats");
     document.getElementById("btnStats").onclick = () => {
       const total = LEADS.length;
-      const sudah = LEADS.filter(d => d.hasil && d.hasil !== "Belum Diproses").length;
+      const sudahChat = LEADS.filter(d => d.hasil && d.hasil !== "Belum Di-chat" && d.hasil !== "Belum Diproses").length;
       const tertarik = LEADS.filter(d => d.hasil === "Tertarik").length;
       const janji = LEADS.filter(d => d.hasil === "Janji Dihubungi").length;
       const noAns = LEADS.filter(d => d.hasil === "Tidak Angkat").length;
       const tolak = LEADS.filter(d => d.hasil === "Tolak" || d.hasil === "Salah Nomor").length;
 
       document.getElementById("stTotal").textContent = total;
-      document.getElementById("stSudah").textContent = sudah;
+      document.getElementById("stSudahChat").textContent = sudahChat;
       document.getElementById("stTertarik").textContent = tertarik;
       document.getElementById("stJanji").textContent = janji;
       document.getElementById("stNoAns").textContent = noAns;
