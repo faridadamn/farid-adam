@@ -853,40 +853,197 @@
       display: block;
     }
 
-    /* Floating WhatsApp / CS Widget (1:1 Screenshot 1 & 2) */
-    .floating-cs-btn {
+    /* Floating WhatsApp Button (Icon Only) */
+    .floating-wa-btn {
       position: fixed;
-      bottom: 22px;
+      bottom: 24px;
       right: 22px;
       z-index: 100;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: #ffffff;
       display: flex;
       align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
-      transition: transform 0.2s ease;
-      filter: drop-shadow(0 8px 20px rgba(24, 68, 138, 0.3));
+      text-decoration: none;
     }
-    .floating-cs-btn:hover {
-      transform: scale(1.06);
+    .floating-wa-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
     }
-    .floating-cs-avatar {
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
+    .floating-wa-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    /* Side Menu Drawer & Toggle */
+    .nav-toggle-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--primary);
+      transition: all 0.15s ease;
+    }
+    .nav-toggle-btn:hover {
+      background: var(--soft-xl-home);
+      border-color: #bee3f8;
+    }
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 85vw;
+      height: 100%;
+      background: #ffffff;
+      z-index: 1001;
+      box-shadow: -8px 0 28px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .side-drawer.active {
+      right: 0;
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .drawer-logo-img {
+      height: 28px;
+      width: auto;
       display: block;
     }
-    .floating-cs-tooltip {
-      position: absolute;
-      right: 70px;
+    .drawer-close-btn {
+      background: #f1f5f9;
+      border: none;
+      border-radius: 8px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-dark);
+      transition: background 0.15s ease;
+    }
+    .drawer-close-btn:hover {
+      background: #e2e8f0;
+    }
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 16px;
+    }
+    .drawer-menu-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      padding-left: 6px;
+    }
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      text-decoration: none;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .drawer-nav-item:hover, .drawer-nav-item.active {
+      background: var(--soft-xl-home);
+      color: var(--primary);
+    }
+    .drawer-nav-item .icon {
+      width: 18px;
+      height: 18px;
+      color: var(--primary);
+    }
+    .drawer-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(24, 68, 138, 0.08);
+      color: var(--primary);
+    }
+    .drawer-badge-hot {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    .drawer-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 14px 0 12px;
+    }
+    .drawer-footer {
+      padding: 16px 18px;
+      border-top: 1px solid var(--border-color);
+      background: #f8fafc;
+    }
+    .drawer-wa-box {
       background: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 6px 12px;
-      font-size: 12px;
+      padding: 12px;
+      text-align: center;
+    }
+    .drawer-wa-title {
+      font-size: 13px;
       font-weight: 700;
       color: var(--primary);
-      white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      pointer-events: none;
+    }
+    .drawer-wa-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin: 2px 0 10px;
+    }
+    .drawer-wa-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 8px 12px;
+      font-size: 13px;
     }
 
     /* Footer */
@@ -945,8 +1102,8 @@
       .compare-table { min-width: 520px; font-size: 13px; }
       .compare-table th, .compare-table td { padding: 10px 12px; }
 
-      .floating-cs-avatar { width: 54px; height: 54px; }
-      .floating-cs-tooltip { display: none; }
+      .floating-wa-btn { width: 50px; height: 50px; bottom: 20px; right: 16px; }
+      .floating-wa-icon { width: 28px; height: 28px; }
     }
   </style>
 </head>
@@ -962,25 +1119,28 @@
   <header class="navbar">
     <div class="container nav-inner">
       <div class="brand-logo-wrap">
-        <a href="#">
+        <a href="/">
           <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="brand-logo-img" />
         </a>
-        <span class="badge-partner">Mitra Resmi</span>
       </div>
 
       <nav class="nav-links">
-        <a href="#paket">Paket Internet</a>
+        <a href="/" style="color:var(--primary);">Beranda</a>
+        <a href="/paket">Paket</a>
+        <a href="/promo">Promo</a>
+        <a href="/bantuan">Bantuan</a>
         <a href="#coverage">Cek Jangkauan</a>
-        <a href="#kalkulator">Kalkulator Hemat</a>
-        <a href="#keunggulan">Kenapa XL SATU?</a>
-        <a href="#faq">FAQ</a>
+        <a href="#kalkulator">Kalkulator</a>
       </nav>
 
       <div class="nav-actions">
         <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20tanya%20promo%20pasang%20baru%20wifi%20rumah" target="_blank" class="btn btn-secondary" style="padding: 8px 18px; font-size: 13.5px;">
           <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          Chat WhatsApp
+          <span>Chat WhatsApp</span>
         </a>
+        <button class="nav-toggle-btn" onclick="toggleSideDrawer()" aria-label="Buka Menu Samping">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </div>
   </header>
@@ -1683,11 +1843,74 @@
     </div>
   </section>
 
-  <!-- Floating Customer Service Button (1:1 Screenshot 1 & 2) -->
-  <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="floating-cs-btn" aria-label="Konsultasi WhatsApp">
-    <div class="floating-cs-tooltip">Butuh bantuan? Klik disini</div>
-    <img src="/assets/cs-floating.png" alt="Bantuan XL SATU" class="floating-cs-avatar" />
+  <!-- Floating WhatsApp Button (Icon Only) -->
+  <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="floating-wa-btn" aria-label="Chat WhatsApp Sales 087846560510" title="Chat WhatsApp Sales 0878-4656-0510">
+    <svg class="floating-wa-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.13 6.94C8.94 6.94 8.64 7.01 8.38 7.29C8.12 7.57 7.39 8.26 7.39 9.66C7.39 11.06 8.41 12.41 8.55 12.6C8.7 12.79 10.54 15.63 13.36 16.85C14.03 17.14 14.56 17.32 14.96 17.45C15.64 17.66 16.25 17.63 16.74 17.56C17.29 17.48 18.42 16.87 18.66 16.2C18.89 15.53 18.89 14.96 18.82 14.84C18.75 14.72 18.57 14.65 18.29 14.51C18.01 14.37 16.67 13.71 16.42 13.62C16.17 13.53 15.99 13.48 15.8 13.76C15.62 14.04 15.1 14.65 14.94 14.84C14.79 15.02 14.63 15.05 14.35 14.91C14.07 14.77 13.18 14.48 12.12 13.53C11.3 12.8 10.74 11.89 10.6 11.65C10.45 11.42 10.58 11.29 10.72 11.15C10.85 11.02 11.01 10.8 11.15 10.63C11.29 10.46 11.34 10.34 11.43 10.16C11.52 9.97 11.48 9.81 11.41 9.67C11.34 9.53 10.79 8.18 10.56 7.62C10.33 7.07 10.1 7.15 9.93 7.14C9.77 7.13 9.58 7.13 9.4 7.13C9.21 7.13 9.13 6.94 9.13 6.94Z"/>
+    </svg>
   </a>
+
+  <!-- Side Menu Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeSideDrawer()"></div>
+
+  <!-- Side Menu Drawer Container -->
+  <aside class="side-drawer" id="sideDrawer" aria-label="Menu Navigasi Samping">
+    <div class="drawer-header">
+      <a href="/" onclick="closeSideDrawer()">
+        <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="drawer-logo-img" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeSideDrawer()" aria-label="Tutup Menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="drawer-menu-label">Halaman</div>
+      <nav class="drawer-nav">
+        <a href="/" class="drawer-nav-item active">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Beranda</span>
+        </a>
+        <a href="/paket" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <span>Paket Internet</span>
+          <span class="drawer-badge">Lengkap</span>
+        </a>
+        <a href="/promo" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20"></path><path d="m17 5-5-3-5 3v6a10 10 0 0 0 10 10 10 10 0 0 0 10-10V5l-5-3Z"></path></svg>
+          <span>Promo Spesial</span>
+          <span class="drawer-badge drawer-badge-hot">Hemat</span>
+        </a>
+        <a href="/bantuan" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Pusat Bantuan</span>
+        </a>
+
+        <div class="drawer-divider"></div>
+        <div class="drawer-menu-label">Aksi Cepat</div>
+
+        <a href="/#coverage" class="drawer-nav-item" onclick="closeSideDrawer()">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          <span>Cek Jangkauan Fiber</span>
+        </a>
+        <a href="/#kalkulator" class="drawer-nav-item" onclick="closeSideDrawer()">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
+          <span>Kalkulator Hemat</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-wa-box">
+        <div class="drawer-wa-title">Konsultasi WhatsApp</div>
+        <div class="drawer-wa-desc">Respon cepat & cek jaringan alamat</div>
+        <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="btn btn-secondary drawer-wa-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          0878-4656-0510
+        </a>
+      </div>
+    </div>
+  </aside>
 
   <!-- Footer -->
   <footer class="footer">
@@ -1704,6 +1927,35 @@
 
   <!-- Script Logic -->
   <script>
+    // Side Menu Drawer Control
+    function openSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.add('active');
+      if (backdrop) backdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.remove('active');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      if (drawer && drawer.classList.contains('active')) {
+        closeSideDrawer();
+      } else {
+        openSideDrawer();
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSideDrawer();
+    });
     // Horizontal Card Slider Control
     function slidePackages(direction) {
       const track = document.getElementById('pkgSliderTrack');
