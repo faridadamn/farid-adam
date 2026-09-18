@@ -95,7 +95,7 @@ def build_blog_html():
       line-height: 1.5;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      padding-top: 102px;
+      padding-top: 64px;
     }
 
     a {
@@ -122,34 +122,8 @@ def build_blog_html():
       vertical-align: middle;
       flex-shrink: 0;
     }
-
-    /* Top Announcement Bar */
-    .top-bar-sticky {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 38px;
-      z-index: 1000;
-      background: var(--soft-xl-home);
-      border-bottom: 1px solid #daeeff;
-      padding: 0 16px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 13.5px;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    .top-bar-link {
-      color: var(--secondary);
-      font-weight: 700;
-      text-decoration: underline;
-      cursor: pointer;
-    }
+    
+    
 
     /* Navbar */
     .navbar {
@@ -157,7 +131,7 @@ def build_blog_html():
       border-bottom: 1px solid var(--border-color);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
       position: fixed;
-      top: 38px;
+      top: 0;
       left: 0;
       right: 0;
       width: 100%;
@@ -264,7 +238,7 @@ def build_blog_html():
     .blog-controls {
       padding: 24px 0 16px;
       position: sticky;
-      top: 102px;
+      top: 64px;
       background: #F8FAFC;
       z-index: 90;
       border-bottom: 1px solid rgba(226, 232, 240, 0.7);
@@ -855,12 +829,12 @@ def build_blog_html():
       }
     }
     @media (max-width: 768px) {
-      body { padding-top: 94px; }
+      body { padding-top: 60px; }
       .nav-links { display: none; }
       .hero-title { font-size: 26px; }
-      .top-bar-sticky { height: 34px; font-size: 12px; padding: 0 12px; }
-      .navbar { top: 34px; height: 60px; }
-      .blog-controls { top: 94px; }
+      
+      .navbar { top: 0; height: 60px; }
+      .blog-controls { top: 60px; }
       .featured-body { padding: 22px; }
       .featured-title { font-size: 20px; }
       .cta-banner { padding: 30px 22px; }
@@ -879,12 +853,6 @@ def build_blog_html():
   </style>
 </head>
 <body>
-
-  <!-- Sticky Top Announcement Bar -->
-  <aside class="top-bar-sticky">
-    <span>Berita & Edukasi XL SATU:</span>
-    <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="top-bar-link">Konsultasi Gratis via WhatsApp!</a>
-  </aside>
 
   <!-- Navbar -->
   <header class="navbar">
@@ -1355,7 +1323,7 @@ def build_artikel_html():
       line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      padding-top: 102px;
+      padding-top: 64px;
     }
 
     a {
@@ -1389,34 +1357,8 @@ def build_artikel_html():
       vertical-align: middle;
       flex-shrink: 0;
     }
-
-    /* Top Announcement Bar */
-    .top-bar-sticky {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      width: 100%;
-      height: 38px;
-      z-index: 1000;
-      background: var(--soft-xl-home);
-      border-bottom: 1px solid #daeeff;
-      padding: 0 16px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 13.5px;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    .top-bar-link {
-      color: var(--secondary);
-      font-weight: 700;
-      text-decoration: underline;
-      cursor: pointer;
-    }
+    
+    
 
     /* Navbar */
     .navbar {
@@ -1424,7 +1366,7 @@ def build_artikel_html():
       border-bottom: 1px solid var(--border-color);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
       position: fixed;
-      top: 38px;
+      top: 0;
       left: 0;
       right: 0;
       width: 100%;
@@ -2016,11 +1958,11 @@ def build_artikel_html():
 
     /* Responsive */
     @media (max-width: 768px) {
-      body { padding-top: 94px; }
+      body { padding-top: 60px; }
       .nav-links { display: none; }
       .article-main-title { font-size: 26px; }
-      .top-bar-sticky { height: 34px; font-size: 12px; padding: 0 12px; }
-      .navbar { top: 34px; height: 60px; }
+      
+      .navbar { top: 0; height: 60px; }
       .in-article-cta { padding: 22px; }
       .in-cta-title { font-size: 18px; }
       .related-grid { grid-template-columns: 1fr; }
@@ -2033,12 +1975,6 @@ def build_artikel_html():
   </style>
 </head>
 <body>
-
-  <!-- Sticky Top Announcement Bar -->
-  <aside class="top-bar-sticky">
-    <span>Konsultasi Pasang Baru XL SATU:</span>
-    <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="top-bar-link">Chat WhatsApp 0878-4656-0510!</a>
-  </aside>
 
   <!-- Navbar -->
   <header class="navbar">
