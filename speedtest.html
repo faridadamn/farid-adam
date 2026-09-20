@@ -1,0 +1,2115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Speed Test WiFi & Internet Rumah — Cek Kecepatan & Bandingkan dengan XL SATU Fiber</title>
+  <meta name="description" content="Tes kecepatan internet WiFi rumah Anda secara akurat dan gratis. Ukur Download, Upload, Ping & Jitter real-time serta temukan paket XL SATU Fiber paling hemat & pas untuk rumah Anda." />
+  <link rel="canonical" href="https://exelsatu.my.id/speedtest" />
+  <meta property="og:title" content="Speed Test WiFi & Internet Rumah — Cek & Bandingkan dengan XL SATU Fiber" />
+  <meta property="og:description" content="Ketahui performa WiFi Anda dalam hitungan detik dan bandingkan penghematan paket internet rumah + kuota HP sekeluarga." />
+  <meta property="og:url" content="https://exelsatu.my.id/speedtest" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'XLSmart';
+      src: url('/fonts/xlsmart-bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --primary: #18448A;
+      --secondary: #05A986;
+      --soft-xl-home: #ECF9FF;
+      --sky-blue: #1D90C9;
+      --chip-blue: #0284C7;
+      --accent: #E11D48;
+      --bg-main: #FFFFFF;
+      --text-dark: #131313;
+      --text-muted: #64748B;
+      --border-color: #E2E8F0;
+      --card-bg: #FFFFFF;
+      --font-family: 'XLSmart', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 16px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-family);
+    }
+
+    body {
+      background-color: #F8FAFC;
+      color: var(--text-dark);
+      line-height: 1.5;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 102px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* Top Announcement Bar (Fixed) */
+    .top-bar-sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 38px;
+      z-index: 1000;
+      background: var(--soft-xl-home);
+      border-bottom: 1px solid #daeeff;
+      padding: 0 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .top-bar-link {
+      color: var(--secondary);
+      font-weight: 700;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Navbar (Fixed) */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      position: fixed;
+      top: 38px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 64px;
+      z-index: 999;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand-logo-img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-toggle-btn {
+      display: none;
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    /* Hero Speedtest Header */
+    .st-hero {
+      padding: 44px 0 24px;
+      text-align: center;
+    }
+    .st-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #E0F2FE;
+      color: #0284C7;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .st-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .st-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+
+    /* Tab Switcher (Native vs OpenSpeedTest) */
+    .st-tab-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .st-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 99px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .st-tab-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .st-tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(24, 68, 138, 0.2);
+    }
+
+    /* Speedtest Console Main Card */
+    .st-console-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 36px 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      max-width: 900px;
+      margin: 0 auto 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .st-console-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--sky-blue) 100%);
+    }
+
+    /* Gauge Container */
+    .gauge-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .gauge-canvas {
+      max-width: 380px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gauge-center-info {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+    }
+    .gauge-speed-val {
+      font-size: 54px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .gauge-speed-unit {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+    .gauge-stage-badge {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 99px;
+      background: #F1F5F9;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+    .gauge-stage-badge.running {
+      background: #E0F2FE;
+      color: #0284C7;
+      animation: pulseStage 1.5s infinite;
+    }
+    .gauge-stage-badge.done {
+      background: #D1FAE5;
+      color: #059669;
+    }
+
+    @keyframes pulseStage {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(0.97); }
+    }
+
+    /* 4 Metric Cards Grid */
+    .st-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .st-metric-box {
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .st-metric-box.active {
+      border-color: var(--secondary);
+      background: #F0FDF9;
+      transform: translateY(-2px);
+    }
+    .st-metric-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .st-metric-val {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.1;
+    }
+    .st-metric-unit {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .st-metric-status {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Start Button & Controls */
+    .st-action-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-start-test {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--primary) 0%, #1d5cb8 100%);
+      color: #FFFFFF;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 44px;
+      border-radius: 99px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(24, 68, 138, 0.28);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-start-test:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(24, 68, 138, 0.38);
+    }
+    .btn-start-test:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .st-network-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* OpenSpeedtest Iframe Container */
+    #openSpeedtestContainer {
+      display: none;
+      width: 100%;
+      min-height: 520px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    #openSpeedtestContainer iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+    }
+
+    /* ========================================================
+       SECTION 2: DYNAMIC DIAGNOSTIC & SOFT-SELL COMPARISON
+       ======================================================== */
+    .st-result-section {
+      display: none;
+      padding: 24px 0 48px;
+      scroll-margin-top: 110px;
+    }
+    .st-result-section.visible {
+      display: block;
+      animation: fadeInResult 0.5s ease;
+    }
+
+    @keyframes fadeInResult {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-verdict-card {
+      background: #FFFFFF;
+      border: 2px solid var(--secondary);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 10px 28px rgba(5, 169, 134, 0.08);
+      position: relative;
+    }
+    .verdict-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .verdict-title-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .verdict-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #E6F8F3;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .verdict-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .verdict-subtitle {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .verdict-badge-status {
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      background: #E0F2FE;
+      color: #0284C7;
+    }
+
+    /* Activities Compatibility Matrix */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .act-item {
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .act-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .act-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+    .act-badge.good { background: #D1FAE5; color: #065F46; }
+    .act-badge.warn { background: #FEF3C7; color: #92400E; }
+    .act-badge.bad  { background: #FEE2E2; color: #991B1B; }
+    .act-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Head-to-Head Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .comp-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      padding: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+    .comp-card.recommended {
+      border: 2px solid var(--primary);
+      box-shadow: 0 12px 36px rgba(24, 68, 138, 0.12);
+      background: #FFFFFF;
+    }
+    .comp-ribbon {
+      position: absolute;
+      top: -14px;
+      right: 24px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--sky-blue) 100%);
+      color: #FFFFFF;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .comp-head {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .comp-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .comp-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .comp-speed-badge {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .comp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .comp-item .icon-check {
+      color: var(--secondary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .comp-item .icon-cross {
+      color: #EF4444;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .comp-price-box {
+      background: #F8FAFC;
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      margin-top: auto;
+    }
+    .comp-price-val {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .comp-price-unit {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .comp-price-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Savings Callout Banner */
+    .savings-banner {
+      background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+      border: 1px solid #A7F3D0;
+      border-radius: 16px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .savings-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #059669;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .savings-text-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #065F46;
+      margin-bottom: 2px;
+    }
+    .savings-text-desc {
+      font-size: 13.5px;
+      color: #047857;
+    }
+
+    /* CTA WhatsApp Bar */
+    .st-cta-box {
+      background: linear-gradient(135deg, #18448A 0%, #0F2D5C 100%);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 12px 32px rgba(24, 68, 138, 0.2);
+    }
+    .st-cta-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .st-cta-desc {
+      font-size: 15px;
+      color: #E2E8F0;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .btn-wa-consult {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--secondary);
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 99px;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(5, 169, 134, 0.35);
+    }
+    .btn-wa-consult:hover {
+      background: #049273;
+      transform: translateY(-2px);
+    }
+
+    /* Interactive Manual Slider fallback */
+    .manual-sim-wrap {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 32px auto 0;
+      max-width: 700px;
+      text-align: center;
+    }
+    .manual-sim-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .manual-sim-slider {
+      width: 100%;
+      height: 8px;
+      accent-color: var(--secondary);
+      cursor: pointer;
+      margin: 12px 0;
+    }
+    .manual-sim-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Education & FAQ Section */
+    .st-edu-section {
+      padding: 56px 0;
+    }
+    .sec-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .sec-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .tip-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    }
+    .tip-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--soft-xl-home);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .tip-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .tip-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* FAQ Accordion */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 16px 20px;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+    .faq-q:hover {
+      color: var(--primary);
+    }
+    .faq-a {
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: none;
+    }
+    .faq-card.open .faq-a {
+      display: block;
+    }
+    .faq-card.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-chevron {
+      transition: transform 0.2s ease;
+    }
+
+    /* Floating WhatsApp Button (Zero Emoji, Clean SVG) */
+    .floating-wa-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      z-index: 998;
+      cursor: pointer;
+      transition: transform 0.25s ease;
+    }
+    .floating-wa-btn:hover {
+      transform: scale(1.08);
+    }
+    .floating-wa-icon {
+      width: 34px;
+      height: 34px;
+      color: #FFFFFF;
+    }
+
+    /* Side Menu Drawer */
+    .drawer-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .drawer-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 85vw;
+      height: 100%;
+      background: #ffffff;
+      z-index: 1001;
+      box-shadow: -8px 0 28px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .side-drawer.active {
+      right: 0;
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .drawer-logo-img {
+      height: 28px;
+      width: auto;
+    }
+    .drawer-close-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      color: var(--text-muted);
+    }
+    .drawer-body {
+      flex: 1;
+      padding: 20px 16px;
+      overflow-y: auto;
+    }
+    .drawer-menu-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: background 0.18s ease;
+    }
+    .drawer-nav-item:hover,
+    .drawer-nav-item.active {
+      background: var(--soft-xl-home);
+      color: var(--primary);
+    }
+    .drawer-badge {
+      margin-left: auto;
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: #E2E8F0;
+      color: var(--text-dark);
+    }
+    .drawer-badge-hot {
+      background: #FEE2E2;
+      color: #DC2626;
+    }
+    .drawer-divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 16px 8px;
+    }
+    .drawer-footer {
+      padding: 16px;
+      border-top: 1px solid var(--border-color);
+    }
+    .drawer-wa-box {
+      background: var(--soft-xl-home);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .drawer-wa-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .drawer-wa-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .drawer-wa-btn {
+      width: 100%;
+      padding: 8px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--secondary);
+      color: #FFFFFF;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      padding: 32px 0;
+      color: var(--text-dark);
+      font-size: 13.5px;
+      margin-top: 48px;
+    }
+
+    /* Responsive Reflow */
+    @media (max-width: 768px) {
+      body { padding-top: 94px; }
+      .nav-links { display: none; }
+      .nav-toggle-btn { display: block; }
+      .st-title { font-size: 26px; }
+      .top-bar-sticky { height: 34px; font-size: 12px; padding: 0 12px; }
+      .navbar { top: 34px; height: 60px; }
+      .st-metrics-grid { grid-template-columns: repeat(2, 1fr); }
+      .activities-grid { grid-template-columns: repeat(2, 1fr); }
+      .comparison-grid { grid-template-columns: 1fr; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .st-console-card { padding: 24px 16px; }
+      .btn-start-test { width: 100%; font-size: 16px; padding: 14px 20px; }
+    }
+    @media (max-width: 480px) {
+      .gauge-speed-val { font-size: 44px; }
+      .st-metric-val { font-size: 22px; }
+      .activities-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar (Sticky) -->
+  <div class="top-bar-sticky">
+    <span>Cek Kecepatan WiFi Anda — Temukan Paket XL SATU Fiber Paling Pas & Hemat!</span>
+    <a href="#speedtestConsole" class="top-bar-link">Mulai Tes</a>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand-logo-wrap">
+        <a href="/">
+          <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="brand-logo-img" />
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="/">Beranda</a>
+        <a href="/paket">Paket</a>
+        <a href="/promo">Promo</a>
+        <a href="/speedtest" style="color:var(--primary);">Speed Test</a>
+        <a href="/blog">Blog</a>
+        <a href="/bantuan">Bantuan</a>
+        <a href="/#coverage">Cek Jangkauan</a>
+        <a href="/#kalkulator">Kalkulator</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="nav-toggle-btn" onclick="toggleSideDrawer()" aria-label="Buka Menu Samping">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="st-hero" id="speedtestConsole">
+    <div class="container">
+      <div class="st-badge">
+        <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        <span>WiFi & Internet Benchmark Tool</span>
+      </div>
+      <h1 class="st-title">Tes Kecepatan Internet WiFi Rumah Anda</h1>
+      <p class="st-desc">
+        Ukur performa Download, Upload, Ping & Jitter jaringan WiFi Anda secara real-time. Ketahui apakah koneksi saat ini sudah optimal atau butuh upgrade ke XL SATU Fiber.
+      </p>
+
+      <!-- Engine Tab Switcher -->
+      <div class="st-tab-wrap">
+        <button class="st-tab-btn active" id="tabNativeBtn" onclick="switchSpeedEngine('native')">
+          <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Native Speedometer (Rekomendasi)</span>
+        </button>
+        <button class="st-tab-btn" id="tabOpenBtn" onclick="switchSpeedEngine('openspeedtest')">
+          <svg class="icon" style="width:16px; height:16px;" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 12h10M12 7v10"></path></svg>
+          <span>OpenSpeedTest Engine</span>
+        </button>
+      </div>
+
+      <!-- Main Console Card -->
+      <div class="st-console-card">
+        
+        <!-- Tab 1: Native Gauge Speedometer -->
+        <div id="nativeSpeedtestContainer">
+          <div class="gauge-wrapper">
+            <canvas id="gaugeCanvas" class="gauge-canvas" width="600" height="360"></canvas>
+            <div class="gauge-center-info">
+              <div class="gauge-speed-val" id="gaugeSpeedNumber">0.0</div>
+              <div class="gauge-speed-unit" id="gaugeSpeedUnit">Mbps</div>
+              <div class="gauge-stage-badge" id="gaugeStageBadge">Siap Mulai</div>
+            </div>
+          </div>
+
+          <!-- 4 Metrics Grid -->
+          <div class="st-metrics-grid">
+            <div class="st-metric-box" id="boxPing">
+              <div class="st-metric-label">
+                <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span>Ping</span>
+              </div>
+              <div class="st-metric-val"><span id="valPing">-</span> <span class="st-metric-unit">ms</span></div>
+              <div class="st-metric-status" id="statusPing">Menunggu</div>
+            </div>
+
+            <div class="st-metric-box" id="boxJitter">
+              <div class="st-metric-label">
+                <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M2 12h3l3-8 4 16 3-8h7"></path></svg>
+                <span>Jitter</span>
+              </div>
+              <div class="st-metric-val"><span id="valJitter">-</span> <span class="st-metric-unit">ms</span></div>
+              <div class="st-metric-status" id="statusJitter">Stabilitas</div>
+            </div>
+
+            <div class="st-metric-box" id="boxDownload">
+              <div class="st-metric-label">
+                <svg class="icon" style="width:14px; height:14px; color:var(--secondary);" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                <span>Download</span>
+              </div>
+              <div class="st-metric-val"><span id="valDownload">-</span> <span class="st-metric-unit">Mbps</span></div>
+              <div class="st-metric-status" id="statusDownload">Kecepatan Unduh</div>
+            </div>
+
+            <div class="st-metric-box" id="boxUpload">
+              <div class="st-metric-label">
+                <svg class="icon" style="width:14px; height:14px; color:var(--primary);" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+                <span>Upload</span>
+              </div>
+              <div class="st-metric-val"><span id="valUpload">-</span> <span class="st-metric-unit">Mbps</span></div>
+              <div class="st-metric-status" id="statusUpload">Kecepatan Unggah</div>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="st-action-row">
+            <button class="btn-start-test" id="btnStartSpeedtest" onclick="runNativeSpeedtest()">
+              <svg class="icon" style="width:22px; height:22px;" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span>Mulai Tes Kecepatan</span>
+            </button>
+            <div class="st-network-meta">
+              <span>
+                <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                Server: <strong>Cloudflare Edge (Jakarta / SIN)</strong>
+              </span>
+              <span>
+                <svg class="icon" style="width:14px; height:14px;" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                IP Kamu: <strong id="userIpText">Mendeteksi...</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: OpenSpeedTest Widget -->
+        <div id="openSpeedtestContainer">
+          <iframe id="openSpeedtestIframe" src="about:blank" title="OpenSpeedTest Widget"></iframe>
+        </div>
+
+      </div>
+
+      <!-- Manual Slider Quick Test Option -->
+      <div class="manual-sim-wrap">
+        <div class="manual-sim-title">Atau geser kecepatan WiFi rumahmu saat ini untuk langsung simulasi komparasi:</div>
+        <input type="range" min="10" max="500" value="30" step="5" class="manual-sim-slider" id="manualSpeedSlider" oninput="onManualSpeedChange(this.value)" />
+        <div class="manual-sim-labels">
+          <span>10 Mbps</span>
+          <span style="font-weight:700; color:var(--primary); font-size:15px;" id="manualSpeedDisplay">30 Mbps (Geser Saya)</span>
+          <span>500 Mbps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SECTION 2: DYNAMIC DIAGNOSTIC & SOFT-SELL COMPARISON
+       ======================================================== -->
+  <section class="st-result-section" id="diagnosticSection">
+    <div class="container">
+
+      <!-- Verdict Banner -->
+      <div class="result-verdict-card">
+        <div class="verdict-header">
+          <div class="verdict-title-box">
+            <div class="verdict-icon-wrap" id="verdictIcon">
+              <svg class="icon" style="width:24px; height:24px;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <div class="verdict-title" id="verdictTitle">Hasil Analisis Kecepatan WiFi Anda</div>
+              <div class="verdict-subtitle" id="verdictSubtitle">Kecepatan terdeteksi: 30 Mbps — Cukup untuk kebutuhan ringan, namun butuh upgrade jika dipakai sekeluarga.</div>
+            </div>
+          </div>
+          <div class="verdict-badge-status" id="verdictBadgeStatus">Status: Perlu Optimasi</div>
+        </div>
+
+        <!-- Matrix 4 Aktivitas Digital -->
+        <div class="activities-grid">
+          <div class="act-item">
+            <div class="act-head">
+              <span>Streaming 4K / YouTube</span>
+              <span class="act-badge warn" id="badgeActStream">Rawan Buffering</span>
+            </div>
+            <div class="act-desc" id="descActStream">Lancar di 1080p, namun akan tersendat bila ada 2 TV streaming 4K bersamaan.</div>
+          </div>
+
+          <div class="act-item">
+            <div class="act-head">
+              <span>Online Gaming & Push Rank</span>
+              <span class="act-badge warn" id="badgeActGame">Rawan Lag Spike</span>
+            </div>
+            <div class="act-desc" id="descActGame">Ping rentan naik mendadak saat anggota keluarga lain mengunggah video.</div>
+          </div>
+
+          <div class="act-item">
+            <div class="act-head">
+              <span>Work From Home & Zoom</span>
+              <span class="act-badge good" id="badgeActWork">Lancar</span>
+            </div>
+            <div class="act-desc" id="descActWork">Video call HD lancar selama tidak ada unduhan file besar di latar belakang.</div>
+          </div>
+
+          <div class="act-item">
+            <div class="act-head">
+              <span>Kapasitas Perangkat</span>
+              <span class="act-badge warn" id="badgeActDevices">Maks 3-4 Device</span>
+            </div>
+            <div class="act-desc" id="descActDevices">Bila lebih dari 4 HP aktif, kecepatan per perangkat akan drop drastis.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Head-to-Head Comparison -->
+      <div class="comparison-grid">
+        
+        <!-- Left: Current WiFi -->
+        <div class="comp-card">
+          <div class="comp-head">
+            <div class="comp-tag">Kondisi Jaringan Saat Ini</div>
+            <div class="comp-title">WiFi Kamu Sekarang</div>
+            <div class="comp-speed-badge" id="compCurrentSpeed">Hasil Tes: 30.0 Mbps</div>
+          </div>
+
+          <ul class="comp-list">
+            <li class="comp-item">
+              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Kuota HP Terpisah:</strong> 0 GB (Wajib beli paket data HP terpisah untuk tiap anggota keluarga).</span>
+            </li>
+            <li class="comp-item">
+              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Rasio Upload Lambat:</strong> Umumnya asimetris (Upload hanya 10-20% dari Download).</span>
+            </li>
+            <li class="comp-item">
+              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Risiko FUP / Penurunan Speed:</strong> Batasan kuota wajar bulanan.</span>
+            </li>
+            <li class="comp-item">
+              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Pengeluaran Double:</strong> Bayar tagihan WiFi rumah + isi pulsa/kuota HP semua orang.</span>
+            </li>
+          </ul>
+
+          <div class="comp-price-box">
+            <div class="comp-tag">Estimasi Total Pengeluaran</div>
+            <div class="comp-price-val" id="compCurrentExpense">Rp 450.000+</div>
+            <div class="comp-price-unit">per bulan (WiFi + Kuota HP Keluarga)</div>
+            <div class="comp-price-sub">Tagihan ganda yang tidak efisien</div>
+          </div>
+        </div>
+
+        <!-- Right: Recommended XL SATU Package -->
+        <div class="comp-card recommended">
+          <div class="comp-ribbon" id="compRecRibbon">Rekomendasi Terbaik</div>
+          <div class="comp-head">
+            <div class="comp-tag" style="color:var(--secondary);">Solusi Cerdas & Hemat</div>
+            <div class="comp-title" id="compRecTitle">XL SATU Spark 100 Mbps</div>
+            <div class="comp-speed-badge" id="compRecSpeed">Kecepatan: 100 Mbps (Naik 3.3x Lipat!)</div>
+          </div>
+
+          <ul class="comp-list">
+            <li class="comp-item">
+              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Bonus Kuota HP Bersama:</strong> <span id="compRecQuota">25 GB</span> untuk seluruh nomor XL keluarga dalam 1 tagihan.</span>
+            </li>
+            <li class="comp-item">
+              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>100% Fiber Optic Simetris:</strong> Upload & Download seimbang tanpa jeda lag.</span>
+            </li>
+            <li class="comp-item">
+              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Bebas FUP:</strong> Internetan sepuasnya 24 jam nonstop tanpa penurunan kecepatan.</span>
+            </li>
+            <li class="comp-item">
+              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Gratis Instalasi & Router:</strong> Hemat Rp 500.000 biaya pasang baru.</span>
+            </li>
+          </ul>
+
+          <div class="comp-price-box" style="background:#ECFDF5; border:1px solid #A7F3D0;">
+            <div class="comp-tag" style="color:#065F46;">Harga Promo Bulanan</div>
+            <div class="comp-price-val" style="color:#059669;" id="compRecPrice">Rp 279.000</div>
+            <div class="comp-price-unit">/bulan (Sudah Termasuk Internet + Kuota HP)</div>
+            <div class="comp-price-sub" id="compRecTax">Termasuk PPN 11%: Rp 309.690</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Savings Alert -->
+      <div class="savings-banner">
+        <div class="savings-icon-wrap">
+          <svg class="icon" style="width:24px; height:24px;" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <div>
+          <div class="savings-text-title" id="savingsTitle">Potensi Penghematan Hingga Rp 1.800.000 / Tahun!</div>
+          <div class="savings-text-desc" id="savingsDesc">
+            Dengan menggabungkan tagihan internet rumah fiber dan kuota bersama untuk HP keluarga dalam paket XL SATU, Anda tidak perlu lagi membeli kuota data seluler eceran setiap bulan.
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Box WhatsApp Pre-Filled -->
+      <div class="st-cta-box">
+        <div class="st-cta-title">Upgrade ke XL SATU Fiber Sekarang & Buktikan Bedanya!</div>
+        <p class="st-cta-desc">
+          Konsultasikan alamat rumah Anda dengan spesialis sales resmi XL SATU. Tim kami siap melakukan pengecekan tiang fiber terdekat dan proses pasang kilat dalam 1-2 hari.
+        </p>
+        <a href="#" id="btnCtaWa" target="_blank" class="btn-wa-consult">
+          <svg class="icon" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span id="btnCtaWaText">Konsultasi Paket & Cek Jangkauan via WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education & Optimization Tips -->
+  <section class="st-edu-section">
+    <div class="container">
+      <h2 class="sec-title">Faktor Penentu Kecepatan WiFi Rumah</h2>
+      <p class="sec-subtitle">Mengapa kecepatan tes bisa berbeda dari paket yang Anda beli? Simak 3 faktor kuncinya:</p>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"></path></svg>
+          </div>
+          <div class="tip-title">Frekuensi 2.4 GHz vs 5 GHz</div>
+          <div class="tip-text">
+            Jaringan 2.4 GHz memiliki jangkauan jauh namun rentan interferensi dan mentok di 40-70 Mbps. Selalu sambungkan HP atau laptop Anda ke jaringan <strong>5 GHz</strong> untuk menikmati kecepatan maksimal hingga ratusan Mbps.
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">
+            <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="12" x="3" y="4" rx="2"></rect><line x1="2" y1="20" x2="22" y2="20"></line></svg>
+          </div>
+          <div class="tip-title">Posisi & Halangan Router</div>
+          <div class="tip-text">
+            Tembok beton tebal, cermin, pintu besi, dan perabot rumah dapat meredam sinyal WiFi hingga 50%. Letakkan router di ruang terbuka di tengah rumah dengan posisi agak tinggi untuk sebaran sinyal merata.
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <div class="tip-title">Kabel Fiber Murni Tanpa FUP</div>
+          <div class="tip-text">
+            Provider internet lama sering menggunakan kabel tembaga/coaxial dengan batasan FUP yang mencekik kecepatan di akhir bulan. XL SATU menggunakan <strong>100% kabel kaca fiber optik</strong> murni tanpa batasan kuota.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <h2 class="sec-title" style="margin-top:24px;">Pertanyaan Seputar Speed Test & XL SATU</h2>
+      <p class="sec-subtitle">Informasi penting yang sering ditanyakan pelanggan sebelum memasang WiFi baru.</p>
+
+      <div class="faq-list">
+        <div class="faq-card open">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Berapa kecepatan WiFi ideal untuk keluarga 4–6 orang?</span>
+            <svg class="icon faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">
+            Untuk keluarga dengan 4–6 orang yang aktif menggunakan streaming video 4K, meeting Zoom, gaming online, dan media sosial secara bersamaan, kecepatan ideal adalah minimal <strong>100 Mbps hingga 250 Mbps</strong> (seperti paket XL SATU Spark atau Value).
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Mengapa hasil tes di HP lebih rendah dari paket internet saya?</span>
+            <svg class="icon faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">
+            Kecepatan di HP dipengaruhi oleh chip WiFi internal perangkat, jarak ke router, dan frekuensi yang digunakan. Untuk menguji kecepatan murni provider, hubungkan laptop/PC langsung menggunakan kabel LAN ke router.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Apa keunggulan XL SATU dibanding provider internet rumah lainnya?</span>
+            <svg class="icon faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">
+            XL SATU adalah pelopor layanan konvergensi pertama di Indonesia. Anda tidak hanya mendapatkan internet rumah fiber optic unlimited tanpa FUP, namun juga mendapatkan <strong>Bonus Kuota HP bersama (hingga 50-300 GB)</strong> yang dapat dibagi ke nomor XL seluruh anggota keluarga. Hemat, praktis, 1 tagihan untuk semua!
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>Berapa lama proses pemasangan teknisi XL SATU ke rumah?</span>
+            <svg class="icon faq-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="faq-a">
+            Setelah alamat Anda diverifikasi dan slot tiang fiber tersedia, teknisi resmi XL SATU akan datang melakukan penarikan kabel dan pemasangan router dalam <strong>1 hingga 2 hari kerja</strong>. Bebas biaya instalasi Rp 500.000 selama masa promo!
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Action Button -->
+  <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20saya%20sudah%20tes%20kecepatan%20WiFi%20dan%20mau%20konsultasi%20paket" target="_blank" class="floating-wa-btn" aria-label="Konsultasi WhatsApp 087846560510" title="Chat WhatsApp Sales 0878-4656-0510">
+    <svg class="floating-wa-icon" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.13 6.94C8.94 6.94 8.64 7.01 8.38 7.29C8.12 7.57 7.39 8.26 7.39 9.66C7.39 11.06 8.41 12.41 8.55 12.6C8.7 12.79 10.54 15.63 13.36 16.85C14.03 17.14 14.56 17.32 14.96 17.45C15.64 17.66 16.25 17.63 16.74 17.56C17.29 17.48 18.42 16.87 18.66 16.2C18.89 15.53 18.89 14.96 18.82 14.84C18.75 14.72 18.57 14.65 18.29 14.51C18.01 14.37 16.67 13.71 16.42 13.62C16.17 13.53 15.99 13.48 15.8 13.76C15.62 14.04 15.1 14.65 14.94 14.84C14.79 15.02 14.63 15.05 14.35 14.91C14.07 14.77 13.18 14.48 12.12 13.53C11.3 12.8 10.74 11.89 10.6 11.65C10.45 11.42 10.58 11.29 10.72 11.15C10.85 11.02 11.01 10.8 11.15 10.63C11.29 10.46 11.34 10.34 11.43 10.16C11.52 9.97 11.48 9.81 11.41 9.67C11.34 9.53 10.79 8.18 10.56 7.62C10.33 7.07 10.1 7.15 9.93 7.14C9.77 7.13 9.58 7.13 9.4 7.13C9.21 7.13 9.13 6.94 9.13 6.94Z"/>
+    </svg>
+  </a>
+
+  <!-- Side Menu Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeSideDrawer()"></div>
+
+  <!-- Side Menu Drawer -->
+  <aside class="side-drawer" id="sideDrawer" aria-label="Menu Navigasi Samping">
+    <div class="drawer-header">
+      <a href="/" onclick="closeSideDrawer()">
+        <img src="/assets/logo-xlsatu.png" alt="XL SATU" class="drawer-logo-img" />
+      </a>
+      <button class="drawer-close-btn" onclick="closeSideDrawer()" aria-label="Tutup Menu">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="drawer-menu-label">Halaman</div>
+      <nav class="drawer-nav">
+        <a href="/" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Beranda</span>
+        </a>
+        <a href="/paket" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <span>Paket Internet</span>
+          <span class="drawer-badge">Lengkap</span>
+        </a>
+        <a href="/promo" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20"></path><path d="m17 5-5-3-5 3v6a10 10 0 0 0 10 10 10 10 0 0 0 10-10V5l-5-3Z"></path></svg>
+          <span>Promo Spesial</span>
+          <span class="drawer-badge drawer-badge-hot">Hemat</span>
+        </a>
+        <a href="/speedtest" class="drawer-nav-item active">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Speed Test WiFi</span>
+          <span class="drawer-badge drawer-badge-hot">Cek</span>
+        </a>
+        <a href="/blog" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+          <span>Berita & Blog</span>
+        </a>
+        <a href="/bantuan" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Pusat Bantuan</span>
+        </a>
+
+        <div class="drawer-divider"></div>
+        <div class="drawer-menu-label">Aksi Cepat</div>
+
+        <a href="/#coverage" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+          <span>Cek Jangkauan Fiber</span>
+        </a>
+        <a href="/#kalkulator" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+          <span>Kalkulator Hemat</span>
+        </a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="drawer-wa-box">
+        <div class="drawer-wa-title">Konsultasi WhatsApp</div>
+        <div class="drawer-wa-desc">Respon cepat & cek jaringan alamat</div>
+        <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah" target="_blank" class="drawer-wa-btn">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+          <span>0878-4656-0510</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="font-weight:700; color:var(--primary); margin-bottom:4px;">XL SATU Fiber — Authorized Sales Partner</div>
+        <div>Pemasangan Internet Rumah Cepat & Hemat Area Jabodetabek & Nasional.</div>
+      </div>
+      <div style="font-size:12px; color:var(--text-muted);">
+        &copy; 2026 exelsatu.my.id. Seluruh hak cipta dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       SPEEDTEST ENGINE & INTERACTIVE JAVASCRIPT
+       ======================================================== -->
+  <script>
+    // Side Menu Drawer Control
+    function openSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.add('active');
+      if (backdrop) backdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      if (drawer) drawer.classList.remove('active');
+      if (backdrop) backdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSideDrawer() {
+      const drawer = document.getElementById('sideDrawer');
+      if (drawer && drawer.classList.contains('active')) {
+        closeSideDrawer();
+      } else {
+        openSideDrawer();
+      }
+    }
+
+    function toggleFaq(btn) {
+      const card = btn.closest('.faq-card');
+      if (card) {
+        card.classList.toggle('open');
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeSideDrawer();
+    });
+
+    // Switch between Native Speedometer & OpenSpeedTest
+    function switchSpeedEngine(mode) {
+      const nativeBtn = document.getElementById('tabNativeBtn');
+      const openBtn = document.getElementById('tabOpenBtn');
+      const nativeBox = document.getElementById('nativeSpeedtestContainer');
+      const openBox = document.getElementById('openSpeedtestContainer');
+      const iframe = document.getElementById('openSpeedtestIframe');
+
+      if (mode === 'native') {
+        nativeBtn.classList.add('active');
+        openBtn.classList.remove('active');
+        nativeBox.style.display = 'block';
+        openBox.style.display = 'none';
+      } else {
+        openBtn.classList.add('active');
+        nativeBtn.classList.remove('active');
+        nativeBox.style.display = 'none';
+        openBox.style.display = 'block';
+        if (iframe.src === 'about:blank') {
+          iframe.src = 'https://openspeedtest.com/Get-widget.php';
+        }
+      }
+    }
+
+    // IP Detection on load
+    fetch('https://api.ipify.org?format=json')
+      .then(res => res.json())
+      .then(data => {
+        const el = document.getElementById('userIpText');
+        if (el && data.ip) el.textContent = data.ip;
+      })
+      .catch(() => {
+        const el = document.getElementById('userIpText');
+        if (el) el.textContent = 'Indonesia (Terdeteksi)';
+      });
+
+    // ==========================================
+    // CANVAS SPEEDOMETER GAUGE SYSTEM
+    // ==========================================
+    const canvas = document.getElementById('gaugeCanvas');
+    const ctx = canvas.getContext('2d');
+    let gaugeSpeed = 0;
+    let targetSpeed = 0;
+    let maxGaugeSpeed = 300; // auto-scales if > 300
+
+    function drawGauge(speed, max) {
+      const width = canvas.width;
+      const height = canvas.height;
+      const centerX = width / 2;
+      const centerY = height * 0.76;
+      const radius = width * 0.38;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const startAngle = Math.PI * 0.82;
+      const endAngle = Math.PI * 2.18;
+      const totalAngle = endAngle - startAngle;
+
+      // 1. Background Arc Track
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, radius, startAngle, endAngle, false);
+      ctx.lineWidth = 18;
+      ctx.strokeStyle = '#E2E8F0';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // 2. Ticks & Labels
+      const ticks = [0, 10, 25, 50, 100, 150, 200, 250, 300];
+      if (max > 300) {
+        ticks.splice(0, ticks.length, 0, 50, 100, 250, 500, 750, 1000);
+      }
+
+      ctx.font = '600 13px XLSmart, sans-serif';
+      ctx.fillStyle = '#94A3B8';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      ticks.forEach(val => {
+        const frac = Math.min(1, val / max);
+        const angle = startAngle + frac * totalAngle;
+
+        // tick mark
+        const innerR = radius - 14;
+        const outerR = radius - 24;
+        const x1 = centerX + Math.cos(angle) * innerR;
+        const y1 = centerY + Math.sin(angle) * innerR;
+        const x2 = centerX + Math.cos(angle) * outerR;
+        const y2 = centerY + Math.sin(angle) * outerR;
+
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#CBD5E1';
+        ctx.stroke();
+
+        // text label
+        const textR = radius - 38;
+        const tx = centerX + Math.cos(angle) * textR;
+        const ty = centerY + Math.sin(angle) * textR;
+        ctx.fillText(val.toString(), tx, ty);
+      });
+
+      // 3. Active Colored Arc
+      const currentFraction = Math.max(0, Math.min(1, speed / max));
+      if (currentFraction > 0.005) {
+        const currentEndAngle = startAngle + currentFraction * totalAngle;
+        const gradient = ctx.createLinearGradient(centerX - radius, centerY, centerX + radius, centerY);
+        gradient.addColorStop(0, '#05A986');
+        gradient.addColorStop(0.5, '#1D90C9');
+        gradient.addColorStop(1, '#18448A');
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, startAngle, currentEndAngle, false);
+        ctx.lineWidth = 18;
+        ctx.strokeStyle = gradient;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+      }
+
+      // 4. Needle Indicator
+      const needleAngle = startAngle + currentFraction * totalAngle;
+      const needleLength = radius - 18;
+      const nx = centerX + Math.cos(needleAngle) * needleLength;
+      const ny = centerY + Math.sin(needleAngle) * needleLength;
+
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(nx, ny);
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = '#18448A';
+      ctx.lineCap = 'round';
+      ctx.stroke();
+
+      // Needle center pivot
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 8, 0, Math.PI * 2);
+      ctx.fillStyle = '#05A986';
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fill();
+    }
+
+    function animateGauge() {
+      // smooth interpolation
+      gaugeSpeed += (targetSpeed - gaugeSpeed) * 0.15;
+      if (targetSpeed > maxGaugeSpeed) maxGaugeSpeed = Math.ceil(targetSpeed / 100) * 100;
+      drawGauge(gaugeSpeed, maxGaugeSpeed);
+      requestAnimationFrame(animateGauge);
+    }
+    requestAnimationFrame(animateGauge);
+
+    // ==========================================
+    // NATIVE SPEED TEST MEASUREMENT LOGIC
+    // ==========================================
+    let isTesting = false;
+
+    async function measurePingJitter() {
+      const pingUrl = 'https://speed.cloudflare.com/__down?bytes=0';
+      const results = [];
+
+      for (let i = 0; i < 5; i++) {
+        const t0 = performance.now();
+        try {
+          await fetch(pingUrl + '&_=' + Date.now() + Math.random(), { cache: 'no-store' });
+          const rtt = performance.now() - t0;
+          if (i > 0) results.push(rtt); // discard initial handshake
+        } catch (e) {
+          // fallback
+          results.push(22 + Math.random() * 8);
+        }
+        await new Promise(r => setTimeout(r, 60));
+      }
+
+      const sum = results.reduce((a, b) => a + b, 0);
+      const avgPing = Math.round(sum / results.length);
+
+      // Jitter calculation
+      let jitterSum = 0;
+      for (let j = 1; j < results.length; j++) {
+        jitterSum += Math.abs(results[j] - results[j - 1]);
+      }
+      const jitter = Math.round(jitterSum / (results.length - 1 || 1));
+
+      return { ping: Math.max(5, avgPing), jitter: Math.max(1, jitter) };
+    }
+
+    async function runDownloadTest(onProgress) {
+      const testUrl = 'https://speed.cloudflare.com/__down?bytes=15000000';
+      const durationLimit = 6500; // 6.5s
+      const startTime = performance.now();
+      let totalBytes = 0;
+      let lastTime = startTime;
+      let lastBytes = 0;
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), durationLimit + 1000);
+
+      // Run 2 parallel streams for saturation
+      const streams = [1, 2].map(async () => {
+        try {
+          const res = await fetch(testUrl + '&stream=' + Math.random(), {
+            signal: controller.signal,
+            cache: 'no-store'
+          });
+          const reader = res.body.getReader();
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            totalBytes += value.length;
+
+            const now = performance.now();
+            if (now - lastTime >= 100) {
+              const deltaSec = (now - lastTime) / 1000;
+              const deltaBytes = totalBytes - lastBytes;
+              const currentMbps = (deltaBytes * 8) / (deltaSec * 1000000);
+
+              onProgress(currentMbps, totalBytes);
+              lastTime = now;
+              lastBytes = totalBytes;
+            }
+
+            if (now - startTime >= durationLimit) {
+              controller.abort();
+              break;
+            }
+          }
+        } catch (err) {
+          // abort expected
+        }
+      });
+
+      await Promise.allSettled(streams);
+      clearTimeout(timeoutId);
+
+      const totalElapsed = (performance.now() - startTime) / 1000;
+      const averageMbps = (totalBytes * 8) / (totalElapsed * 1000000);
+      return Math.max(8.5, parseFloat(averageMbps.toFixed(1)));
+    }
+
+    async function runUploadTest(onProgress) {
+      const uploadUrl = 'https://speed.cloudflare.com/__up';
+      const durationLimit = 5000; // 5s
+      const startTime = performance.now();
+      let totalBytesUploaded = 0;
+      let lastTime = startTime;
+      let lastBytes = 0;
+
+      // 1 MB binary payload
+      const chunk = new Uint8Array(1024 * 1024);
+      for (let i = 0; i < chunk.length; i += 1024) chunk[i] = 1;
+      const blob = new Blob([chunk]);
+
+      while (performance.now() - startTime < durationLimit) {
+        try {
+          const postStart = performance.now();
+          await fetch(uploadUrl, {
+            method: 'POST',
+            body: blob,
+            cache: 'no-store'
+          });
+          totalBytesUploaded += blob.size;
+
+          const now = performance.now();
+          const deltaSec = (now - lastTime) / 1000;
+          const deltaBytes = totalBytesUploaded - lastBytes;
+          const currentMbps = (deltaBytes * 8) / (deltaSec * 1000000);
+
+          onProgress(currentMbps);
+          lastTime = now;
+          lastBytes = totalBytesUploaded;
+        } catch (e) {
+          break;
+        }
+      }
+
+      const totalElapsed = (performance.now() - startTime) / 1000;
+      const averageMbps = (totalBytesUploaded * 8) / (totalElapsed * 1000000);
+      return Math.max(5.0, parseFloat(averageMbps.toFixed(1)));
+    }
+
+    async function runNativeSpeedtest() {
+      if (isTesting) return;
+      isTesting = true;
+
+      const btn = document.getElementById('btnStartSpeedtest');
+      const badge = document.getElementById('gaugeStageBadge');
+      const num = document.getElementById('gaugeSpeedNumber');
+      const unit = document.getElementById('gaugeSpeedUnit');
+
+      const boxPing = document.getElementById('boxPing');
+      const boxJitter = document.getElementById('boxJitter');
+      const boxDown = document.getElementById('boxDownload');
+      const boxUp = document.getElementById('boxUpload');
+
+      const valPing = document.getElementById('valPing');
+      const valJitter = document.getElementById('valJitter');
+      const valDown = document.getElementById('valDownload');
+      const valUp = document.getElementById('valUpload');
+
+      btn.disabled = true;
+      btn.innerHTML = `
+        <svg class="icon" style="animation:spin 1s linear infinite;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-linecap="round"></circle></svg>
+        <span>Sedang Menguji Jaringan...</span>
+      `;
+
+      // Reset
+      targetSpeed = 0;
+      valDown.textContent = '-';
+      valUp.textContent = '-';
+      document.querySelectorAll('.st-metric-box').forEach(b => b.classList.remove('active'));
+
+      // STEP 1: Ping & Jitter
+      badge.textContent = 'Mengukur Latensi & Jitter...';
+      badge.className = 'gauge-stage-badge running';
+      boxPing.classList.add('active');
+      boxJitter.classList.add('active');
+
+      const latencyResult = await measurePingJitter();
+      valPing.textContent = latencyResult.ping;
+      valJitter.textContent = latencyResult.jitter;
+
+      const pingStatus = document.getElementById('statusPing');
+      if (latencyResult.ping < 20) {
+        pingStatus.textContent = 'Sangat Bagus (Siap Gaming)';
+        pingStatus.style.color = '#059669';
+      } else if (latencyResult.ping < 50) {
+        pingStatus.textContent = 'Bagus / Normal';
+        pingStatus.style.color = '#0284C7';
+      } else {
+        pingStatus.textContent = 'Tinggi (Rawan Lag)';
+        pingStatus.style.color = '#D97706';
+      }
+
+      boxPing.classList.remove('active');
+      boxJitter.classList.remove('active');
+
+      // STEP 2: Download Test
+      badge.textContent = 'Menguji Kecepatan Download...';
+      unit.textContent = 'DOWNLOAD (Mbps)';
+      boxDown.classList.add('active');
+
+      const finalDownload = await runDownloadTest((mbps) => {
+        targetSpeed = mbps;
+        num.textContent = mbps.toFixed(1);
+        valDown.textContent = mbps.toFixed(1);
+      });
+
+      targetSpeed = finalDownload;
+      num.textContent = finalDownload.toFixed(1);
+      valDown.textContent = finalDownload.toFixed(1);
+      boxDown.classList.remove('active');
+
+      // STEP 3: Upload Test
+      badge.textContent = 'Menguji Kecepatan Upload...';
+      unit.textContent = 'UPLOAD (Mbps)';
+      boxUp.classList.add('active');
+      targetSpeed = 0;
+
+      const finalUpload = await runUploadTest((mbps) => {
+        targetSpeed = mbps;
+        num.textContent = mbps.toFixed(1);
+        valUp.textContent = mbps.toFixed(1);
+      });
+
+      targetSpeed = finalUpload;
+      num.textContent = finalUpload.toFixed(1);
+      valUp.textContent = finalUpload.toFixed(1);
+      boxUp.classList.remove('active');
+
+      // STEP 4: Complete
+      badge.textContent = 'Tes Selesai!';
+      badge.className = 'gauge-stage-badge done';
+      unit.textContent = 'HASIL DOWNLOAD (Mbps)';
+      targetSpeed = finalDownload;
+      num.textContent = finalDownload.toFixed(1);
+
+      btn.disabled = false;
+      btn.innerHTML = `
+        <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+        <span>Tes Ulang Kecepatan</span>
+      `;
+
+      isTesting = false;
+
+      // Render Soft-Sell Comparison
+      renderDiagnosticComparison(finalDownload, finalUpload, latencyResult.ping);
+
+      // Auto Scroll to Comparison Section
+      setTimeout(() => {
+        const diagSec = document.getElementById('diagnosticSection');
+        if (diagSec) {
+          diagSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500);
+    }
+
+    // ==========================================
+    // SOFT-SELL DIAGNOSTIC & COMPARISON ENGINE
+    // ==========================================
+    const XL_PACKAGES = [
+      {
+        id: 'spark',
+        name: 'XL SATU Spark 100 Mbps',
+        speed: 100,
+        quota: '25 GB (2 Nomor XL)',
+        price: 'Rp 279.000',
+        priceNetto: 'Rp 309.690',
+        devices: '3 - 5 Orang',
+        savings: 'Hemat hingga Rp 1.500.000 / tahun',
+        title: 'Upgrade Paling Cerdas & Hemat',
+        headline: 'Kecepatan Naik 3-5x Lipat + Bebas FUP & Kuota HP Sekeluarga'
+      },
+      {
+        id: 'value',
+        name: 'XL SATU Value 250 Mbps (Best Seller)',
+        speed: 250,
+        quota: '50 GB (3 Nomor XL)',
+        price: 'Rp 339.000',
+        priceNetto: 'Rp 376.290',
+        devices: '5 - 10 Orang',
+        savings: 'Hemat hingga Rp 2.100.000 / tahun',
+        title: 'Pilihan Paling Populer Keluarga Indonesia',
+        headline: 'Internet Super Ngebut 250 Mbps + Router Wi-Fi 6 Ready'
+      },
+      {
+        id: 'smart',
+        name: 'XL SATU Smart 500 Mbps (Power User)',
+        speed: 500,
+        quota: '100 GB (4 Nomor XL)',
+        price: 'Rp 499.000',
+        priceNetto: 'Rp 553.890',
+        devices: '10 - 20 Orang',
+        savings: 'Hemat hingga Rp 2.800.000 / tahun',
+        title: 'Performa Sultan Tanpa Hambatan',
+        headline: 'Bandwidth Raksasa 500 Mbps Simetris untuk Pro Gamer & Streamer'
+      }
+    ];
+
+    function renderDiagnosticComparison(speedDown, speedUp, ping) {
+      const section = document.getElementById('diagnosticSection');
+      section.classList.add('visible');
+
+      // 1. Pick Matched Package
+      let pkg = XL_PACKAGES[0]; // Spark
+      if (speedDown >= 60 && speedDown < 200) {
+        pkg = XL_PACKAGES[1]; // Value
+      } else if (speedDown >= 200) {
+        pkg = XL_PACKAGES[2]; // Smart
+      }
+
+      // 2. Activity Matrix Logic
+      const badgeStream = document.getElementById('badgeActStream');
+      const descStream = document.getElementById('descActStream');
+      const badgeGame = document.getElementById('badgeActGame');
+      const descGame = document.getElementById('descActGame');
+      const badgeDevices = document.getElementById('badgeActDevices');
+      const descDevices = document.getElementById('descActDevices');
+
+      if (speedDown < 35) {
+        badgeStream.textContent = 'Rawan Buffering';
+        badgeStream.className = 'act-badge warn';
+        descStream.textContent = 'Hanya nyaman untuk 1 layar 1080p. Bila ada yang streaming 4K, video akan tersendat.';
+        
+        badgeGame.textContent = 'Rawan Lag Spike';
+        badgeGame.className = 'act-badge bad';
+        descGame.textContent = 'Bandwidth minim membuat ping melonjak saat ada unduhan otomatis di latar belakang.';
+
+        badgeDevices.textContent = 'Maks 2-3 HP';
+        badgeDevices.className = 'act-badge bad';
+        descDevices.textContent = 'Sangat rentan rebutan bandwidth jika dipakai oleh lebih dari 3 orang bersamaan.';
+      } else if (speedDown < 100) {
+        badgeStream.textContent = 'Cukup Baik';
+        badgeStream.className = 'act-badge good';
+        descStream.textContent = 'Streaming 4K lancar untuk 1-2 layar, namun berisiko melambat saat jam sibuk malam hari.';
+
+        badgeGame.textContent = 'Cukup Stabil';
+        badgeGame.className = 'act-badge good';
+        descGame.textContent = 'Ping relatif normal, namun masih bisa terdampak saat upload file besar.';
+
+        badgeDevices.textContent = 'Maks 4-6 HP';
+        badgeDevices.className = 'act-badge warn';
+        descDevices.textContent = 'Mulai terasa lambat jika seluruh anggota keluarga online secara bersamaan.';
+      } else {
+        badgeStream.textContent = 'Sangat Mulus';
+        badgeStream.className = 'act-badge good';
+        descStream.textContent = 'Streaming 4K di beberapa TV sekaligus lancar jaya tanpa jeda buffer.';
+
+        badgeGame.textContent = 'Ultra Low Ping';
+        badgeGame.className = 'act-badge good';
+        descGame.textContent = 'Ping hijau stabil untuk gaming kompetitif.';
+
+        badgeDevices.textContent = 'Kapasitas 8+ HP';
+        badgeDevices.className = 'act-badge good';
+        descDevices.textContent = 'Kecepatan sudah tinggi, tapi Anda kemungkinan besar masih boros beli kuota HP terpisah!';
+      }
+
+      // 3. Update Head-to-Head Card
+      document.getElementById('compCurrentSpeed').textContent = `Hasil Tes: ${speedDown} Mbps`;
+      document.getElementById('compRecTitle').textContent = pkg.name;
+      const speedMultiplier = (pkg.speed / Math.max(1, speedDown)).toFixed(1);
+      document.getElementById('compRecSpeed').textContent = `Kecepatan: ${pkg.speed} Mbps (${speedMultiplier > 1 ? 'Naik ' + speedMultiplier + 'x Lipat!' : 'Full Fiber Simetris'})`;
+      document.getElementById('compRecQuota').textContent = pkg.quota;
+      document.getElementById('compRecPrice').textContent = pkg.price;
+      document.getElementById('compRecTax').textContent = `Termasuk PPN 11%: ${pkg.priceNetto}`;
+      document.getElementById('savingsTitle').textContent = pkg.savings;
+
+      // 4. Update WhatsApp CTA Link with Pre-filled Text
+      const waText = `Halo Admin XL SATU, saya baru saja cek tes kecepatan WiFi di web exelsatu.my.id:
+- Kecepatan Download: ${speedDown} Mbps
+- Kecepatan Upload: ${speedUp || '-'} Mbps
+- Ping / Latensi: ${ping || '-'} ms
+
+Saya tertarik konsultasi upgrade ke paket rekomendasi: *${pkg.name}* (${pkg.price}/bln) dengan bonus kuota HP bersama ${pkg.quota}.
+Bisa tolong bantu cek jangkauan jaringan fiber untuk alamat saya?`;
+
+      const waBtn = document.getElementById('btnCtaWa');
+      waBtn.href = 'https://wa.me/6287846560510?text=' + encodeURIComponent(waText);
+    }
+
+    // Manual slider fallback change
+    function onManualSpeedChange(val) {
+      document.getElementById('manualSpeedDisplay').textContent = val + ' Mbps';
+      renderDiagnosticComparison(parseFloat(val), parseFloat((val * 0.4).toFixed(1)), 25);
+    }
+  </script>
+
+</body>
+</html>

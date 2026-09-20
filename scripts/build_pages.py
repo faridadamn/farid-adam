@@ -902,6 +902,13 @@ def build_blog():
         <a href="/">Beranda</a>
         <a href="/paket">Paket</a>
         <a href="/promo">Promo</a>
+        <a href="/speedtest">Speed Test</a>
+        <a href="/speedtest" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Speed Test WiFi</span>
+          <span class="drawer-badge drawer-badge-hot">Cek</span>
+        </a>
+
         <a href="/blog" style="color:var(--primary);">Blog</a>
         <a href="/bantuan">Bantuan</a>
         <a href="/#coverage">Cek Jangkauan</a>
@@ -1030,6 +1037,12 @@ def build_blog():
           <span>Promo Spesial</span>
           <span class="drawer-badge" style="background:#fee2e2; color:#dc2626;">Hemat 30%</span>
         </a>
+        <a href="/speedtest" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Speed Test WiFi</span>
+          <span class="drawer-badge drawer-badge-hot">Cek</span>
+        </a>
+
         <a href="/blog" class="drawer-nav-item active">
           <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
           <span>Berita & Blog</span>
@@ -2037,6 +2050,13 @@ def build_artikel():
         <a href="/">Beranda</a>
         <a href="/paket">Paket</a>
         <a href="/promo">Promo</a>
+        <a href="/speedtest">Speed Test</a>
+        <a href="/speedtest" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Speed Test WiFi</span>
+          <span class="drawer-badge drawer-badge-hot">Cek</span>
+        </a>
+
         <a href="/blog" style="color:var(--primary);">Blog</a>
         <a href="/bantuan">Bantuan</a>
         <a href="/#coverage">Cek Jangkauan</a>
@@ -2188,6 +2208,12 @@ def build_artikel():
           <span>Promo Spesial</span>
           <span class="drawer-badge" style="background:#fee2e2; color:#dc2626;">Hemat 30%</span>
         </a>
+        <a href="/speedtest" class="drawer-nav-item">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Speed Test WiFi</span>
+          <span class="drawer-badge drawer-badge-hot">Cek</span>
+        </a>
+
         <a href="/blog" class="drawer-nav-item active">
           <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
           <span>Berita & Blog</span>
