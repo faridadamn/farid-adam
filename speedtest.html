@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Speed Test WiFi & Internet Rumah — Cek Kecepatan & Bandingkan dengan XL SATU Fiber</title>
-  <meta name="description" content="Tes kecepatan internet WiFi rumah Anda secara akurat dan gratis. Ukur Download, Upload, Ping & Jitter real-time serta temukan paket XL SATU Fiber paling hemat & pas untuk rumah Anda." />
+  <title>Speed Test WiFi & Internet Rumah — Cek Kecepatan & Rekomendasi Paket XL SATU Fiber</title>
+  <meta name="description" content="Tes kecepatan internet WiFi rumah Anda secara akurat dan otomatis. Ukur Download, Upload, Ping & Jitter real-time serta dapatkan rekomendasi paket XL SATU Fiber yang paling pas dan hemat." />
   <link rel="canonical" href="https://exelsatu.my.id/speedtest" />
-  <meta property="og:title" content="Speed Test WiFi & Internet Rumah — Cek & Bandingkan dengan XL SATU Fiber" />
-  <meta property="og:description" content="Ketahui performa WiFi Anda dalam hitungan detik dan bandingkan penghematan paket internet rumah + kuota HP sekeluarga." />
+  <meta property="og:title" content="Speed Test WiFi & Internet Rumah — Cek & Rekomendasi Paket XL SATU Fiber" />
+  <meta property="og:description" content="Ketahui performa WiFi Anda secara otomatis dalam hitungan detik dan dapatkan rekomendasi paket XL SATU Fiber paling pas untuk rumah Anda." />
   <meta property="og:url" content="https://exelsatu.my.id/speedtest" />
   <meta property="og:type" content="website" />
 
@@ -248,7 +248,7 @@
       padding: 36px 28px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       max-width: 900px;
-      margin: 0 auto 48px;
+      margin: 0 auto 36px;
       position: relative;
       overflow: hidden;
     }
@@ -434,11 +434,11 @@
     }
 
     /* ========================================================
-       SECTION 2: DYNAMIC DIAGNOSTIC & SOFT-SELL COMPARISON
+       SECTION 2: DYNAMIC DIAGNOSTIC & TAILORED RECOMMENDATION
        ======================================================== */
     .st-result-section {
       display: none;
-      padding: 24px 0 48px;
+      padding: 16px 0 48px;
       scroll-margin-top: 110px;
     }
     .st-result-section.visible {
@@ -451,12 +451,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Kartu Hasil Analisa (Dipertahankan Penuh) */
     .result-verdict-card {
       background: #FFFFFF;
       border: 2px solid var(--secondary);
       border-radius: 20px;
       padding: 28px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       box-shadow: 0 10px 28px rgba(5, 169, 134, 0.08);
       position: relative;
     }
@@ -508,7 +509,6 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 14px;
-      margin-bottom: 20px;
     }
     .act-item {
       background: #F8FAFC;
@@ -542,73 +542,74 @@
       line-height: 1.4;
     }
 
-    /* Head-to-Head Comparison Grid */
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
+    /* ========================================================
+       REKOMENDASI SHOWCASE CARD (Menyesuaikan Hasil Speedtest)
+       ======================================================== */
+    .rec-showcase-card {
+      background: #FFFFFF;
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 12px 36px rgba(24, 68, 138, 0.1);
+      position: relative;
       margin-bottom: 28px;
     }
-    .comp-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      border: 1px solid var(--border-color);
-      padding: 28px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-      position: relative;
-    }
-    .comp-card.recommended {
-      border: 2px solid var(--primary);
-      box-shadow: 0 12px 36px rgba(24, 68, 138, 0.12);
-      background: #FFFFFF;
-    }
-    .comp-ribbon {
+    .rec-ribbon {
       position: absolute;
       top: -14px;
-      right: 24px;
+      right: 28px;
       background: linear-gradient(135deg, var(--primary) 0%, var(--sky-blue) 100%);
       color: #FFFFFF;
       font-size: 11.5px;
       font-weight: 700;
-      padding: 4px 14px;
+      padding: 5px 16px;
       border-radius: 99px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .comp-head {
-      margin-bottom: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border-color);
+    .rec-card-body {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 32px;
+      align-items: center;
     }
-    .comp-tag {
+    .rec-tag {
       font-size: 12px;
       font-weight: 700;
-      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
-    .comp-title {
-      font-size: 22px;
+    .rec-title {
+      font-size: 26px;
       font-weight: 700;
       color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: 6px;
     }
-    .comp-speed-badge {
+    .rec-speed-badge {
       display: inline-block;
-      margin-top: 6px;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--primary);
+      margin-bottom: 12px;
     }
-
-    .comp-list {
+    .rec-reason {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .rec-features-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 12px;
       margin-bottom: 24px;
     }
-    .comp-item {
+    .rec-feature-item {
       display: flex;
       align-items: flex-start;
       gap: 10px;
@@ -616,74 +617,124 @@
       color: var(--text-dark);
       line-height: 1.4;
     }
-    .comp-item .icon-check {
+    .rec-feature-item .icon-check {
       color: var(--secondary);
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .comp-item .icon-cross {
-      color: #EF4444;
-      flex-shrink: 0;
-      margin-top: 2px;
+    .rec-tier-switcher {
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-
-    .comp-price-box {
-      background: #F8FAFC;
-      border-radius: 14px;
-      padding: 16px;
-      text-align: center;
-      margin-top: auto;
+    .rec-tier-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-muted);
     }
-    .comp-price-val {
-      font-size: 28px;
-      font-weight: 700;
+    .rec-tier-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .rec-chip-btn {
+      background: #F1F5F9;
+      border: 1px solid var(--border-color);
+      border-radius: 99px;
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .rec-chip-btn:hover {
+      border-color: var(--primary);
       color: var(--primary);
     }
-    .comp-price-unit {
+    .rec-chip-btn.active {
+      background: var(--soft-xl-home);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Right Price & CTA Box */
+    .rec-price-cta-box {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .rec-price-header {
+      margin-bottom: 16px;
+      width: 100%;
+    }
+    .rec-price-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .rec-price-val {
+      font-size: 34px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+      margin: 4px 0 2px;
+    }
+    .rec-price-unit {
       font-size: 13px;
       color: var(--text-muted);
       font-weight: 600;
     }
-    .comp-price-sub {
+    .rec-price-tax {
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 2px;
+      margin-top: 4px;
+    }
+    .rec-savings-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: #065F46;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 99px;
+      margin-bottom: 20px;
     }
 
-    /* Savings Callout Banner */
-    .savings-banner {
-      background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
-      border: 1px solid #A7F3D0;
-      border-radius: 16px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-    .savings-icon-wrap {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #059669;
-      color: #FFFFFF;
-      display: flex;
+    .btn-wa-consult {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-    }
-    .savings-text-title {
-      font-size: 16px;
+      gap: 10px;
+      background: var(--secondary);
+      color: #FFFFFF;
+      font-size: 15.5px;
       font-weight: 700;
-      color: #065F46;
-      margin-bottom: 2px;
+      padding: 14px 28px;
+      border-radius: 99px;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 20px rgba(5, 169, 134, 0.35);
+      width: 100%;
     }
-    .savings-text-desc {
-      font-size: 13.5px;
-      color: #047857;
+    .btn-wa-consult:hover {
+      background: #049273;
+      transform: translateY(-2px);
     }
 
-    /* CTA WhatsApp Bar */
+    /* CTA Box WhatsApp Pre-Filled Bottom */
     .st-cta-box {
       background: linear-gradient(135deg, #18448A 0%, #0F2D5C 100%);
       border-radius: 20px;
@@ -702,55 +753,6 @@
       color: #E2E8F0;
       max-width: 600px;
       margin: 0 auto 24px;
-    }
-    .btn-wa-consult {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--secondary);
-      color: #FFFFFF;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 14px 36px;
-      border-radius: 99px;
-      transition: all 0.2s ease;
-      box-shadow: 0 6px 20px rgba(5, 169, 134, 0.35);
-    }
-    .btn-wa-consult:hover {
-      background: #049273;
-      transform: translateY(-2px);
-    }
-
-    /* Interactive Manual Slider fallback */
-    .manual-sim-wrap {
-      background: #FFFFFF;
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 24px;
-      margin: 32px auto 0;
-      max-width: 700px;
-      text-align: center;
-    }
-    .manual-sim-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-    }
-    .manual-sim-slider {
-      width: 100%;
-      height: 8px;
-      accent-color: var(--secondary);
-      cursor: pointer;
-      margin: 12px 0;
-    }
-    .manual-sim-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 12px;
-      color: var(--text-muted);
-      font-weight: 600;
     }
 
     /* Education & FAQ Section */
@@ -852,7 +854,7 @@
       transition: transform 0.2s ease;
     }
 
-    /* Floating WhatsApp Button (Zero Emoji, Clean SVG) */
+    /* Floating WhatsApp Button */
     .floating-wa-btn {
       position: fixed;
       bottom: 24px;
@@ -1037,7 +1039,9 @@
       .navbar { top: 34px; height: 60px; }
       .st-metrics-grid { grid-template-columns: repeat(2, 1fr); }
       .activities-grid { grid-template-columns: repeat(2, 1fr); }
-      .comparison-grid { grid-template-columns: 1fr; }
+      .rec-card-body { grid-template-columns: 1fr; gap: 24px; }
+      .rec-showcase-card { padding: 24px 16px; }
+      .rec-price-val { font-size: 30px; }
       .tips-grid { grid-template-columns: 1fr; }
       .st-console-card { padding: 24px 16px; }
       .btn-start-test { width: 100%; font-size: 16px; padding: 14px 20px; }
@@ -1094,7 +1098,7 @@
       </div>
       <h1 class="st-title">Tes Kecepatan Internet WiFi Rumah Anda</h1>
       <p class="st-desc">
-        Ukur performa Download, Upload, Ping & Jitter jaringan WiFi Anda secara real-time. Ketahui apakah koneksi saat ini sudah optimal atau butuh upgrade ke XL SATU Fiber.
+        Ukur performa Download, Upload, Ping & Jitter jaringan WiFi Anda secara otomatis dan akurat. Sistem akan menganalisis kelayakan koneksi Anda dan mencocokkan paket XL SATU Fiber paling ideal.
       </p>
 
       <!-- Engine Tab Switcher -->
@@ -1187,27 +1191,16 @@
         </div>
 
       </div>
-
-      <!-- Manual Slider Quick Test Option -->
-      <div class="manual-sim-wrap">
-        <div class="manual-sim-title">Atau geser kecepatan WiFi rumahmu saat ini untuk langsung simulasi komparasi:</div>
-        <input type="range" min="10" max="500" value="30" step="5" class="manual-sim-slider" id="manualSpeedSlider" oninput="onManualSpeedChange(this.value)" />
-        <div class="manual-sim-labels">
-          <span>10 Mbps</span>
-          <span style="font-weight:700; color:var(--primary); font-size:15px;" id="manualSpeedDisplay">30 Mbps (Geser Saya)</span>
-          <span>500 Mbps</span>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- ========================================================
-       SECTION 2: DYNAMIC DIAGNOSTIC & SOFT-SELL COMPARISON
+       SECTION 2: DYNAMIC DIAGNOSTIC & TAILORED RECOMMENDATION
        ======================================================== -->
   <section class="st-result-section" id="diagnosticSection">
     <div class="container">
 
-      <!-- Verdict Banner -->
+      <!-- Kartu Hasil Analisa (Dipertahankan Penuh) -->
       <div class="result-verdict-card">
         <div class="verdict-header">
           <div class="verdict-title-box">
@@ -1216,10 +1209,10 @@
             </div>
             <div>
               <div class="verdict-title" id="verdictTitle">Hasil Analisis Kecepatan WiFi Anda</div>
-              <div class="verdict-subtitle" id="verdictSubtitle">Kecepatan terdeteksi: 30 Mbps — Cukup untuk kebutuhan ringan, namun butuh upgrade jika dipakai sekeluarga.</div>
+              <div class="verdict-subtitle" id="verdictSubtitle">Kecepatan terdeteksi secara otomatis — Cek kelayakan aktivitas digital harian Anda di bawah ini:</div>
             </div>
           </div>
-          <div class="verdict-badge-status" id="verdictBadgeStatus">Status: Perlu Optimasi</div>
+          <div class="verdict-badge-status" id="verdictBadgeStatus">Status: Menganalisis...</div>
         </div>
 
         <!-- Matrix 4 Aktivitas Digital -->
@@ -1227,135 +1220,116 @@
           <div class="act-item">
             <div class="act-head">
               <span>Streaming 4K / YouTube</span>
-              <span class="act-badge warn" id="badgeActStream">Rawan Buffering</span>
+              <span class="act-badge warn" id="badgeActStream">Menganalisis</span>
             </div>
-            <div class="act-desc" id="descActStream">Lancar di 1080p, namun akan tersendat bila ada 2 TV streaming 4K bersamaan.</div>
+            <div class="act-desc" id="descActStream">Mengukur kelancaran pemutaran video resolusi tinggi tanpa buffering.</div>
           </div>
 
           <div class="act-item">
             <div class="act-head">
               <span>Online Gaming & Push Rank</span>
-              <span class="act-badge warn" id="badgeActGame">Rawan Lag Spike</span>
+              <span class="act-badge warn" id="badgeActGame">Menganalisis</span>
             </div>
-            <div class="act-desc" id="descActGame">Ping rentan naik mendadak saat anggota keluarga lain mengunggah video.</div>
+            <div class="act-desc" id="descActGame">Menguji stabilitas latensi dan ketahanan terhadap lonjakan ping.</div>
           </div>
 
           <div class="act-item">
             <div class="act-head">
               <span>Work From Home & Zoom</span>
-              <span class="act-badge good" id="badgeActWork">Lancar</span>
+              <span class="act-badge good" id="badgeActWork">Menganalisis</span>
             </div>
-            <div class="act-desc" id="descActWork">Video call HD lancar selama tidak ada unduhan file besar di latar belakang.</div>
+            <div class="act-desc" id="descActWork">Mengecek kualitas video call HD dan transfer file pekerjaan.</div>
           </div>
 
           <div class="act-item">
             <div class="act-head">
               <span>Kapasitas Perangkat</span>
-              <span class="act-badge warn" id="badgeActDevices">Maks 3-4 Device</span>
+              <span class="act-badge warn" id="badgeActDevices">Menganalisis</span>
             </div>
-            <div class="act-desc" id="descActDevices">Bila lebih dari 4 HP aktif, kecepatan per perangkat akan drop drastis.</div>
+            <div class="act-desc" id="descActDevices">Estimasi daya tampung koneksi saat dipakai bersamaan sekeluarga.</div>
           </div>
         </div>
       </div>
 
-      <!-- Head-to-Head Comparison -->
-      <div class="comparison-grid">
-        
-        <!-- Left: Current WiFi -->
-        <div class="comp-card">
-          <div class="comp-head">
-            <div class="comp-tag">Kondisi Jaringan Saat Ini</div>
-            <div class="comp-title">WiFi Kamu Sekarang</div>
-            <div class="comp-speed-badge" id="compCurrentSpeed">Hasil Tes: 30.0 Mbps</div>
+      <!-- Rekomendasi Paket XL SATU Fiber (Menyesuaikan Hasil Speedtest) -->
+      <div class="rec-showcase-card" id="recShowcaseCard">
+        <div class="rec-ribbon" id="compRecRibbon">Rekomendasi Paket Paling Tepat</div>
+
+        <div class="rec-card-body">
+          <div class="rec-main-info">
+            <div class="rec-tag" style="color:var(--secondary);">Pilihan Terbaik Sesuai Hasil Tes Anda</div>
+            <h3 class="rec-title" id="compRecTitle">XL SATU Spark 100 Mbps</h3>
+            <div class="rec-speed-badge" id="compRecSpeed">Kecepatan: 100 Mbps Full Fiber Optic Simetris</div>
+            
+            <p class="rec-reason" id="compRecReason">
+              Kecepatan WiFi Anda saat ini tergolong lambat dan rentan lemot saat jam sibuk. Upgrade ke paket ini memberikan lonjakan kecepatan instan tanpa batasan FUP.
+            </p>
+
+            <ul class="rec-features-list">
+              <li class="rec-feature-item">
+                <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Bonus Kuota HP Bersama:</strong> <span id="compRecQuota">25 GB</span> untuk seluruh nomor XL keluarga (1 tagihan hemat).</span>
+              </li>
+              <li class="rec-feature-item">
+                <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>100% Fiber Optic Simetris:</strong> Kecepatan unduh & unggah seimbang tanpa jeda lag.</span>
+              </li>
+              <li class="rec-feature-item">
+                <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Bebas FUP:</strong> True Unlimited 24 jam nonstop tanpa batas kuota wajar bulanan.</span>
+              </li>
+              <li class="rec-feature-item">
+                <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span><strong>Gratis Instalasi & Sewa Router:</strong> Hemat Rp 500.000 biaya pasang baru.</span>
+              </li>
+            </ul>
+
+            <!-- Quick Tier Switcher Chips -->
+            <div class="rec-tier-switcher">
+              <span class="rec-tier-label">Bandingkan Opsi Lain:</span>
+              <div class="rec-tier-chips">
+                <button type="button" class="rec-chip-btn active" id="chip_spark" onclick="selectPackageById('spark')">Spark 100 Mbps</button>
+                <button type="button" class="rec-chip-btn" id="chip_value" onclick="selectPackageById('value')">Value 250 Mbps</button>
+                <button type="button" class="rec-chip-btn" id="chip_smart" onclick="selectPackageById('smart')">Smart 500 Mbps</button>
+                <button type="button" class="rec-chip-btn" id="chip_ultimate" onclick="selectPackageById('ultimate')">Ultimate 1 Gbps</button>
+              </div>
+            </div>
           </div>
 
-          <ul class="comp-list">
-            <li class="comp-item">
-              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              <span><strong>Kuota HP Terpisah:</strong> 0 GB (Wajib beli paket data HP terpisah untuk tiap anggota keluarga).</span>
-            </li>
-            <li class="comp-item">
-              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              <span><strong>Rasio Upload Lambat:</strong> Umumnya asimetris (Upload hanya 10-20% dari Download).</span>
-            </li>
-            <li class="comp-item">
-              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              <span><strong>Risiko FUP / Penurunan Speed:</strong> Batasan kuota wajar bulanan.</span>
-            </li>
-            <li class="comp-item">
-              <svg class="icon icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              <span><strong>Pengeluaran Double:</strong> Bayar tagihan WiFi rumah + isi pulsa/kuota HP semua orang.</span>
-            </li>
-          </ul>
+          <!-- Price & CTA Box -->
+          <div class="rec-price-cta-box">
+            <div class="rec-price-header">
+              <span class="rec-price-label">Biaya Langganan Promo</span>
+              <div class="rec-price-val" id="compRecPrice">Rp 279.000</div>
+              <div class="rec-price-unit">/bulan (Internet Fiber + Kuota HP)</div>
+              <div class="rec-price-tax" id="compRecTax">Termasuk PPN 11%: Rp 309.690</div>
+            </div>
 
-          <div class="comp-price-box">
-            <div class="comp-tag">Estimasi Total Pengeluaran</div>
-            <div class="comp-price-val" id="compCurrentExpense">Rp 450.000+</div>
-            <div class="comp-price-unit">per bulan (WiFi + Kuota HP Keluarga)</div>
-            <div class="comp-price-sub">Tagihan ganda yang tidak efisien</div>
-          </div>
-        </div>
+            <div class="rec-savings-pill" id="savingsTitleWrap">
+              <svg class="icon" style="width:16px; height:16px; color:#059669;" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <span id="savingsTitle">Hemat hingga Rp 1.500.000 / tahun</span>
+            </div>
 
-        <!-- Right: Recommended XL SATU Package -->
-        <div class="comp-card recommended">
-          <div class="comp-ribbon" id="compRecRibbon">Rekomendasi Terbaik</div>
-          <div class="comp-head">
-            <div class="comp-tag" style="color:var(--secondary);">Solusi Cerdas & Hemat</div>
-            <div class="comp-title" id="compRecTitle">XL SATU Spark 100 Mbps</div>
-            <div class="comp-speed-badge" id="compRecSpeed">Kecepatan: 100 Mbps (Naik 3.3x Lipat!)</div>
-          </div>
-
-          <ul class="comp-list">
-            <li class="comp-item">
-              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Bonus Kuota HP Bersama:</strong> <span id="compRecQuota">25 GB</span> untuk seluruh nomor XL keluarga dalam 1 tagihan.</span>
-            </li>
-            <li class="comp-item">
-              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>100% Fiber Optic Simetris:</strong> Upload & Download seimbang tanpa jeda lag.</span>
-            </li>
-            <li class="comp-item">
-              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Bebas FUP:</strong> Internetan sepuasnya 24 jam nonstop tanpa penurunan kecepatan.</span>
-            </li>
-            <li class="comp-item">
-              <svg class="icon icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <span><strong>Gratis Instalasi & Router:</strong> Hemat Rp 500.000 biaya pasang baru.</span>
-            </li>
-          </ul>
-
-          <div class="comp-price-box" style="background:#ECFDF5; border:1px solid #A7F3D0;">
-            <div class="comp-tag" style="color:#065F46;">Harga Promo Bulanan</div>
-            <div class="comp-price-val" style="color:#059669;" id="compRecPrice">Rp 279.000</div>
-            <div class="comp-price-unit">/bulan (Sudah Termasuk Internet + Kuota HP)</div>
-            <div class="comp-price-sub" id="compRecTax">Termasuk PPN 11%: Rp 309.690</div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Savings Alert -->
-      <div class="savings-banner">
-        <div class="savings-icon-wrap">
-          <svg class="icon" style="width:24px; height:24px;" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-        </div>
-        <div>
-          <div class="savings-text-title" id="savingsTitle">Potensi Penghematan Hingga Rp 1.800.000 / Tahun!</div>
-          <div class="savings-text-desc" id="savingsDesc">
-            Dengan menggabungkan tagihan internet rumah fiber dan kuota bersama untuk HP keluarga dalam paket XL SATU, Anda tidak perlu lagi membeli kuota data seluler eceran setiap bulan.
+            <a href="#" id="btnCtaWa" target="_blank" class="btn-wa-consult">
+              <svg class="icon" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>Konsultasi & Cek Jangkauan Alamat</span>
+            </a>
+            <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">
+              Respon cepat via WhatsApp Sales Resmi XL SATU
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- CTA Box WhatsApp Pre-Filled -->
+      <!-- Bottom Soft-Sell Banner -->
       <div class="st-cta-box">
-        <div class="st-cta-title">Upgrade ke XL SATU Fiber Sekarang & Buktikan Bedanya!</div>
+        <div class="st-cta-title">Siap Beralih ke Koneksi Stabil Tanpa FUP?</div>
         <p class="st-cta-desc">
-          Konsultasikan alamat rumah Anda dengan spesialis sales resmi XL SATU. Tim kami siap melakukan pengecekan tiang fiber terdekat dan proses pasang kilat dalam 1-2 hari.
+          Cek ketersediaan tiang fiber optik XL SATU di sekitar alamat rumah Anda. Nikmati kemudahan 1 tagihan untuk internet rumah super kencang dan kuota HP bersama sekeluarga.
         </p>
-        <a href="#" id="btnCtaWa" target="_blank" class="btn-wa-consult">
+        <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah%20dan%20cek%20jangkauan%20alamat" target="_blank" class="btn-wa-consult" style="display:inline-flex; width:auto; padding:14px 36px;">
           <svg class="icon" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <span id="btnCtaWaText">Konsultasi Paket & Cek Jangkauan via WhatsApp</span>
+          <span>Chat WhatsApp Sales (0878-4656-0510)</span>
         </a>
       </div>
 
@@ -1478,7 +1452,7 @@
           <span>Beranda</span>
         </a>
         <a href="/paket" class="drawer-nav-item">
-          <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          <svg class="icon" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           <span>Paket Internet</span>
           <span class="drawer-badge">Lengkap</span>
         </a>
@@ -1509,7 +1483,7 @@
           <span>Cek Jangkauan Fiber</span>
         </a>
         <a href="/#kalkulator" class="drawer-nav-item">
-          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line></svg>
+          <svg class="icon" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"></rect><line x1="8" y1="6" x2="16" y2="6"></line><line x1="16" y1="14" x2="16" y2="18"></line><path d="M16 10h.01"></path><path d="M12 10h.01"></path><path d="M8 10h.01"></path><path d="M12 14h.01"></path><path d="M8 14h.01"></path><path d="M12 18h.01"></path><path d="M8 18h.01"></path></svg>
           <span>Kalkulator Hemat</span>
         </a>
       </nav>
@@ -1751,7 +1725,6 @@
           const rtt = performance.now() - t0;
           if (i > 0) results.push(rtt); // discard initial handshake
         } catch (e) {
-          // fallback
           results.push(22 + Math.random() * 8);
         }
         await new Promise(r => setTimeout(r, 60));
@@ -1781,7 +1754,6 @@
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), durationLimit + 1000);
 
-      // Run 2 parallel streams for saturation
       const streams = [1, 2].map(async () => {
         try {
           const res = await fetch(testUrl + '&stream=' + Math.random(), {
@@ -1832,14 +1804,12 @@
       let lastTime = startTime;
       let lastBytes = 0;
 
-      // 1 MB binary payload
       const chunk = new Uint8Array(1024 * 1024);
       for (let i = 0; i < chunk.length; i += 1024) chunk[i] = 1;
       const blob = new Blob([chunk]);
 
       while (performance.now() - startTime < durationLimit) {
         try {
-          const postStart = performance.now();
           await fetch(uploadUrl, {
             method: 'POST',
             body: blob,
@@ -1890,7 +1860,7 @@
         <span>Sedang Menguji Jaringan...</span>
       `;
 
-      // Reset
+      // Reset metrics
       targetSpeed = 0;
       valDown.textContent = '-';
       valUp.textContent = '-';
@@ -1969,7 +1939,12 @@
 
       isTesting = false;
 
-      // Render Soft-Sell Comparison
+      // Save and trigger dynamic tailored recommendation
+      lastTestedResults = {
+        download: finalDownload,
+        upload: finalUpload,
+        ping: latencyResult.ping
+      };
       renderDiagnosticComparison(finalDownload, finalUpload, latencyResult.ping);
 
       // Auto Scroll to Comparison Section
@@ -1978,11 +1953,11 @@
         if (diagSec) {
           diagSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 500);
+      }, 400);
     }
 
     // ==========================================
-    // SOFT-SELL DIAGNOSTIC & COMPARISON ENGINE
+    // SOFT-SELL RECOMMENDATION ENGINE
     // ==========================================
     const XL_PACKAGES = [
       {
@@ -1994,8 +1969,11 @@
         priceNetto: 'Rp 309.690',
         devices: '3 - 5 Orang',
         savings: 'Hemat hingga Rp 1.500.000 / tahun',
-        title: 'Upgrade Paling Cerdas & Hemat',
-        headline: 'Kecepatan Naik 3-5x Lipat + Bebas FUP & Kuota HP Sekeluarga'
+        badge: 'Rekomendasi Paket Paling Pas & Hemat',
+        reason: function(curr) {
+          const mult = (100 / Math.max(1, curr)).toFixed(1);
+          return 'Kecepatan WiFi Anda saat ini tergolong lambat (' + curr + ' Mbps) dan rentan lemot saat jam sibuk. Upgrade ke XL SATU Spark 100 Mbps memberikan lonjakan kecepatan ' + mult + 'x lipat lebih kencang, 100% Fiber Optic simetris, bebas FUP, dan otomatis dapat kuota HP 25 GB untuk sekeluarga!';
+        }
       },
       {
         id: 'value',
@@ -2006,8 +1984,10 @@
         priceNetto: 'Rp 376.290',
         devices: '5 - 10 Orang',
         savings: 'Hemat hingga Rp 2.100.000 / tahun',
-        title: 'Pilihan Paling Populer Keluarga Indonesia',
-        headline: 'Internet Super Ngebut 250 Mbps + Router Wi-Fi 6 Ready'
+        badge: 'Rekomendasi Terbaik Keluarga Indonesia',
+        reason: function(curr) {
+          return 'Kecepatan WiFi Anda (' + curr + ' Mbps) cukup baik, namun sering mengalami rebutan bandwidth saat ada beberapa TV atau HP streaming 4K bersamaan. XL SATU Value 250 Mbps memberikan kapasitas bandwidth 250 Mbps lapang dengan router Wi-Fi 6 ready, bebas FUP, serta bonus kuota HP 50 GB sekeluarga!';
+        }
       },
       {
         id: 'smart',
@@ -2018,32 +1998,63 @@
         priceNetto: 'Rp 553.890',
         devices: '10 - 20 Orang',
         savings: 'Hemat hingga Rp 2.800.000 / tahun',
-        title: 'Performa Sultan Tanpa Hambatan',
-        headline: 'Bandwidth Raksasa 500 Mbps Simetris untuk Pro Gamer & Streamer'
+        badge: 'Rekomendasi Power User & Streamer',
+        reason: function(curr) {
+          return 'Kecepatan WiFi Anda (' + curr + ' Mbps) sudah tergolong tinggi. Untuk memaksimalkan performa content creation, 4K multi-display, dan smart home tanpa jeda, XL SATU Smart 500 Mbps adalah pilihan premium dengan rasio simetris 1:1 dan bonus kuota HP jumbo 100 GB sekeluarga!';
+        }
+      },
+      {
+        id: 'ultimate',
+        name: 'XL SATU Ultimate 1 Gbps (Ultra Gamer)',
+        speed: 1000,
+        quota: '300 GB (5 Nomor XL)',
+        price: 'Rp 899.000',
+        priceNetto: 'Rp 997.890',
+        devices: '20+ Orang / Kantor',
+        savings: 'Hemat hingga Rp 3.600.000 / tahun',
+        badge: 'Performa Sultan Tanpa Kompromi (1 Gbps)',
+        reason: function(curr) {
+          return 'Koneksi Anda saat ini sangat kencang (' + curr + ' Mbps). Rasakan bandwidth kelas enterprise 1.000 Mbps (1 Gbps) dengan latensi terendah push rank tanpa ping spike serta bonus kuota HP 300 GB sekeluarga!';
+        }
       }
     ];
+
+    let lastTestedResults = { download: 30, upload: 12, ping: 25 };
+    let currentSelectedPkg = XL_PACKAGES[0];
+
+    function getPackageForSpeed(speed) {
+      if (speed < 50) return XL_PACKAGES[0]; // Spark 100
+      if (speed >= 50 && speed < 200) return XL_PACKAGES[1]; // Value 250
+      if (speed >= 200 && speed < 450) return XL_PACKAGES[2]; // Smart 500
+      return XL_PACKAGES[3]; // Ultimate 1 Gbps
+    }
 
     function renderDiagnosticComparison(speedDown, speedUp, ping) {
       const section = document.getElementById('diagnosticSection');
       section.classList.add('visible');
 
-      // 1. Pick Matched Package
-      let pkg = XL_PACKAGES[0]; // Spark
-      if (speedDown >= 60 && speedDown < 200) {
-        pkg = XL_PACKAGES[1]; // Value
-      } else if (speedDown >= 200) {
-        pkg = XL_PACKAGES[2]; // Smart
-      }
+      // 1. Matched Package based on Speedtest Result
+      currentSelectedPkg = getPackageForSpeed(speedDown);
 
-      // 2. Activity Matrix Logic
+      // 2. Activity Matrix Logic (Kartu Hasil Analisa Dipertahankan)
+      const verdictSubtitle = document.getElementById('verdictSubtitle');
+      const verdictStatus = document.getElementById('verdictBadgeStatus');
       const badgeStream = document.getElementById('badgeActStream');
       const descStream = document.getElementById('descActStream');
       const badgeGame = document.getElementById('badgeActGame');
       const descGame = document.getElementById('descActGame');
+      const badgeWork = document.getElementById('badgeActWork');
+      const descWork = document.getElementById('descActWork');
       const badgeDevices = document.getElementById('badgeActDevices');
       const descDevices = document.getElementById('descActDevices');
 
+      verdictSubtitle.textContent = 'Kecepatan terdeteksi: ' + speedDown + ' Mbps (Download) | ' + (speedUp || '-') + ' Mbps (Upload) | Ping: ' + (ping || '-') + ' ms.';
+
       if (speedDown < 35) {
+        verdictStatus.textContent = 'Status: Perlu Upgrade Mendesak';
+        verdictStatus.style.background = '#FEE2E2';
+        verdictStatus.style.color = '#B91C1C';
+
         badgeStream.textContent = 'Rawan Buffering';
         badgeStream.className = 'act-badge warn';
         descStream.textContent = 'Hanya nyaman untuk 1 layar 1080p. Bila ada yang streaming 4K, video akan tersendat.';
@@ -2052,10 +2063,18 @@
         badgeGame.className = 'act-badge bad';
         descGame.textContent = 'Bandwidth minim membuat ping melonjak saat ada unduhan otomatis di latar belakang.';
 
+        badgeWork.textContent = 'Cukup Terbatas';
+        badgeWork.className = 'act-badge warn';
+        descWork.textContent = 'Video call HD rentan putus jika ada anggota keluarga lain yang sedang membuka medsos.';
+
         badgeDevices.textContent = 'Maks 2-3 HP';
         badgeDevices.className = 'act-badge bad';
         descDevices.textContent = 'Sangat rentan rebutan bandwidth jika dipakai oleh lebih dari 3 orang bersamaan.';
       } else if (speedDown < 100) {
+        verdictStatus.textContent = 'Status: Standar (Rawan Lemot Ramai-ramai)';
+        verdictStatus.style.background = '#FEF3C7';
+        verdictStatus.style.color = '#B45309';
+
         badgeStream.textContent = 'Cukup Baik';
         badgeStream.className = 'act-badge good';
         descStream.textContent = 'Streaming 4K lancar untuk 1-2 layar, namun berisiko melambat saat jam sibuk malam hari.';
@@ -2064,10 +2083,18 @@
         badgeGame.className = 'act-badge good';
         descGame.textContent = 'Ping relatif normal, namun masih bisa terdampak saat upload file besar.';
 
+        badgeWork.textContent = 'Lancar';
+        badgeWork.className = 'act-badge good';
+        descWork.textContent = 'Meeting Zoom lancar jernih selama tidak ada unduhan masif berbarengan.';
+
         badgeDevices.textContent = 'Maks 4-6 HP';
         badgeDevices.className = 'act-badge warn';
         descDevices.textContent = 'Mulai terasa lambat jika seluruh anggota keluarga online secara bersamaan.';
       } else {
+        verdictStatus.textContent = 'Status: Sangat Kencang (Siap Optimasi Hemat)';
+        verdictStatus.style.background = '#D1FAE5';
+        verdictStatus.style.color = '#047857';
+
         badgeStream.textContent = 'Sangat Mulus';
         badgeStream.className = 'act-badge good';
         descStream.textContent = 'Streaming 4K di beberapa TV sekaligus lancar jaya tanpa jeda buffer.';
@@ -2076,38 +2103,53 @@
         badgeGame.className = 'act-badge good';
         descGame.textContent = 'Ping hijau stabil untuk gaming kompetitif.';
 
-        badgeDevices.textContent = 'Kapasitas 8+ HP';
+        badgeWork.textContent = 'Sangat Optimal';
+        badgeWork.className = 'act-badge good';
+        descWork.textContent = 'Kirim dan unduh file puluhan GB selesai dalam hitungan detik.';
+
+        badgeDevices.textContent = 'Kapasitas 10+ HP';
         badgeDevices.className = 'act-badge good';
-        descDevices.textContent = 'Kecepatan sudah tinggi, tapi Anda kemungkinan besar masih boros beli kuota HP terpisah!';
+        descDevices.textContent = 'Kapasitas bandwidth tinggi, namun pastikan Anda tidak boros beli kuota HP terpisah!';
       }
 
-      // 3. Update Head-to-Head Card
-      document.getElementById('compCurrentSpeed').textContent = `Hasil Tes: ${speedDown} Mbps`;
+      // 3. Render Tailored Recommendation Card
+      updateRecommendationCard(currentSelectedPkg);
+    }
+
+    function updateRecommendationCard(pkg) {
+      document.getElementById('compRecRibbon').textContent = pkg.badge;
       document.getElementById('compRecTitle').textContent = pkg.name;
-      const speedMultiplier = (pkg.speed / Math.max(1, speedDown)).toFixed(1);
-      document.getElementById('compRecSpeed').textContent = `Kecepatan: ${pkg.speed} Mbps (${speedMultiplier > 1 ? 'Naik ' + speedMultiplier + 'x Lipat!' : 'Full Fiber Simetris'})`;
+      document.getElementById('compRecSpeed').textContent = 'Kecepatan: ' + pkg.speed + ' Mbps Full Fiber Optic Simetris';
+      document.getElementById('compRecReason').textContent = pkg.reason(lastTestedResults.download);
       document.getElementById('compRecQuota').textContent = pkg.quota;
       document.getElementById('compRecPrice').textContent = pkg.price;
-      document.getElementById('compRecTax').textContent = `Termasuk PPN 11%: ${pkg.priceNetto}`;
+      document.getElementById('compRecTax').textContent = 'Termasuk PPN 11%: ' + pkg.priceNetto;
       document.getElementById('savingsTitle').textContent = pkg.savings;
 
-      // 4. Update WhatsApp CTA Link with Pre-filled Text
-      const waText = `Halo Admin XL SATU, saya baru saja cek tes kecepatan WiFi di web exelsatu.my.id:
-- Kecepatan Download: ${speedDown} Mbps
-- Kecepatan Upload: ${speedUp || '-'} Mbps
-- Ping / Latensi: ${ping || '-'} ms
+      // Update Chip Active State
+      document.querySelectorAll('.rec-chip-btn').forEach(btn => btn.classList.remove('active'));
+      const activeChip = document.getElementById('chip_' + pkg.id);
+      if (activeChip) activeChip.classList.add('active');
 
-Saya tertarik konsultasi upgrade ke paket rekomendasi: *${pkg.name}* (${pkg.price}/bln) dengan bonus kuota HP bersama ${pkg.quota}.
-Bisa tolong bantu cek jangkauan jaringan fiber untuk alamat saya?`;
+      // 4. Update WhatsApp CTA Link with Pre-filled Text
+      const waText = 'Halo Admin XL SATU, saya baru saja tes kecepatan WiFi di web exelsatu.my.id dengan hasil:\n' +
+        '- Download: ' + lastTestedResults.download + ' Mbps\n' +
+        '- Upload: ' + (lastTestedResults.upload || '-') + ' Mbps\n' +
+        '- Ping / Latensi: ' + (lastTestedResults.ping || '-') + ' ms\n\n' +
+        'Sistem merekomendasikan paket: *' + pkg.name + '* (' + pkg.price + '/bln) dengan bonus kuota HP bersama ' + pkg.quota + '.\n' +
+        'Bisa tolong bantu cek jangkauan jaringan fiber untuk alamat saya?';
 
       const waBtn = document.getElementById('btnCtaWa');
       waBtn.href = 'https://wa.me/6287846560510?text=' + encodeURIComponent(waText);
     }
 
-    // Manual slider fallback change
-    function onManualSpeedChange(val) {
-      document.getElementById('manualSpeedDisplay').textContent = val + ' Mbps';
-      renderDiagnosticComparison(parseFloat(val), parseFloat((val * 0.4).toFixed(1)), 25);
+    // Manual package switch by chip
+    function selectPackageById(pkgId) {
+      const found = XL_PACKAGES.find(p => p.id === pkgId);
+      if (found) {
+        currentSelectedPkg = found;
+        updateRecommendationCard(found);
+      }
     }
   </script>
 
