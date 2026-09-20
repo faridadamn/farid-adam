@@ -496,12 +496,14 @@
       color: var(--text-muted);
     }
     .verdict-badge-status {
-      padding: 5px 14px;
+      padding: 5px 12px;
       border-radius: 99px;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       background: #E0F2FE;
       color: #0284C7;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     /* Activities Compatibility Matrix */
@@ -523,15 +525,24 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 12px;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .act-head > span:first-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 11.5px;
       font-weight: 700;
       color: var(--text-dark);
     }
     .act-badge {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
-      padding: 2px 8px;
+      padding: 2px 7px;
       border-radius: 99px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .act-badge.good { background: #D1FAE5; color: #065F46; }
     .act-badge.warn { background: #FEF3C7; color: #92400E; }
@@ -1219,7 +1230,7 @@
         <div class="activities-grid">
           <div class="act-item">
             <div class="act-head">
-              <span>Streaming 4K / YouTube</span>
+              <span>Streaming 4K</span>
               <span class="act-badge warn" id="badgeActStream">Menganalisis</span>
             </div>
             <div class="act-desc" id="descActStream">Mengukur kelancaran pemutaran video resolusi tinggi tanpa buffering.</div>
@@ -1227,7 +1238,7 @@
 
           <div class="act-item">
             <div class="act-head">
-              <span>Online Gaming & Push Rank</span>
+              <span>Gaming Online</span>
               <span class="act-badge warn" id="badgeActGame">Menganalisis</span>
             </div>
             <div class="act-desc" id="descActGame">Menguji stabilitas latensi dan ketahanan terhadap lonjakan ping.</div>
@@ -1235,7 +1246,7 @@
 
           <div class="act-item">
             <div class="act-head">
-              <span>Work From Home & Zoom</span>
+              <span>WFH & Zoom</span>
               <span class="act-badge good" id="badgeActWork">Menganalisis</span>
             </div>
             <div class="act-desc" id="descActWork">Mengecek kualitas video call HD dan transfer file pekerjaan.</div>
@@ -1243,7 +1254,7 @@
 
           <div class="act-item">
             <div class="act-head">
-              <span>Kapasitas Perangkat</span>
+              <span>Multi Device</span>
               <span class="act-badge warn" id="badgeActDevices">Menganalisis</span>
             </div>
             <div class="act-desc" id="descActDevices">Estimasi daya tampung koneksi saat dipakai bersamaan sekeluarga.</div>
@@ -2051,27 +2062,27 @@
       verdictSubtitle.textContent = 'Kecepatan terdeteksi: ' + speedDown + ' Mbps (Download) | ' + (speedUp || '-') + ' Mbps (Upload) | Ping: ' + (ping || '-') + ' ms.';
 
       if (speedDown < 35) {
-        verdictStatus.textContent = 'Status: Perlu Upgrade Mendesak';
+        verdictStatus.textContent = 'Status: Perlu Upgrade';
         verdictStatus.style.background = '#FEE2E2';
         verdictStatus.style.color = '#B91C1C';
 
-        badgeStream.textContent = 'Rawan Buffering';
+        badgeStream.textContent = 'Rawan Buffer';
         badgeStream.className = 'act-badge warn';
         descStream.textContent = 'Hanya nyaman untuk 1 layar 1080p. Bila ada yang streaming 4K, video akan tersendat.';
         
-        badgeGame.textContent = 'Rawan Lag Spike';
+        badgeGame.textContent = 'Rawan Lag';
         badgeGame.className = 'act-badge bad';
         descGame.textContent = 'Bandwidth minim membuat ping melonjak saat ada unduhan otomatis di latar belakang.';
 
-        badgeWork.textContent = 'Cukup Terbatas';
+        badgeWork.textContent = 'Terbatas';
         badgeWork.className = 'act-badge warn';
         descWork.textContent = 'Video call HD rentan putus jika ada anggota keluarga lain yang sedang membuka medsos.';
 
-        badgeDevices.textContent = 'Maks 2-3 HP';
+        badgeDevices.textContent = '2-3 HP';
         badgeDevices.className = 'act-badge bad';
         descDevices.textContent = 'Sangat rentan rebutan bandwidth jika dipakai oleh lebih dari 3 orang bersamaan.';
       } else if (speedDown < 100) {
-        verdictStatus.textContent = 'Status: Standar (Rawan Lemot Ramai-ramai)';
+        verdictStatus.textContent = 'Status: Standar';
         verdictStatus.style.background = '#FEF3C7';
         verdictStatus.style.color = '#B45309';
 
@@ -2087,11 +2098,11 @@
         badgeWork.className = 'act-badge good';
         descWork.textContent = 'Meeting Zoom lancar jernih selama tidak ada unduhan masif berbarengan.';
 
-        badgeDevices.textContent = 'Maks 4-6 HP';
+        badgeDevices.textContent = '4-6 HP';
         badgeDevices.className = 'act-badge warn';
         descDevices.textContent = 'Mulai terasa lambat jika seluruh anggota keluarga online secara bersamaan.';
       } else {
-        verdictStatus.textContent = 'Status: Sangat Kencang (Siap Optimasi Hemat)';
+        verdictStatus.textContent = 'Status: Sangat Kencang';
         verdictStatus.style.background = '#D1FAE5';
         verdictStatus.style.color = '#047857';
 
@@ -2099,15 +2110,15 @@
         badgeStream.className = 'act-badge good';
         descStream.textContent = 'Streaming 4K di beberapa TV sekaligus lancar jaya tanpa jeda buffer.';
 
-        badgeGame.textContent = 'Ultra Low Ping';
+        badgeGame.textContent = 'Low Ping';
         badgeGame.className = 'act-badge good';
         descGame.textContent = 'Ping hijau stabil untuk gaming kompetitif.';
 
-        badgeWork.textContent = 'Sangat Optimal';
+        badgeWork.textContent = 'Optimal';
         badgeWork.className = 'act-badge good';
         descWork.textContent = 'Kirim dan unduh file puluhan GB selesai dalam hitungan detik.';
 
-        badgeDevices.textContent = 'Kapasitas 10+ HP';
+        badgeDevices.textContent = '10+ HP';
         badgeDevices.className = 'act-badge good';
         descDevices.textContent = 'Kapasitas bandwidth tinggi, namun pastikan Anda tidak boros beli kuota HP terpisah!';
       }
