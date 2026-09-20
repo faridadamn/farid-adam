@@ -492,13 +492,13 @@
       color: var(--text-dark);
     }
     .verdict-subtitle {
-      font-size: 13.5px;
+      font-size: 12.5px;
       color: var(--text-muted);
     }
     .verdict-badge-status {
-      padding: 6px 16px;
+      padding: 5px 14px;
       border-radius: 99px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       background: #E0F2FE;
       color: #0284C7;
@@ -523,12 +523,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-dark);
     }
     .act-badge {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 99px;
@@ -537,7 +537,7 @@
     .act-badge.warn { background: #FEF3C7; color: #92400E; }
     .act-badge.bad  { background: #FEE2E2; color: #991B1B; }
     .act-desc {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
       line-height: 1.4;
     }
@@ -1253,11 +1253,11 @@
 
       <!-- Rekomendasi Paket XL SATU Fiber (Menyesuaikan Hasil Speedtest) -->
       <div class="rec-showcase-card" id="recShowcaseCard">
-        <div class="rec-ribbon" id="compRecRibbon">Rekomendasi Paket Paling Tepat</div>
+        <div class="rec-ribbon" id="compRecRibbon">Rekomendasi Paket untuk Anda</div>
 
         <div class="rec-card-body">
           <div class="rec-main-info">
-            <div class="rec-tag" style="color:var(--secondary);">Pilihan Terbaik Sesuai Hasil Tes Anda</div>
+            <div class="rec-tag" style="color:var(--secondary);">Pilihan Terbaik Berdasarkan Kecepatan WiFi Anda</div>
             <h3 class="rec-title" id="compRecTitle">XL SATU Spark 100 Mbps</h3>
             <div class="rec-speed-badge" id="compRecSpeed">Kecepatan: 100 Mbps Full Fiber Optic Simetris</div>
             
@@ -1312,7 +1312,7 @@
 
             <a href="#" id="btnCtaWa" target="_blank" class="btn-wa-consult">
               <svg class="icon" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              <span>Konsultasi & Cek Jangkauan Alamat</span>
+              <span>Konsultasi & Cek Jangkauan</span>
             </a>
             <div style="font-size:12px; color:var(--text-muted); margin-top:8px;">
               Respon cepat via WhatsApp Sales Resmi XL SATU
@@ -1329,7 +1329,7 @@
         </p>
         <a href="https://wa.me/6287846560510?text=Halo%20Admin%20XL%20SATU,%20mau%20konsultasi%20pasang%20wifi%20rumah%20dan%20cek%20jangkauan%20alamat" target="_blank" class="btn-wa-consult" style="display:inline-flex; width:auto; padding:14px 36px;">
           <svg class="icon" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          <span>Chat WhatsApp Sales (0878-4656-0510)</span>
+          <span>Chat WhatsApp Sales</span>
         </a>
       </div>
 
@@ -2117,7 +2117,7 @@
     }
 
     function updateRecommendationCard(pkg) {
-      document.getElementById('compRecRibbon').textContent = pkg.badge;
+      document.getElementById('compRecRibbon').textContent = 'Rekomendasi Paket untuk Anda';
       document.getElementById('compRecTitle').textContent = pkg.name;
       document.getElementById('compRecSpeed').textContent = 'Kecepatan: ' + pkg.speed + ' Mbps Full Fiber Optic Simetris';
       document.getElementById('compRecReason').textContent = pkg.reason(lastTestedResults.download);
