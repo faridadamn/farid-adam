@@ -988,6 +988,60 @@
       0%, 100% { transform: scale(0.9); opacity: 0.5; }
       50% { transform: scale(1.3); opacity: 1; }
     }
+    
+    /* App Preview Thumbnail Styling */
+    .app-card-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-card);
+      margin-bottom: 14px;
+      display: block;
+      text-decoration: none;
+    }
+    .app-card-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .app-card:hover .app-card-thumb-img,
+    .flagship-card:hover .app-card-thumb-img {
+      transform: scale(1.05);
+    }
+    .app-card-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.65) 100%);
+      opacity: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 10px;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    .app-card:hover .app-card-thumb-overlay,
+    .flagship-card:hover .app-card-thumb-overlay {
+      opacity: 1;
+    }
+    .app-card-thumb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
     .app-card-title {
       font-size: 1.125rem;
       font-weight: 700;
@@ -1660,7 +1714,10 @@
               </div>
               <span class="flagship-badge">VPS :8650</span>
             </div>
-            <h3 class="flagship-title">Payu Toko Online</h3>
+            <a class="app-card-thumb-wrap" href="#" style="margin-bottom:16px;" tabindex="-1" aria-hidden="true">
+              <img class="app-card-thumb-img" src="/assets/previews/payu.webp" alt="Preview Payu Toko Online" loading="lazy" />
+            </a>
+            
             <p class="flagship-desc">
               Toko online chat-first dengan integrasi QRIS dinamis otomatis, pengecekan ongkos kirim real-time, live order tracking 6 tahap, dan Admin Live Chat Desk terpadu.
             </p>
@@ -1684,7 +1741,10 @@
               </div>
               <span class="flagship-badge">VPS STATIS</span>
             </div>
-            <h3 class="flagship-title">Pelajari Masterclass OS</h3>
+            <a class="app-card-thumb-wrap" href="#" style="margin-bottom:16px;" tabindex="-1" aria-hidden="true">
+              <img class="app-card-thumb-img" src="/assets/previews/pelajari.webp" alt="Preview Pelajari Masterclass OS" loading="lazy" />
+            </a>
+            
             <p class="flagship-desc">
               Platform pembelajaran dengan standar arsitektur 5-Layer Pedagogis: Kaidah Emas, Mental Model ASCII, Syarah Daging simetris 1-to-1, Field Playbook taktis, dan Diagnostic Drill.
             </p>
@@ -1707,7 +1767,10 @@
               </div>
               <span class="flagship-badge">VPS :20128</span>
             </div>
-            <h3 class="flagship-title">9Router &amp; Ngobrol</h3>
+            <a class="app-card-thumb-wrap" href="#" style="margin-bottom:16px;" tabindex="-1" aria-hidden="true">
+              <img class="app-card-thumb-img" src="/assets/previews/9router.webp" alt="Preview 9Router &amp; Ngobrol" loading="lazy" />
+            </a>
+            
             <p class="flagship-desc">
               Gerbang proksi LLM terpusat untuk model-model AI dengan dashboard kuota real-time, dipadukan dengan Ngobrol Hub untuk koordinasi multi-agent Hermes dan telemetri server.
             </p>
@@ -1781,6 +1844,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/payu/" target="_blank" rel="noopener" aria-label="Buka Payu Toko Online">
+              <img class="app-card-thumb-img" src="/assets/previews/payu.webp" alt="Preview Payu Toko Online" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Payu Toko Online</h3>
             <p class="app-card-desc">Toko online chat-first otomatis. Dilengkapi invoice QRIS dinamis, cek ongkir riil, tracking order 6 tahap, dan Admin Desk.</p>
             <div class="app-card-tags">
@@ -1808,6 +1877,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://apotekkilat.vercel.app" target="_blank" rel="noopener" aria-label="Buka ApotekKilat POS">
+              <img class="app-card-thumb-img" src="/assets/previews/apotekkilat.webp" alt="Preview ApotekKilat POS" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">ApotekKilat POS</h3>
             <p class="app-card-desc">Sistem manajemen apotek terpadu: kasir transaksi cepat, monitoring stok obat kadaluarsa, pesanan supplier, dan buku besar.</p>
             <div class="app-card-tags">
@@ -1835,6 +1910,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/wms/" target="_blank" rel="noopener" aria-label="Buka WMS Gudang">
+              <img class="app-card-thumb-img" src="/assets/previews/wms.webp" alt="Preview WMS Gudang" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">WMS Gudang</h3>
             <p class="app-card-desc">Warehouse Management System: kontrol barang masuk/keluar, pelacakan stok per bin lokasi, dan laporan rekonsiliasi logistik.</p>
             <div class="app-card-tags">
@@ -1862,6 +1943,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://fabusiness-theta.vercel.app" target="_blank" rel="noopener" aria-label="Buka FA Business OS">
+              <img class="app-card-thumb-img" src="/assets/previews/fabusiness.webp" alt="Preview FA Business OS" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">FA Business OS</h3>
             <p class="app-card-desc">Executive command center untuk pengambilan keputusan bisnis: fokus eksekusi target, margin keuntungan, dan metrik revenue.</p>
             <div class="app-card-tags">
@@ -1889,6 +1976,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/elaundry/elaundry.html" target="_blank" rel="noopener" aria-label="Buka eLaundry">
+              <img class="app-card-thumb-img" src="/assets/previews/elaundry.webp" alt="Preview eLaundry" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">eLaundry</h3>
             <p class="app-card-desc">Sistem operasional pesanan laundry: database pelanggan, tracking proses cuci-setrika, nota otomatis, dan rekap omzet bulanan.</p>
             <div class="app-card-tags">
@@ -1916,6 +2009,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/creatou/" target="_blank" rel="noopener" aria-label="Buka Creatou Hub">
+              <img class="app-card-thumb-img" src="/assets/previews/creatou.webp" alt="Preview Creatou Hub" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Creatou Hub</h3>
             <p class="app-card-desc">Workspace produk digital dan mini-CRM: pengelolaan siklus produk dari ide, validasi kebutuhan pasar, hingga tracking konversi.</p>
             <div class="app-card-tags">
@@ -1942,6 +2041,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/undangan-digital/" target="_blank" rel="noopener" aria-label="Buka Undanganku Digital">
+              <img class="app-card-thumb-img" src="/assets/previews/undangan.webp" alt="Preview Undanganku Digital" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Undanganku Digital</h3>
             <p class="app-card-desc">Pembuat undangan pernikahan &amp; acara digital: pilihan tema modern, form data pengantin otomatis, dan manajemen RSVP tamu.</p>
             <div class="app-card-tags">
@@ -1968,6 +2073,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/planner/" target="_blank" rel="noopener" aria-label="Buka Daily Planner">
+              <img class="app-card-thumb-img" src="/assets/previews/planner.webp" alt="Preview Daily Planner" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Daily Planner</h3>
             <p class="app-card-desc">Sistem manajemen produktivitas harian: time-blocking, integrasi rutinitas kerja, habit tracking, dan papan skor evaluasi output.</p>
             <div class="app-card-tags">
@@ -1995,6 +2106,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://fareader.vercel.app" target="_blank" rel="noopener" aria-label="Buka FA Reader">
+              <img class="app-card-thumb-img" src="/assets/previews/fareader.webp" alt="Preview FA Reader" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">FA Reader</h3>
             <p class="app-card-desc">Reader ringkasan buku komprehensif: 1.718+ intisari buku non-fiksi terkurasi dengan deep link bab dan generator kutipan.</p>
             <div class="app-card-tags">
@@ -2022,6 +2139,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/pelajari/" target="_blank" rel="noopener" aria-label="Buka Pelajari Masterclass">
+              <img class="app-card-thumb-img" src="/assets/previews/pelajari.webp" alt="Preview Pelajari Masterclass" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Pelajari Masterclass</h3>
             <p class="app-card-desc">Pusat materi masterclass 5-Layer: audience building, penawaran irresistable, navigasi karier, arsitektur AI, dan efisiensi.</p>
             <div class="app-card-tags">
@@ -2049,6 +2172,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/temanulis/" target="_blank" rel="noopener" aria-label="Buka Temanulis">
+              <img class="app-card-thumb-img" src="/assets/previews/temanulis.webp" alt="Preview Temanulis" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Temanulis</h3>
             <p class="app-card-desc">Bank konten dan workspace menulis: simpan referensi, susun draft artikel terstruktur, dan kelola arsip tulisan di satu tempat.</p>
             <div class="app-card-tags">
@@ -2075,6 +2204,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/training-system/" target="_blank" rel="noopener" aria-label="Buka TrainUp LMS">
+              <img class="app-card-thumb-img" src="/assets/previews/trainup.webp" alt="Preview TrainUp LMS" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">TrainUp LMS</h3>
             <p class="app-card-desc">Sistem pelatihan karyawan internal: modul materi, soal ujian evaluasi otomatis, dan sinkronisasi data ke Google Sheets.</p>
             <div class="app-card-tags">
@@ -2101,6 +2236,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/problem-solver/" target="_blank" rel="noopener" aria-label="Buka MindFrame Solver">
+              <img class="app-card-thumb-img" src="/assets/previews/mindframe.webp" alt="Preview MindFrame Solver" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">MindFrame Solver</h3>
             <p class="app-card-desc">Problem solver interaktif berbasis framework berpikir: First Principles, Inversion, 5 Whys, dan Decision Matrix.</p>
             <div class="app-card-tags">
@@ -2127,6 +2268,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://usholli.faridadam.my.id/" target="_blank" rel="noopener" aria-label="Buka Usholli Admin">
+              <img class="app-card-thumb-img" src="/assets/previews/usholli.webp" alt="Preview Usholli Admin" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Usholli Admin</h3>
             <p class="app-card-desc">Panel kurasi konten jadwal shalat dan artikel dakwah masjid untuk aplikasi mobile Usholli.</p>
             <div class="app-card-tags">
@@ -2153,6 +2300,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://uangku-five.vercel.app" target="_blank" rel="noopener" aria-label="Buka UangKu Finansial">
+              <img class="app-card-thumb-img" src="/assets/previews/uangku.webp" alt="Preview UangKu Finansial" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">UangKu Finansial</h3>
             <p class="app-card-desc">Catatan keuangan keluarga dan anggaran belanja: rekap pemasukan, tracking pengeluaran harian, dan grafik surplus bulanan.</p>
             <div class="app-card-tags">
@@ -2179,6 +2332,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://orderan-topaz.vercel.app" target="_blank" rel="noopener" aria-label="Buka Orderan Ojol Monitor">
+              <img class="app-card-thumb-img" src="/assets/previews/orderan.webp" alt="Preview Orderan Ojol Monitor" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Orderan Ojol Monitor</h3>
             <p class="app-card-desc">Pemantauan orderan operasional driver: hitung setoran harian, biaya BBM, dan perhitungan laba bersih per shift.</p>
             <div class="app-card-tags">
@@ -2205,6 +2364,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/uangjajan/" target="_blank" rel="noopener" aria-label="Buka UangJajan Anak">
+              <img class="app-card-thumb-img" src="/assets/previews/uangjajan.webp" alt="Preview UangJajan Anak" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">UangJajan Anak</h3>
             <p class="app-card-desc">Pencatatan keuangan dan tabungan anak: alokasi uang jajan mandiri, celengan target, dan monitoring orang tua.</p>
             <div class="app-card-tags">
@@ -2231,6 +2396,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/ngobrol/" target="_blank" rel="noopener" aria-label="Buka Ngobrol Multi-Agent">
+              <img class="app-card-thumb-img" src="/assets/previews/ngobrol.webp" alt="Preview Ngobrol Multi-Agent" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Ngobrol Multi-Agent</h3>
             <p class="app-card-desc">Hub interaksi trio AI agent Hermes (Mack, Jojo, Fitz) dan dashboard kontrol operasional server real-time.</p>
             <div class="app-card-tags">
@@ -2258,6 +2429,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="/9router/" target="_blank" rel="noopener" aria-label="Buka 9Router LLM Gateway">
+              <img class="app-card-thumb-img" src="/assets/previews/9router.webp" alt="Preview 9Router LLM Gateway" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">9Router LLM Gateway</h3>
             <p class="app-card-desc">Gerbang proksi LLM terpusat. Mengatur lalu lintas panggilan model AI, caching, token usage tracking, dan subpath routing.</p>
             <div class="app-card-tags">
@@ -2285,6 +2462,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://fareader-v2.vercel.app/" target="_blank" rel="noopener" aria-label="Buka FA Reader V2 (Eksperimen)">
+              <img class="app-card-thumb-img" src="/assets/previews/fareader-v2.webp" alt="Preview FA Reader V2 (Eksperimen)" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">FA Reader V2 (Eksperimen)</h3>
             <p class="app-card-desc">Versi eksperimental FA Reader dengan antarmuka modular, live text-to-speech, dan sistem sinkronisasi catatan markdown.</p>
             <div class="app-card-tags">
@@ -2311,6 +2494,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://faridadamn.github.io/orderanmu/" target="_blank" rel="noopener" aria-label="Buka Warung Makan Sejahtera">
+              <img class="app-card-thumb-img" src="/assets/previews/warungmakan.webp" alt="Preview Warung Makan Sejahtera" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Warung Makan Sejahtera</h3>
             <p class="app-card-desc">Purwarupa landing page contoh untuk katalog menu dan pemesanan makanan berbasis mobile web.</p>
             <div class="app-card-tags">
@@ -2337,6 +2526,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://omnipost.codeworks.web.id/" target="_blank" rel="noopener" aria-label="Buka OmniPost AI">
+              <img class="app-card-thumb-img" src="/assets/previews/omnipost.webp" alt="Preview OmniPost AI" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">OmniPost AI</h3>
             <p class="app-card-desc">Sistem distribusi konten sosial media otomatis multi-platform. (Status arsip / server offline).</p>
             <div class="app-card-tags">
@@ -2363,6 +2558,12 @@
                 <span class="app-live-dot" title="Status Ping"></span>
               </div>
             </div>
+            <a class="app-card-thumb-wrap" href="https://github.com/faridadamn/kerja-id" target="_blank" rel="noopener" aria-label="Buka Kerja.id Architecture">
+              <img class="app-card-thumb-img" src="/assets/previews/kerjaid.webp" alt="Preview Kerja.id Architecture" loading="lazy" />
+              <div class="app-card-thumb-overlay">
+                <span class="app-card-thumb-badge">Buka App</span>
+              </div>
+            </a>
             <h3 class="app-card-title">Kerja.id Architecture</h3>
             <p class="app-card-desc">Blueprint arsitektur platform agregasi lowongan kerja terdesentralisasi tanpa ketergantungan middleware proprietary.</p>
             <div class="app-card-tags">
@@ -2781,9 +2982,10 @@
 
       function probeUrl(url) {
         return new Promise(function (resolve) {
+          var target = url.startsWith("/") ? (window.location.origin + url) : url;
           var ctl = new AbortController();
-          var timer = setTimeout(function () { ctl.abort(); }, 8000);
-          fetch(url, { mode: "no-cors", cache: "no-store", signal: ctl.signal, redirect: "follow" })
+          var timer = setTimeout(function () { ctl.abort(); }, 12000);
+          fetch(target, { mode: "no-cors", cache: "no-store", signal: ctl.signal, redirect: "follow" })
             .then(function () {
               clearTimeout(timer);
               resolve(true);
@@ -2800,6 +3002,37 @@
         var h = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
         var m = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
         return h + ":" + m;
+      }
+
+      // Concurrency runner: runs async tasks with max concurrency
+      function runWithConcurrency(items, limit, fn) {
+        var results = new Array(items.length);
+        var index = 0;
+        var running = 0;
+
+        return new Promise(function (resolve) {
+          function next() {
+            if (index >= items.length && running === 0) {
+              return resolve(results);
+            }
+            while (running < limit && index < items.length) {
+              (function (curIdx) {
+                running++;
+                index++;
+                fn(items[curIdx]).then(function (res) {
+                  results[curIdx] = res;
+                  running--;
+                  next();
+                }).catch(function () {
+                  results[curIdx] = { card: items[curIdx], ok: false };
+                  running--;
+                  next();
+                });
+              })(index);
+            }
+          }
+          next();
+        });
       }
 
       function runSystemProbe() {
@@ -2822,31 +3055,24 @@
           if (pingLabel) pingLabel.textContent = "Mengecek...";
         });
 
-        Promise.all(appCards.map(function (card) {
+        // Run with concurrency limit 4 to prevent socket exhaustion on mobile
+        runWithConcurrency(appCards, 4, function (card) {
           var href = card.getAttribute("data-href");
           if (!href) return Promise.resolve({ card: card, ok: false });
           return probeUrl(href).then(function (ok) {
+            // Live update individual card as it finishes
+            card.setAttribute("data-state", ok ? "up" : "down");
+            var pingLabel = card.querySelector(".app-ping-status");
+            if (pingLabel) {
+              pingLabel.textContent = ok ? "Online" : "No reply";
+              pingLabel.style.color = ok ? "var(--emerald)" : "var(--rose)";
+            }
             return { card: card, ok: ok };
           });
-        })).then(function (results) {
+        }).then(function (results) {
           var upCount = 0;
           results.forEach(function (item) {
-            if (item.ok) {
-              upCount++;
-              item.card.setAttribute("data-state", "up");
-              var p1 = item.card.querySelector(".app-ping-status");
-              if (p1) {
-                p1.textContent = "Online";
-                p1.style.color = "var(--emerald)";
-              }
-            } else {
-              item.card.setAttribute("data-state", "down");
-              var p2 = item.card.querySelector(".app-ping-status");
-              if (p2) {
-                p2.textContent = "No reply";
-                p2.style.color = "var(--rose)";
-              }
-            }
+            if (item && item.ok) upCount++;
           });
 
           var summary = upCount + " dari " + results.length + " endpoint aktif (" + getTimeString() + ")";
