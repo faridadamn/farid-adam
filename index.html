@@ -633,6 +633,7 @@
        ========================================================================== */
     .section-wrap {
       padding: 56px 0;
+      scroll-margin-top: 88px;
     }
     .section-head {
       display: flex;
@@ -855,7 +856,8 @@
       align-items: center;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 2px;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 2px 6px;
       scrollbar-width: none;
     }
     .chips-wrap::-webkit-scrollbar { display: none; }
@@ -863,7 +865,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 15px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
       border: 1px solid var(--border-card);
       background: var(--bg-surface);
@@ -873,6 +875,9 @@
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
+      flex-shrink: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
       transition: all 0.16s ease;
     }
     .chip-btn:hover {
@@ -892,21 +897,103 @@
       opacity: 0.85;
     }
 
-    /* Result Counter & Ping trigger */
+    /* Result Counter & Carousel Navigation */
     .catalog-status-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
       font-size: 13px;
       color: var(--text-muted);
       margin-bottom: 18px;
       padding: 0 4px;
     }
+    .catalog-status-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
     .catalog-status-bar b {
       color: var(--text-main);
     }
+    .probe-summary-bullet {
+      color: var(--text-faint);
+    }
+    .carousel-nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .carousel-hint-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .carousel-counter-badge {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+    .carousel-nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .carousel-nav-btn:hover:not(:disabled) {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #FFFFFF;
+      transform: scale(1.06);
+    }
+    .carousel-nav-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
 
-    /* App Cards Grid */
+    /* Scroll progress track */
+    .carousel-progress-track {
+      width: 100%;
+      height: 4px;
+      background: var(--border-subtle);
+      border-radius: 2px;
+      margin-top: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .carousel-progress-bar {
+      height: 100%;
+      width: 20%;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: width 0.2s ease, transform 0.1s ease-out;
+      transform-origin: left;
+    }
+
+    /* App Cards Grid / Carousel */
     .app-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1518,7 +1605,110 @@
       .hero-title { font-size: 1.85rem; }
       .tally-grid { grid-template-columns: 1fr; gap: 10px; }
       .flagship-grid { grid-template-columns: 1fr; }
-      .app-cards-grid { grid-template-columns: 1fr; }
+      /* Filter & Chips Mobile Refinement (Zero Overlapping) */
+      .filter-panel {
+        padding: 14px 12px;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .search-input {
+        height: 40px;
+        font-size: 13.5px;
+        padding: 0 38px 0 40px;
+      }
+      .search-icon-pos {
+        left: 12px;
+      }
+      .chips-wrap {
+        gap: 6px;
+        padding: 2px 2px 6px;
+      }
+      .chip-btn {
+        padding: 6px 13px;
+        font-size: 12.5px;
+      }
+      .catalog-status-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .catalog-status-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 12px;
+      }
+      .carousel-nav-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      /* Transform App Cards Grid into Horizontal Scroll-Snap Carousel */
+      .app-cards-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        gap: 14px !important;
+        padding: 4px 16px 16px 16px !important;
+        margin-left: -16px !important;
+        margin-right: -16px !important;
+        box-sizing: border-box !important;
+      }
+      .app-cards-grid::-webkit-scrollbar {
+        display: none !important;
+      }
+      .app-card {
+        flex: 0 0 84vw !important;
+        max-width: 320px !important;
+        min-width: 270px !important;
+        scroll-snap-align: start !important;
+        scroll-snap-stop: always !important;
+        padding: 16px !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+      }
+      .app-card-thumb-wrap {
+        height: 160px;
+        margin-bottom: 12px;
+      }
+      .app-card-title {
+        font-size: 1.05rem;
+        margin-bottom: 5px;
+      }
+      .app-card-desc {
+        font-size: 12.5px;
+        line-height: 1.45;
+        margin-bottom: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .app-card-tags {
+        margin-bottom: 14px;
+        gap: 4px;
+      }
+      .app-card-tag {
+        font-size: 10px;
+        padding: 1px 6px;
+      }
+      .app-card-footer {
+        padding-top: 10px;
+        margin-top: auto;
+      }
+      .app-card-btn {
+        padding: 7px 12px;
+        font-size: 12.5px;
+      }
+
       .calc-card { padding: 22px; }
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .fab-whatsapp span { display: none; }
@@ -1824,10 +2014,26 @@
           </div>
         </div>
 
-        <!-- Counter bar -->
+        <!-- Counter bar & Carousel Controls -->
         <div class="catalog-status-bar">
-          <span id="catalogCountText">Menampilkan <b>23</b> aplikasi</span>
-          <span id="probeSummaryText">Status: Siap diverifikasi</span>
+          <div class="catalog-status-left">
+            <span id="catalogCountText">Menampilkan <b>23</b> aplikasi</span>
+            <span class="probe-summary-bullet" aria-hidden="true">•</span>
+            <span id="probeSummaryText">Status: Siap diverifikasi</span>
+          </div>
+          <div class="carousel-nav-controls" id="carouselControls" aria-label="Navigasi Carousel Aplikasi">
+            <span class="carousel-hint-text">
+              <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+              <span>Geser Kanan</span>
+            </span>
+            <span class="carousel-counter-badge" id="carouselCounterBadge">1 / 23</span>
+            <button class="carousel-nav-btn prev-btn" id="carouselPrevBtn" type="button" aria-label="Geser ke kiri" disabled>
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="carousel-nav-btn next-btn" id="carouselNextBtn" type="button" aria-label="Geser ke kanan">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
 
         <!-- Cards Grid -->
@@ -2580,6 +2786,11 @@
           </article>
 
         </div>
+
+        <!-- Carousel Progress Track -->
+        <div class="carousel-progress-track" id="carouselProgressTrack" aria-hidden="true">
+          <div class="carousel-progress-bar" id="carouselProgressBar"></div>
+        </div>
       </div>
     </section>
 
@@ -2889,9 +3100,66 @@
       var appCards = Array.prototype.slice.call(document.querySelectorAll(".app-card"));
       var catalogCountText = document.getElementById("catalogCountText");
       var appsGrid = document.getElementById("appsGrid");
+      var carouselPrevBtn = document.getElementById("carouselPrevBtn");
+      var carouselNextBtn = document.getElementById("carouselNextBtn");
+      var carouselCounterBadge = document.getElementById("carouselCounterBadge");
+      var carouselProgressBar = document.getElementById("carouselProgressBar");
 
       var currentCategory = "all";
       var currentQuery = "";
+
+      function getVisibleCards() {
+        return appCards.filter(function (card) {
+          return card.style.display !== "none";
+        });
+      }
+
+      function updateCarouselState() {
+        if (!appsGrid) return;
+        var visible = getVisibleCards();
+        var total = visible.length;
+
+        if (total === 0) {
+          if (carouselCounterBadge) carouselCounterBadge.textContent = "0 / 0";
+          if (carouselPrevBtn) carouselPrevBtn.disabled = true;
+          if (carouselNextBtn) carouselNextBtn.disabled = true;
+          if (carouselProgressBar) carouselProgressBar.style.width = "0%";
+          return;
+        }
+
+        var scrollLeft = appsGrid.scrollLeft;
+        var maxScroll = appsGrid.scrollWidth - appsGrid.clientWidth;
+
+        // Cari kartu yang paling dekat dengan sisi kiri viewport
+        var activeIndex = 1;
+        var gridLeft = appsGrid.getBoundingClientRect().left;
+        for (var i = 0; i < visible.length; i++) {
+          var r = visible[i].getBoundingClientRect();
+          if (r.right > gridLeft + 40) {
+            activeIndex = i + 1;
+            break;
+          }
+        }
+
+        if (carouselCounterBadge) {
+          carouselCounterBadge.textContent = activeIndex + " / " + total;
+        }
+
+        if (carouselPrevBtn) {
+          carouselPrevBtn.disabled = scrollLeft <= 8;
+        }
+        if (carouselNextBtn) {
+          carouselNextBtn.disabled = maxScroll <= 8 || scrollLeft >= maxScroll - 8;
+        }
+
+        if (carouselProgressBar) {
+          var stepPct = (1 / total) * 100;
+          carouselProgressBar.style.width = Math.max(12, stepPct) + "%";
+          var scrollRatio = maxScroll > 0 ? (scrollLeft / maxScroll) : 0;
+          var maxTranslate = appsGrid.clientWidth * (1 - (Math.max(12, stepPct) / 100));
+          carouselProgressBar.style.transform = "translateX(" + (scrollRatio * maxTranslate) + "px)";
+        }
+      }
 
       function filterApps() {
         var visibleCount = 0;
@@ -2932,6 +3200,12 @@
         } else if (noResultEl) {
           noResultEl.remove();
         }
+
+        // Reset scroll position and sync carousel
+        if (appsGrid) {
+          appsGrid.scrollTo({ left: 0, behavior: "smooth" });
+        }
+        setTimeout(updateCarouselState, 50);
       }
 
       if (searchInput) {
@@ -2968,6 +3242,31 @@
           filterApps();
         });
       });
+
+      if (carouselPrevBtn) {
+        carouselPrevBtn.addEventListener("click", function () {
+          if (!appsGrid) return;
+          var card = appsGrid.querySelector(".app-card");
+          var step = card ? card.offsetWidth + 14 : appsGrid.clientWidth * 0.84;
+          appsGrid.scrollBy({ left: -step, behavior: "smooth" });
+        });
+      }
+
+      if (carouselNextBtn) {
+        carouselNextBtn.addEventListener("click", function () {
+          if (!appsGrid) return;
+          var card = appsGrid.querySelector(".app-card");
+          var step = card ? card.offsetWidth + 14 : appsGrid.clientWidth * 0.84;
+          appsGrid.scrollBy({ left: step, behavior: "smooth" });
+        });
+      }
+
+      if (appsGrid) {
+        appsGrid.addEventListener("scroll", updateCarouselState, { passive: true });
+        window.addEventListener("resize", updateCarouselState, { passive: true });
+        // Initial sync
+        setTimeout(updateCarouselState, 100);
+      }
 
       /* ---------- 4. SYSTEM HEALTH PROBE (Ping Engine) ---------- */
       var probeSummaryText = document.getElementById("probeSummaryText");
