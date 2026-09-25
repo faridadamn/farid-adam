@@ -1591,6 +1591,37 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    /* 24/7 Consultation Banner Card */
+    .consultation-card {
+      background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(236, 253, 245, 0.6) 100%);
+      border: 1.5px solid rgba(5, 150, 105, 0.25);
+      border-radius: var(--radius-card);
+      padding: 34px 38px;
+      box-shadow: 0 4px 20px rgba(5, 150, 105, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .consultation-left {
+      max-width: 620px;
+    }
+    .consultation-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 6px;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .consultation-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .consultation-right {
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
@@ -1722,6 +1753,20 @@
         font-size: 12.5px;
       }
 
+      .consultation-card {
+        padding: 22px 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+      }
+      .consultation-title {
+        font-size: 1.3rem;
+      }
+      .consultation-right .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
       .calc-card { padding: 22px; }
       .footer-grid { grid-template-columns: 1fr; gap: 24px; }
       .fab-whatsapp span { display: none; }
@@ -1746,7 +1791,7 @@
   <aside class="top-bar-sticky" role="complementary" aria-label="Pengumuman Portal">
     <div class="top-bar-left">
       <span class="top-pulse-dot" aria-hidden="true"></span>
-      <span>Portal Resmi Ekosistem Farid Adam &middot; 20+ Aplikasi Produksi Beroperasi 24/7</span>
+      <span>Software Siap Pakai Untuk Semua Kebutuhan &middot; Banyak Yang Gratis &middot; Konsultasi 24 Jam</span>
     </div>
     <div class="top-bar-right">
       <span class="top-uptime-tag" id="topUptime">99.9% UPTIME</span>
@@ -1842,31 +1887,31 @@
         <div class="hero-kicker-wrap">
           <div class="kicker-pill">
             <span class="kicker-dot" aria-hidden="true"></span>
-            <span>SOLO SOFTWARE BUILDER &middot; YOGYAKARTA</span>
+            <span>SOFTWARE SIAP PAKAI &middot; BANYAK YANG GRATIS &middot; KONSULTASI 24 JAM</span>
           </div>
         </div>
 
         <h1 class="hero-title" id="heroTitle">
-          Sistem Otomatisasi &amp; Aplikasi Nyata Yang <em>Bekerja 24/7.</em>
+          Software Siap Pakai Untuk <em>Semua Kebutuhan.</em>
         </h1>
 
         <p class="hero-lede">
-          Pintu masuk terpadu ke seluruh aplikasi produksi yang <b>sudah live dan beroperasi</b>. Mulai dari toko online chat-first (Payu), sistem manajemen apotek, WMS gudang, daily planner, platform masterclass edukasi, hingga Multi-Agent AI gateway.
+          Banyak yang <b>100% gratis</b> — silakan ambil dan manfaatkan sekarang untuk operasional bisnis, toko online chat-first, POS kasir, manajemen gudang, hingga otomasi AI Anda. Butuh bantuan implementasi atau konsultasi khusus? <b>Kami siap 24 Jam.</b>
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#katalog">
-            <span>Eksplorasi 20+ Aplikasi</span>
+            <span>Ambil &amp; Manfaatkan Sekarang</span>
             <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <a class="btn btn-emerald" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20dengan%20software%20Anda%20dan%20ingin%20konsultasi%20/%20butuh%20bantuan%20implementasi" target="_blank" rel="noopener">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>Konsultasi 24 Jam (WhatsApp)</span>
           </a>
           <button class="btn btn-outline" id="heroCheckBtn" type="button">
             <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            <span>Verifikasi Status Server</span>
+            <span>Uji Server</span>
           </button>
-          <a class="btn btn-secondary" href="#terminal">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
-            <span>Buka Terminal</span>
-          </a>
         </div>
 
         <!-- Metric Tally Cards -->
@@ -1998,9 +2043,9 @@
       <div class="container">
         <div class="section-head">
           <div class="section-title-wrap">
-            <span class="section-tag">DIREKTORI LENGKAP</span>
-            <h2 class="section-title" id="katalogTitle">Katalog Ekosistem Aplikasi</h2>
-            <p class="section-desc">Pilih kategori atau ketik nama aplikasi untuk membuka aplikasi secara instan.</p>
+            <span class="section-tag">SIAP PAKAI &middot; BANYAK YANG GRATIS</span>
+            <h2 class="section-title" id="katalogTitle">Katalog Software &amp; Ekosistem Aplikasi</h2>
+            <p class="section-desc">Banyak aplikasi siap pakai yang <b>100% gratis</b> — silakan ambil dan manfaatkan sekarang. Butuh bantuan implementasi di server Anda atau konsultasi? <b>Kami siap 24 jam.</b></p>
           </div>
         </div>
 
@@ -2974,6 +3019,27 @@
             <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             <span id="bottomCheckLabel">Uji Semua Aplikasi Sekarang</span>
           </button>
+        </div>
+      </div>
+    <!-- ========================================================================
+         24/7 CONSULTATION & IMPLEMENTATION CALLOUT
+         ======================================================================== -->
+    <section class="section-wrap" style="padding-top: 10px;">
+      <div class="container">
+        <div class="consultation-card">
+          <div class="consultation-left">
+            <span class="section-tag" style="color:var(--emerald);">KONSULTASI &amp; IMPLEMENTASI SISTEM</span>
+            <h3 class="consultation-title">Software Siap Pakai Untuk Semua Kebutuhan.</h3>
+            <p class="consultation-desc">
+              Banyak yang <b>100% gratis</b> — silakan ambil dan manfaatkan sekarang untuk operasional bisnis Anda. Butuh bantuan teknis, implementasi mandiri di server VPS Anda, atau integrasi AI? <b>Kami siap 24 jam.</b>
+            </p>
+          </div>
+          <div class="consultation-right">
+            <a class="btn btn-emerald" style="padding: 12px 22px; font-size: 14.5px;" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20dengan%20software%20Anda%20dan%20ingin%20konsultasi%20/%20butuh%20bantuan%20implementasi" target="_blank" rel="noopener">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>Butuh Bantuan? Chat WhatsApp 24 Jam</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
