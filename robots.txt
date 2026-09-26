@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /cms
+
+Sitemap: https://faridadamn.my.id/sitemap.xml

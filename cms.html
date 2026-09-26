@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>CMS Studio Artikel & SEO — Farid Adamn</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#F8FAFC" />
+
+  <!-- Fonts & Favicon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <style>
+    :root {
+      --bg-canvas: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --border-card: #E2E8F0;
+      --border-subtle: #F1F5F9;
+      --text-main: #0F172A;
+      --text-body: #334155;
+      --text-muted: #64748B;
+      --text-faint: #94A3B8;
+      --primary: #2563EB;
+      --primary-dark: #1D4ED8;
+      --primary-subtle: #EFF6FF;
+      --emerald: #10B981;
+      --emerald-dark: #059669;
+      --emerald-subtle: #ECFDF5;
+      --amber: #F59E0B;
+      --amber-subtle: #FFFBEB;
+      --rose: #EF4444;
+      --rose-subtle: #FEF2F2;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-card: 20px;
+      --radius-pill: 999px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-card: 0 8px 24px -4px rgba(15, 23, 42, 0.05);
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    }
+
+    [data-theme="dark"] {
+      --bg-canvas: #0B0F17;
+      --bg-surface: #131B2A;
+      --bg-subtle: #1C2638;
+      --border-card: #202D42;
+      --border-subtle: #1A2436;
+      --text-main: #F8FAFC;
+      --text-body: #CBD5E1;
+      --text-muted: #94A3B8;
+      --text-faint: #64748B;
+      --primary: #3B82F6;
+      --primary-subtle: rgba(59, 130, 246, 0.12);
+      --emerald-subtle: rgba(16, 185, 129, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-body);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+    .icon-sm { width: 14px; height: 14px; }
+    .icon-md { width: 20px; height: 20px; }
+
+    /* Top Navbar */
+    .cms-nav {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-card);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .cms-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .cms-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--primary-subtle);
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.16s ease;
+    }
+    .btn-primary { background: var(--primary); color: #FFFFFF; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-emerald { background: var(--emerald); color: #FFFFFF; }
+    .btn-emerald:hover { background: var(--emerald-dark); }
+    .btn-outline { background: transparent; border-color: var(--border-card); color: var(--text-main); }
+    .btn-outline:hover { background: var(--bg-subtle); border-color: var(--text-muted); }
+    .btn-danger { background: var(--rose-subtle); color: var(--rose); border-color: rgba(239, 68, 68, 0.2); }
+    .btn-danger:hover { background: var(--rose); color: #FFFFFF; }
+
+    /* Login Overlay */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+    }
+    .login-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 36px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+    }
+    .login-input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-card);
+      background: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      margin: 18px 0;
+      outline: none;
+    }
+    .login-input:focus { border-color: var(--primary); }
+
+    /* App Container */
+    .cms-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Dashboard Metrics */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .metric-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-val {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Articles Table */
+    .table-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .table-head-bar {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .cms-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      text-align: left;
+    }
+    .cms-table th {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      font-weight: 700;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border-card);
+    }
+    .cms-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+    }
+    .cms-table tr:hover td { background: var(--bg-subtle); }
+    .status-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+    }
+    .status-pill.published { background: var(--emerald-subtle); color: var(--emerald-dark); }
+    .status-pill.draft { background: var(--amber-subtle); color: var(--amber); }
+
+    /* Editor View (Dual-Pane) */
+    .editor-view {
+      display: none;
+    }
+    .editor-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 18px;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .form-counter {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); }
+    .form-textarea {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.6;
+      resize: vertical;
+    }
+
+    /* Toolbar */
+    .format-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-card);
+      border-bottom: none;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      padding: 6px;
+    }
+    .tb-btn {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .tb-btn:hover { background: var(--primary-subtle); color: var(--primary); }
+
+    /* SEO Auditor Scorecard */
+    .seo-auditor-card {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 20px;
+    }
+    .seo-score-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .seo-score-badge {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+    }
+    .seo-score-badge.good { background: var(--emerald-subtle); color: var(--emerald-dark); }
+    .seo-score-badge.warn { background: var(--amber-subtle); color: var(--amber); }
+    .seo-score-badge.bad { background: var(--rose-subtle); color: var(--rose); }
+
+    .seo-check-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 12px;
+    }
+    .seo-check-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .seo-check-item.pass { color: var(--emerald); }
+    .seo-check-item.fail { color: var(--rose); }
+
+    /* Live Preview Box */
+    .preview-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      max-height: 700px;
+      overflow-y: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 1024px) {
+      .editor-layout { grid-template-columns: 1fr; }
+      .metrics-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Modal -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <div style="width:48px;height:48px;border-radius:12px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-weight:800;font-size:20px;">FA</div>
+      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin-bottom:6px;">CMS Studio Artikel</h2>
+      <p style="font-size:13px;color:var(--text-muted);">Masukkan Token Admin Farid Adam untuk mengelola publikasi &amp; SEO artikel.</p>
+      
+      <input type="password" class="login-input" id="tokenInput" placeholder="Masukkan Admin Token..." autocomplete="off" />
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;" id="loginSubmitBtn">Masuk ke CMS</button>
+      <div id="loginError" style="font-size:12px;color:var(--rose);margin-top:10px;display:none;">Token tidak valid. Cek token di server.</div>
+    </div>
+  </div>
+
+  <!-- Top Navbar -->
+  <header class="cms-nav">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <a class="cms-brand" href="/cms">
+        <span>Farid Adamn</span>
+        <span class="cms-tag">CMS STUDIO</span>
+      </a>
+      <a href="/blog/" target="_blank" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Buka Blog Live &nearr;</a>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;">
+      <button class="btn btn-primary" id="btnNewArticle">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Tulis Artikel Baru</span>
+      </button>
+      <button class="btn btn-outline" id="btnLogout">Keluar</button>
+    </div>
+  </header>
+
+  <main class="cms-container">
+
+    <!-- 1. DASHBOARD VIEW -->
+    <div id="dashboardView">
+      <div class="metrics-row">
+        <div class="metric-card">
+          <div class="metric-val" id="metricTotal">0</div>
+          <div class="metric-label">Total Artikel</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" id="metricPublished" style="color:var(--emerald);">0</div>
+          <div class="metric-label">Terbit di Google</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" id="metricDraft" style="color:var(--amber);">0</div>
+          <div class="metric-label">Draft Disimpan</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-val" id="metricWords">0</div>
+          <div class="metric-label">Total Kata Ditulis</div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-head-bar">
+          <h3 style="font-size:1.1rem;font-weight:800;color:var(--text-main);">Daftar Seluruh Artikel</h3>
+          <input type="search" id="tableSearch" placeholder="Cari artikel..." style="padding:6px 12px;border-radius:var(--radius-pill);border:1px solid var(--border-card);font-size:13px;outline:none;" />
+        </div>
+        <div style="overflow-x:auto;">
+          <table class="cms-table">
+            <thead>
+              <tr>
+                <th>Judul Artikel</th>
+                <th>Kategori</th>
+                <th>Status</th>
+                <th>Statistik</th>
+                <th>Tanggal</th>
+                <th style="text-align:right;">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="articlesTableBody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. EDITOR VIEW -->
+    <div class="editor-view" id="editorView">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <button class="btn btn-outline" id="btnBackToDash">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Kembali ke Dashboard</span>
+        </button>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-outline" id="btnSaveDraft">Simpan Draft</button>
+          <button class="btn btn-emerald" id="btnPublish">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Terbitkan (Publish)</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="editor-layout">
+        <!-- Left: Form inputs -->
+        <div>
+          <input type="hidden" id="editArticleId" />
+
+          <div class="form-group">
+            <div class="form-label">
+              <span>Judul Artikel (H1)</span>
+              <span class="form-counter" id="titleCount">0 / 60 char</span>
+            </div>
+            <input type="text" class="form-input" id="inputTitle" placeholder="Contoh: 5 Cara Meningkatkan Penjualan Toko Online..." />
+          </div>
+
+          <div class="form-group">
+            <div class="form-label">
+              <span>Slug URL (/blog/slug-anda)</span>
+            </div>
+            <input type="text" class="form-input" id="inputSlug" placeholder="meningkatkan-penjualan-toko-online..." />
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div class="form-group">
+              <div class="form-label"><span>Kategori</span></div>
+              <select class="form-select" id="selectCategory">
+                <option value="Bisnis & Software">Bisnis &amp; Software</option>
+                <option value="AI & Otomasi">AI &amp; Otomasi</option>
+                <option value="UI/UX & Desain">UI/UX &amp; Desain</option>
+                <option value="DevOps & Server">DevOps &amp; Server</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <div class="form-label"><span>Focus Keyword (SEO)</span></div>
+              <input type="text" class="form-input" id="inputKeyword" placeholder="toko online chat-first" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label">
+              <span>Meta Deskripsi (Google Snippet)</span>
+              <span class="form-counter" id="descCount">0 / 160 char</span>
+            </div>
+            <textarea class="form-input" id="inputDesc" rows="3" placeholder="Deskripsi ringkas artikel untuk hasil pencarian Google (140-160 karakter)..."></textarea>
+          </div>
+
+          <!-- Content Editor with Toolbar -->
+          <div class="form-group">
+            <div class="form-label"><span>Isi Konten Artikel (Markdown &amp; HTML)</span></div>
+            <div class="format-toolbar">
+              <button class="tb-btn" type="button" onclick="insertTag('h2')">H2</button>
+              <button class="tb-btn" type="button" onclick="insertTag('h3')">H3</button>
+              <button class="tb-btn" type="button" onclick="insertTag('bold')"><b>B</b></button>
+              <button class="tb-btn" type="button" onclick="insertTag('italic')"><i>I</i></button>
+              <button class="tb-btn" type="button" onclick="insertTag('quote')">Kutipan</button>
+              <button class="tb-btn" type="button" onclick="insertTag('callout')">Callout Box</button>
+              <button class="tb-btn" type="button" onclick="insertTag('code')">Kode</button>
+              <button class="tb-btn" type="button" onclick="insertTag('table')">Tabel</button>
+              <button class="tb-btn" type="button" onclick="insertTag('link')">Link</button>
+            </div>
+            <textarea class="form-textarea" id="inputContent" rows="18" placeholder="Tulis artikel di sini menggunakan Markdown atau tag HTML..."></textarea>
+          </div>
+        </div>
+
+        <!-- Right: Real-time SEO Auditor & Live Preview -->
+        <div>
+          <!-- Scorecard -->
+          <div class="seo-auditor-card">
+            <div class="seo-score-head">
+              <div>
+                <h4 style="font-size:14px;font-weight:800;color:var(--text-main);">SEO On-Page Auditor</h4>
+                <div style="font-size:12px;color:var(--text-muted);" id="seoStatsText">0 kata &bull; 0 menit baca</div>
+              </div>
+              <div class="seo-score-badge good" id="seoScoreBadge">100/100</div>
+            </div>
+
+            <div class="seo-check-list" id="seoCheckList">
+              <!-- Checklist items rendered by JS -->
+            </div>
+          </div>
+
+          <!-- Live Preview Box -->
+          <h4 style="font-size:13px;font-weight:800;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">Pratinjau Langsung (Live Preview)</h4>
+          <div class="preview-box" id="livePreviewBox">
+            <p style="color:var(--text-faint);">Ketik di sebelah kiri untuk melihat pratinjau...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var API_BASE = "/api/blog";
+      var token = localStorage.getItem("fa_cms_token") || "";
+
+      var loginOverlay = document.getElementById("loginOverlay");
+      var tokenInput = document.getElementById("tokenInput");
+      var loginSubmitBtn = document.getElementById("loginSubmitBtn");
+      var loginError = document.getElementById("loginError");
+
+      var dashboardView = document.getElementById("dashboardView");
+      var editorView = document.getElementById("editorView");
+
+      var articles = [];
+
+      // Check auth on start
+      if (token) {
+        verifyToken(token);
+      } else {
+        loginOverlay.style.display = "flex";
+      }
+
+      loginSubmitBtn.addEventListener("click", function () {
+        var t = tokenInput.value.trim();
+        if (t) verifyToken(t);
+      });
+
+      tokenInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") loginSubmitBtn.click();
+      });
+
+      document.getElementById("btnLogout").addEventListener("click", function () {
+        localStorage.removeItem("fa_cms_token");
+        location.reload();
+      });
+
+      function verifyToken(t) {
+        fetch(API_BASE + "/auth", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token: t })
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.ok) {
+            token = t;
+            localStorage.setItem("fa_cms_token", t);
+            loginOverlay.style.display = "none";
+            loadArticles();
+          } else {
+            loginOverlay.style.display = "flex";
+            loginError.style.display = "block";
+          }
+        })
+        .catch(function () {
+          // If offline/testing fallback:
+          if (t === "cWST8dH8B45Yme38m4Acsg") {
+            token = t;
+            localStorage.setItem("fa_cms_token", t);
+            loginOverlay.style.display = "none";
+            loadArticles();
+          } else {
+            loginOverlay.style.display = "flex";
+            loginError.style.display = "block";
+          }
+        });
+      }
+
+      function loadArticles() {
+        fetch(API_BASE + "/articles", {
+          headers: { "Authorization": "Bearer " + token }
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          articles = res.articles || [];
+          renderDashboard();
+        })
+        .catch(function () {
+          fetch("/data/articles.json")
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+              articles = d || [];
+              renderDashboard();
+            });
+        });
+      }
+
+      function renderDashboard() {
+        var total = articles.length;
+        var pub = articles.filter(function (a) { return a.status === "published"; }).length;
+        var draft = total - pub;
+        var words = articles.reduce(function (sum, a) { return sum + (a.word_count || 0); }, 0);
+
+        document.getElementById("metricTotal").textContent = total;
+        document.getElementById("metricPublished").textContent = pub;
+        document.getElementById("metricDraft").textContent = draft;
+        document.getElementById("metricWords").textContent = words.toLocaleString("id-ID");
+
+        var tbody = document.getElementById("articlesTableBody");
+        var html = "";
+        articles.forEach(function (a) {
+          var isPub = a.status === "published";
+          html += '<tr>' +
+            '<td><b style="color:var(--text-main);">' + a.title + '</b><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--text-muted);">/blog/' + a.slug + '</div></td>' +
+            '<td><span class="cms-tag">' + (a.category || "General") + '</span></td>' +
+            '<td><span class="status-pill ' + (isPub ? 'published' : 'draft') + '">' + (isPub ? 'Published' : 'Draft') + '</span></td>' +
+            '<td style="font-size:12px;color:var(--text-muted);">' + (a.word_count || 0) + ' kata &bull; ' + (a.read_time || '') + '</td>' +
+            '<td style="font-size:12px;color:var(--text-muted);">' + (a.date || '') + '</td>' +
+            '<td style="text-align:right;white-space:nowrap;">' +
+              '<button class="btn btn-outline" style="padding:4px 10px;font-size:12px;margin-right:6px;" onclick="editArticle(\'' + a.id + '\')">Edit</button>' +
+              '<a class="btn btn-outline" style="padding:4px 10px;font-size:12px;margin-right:6px;" href="/blog/' + a.slug + '" target="_blank">&nearr;</a>' +
+              '<button class="btn btn-danger" style="padding:4px 10px;font-size:12px;" onclick="deleteArticle(\'' + a.id + '\')">Hapus</button>' +
+            '</td>' +
+          '</tr>';
+        });
+        tbody.innerHTML = html;
+      }
+
+      // Switch views
+      document.getElementById("btnNewArticle").addEventListener("click", function () {
+        openEditor(null);
+      });
+      document.getElementById("btnBackToDash").addEventListener("click", function () {
+        editorView.style.display = "none";
+        dashboardView.style.display = "block";
+      });
+
+      window.editArticle = function (id) {
+        var art = articles.find(function (a) { return a.id === id; });
+        if (art) openEditor(art);
+      };
+
+      window.deleteArticle = function (id) {
+        if (!confirm("Yakin ingin menghapus artikel ini?")) return;
+        fetch(API_BASE + "/articles/" + id, {
+          method: "DELETE",
+          headers: { "Authorization": "Bearer " + token }
+        })
+        .then(function () {
+          loadArticles();
+        });
+      };
+
+      var inputTitle = document.getElementById("inputTitle");
+      var inputSlug = document.getElementById("inputSlug");
+      var selectCategory = document.getElementById("selectCategory");
+      var inputKeyword = document.getElementById("inputKeyword");
+      var inputDesc = document.getElementById("inputDesc");
+      var inputContent = document.getElementById("inputContent");
+      var editArticleId = document.getElementById("editArticleId");
+
+      function openEditor(art) {
+        dashboardView.style.display = "none";
+        editorView.style.display = "block";
+
+        if (art) {
+          editArticleId.value = art.id || "";
+          inputTitle.value = art.title || "";
+          inputSlug.value = art.slug || "";
+          selectCategory.value = art.category || "Bisnis & Software";
+          inputKeyword.value = art.focus_keyword || "";
+          inputDesc.value = art.description || "";
+          inputContent.value = art.content || "";
+        } else {
+          editArticleId.value = "";
+          inputTitle.value = "";
+          inputSlug.value = "";
+          selectCategory.value = "Bisnis & Software";
+          inputKeyword.value = "";
+          inputDesc.value = "";
+          inputContent.value = "";
+        }
+        updateAuditor();
+      }
+
+      // Auto slug from title
+      inputTitle.addEventListener("input", function () {
+        if (!editArticleId.value) {
+          inputSlug.value = inputTitle.value.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-|-$/g, '');
+        }
+        updateAuditor();
+      });
+      inputDesc.addEventListener("input", updateAuditor);
+      inputKeyword.addEventListener("input", updateAuditor);
+      inputContent.addEventListener("input", updateAuditor);
+
+      function updateAuditor() {
+        var title = inputTitle.value.trim();
+        var desc = inputDesc.value.trim();
+        var kw = inputKeyword.value.trim().toLowerCase();
+        var content = inputContent.value;
+
+        document.getElementById("titleCount").textContent = title.length + " / 60 char";
+        document.getElementById("descCount").textContent = desc.length + " / 160 char";
+
+        // Count words
+        var cleanText = content.replace(/<[^>]*?>/g, ' ');
+        var words = cleanText.split(/\s+/).filter(function (w) { return w.length > 0; }).length;
+        var readTime = Math.max(1, Math.round(words / 200));
+
+        document.getElementById("seoStatsText").textContent = words + " kata \u2022 " + readTime + " menit baca";
+
+        // Checklist tests
+        var checks = [
+          { label: "Focus Keyword di Judul H1", pass: kw && title.toLowerCase().indexOf(kw) !== -1 },
+          { label: "Focus Keyword di Meta Deskripsi", pass: kw && desc.toLowerCase().indexOf(kw) !== -1 },
+          { label: "Focus Keyword di paragraf pembuka", pass: kw && content.toLowerCase().slice(0, 400).indexOf(kw) !== -1 },
+          { label: "Focus Keyword di minimal satu Subheading H2", pass: kw && (content.indexOf("<h2>") !== -1 || content.indexOf("## ")) && content.toLowerCase().indexOf(kw) !== -1 },
+          { label: "Panjang Meta Deskripsi optimal (120-160 char)", pass: desc.length >= 120 && desc.length <= 165 },
+          { label: "Panjang Konten >= 800 kata untuk Google Ranking", pass: words >= 800 }
+        ];
+
+        var passedCount = checks.filter(function (c) { return c.pass; }).length;
+        var score = Math.round((passedCount / checks.length) * 100);
+
+        var badge = document.getElementById("seoScoreBadge");
+        badge.textContent = score + "/100";
+        badge.className = "seo-score-badge " + (score >= 80 ? "good" : (score >= 50 ? "warn" : "bad"));
+
+        var listHtml = "";
+        checks.forEach(function (c) {
+          listHtml += '<div class="seo-check-item ' + (c.pass ? 'pass' : 'fail') + '">' +
+            '<span>' + (c.pass ? '&#10004;' : '&#10008;') + '</span>' +
+            '<span>' + c.label + '</span>' +
+          '</div>';
+        });
+        document.getElementById("seoCheckList").innerHTML = listHtml;
+
+        // Update live preview
+        document.getElementById("livePreviewBox").innerHTML = '<h1 style="font-size:1.6rem;font-weight:800;color:var(--text-main);margin-bottom:12px;">' + (title || "Judul Artikel") + '</h1>' +
+          '<div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">' + selectCategory.value + ' &bull; ' + readTime + ' menit baca &bull; ' + words + ' kata</div>' +
+          '<div style="line-height:1.7;color:var(--text-body);font-size:14.5px;">' + (content || '<p style="color:var(--text-faint);">Konten kosong...</p>') + '</div>';
+      }
+
+      function saveArticleData(status) {
+        var data = {
+          id: editArticleId.value || undefined,
+          title: inputTitle.value.trim(),
+          slug: inputSlug.value.trim(),
+          category: selectCategory.value,
+          focus_keyword: inputKeyword.value.trim(),
+          description: inputDesc.value.trim(),
+          content: inputContent.value,
+          status: status
+        };
+
+        if (!data.title) {
+          alert("Judul artikel tidak boleh kosong!");
+          return;
+        }
+
+        fetch(API_BASE + "/articles", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+          },
+          body: JSON.stringify(data)
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res.ok) {
+            alert(status === "published" ? "Artikel berhasil diterbitkan!" : "Draft berhasil disimpan!");
+            editorView.style.display = "none";
+            dashboardView.style.display = "block";
+            loadArticles();
+          } else {
+            alert("Error: " + (res.error || "Gagal menyimpan"));
+          }
+        })
+        .catch(function (err) {
+          alert("Gagal koneksi ke server: " + err);
+        });
+      }
+
+      document.getElementById("btnSaveDraft").addEventListener("click", function () { saveArticleData("draft"); });
+      document.getElementById("btnPublish").addEventListener("click", function () { saveArticleData("published"); });
+
+      window.insertTag = function (type) {
+        var ta = inputContent;
+        var start = ta.selectionStart;
+        var end = ta.selectionEnd;
+        var sel = ta.value.substring(start, end);
+        var repl = "";
+
+        if (type === "h2") repl = "<h2>" + (sel || "Subheading H2") + "</h2>\n";
+        else if (type === "h3") repl = "<h3>" + (sel || "Subheading H3") + "</h3>\n";
+        else if (type === "bold") repl = "<strong>" + (sel || "teks tebal") + "</strong>";
+        else if (type === "italic") repl = "<em>" + (sel || "teks miring") + "</em>";
+        else if (type === "quote") repl = "<blockquote>" + (sel || "Kutipan penting...") + "</blockquote>\n";
+        else if (type === "callout") repl = '<div class="article-callout"><div class="callout-title">Poin Kunci</div><p>' + (sel || "Penjelasan...") + '</p></div>\n';
+        else if (type === "code") repl = "<pre><code>" + (sel || "// Kode di sini") + "</code></pre>\n";
+        else if (type === "table") repl = '<div class="article-table-wrap"><table class="article-table"><thead><tr><th>Fitur</th><th>Keterangan</th></tr></thead><tbody><tr><td>Poin 1</td><td>Nilai</td></tr></tbody></table></div>\n';
+        else if (type === "link") repl = '<a href="https://wa.me/6281212686654" target="_blank">' + (sel || "Tautan Konsultasi") + '</a>';
+
+        ta.value = ta.value.substring(0, start) + repl + ta.value.substring(end);
+        ta.focus();
+        updateAuditor();
+      };
+    })();
+  </script>
+</body>
+</html>

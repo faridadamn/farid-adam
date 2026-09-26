@@ -1,2 +1,8 @@
 index.html.bak-*
+*.bak
+*.bak-*
 .build_log_state.json
+_arsip/
+*.PORTOFOLIO_LAMA_*
+__pycache__/
+*.pyc
