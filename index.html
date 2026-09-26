@@ -331,7 +331,8 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 18px;
+      margin-left: 16px;
       font-size: 14px;
       font-weight: 600;
       color: var(--text-muted);
@@ -1625,10 +1626,730 @@
       flex-shrink: 0;
     }
 
+    
+    /* ==========================================================================
+       HERO ENHANCEMENT: 2-COLUMN DESKTOP & PAYU SHOWCASE (Ref Image 1 & 2)
+       ========================================================================== */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 36px;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-value-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .value-pill-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+    }
+    .value-pill-item svg {
+      color: var(--primary);
+    }
+
+    /* Hero Showcase Card (Payu Interactive Visual) */
+    .hero-showcase-card {
+      background: linear-gradient(145deg, rgba(239, 246, 255, 0.7) 0%, var(--bg-surface) 100%);
+      border: 1.5px solid rgba(37, 99, 235, 0.2);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      box-shadow: 0 16px 36px -8px rgba(37, 99, 235, 0.12), var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+    [data-theme="dark"] .hero-showcase-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, var(--bg-surface) 100%);
+      border-color: rgba(59, 130, 246, 0.25);
+    }
+    .hero-showcase-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .hero-showcase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .hero-showcase-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+    }
+    .hero-showcase-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .hero-showcase-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: var(--primary);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      transition: all 0.16s ease;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+    }
+    .hero-showcase-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Mockup phone & floating order card */
+    .hero-visual-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+    .mini-chat-phone {
+      background: #0B141B;
+      border-radius: 14px;
+      padding: 10px 8px;
+      border: 1px solid #202C33;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .mini-chat-bubble {
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 10px;
+      line-height: 1.35;
+      max-width: 92%;
+    }
+    .mini-chat-bubble.in {
+      background: #202C33;
+      color: #E9EDEF;
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+    }
+    .mini-chat-bubble.out {
+      background: #005C4B;
+      color: #E9EDEF;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+    }
+    .mini-chat-prod {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      padding: 4px 6px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 6px;
+    }
+    .mini-chat-prod-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: #2563EB;
+      flex-shrink: 0;
+    }
+    .mini-chat-prod-info {
+      font-size: 9.5px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .mini-orders-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: 14px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+    }
+    .mini-orders-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mini-order-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      padding: 3px 0;
+      border-bottom: 1px dashed var(--border-subtle);
+    }
+    .mini-order-ref { font-family: var(--font-mono); font-weight: 600; color: var(--text-muted); }
+    .mini-order-val { font-weight: 700; color: var(--text-main); }
+    .mini-order-badge {
+      font-size: 8.5px;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: #FEF3C7;
+      color: #92400E;
+    }
+    .mini-order-badge.done { background: #DCFCE7; color: #166534; }
+    .mini-order-badge.proc { background: #DBEAFE; color: #1E40AF; }
+    .mini-sales-total {
+      margin-top: 6px;
+      padding-top: 5px;
+      border-top: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mini-sales-num {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 12px;
+      color: var(--text-main);
+    }
+    .mini-sales-up {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--emerald);
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    /* ==========================================================================
+       SECTION: LAYANAN JASA & IMPLEMENTASI MANDIRI (#layanan)
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .service-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+    .service-card-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .service-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+    .service-card:nth-child(2) .service-icon-box { background: var(--emerald-subtle); color: var(--emerald); }
+    .service-card:nth-child(3) .service-icon-box { background: #F5F3FF; color: #7C3AED; }
+    .service-card:nth-child(4) .service-icon-box { background: #FFFBEB; color: #D97706; }
+    .service-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .service-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .service-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-subtle);
+    }
+    .service-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+    .service-highlight-item svg {
+      color: var(--emerald);
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       SECTION: BLOG & TULISAN BUILDER (#blog) (Ref Image 2 Screen 8)
+       ========================================================================== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+    .blog-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .blog-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--border-highlight);
+    }
+    .blog-thumb-wrap {
+      width: 100%;
+      height: 170px;
+      background: var(--bg-subtle);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+        .blog-thumb-art {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 100%;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+    .blog-thumb-badge-art {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #93C5FD;
+    }
+    .ai-glow-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45);
+    }
+    .blog-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .blog-card:hover     .blog-thumb-art {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 100%;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+    .blog-thumb-badge-art {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #93C5FD;
+    }
+    .ai-glow-badge {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+      color: #FFFFFF;
+      font-family: var(--font-sans);
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(124, 58, 237, 0.45);
+    }
+    .blog-thumb-wrap img {
+      transform: scale(1.04);
+    }
+    .blog-thumb-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+    }
+    .blog-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: var(--text-faint);
+      margin-bottom: 8px;
+    }
+    .blog-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.35;
+      margin-bottom: 8px;
+      letter-spacing: -0.015em;
+    }
+    .blog-card:hover .blog-title {
+      color: var(--primary);
+    }
+    .blog-excerpt {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .blog-read-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       DARK SLEEK BOTTOM CTA BANNER (Ref Image 1 & 2)
+       ========================================================================== */
+    .dark-cta-banner {
+      background: #0B132B;
+      color: #FFFFFF;
+      border-radius: var(--radius-card);
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 26px;
+      box-shadow: 0 12px 32px rgba(11, 19, 43, 0.4);
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .dark-cta-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      max-width: 650px;
+    }
+    .dark-cta-icon-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #10B981;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+    .dark-cta-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .dark-cta-desc {
+      font-size: 13.5px;
+      color: #94A3B8;
+      line-height: 1.55;
+    }
+    .dark-cta-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .dark-cta-btn {
+      background: #10B981;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      font-size: 14.5px;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+      transition: all 0.16s ease;
+    }
+    .dark-cta-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.45);
+    }
+    .dark-cta-microtext {
+      font-size: 11.5px;
+      color: #64748B;
+    }
+
+    /* Interactive Article Reader Modal */
+    .article-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .article-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .article-modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      max-width: 720px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      padding: 34px;
+      position: relative;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+    }
+    .article-modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-card);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+    }
+    .article-modal-body {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+      margin-top: 20px;
+    }
+    .article-modal-body h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 22px 0 8px;
+    }
+    .article-modal-body p {
+      margin-bottom: 14px;
+    }
+
+    /* WhatsApp Quick Consultation Modal (Ref Image 2 Screen 9) */
+    .wa-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .wa-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .wa-modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      max-width: 440px;
+      width: 100%;
+      padding: 32px 28px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+    }
+    .wa-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-card);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+    }
+    .wa-modal-icon-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #10B981;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+    }
+    .wa-modal-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .wa-modal-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+    .wa-modal-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 22px;
+      text-align: left;
+    }
+    .wa-modal-opt-btn {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: none;
+      transition: all 0.16s ease;
+    }
+    .wa-modal-opt-btn:hover {
+      border-color: #10B981;
+      background: var(--emerald-subtle);
+      color: var(--emerald-dark);
+      transform: translateX(2px);
+    }
+    .wa-modal-features {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 11px;
+      color: var(--text-faint);
+      margin-top: 14px;
+    }
+
     /* ==========================================================================
        RESPONSIVE BREAKPOINTS (Mobile Optimization)
        ========================================================================== */
     @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
       .flagship-grid { grid-template-columns: repeat(2, 1fr); }
       .app-cards-grid { grid-template-columns: repeat(2, 1fr); }
       .tally-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1648,6 +2369,14 @@
       .nav-toggle-btn { display: inline-flex; }
       .hero-section { padding: 32px 0 28px; }
       .hero-title { font-size: 1.85rem; }
+      .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .hero-visual-board { grid-template-columns: 1fr; }
+      .dark-cta-banner { padding: 24px 18px; }
+      .dark-cta-left { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .dark-cta-right { align-items: stretch; width: 100%; }
+      .dark-cta-btn { width: 100%; justify-content: center; }
       .tally-grid { grid-template-columns: 1fr; gap: 10px; }
       .flagship-grid { grid-template-columns: 1fr; }
       /* Filter & Chips Mobile Refinement (Zero Overlapping) */
@@ -1814,10 +2543,11 @@
       </a>
 
       <nav class="nav-links" aria-label="Navigasi Utama">
+        <a href="#flagship">Produk</a>
+        <a href="#layanan">Layanan &amp; Jasa</a>
         <a href="#katalog">Katalog Aplikasi</a>
-        <a href="#flagship">Unggulan</a>
+        <a href="#blog">Blog &amp; Tulisan</a>
         <a href="#kalkulator">Kalkulator ROI</a>
-        <a href="#terminal">Web Terminal</a>
         <a href="#prinsip">Prinsip</a>
         <a href="https://github.com/faridadamn" target="_blank" rel="noopener">GitHub</a>
       </nav>
@@ -1861,10 +2591,11 @@
       </div>
 
       <div class="drawer-links">
+        <a class="drawer-link" href="#flagship"><svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Produk Unggulan</a>
+        <a class="drawer-link" href="#layanan"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Layanan &amp; Jasa</a>
         <a class="drawer-link" href="#katalog"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>Katalog Aplikasi</a>
-        <a class="drawer-link" href="#flagship"><svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>Aplikasi Unggulan</a>
+        <a class="drawer-link" href="#blog"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10M6 10h10"/></svg>Blog &amp; Tulisan</a>
         <a class="drawer-link" href="#kalkulator"><svg class="icon icon-sm" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>Kalkulator ROI</a>
-        <a class="drawer-link" href="#terminal"><svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>PocketOps Terminal</a>
         <a class="drawer-link" href="#prinsip"><svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Prinsip Builder</a>
         <a class="drawer-link" href="https://github.com/faridadamn" target="_blank" rel="noopener"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub Profile</a>
       </div>
@@ -1885,34 +2616,132 @@
          ======================================================================== -->
     <section class="hero-section" aria-labelledby="heroTitle">
       <div class="container">
-        <div class="hero-kicker-wrap">
-          <div class="kicker-pill">
-            <span class="kicker-dot" aria-hidden="true"></span>
-            <span>SOFTWARE SIAP PAKAI &middot; BANYAK YANG GRATIS &middot; KONSULTASI 24 JAM</span>
+        <div class="hero-grid">
+          <!-- Left Column -->
+          <div class="hero-left">
+            <div class="hero-kicker-wrap">
+              <div class="kicker-pill">
+                <span class="kicker-dot" aria-hidden="true"></span>
+                <span>SOFTWARE SIAP PAKAI &middot; BANYAK YANG GRATIS &middot; KONSULTASI 24 JAM</span>
+              </div>
+            </div>
+
+            <h1 class="hero-title" id="heroTitle">
+              Software yang Langsung Bisa Dipakai Untuk <em>Operasional Bisnis.</em>
+            </h1>
+
+            <p class="hero-lede">
+              Banyak yang <b>100% gratis</b> — silakan ambil dan manfaatkan sekarang untuk toko online chat-first, kasir apotek, manajemen gudang, hingga otomasi AI Anda. Butuh bantuan implementasi di server VPS Anda atau konsultasi? <b>Kami siap 24 Jam.</b>
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#katalog">
+                <span>Ambil &amp; Manfaatkan Sekarang</span>
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+              </a>
+              <a class="btn btn-emerald wa-trigger-btn" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20dengan%20software%20Anda%20dan%20ingin%20konsultasi%20/%20butuh%20bantuan%20implementasi" target="_blank" rel="noopener">
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <span>Konsultasi 24 Jam</span>
+              </a>
+              <a class="btn btn-outline" href="#layanan">
+                <span>Lihat Layanan &amp; Jasa</span>
+              </a>
+            </div>
+
+            <div class="hero-value-pills" role="list" aria-label="Keunggulan Utama">
+              <div class="value-pill-item" role="listitem">
+                <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>23+ Aplikasi &amp; Tools</span>
+              </div>
+              <div class="value-pill-item" role="listitem">
+                <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                <span>100% Siap Pakai</span>
+              </div>
+              <div class="value-pill-item" role="listitem">
+                <svg class="icon icon-xs" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Mudah Digunakan</span>
+              </div>
+              <div class="value-pill-item" role="listitem">
+                <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>Untuk Semua Bisnis</span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <h1 class="hero-title" id="heroTitle">
-          Software Siap Pakai Untuk <em>Semua Kebutuhan.</em>
-        </h1>
+          <!-- Right Column: Interactive Payu Showcase Card (Ref Image 1) -->
+          <div class="hero-right">
+            <div class="hero-showcase-card">
+              <div class="hero-showcase-head">
+                <div class="hero-showcase-badge">
+                  <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  <span>Payu Toko Online</span>
+                </div>
+                <a class="hero-showcase-cta" href="/payu/" target="_blank" rel="noopener">
+                  <span>Lihat Demo</span>
+                  <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
 
-        <p class="hero-lede">
-          Banyak yang <b>100% gratis</b> — silakan ambil dan manfaatkan sekarang untuk operasional bisnis, toko online chat-first, POS kasir, manajemen gudang, hingga otomasi AI Anda. Butuh bantuan implementasi atau konsultasi khusus? <b>Kami siap 24 Jam.</b>
-        </p>
+              <h3 class="hero-showcase-title">Toko online chat-first — chat pelanggan otomatis jadi order.</h3>
+              <p class="hero-showcase-desc">Kelola katalog produk, terima invoice QRIS dinamis, dan pantau seluruh transaksi dalam satu dashboard admin mandiri.</p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#katalog">
-            <span>Ambil &amp; Manfaatkan Sekarang</span>
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <a class="btn btn-emerald" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20dengan%20software%20Anda%20dan%20ingin%20konsultasi%20/%20butuh%20bantuan%20implementasi" target="_blank" rel="noopener">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            <span>Konsultasi 24 Jam (WhatsApp)</span>
-          </a>
-          <button class="btn btn-outline" id="heroCheckBtn" type="button">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            <span>Uji Server</span>
-          </button>
+              <!-- Mini visual mock board -->
+              <div class="hero-visual-board">
+                <!-- Mini phone chat simulation -->
+                <div class="mini-chat-phone" aria-hidden="true">
+                  <div class="mini-chat-bubble in">
+                    <div>Halo, Kaos Premium hitam ukuran L masih ready?</div>
+                  </div>
+                  <div class="mini-chat-bubble out">
+                    <div>Ready kak! Klik link untuk order langsung:</div>
+                    <div class="mini-chat-prod">
+                      <div class="mini-chat-prod-thumb"></div>
+                      <div class="mini-chat-prod-info">Kaos Premium &middot; Rp 85.000</div>
+                    </div>
+                  </div>
+                  <div class="mini-chat-bubble in">
+                    <div>Oke, saya pesan 1 ya via QRIS</div>
+                  </div>
+                </div>
+
+                <!-- Mini order list card -->
+                <div class="mini-orders-card" aria-hidden="true">
+                  <div>
+                    <div class="mini-orders-title">
+                      <span>Pesanan Masuk</span>
+                      <span class="top-pulse-dot" style="width:6px; height:6px;"></span>
+                    </div>
+                    <div class="mini-order-item">
+                      <span class="mini-order-ref">#ORD-001</span>
+                      <span class="mini-order-val">Rp 85.000</span>
+                      <span class="mini-order-badge">Baru</span>
+                    </div>
+                    <div class="mini-order-item">
+                      <span class="mini-order-ref">#ORD-002</span>
+                      <span class="mini-order-val">Rp 120.000</span>
+                      <span class="mini-order-badge proc">Diproses</span>
+                    </div>
+                    <div class="mini-order-item">
+                      <span class="mini-order-ref">#ORD-003</span>
+                      <span class="mini-order-val">Rp 95.000</span>
+                      <span class="mini-order-badge done">Dikirim</span>
+                    </div>
+                  </div>
+
+                  <div class="mini-sales-total">
+                    <div>
+                      <div style="font-size:9.5px; color:var(--text-muted);">Total Penjualan</div>
+                      <div class="mini-sales-num">Rp 3.250.000</div>
+                    </div>
+                    <div class="mini-sales-up">
+                      <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+                      <span>+24%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Metric Tally Cards -->
@@ -2032,6 +2861,89 @@
               <span>Buka Console Ngobrol</span>
               <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>
             </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         LAYANAN & IMPLEMENTASI MANDIRI (#layanan)
+         ======================================================================== -->
+    <section class="section-wrap" id="layanan" aria-labelledby="layananTitle">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-wrap">
+            <span class="section-tag">LAYANAN &amp; JASA IMPLEMENTASI</span>
+            <h2 class="section-title" id="layananTitle">Apa yang Kami Bantu &amp; Tawarkan</h2>
+            <p class="section-desc">Selain menyediakan software siap pakai gratis, kami membuka jasa implementasi server, kustomisasi AI, dan pembuatan antarmuka modern untuk bisnis Anda.</p>
+          </div>
+          <div>
+            <a class="btn btn-outline" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20ingin%20tanya%20layanan%20implementasi%20/%20konsultasi%20sistem" target="_blank" rel="noopener">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>Diskusi Kebutuhan Anda</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Software Siap Pakai -->
+          <article class="service-card">
+            <span class="service-card-tag">01 &middot; Siap Pakai</span>
+            <div class="service-icon-box">
+              <svg class="icon icon-md" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3 class="service-title">Software Siap Pakai (Banyak yang Gratis)</h3>
+            <p class="service-desc">Akses langsung puluhan aplikasi produksi teruji (Toko online chat-first, kasir apotek, WMS gudang, daily planner). Bebas biaya langganan software bulanan yang memberatkan.</p>
+            <div class="service-highlights">
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Langsung pakai dari browser</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Banyak yang 100% gratis</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Tanpa biaya sewa tersembunyi</span></div>
+            </div>
+          </article>
+
+          <!-- Service 2: Jasa Implementasi VPS & Server Mandiri -->
+          <article class="service-card">
+            <span class="service-card-tag" style="color:var(--emerald);">02 &middot; Implementasi</span>
+            <div class="service-icon-box">
+              <svg class="icon icon-md" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            </div>
+            <h3 class="service-title">Jasa Implementasi Server Mandiri (Self-Hosted)</h3>
+            <p class="service-desc">Kami bantu deploy software ke VPS cloud milik Anda sendiri. Mulai dari konfigurasi Linux Ubuntu, Docker, Nginx reverse proxy, custom domain, SSL, hingga auto-backup harian.</p>
+            <div class="service-highlights">
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Zero vendor lock-in</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Data &amp; database 100% milik Anda</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Klien terima beres siap pakai</span></div>
+            </div>
+          </article>
+
+          <!-- Service 3: Solusi & Produk AI Otonom -->
+          <article class="service-card">
+            <span class="service-card-tag" style="color:#7C3AED;">03 &middot; AI Solutions</span>
+            <div class="service-icon-box">
+              <svg class="icon icon-md" viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 3.37 2.09 6.25 5.04 7.4.4.08.55-.17.55-.38v-1.35c-2.03.44-2.46-.98-2.46-.98-.33-.85-.81-1.08-.81-1.08-.66-.45.05-.44.05-.44.73.05 1.12.75 1.12.75.65 1.12 1.71.8 2.13.61.07-.47.26-.8.47-.98-1.62-.18-3.32-.81-3.32-3.6 0-.8.28-1.45.75-1.95-.08-.18-.33-.93.07-1.92 0 0 .61-.2 2 .75a6.9 6.9 0 0 1 3.64 0c1.39-.95 2-.75 2-.75.4 1 .15 1.74.07 1.92.47.5.75 1.15.75 1.95 0 2.8-1.7 3.42-3.33 3.6.27.23.51.69.51 1.39v2.06c0 .21.15.46.55.38A8.01 8.01 0 0 0 20 10a8 8 0 0 0-8-8z"/></svg>
+            </div>
+            <h3 class="service-title">Produk &amp; Otomasi Agen AI Otonom</h3>
+            <p class="service-desc">Integrasi WhatsApp bot cerdas, customer support otomatis 24 jam berbasis LLM gateway, dan RAG knowledge base untuk menghilangkan bottleneck pekerjaan administratif tim Anda.</p>
+            <div class="service-highlights">
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Kecepatan respon &lt; 3 detik</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Multi-model (GPT, Claude, Gemini)</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Otomatisasi alur kerja pesanan</span></div>
+            </div>
+          </article>
+
+          <!-- Service 4: UI/UX & Web Performance -->
+          <article class="service-card">
+            <span class="service-card-tag" style="color:#D97706;">04 &middot; UI/UX &amp; Web</span>
+            <div class="service-icon-box">
+              <svg class="icon icon-md" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3 class="service-title">UI/UX &amp; High-Converting Web Apps</h3>
+            <p class="service-desc">Perancangan landing page dan website bisnis dengan standar engineering anti-slop: ringan, tipografi presisi, mobile-first, dan terbukti menghasilkan tingkat konversi tinggi.</p>
+            <div class="service-highlights">
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Kecepatan buka &lt; 1 detik</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Desain clean profesional</span></div>
+              <div class="service-highlight-item"><svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Optimal di layar smartphone</span></div>
+            </div>
           </article>
         </div>
       </div>
@@ -2848,6 +3760,98 @@
     </section>
 
     <!-- ========================================================================
+         BLOG & CATATAN BUILDER (#blog) (Ref Image 2 Screen 8)
+         ======================================================================== -->
+    <section class="section-wrap" id="blog" aria-labelledby="blogTitle">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-title-wrap">
+            <span class="section-tag">CATATAN &amp; TULISAN BUILDER</span>
+            <h2 class="section-title" id="blogTitle">Insight Seputar Software, AI &amp; UI/UX</h2>
+            <p class="section-desc">Tips praktis, bedah arsitektur mandiri, dan catatan lapangan seputar teknologi bisnis digital langsung dari sang builder.</p>
+          </div>
+          <div>
+            <span class="section-tag" style="margin-bottom:0;">3 Artikel Pilihan</span>
+          </div>
+        </div>
+
+        <div class="blog-grid">
+          <!-- Article 1 -->
+          <article class="blog-card" onclick="openArticleModal(1)">
+            <div class="blog-thumb-wrap" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);">
+              <div class="blog-thumb-art">
+                <svg class="icon" style="width:44px; height:44px; color:#38BDF8;" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <div class="blog-thumb-badge-art">PAYU STORE &middot; CHAT-FIRST</div>
+              </div>
+              <span class="blog-thumb-tag">Bisnis &amp; Software</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta-row">
+                <span>12 Sep 2026</span>
+                <span>&bull;</span>
+                <span>5 menit baca</span>
+              </div>
+              <h3 class="blog-title">5 Cara Meningkatkan Penjualan Toko Online dengan Sistem Chat-First</h3>
+              <p class="blog-excerpt">Mengapa interaksi personal lewat WhatsApp dipadukan dengan invoice QRIS dinamis otomatis menghasilkan rasio closing jauh lebih tinggi dibanding formulir checkout web konvensional.</p>
+              <div class="blog-read-cta">
+                <span>Baca Selengkapnya</span>
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="blog-card" onclick="openArticleModal(2)">
+            <div class="blog-thumb-wrap" style="background: linear-gradient(135deg, #1E1B4B 0%, #0F172A 100%);">
+              <div class="blog-thumb-art">
+                <div class="ai-glow-badge">AI</div>
+                <div class="blog-thumb-badge-art" style="color:#C4B5FD;">9ROUTER &middot; LLM PROXY</div>
+              </div>
+              <span class="blog-thumb-tag" style="background:rgba(124,58,237,0.85);">AI &amp; Otomasi</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta-row">
+                <span>10 Sep 2026</span>
+                <span>&bull;</span>
+                <span>6 menit baca</span>
+              </div>
+              <h3 class="blog-title">Penerapan Agen AI &amp; LLM Gateway untuk Otomasi Bisnis Riil di 2026</h3>
+              <p class="blog-excerpt">Cara membangun jalur proksi LLM terpusat yang aman, hemat biaya token, dan mampu melayani ribuan pesan pelanggan tanpa harus mengorbankan privasi data usaha.</p>
+              <div class="blog-read-cta">
+                <span>Baca Selengkapnya</span>
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="blog-card" onclick="openArticleModal(3)">
+            <div class="blog-thumb-wrap" style="background: linear-gradient(135deg, #451A03 0%, #0F172A 100%);">
+              <div class="blog-thumb-art">
+                <svg class="icon" style="width:44px; height:44px; color:#FBBF24;" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                <div class="blog-thumb-badge-art" style="color:#FDE68A;">ANTI-SLOP &middot; HIGH CONVERSION</div>
+              </div>
+              <span class="blog-thumb-tag" style="background:rgba(217,119,6,0.85);">UI/UX &amp; Desain</span>
+            </div>
+            <div class="blog-body">
+              <div class="blog-meta-row">
+                <span>08 Sep 2026</span>
+                <span>&bull;</span>
+                <span>4 menit baca</span>
+              </div>
+              <h3 class="blog-title">Filosofi UI/UX Anti-Slop: Desain Web Cepat, Bersih &amp; Berdaya Konversi</h3>
+              <p class="blog-excerpt">Membongkar jebakan template generic buatan AI. Prinsip desain yang menghargai mata manusia: tipografi Plus Jakarta Sans, zero emojis dekoratif, dan responsif sejati.</p>
+              <div class="blog-read-cta">
+                <span>Baca Selengkapnya</span>
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
          ROI & BUSINESS EFFICIENCY CALCULATOR
          ======================================================================== -->
     <section class="section-wrap" id="kalkulator" aria-labelledby="calcTitle">
@@ -3023,23 +4027,27 @@
         </div>
       </div>
     <!-- ========================================================================
-         24/7 CONSULTATION & IMPLEMENTATION CALLOUT
+         24/7 CONSULTATION & IMPLEMENTATION DARK CALLOUT (Ref Image 1 & 2)
          ======================================================================== -->
-    <section class="section-wrap" style="padding-top: 10px;">
+    <section class="section-wrap" style="padding-top: 10px; padding-bottom: 20px;">
       <div class="container">
-        <div class="consultation-card">
-          <div class="consultation-left">
-            <span class="section-tag" style="color:var(--emerald);">KONSULTASI &amp; IMPLEMENTASI SISTEM</span>
-            <h3 class="consultation-title">Software Siap Pakai Untuk Semua Kebutuhan.</h3>
-            <p class="consultation-desc">
-              Banyak yang <b>100% gratis</b> — silakan ambil dan manfaatkan sekarang untuk operasional bisnis Anda. Butuh bantuan teknis, implementasi mandiri di server VPS Anda, atau integrasi AI? <b>Kami siap 24 jam.</b>
-            </p>
+        <div class="dark-cta-banner">
+          <div class="dark-cta-left">
+            <div class="dark-cta-icon-circle">
+              <svg class="icon icon-md" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </div>
+            <div>
+              <h3 class="dark-cta-title">Punya pertanyaan atau butuh bantuan implementasi?</h3>
+              <p class="dark-cta-desc">Tim kami siap membantu kamu memilih solusi terbaik atau mengimplementasikan sistem mandiri di server VPS Anda. <b>Tersedia 24 Jam.</b></p>
+            </div>
           </div>
-          <div class="consultation-right">
-            <a class="btn btn-emerald" style="padding: 12px 22px; font-size: 14.5px;" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20dengan%20software%20Anda%20dan%20ingin%20konsultasi%20/%20butuh%20bantuan%20implementasi" target="_blank" rel="noopener">
+          <div class="dark-cta-right">
+            <a class="dark-cta-btn wa-trigger-btn" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20konsultasi%20software%20/%20butuh%20bantuan%20implementasi%20sistem" target="_blank" rel="noopener">
               <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              <span>Butuh Bantuan? Chat WhatsApp 24 Jam</span>
+              <span>Chat Sekarang di WhatsApp</span>
+              <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
+            <span class="dark-cta-microtext">Respon cepat &middot; Konsultasi gratis 24 Jam &middot; Tanpa ribet</span>
           </div>
         </div>
       </div>
@@ -3089,6 +4097,57 @@
       </div>
     </div>
   </footer>
+
+  <!-- ========================================================================
+       ARTICLE READER MODAL
+       ======================================================================== -->
+  <div class="article-modal-overlay" id="articleModalOverlay" role="dialog" aria-modal="true" aria-labelledby="articleModalTitle">
+    <div class="article-modal-card">
+      <button class="article-modal-close" onclick="closeArticleModal()" aria-label="Tutup Artikel">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="articleModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       WHATSAPP CONSULTATION MODAL (Ref Image 2 Screen 9)
+       ======================================================================== -->
+  <div class="wa-modal-overlay" id="waModalOverlay" role="dialog" aria-modal="true" aria-labelledby="waModalTitle">
+    <div class="wa-modal-card">
+      <button class="wa-modal-close" onclick="closeWaModal()" aria-label="Tutup Modal WhatsApp">
+        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="wa-modal-icon-circle">
+        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      </div>
+      <h3 class="wa-modal-title" id="waModalTitle">Chat Kami di WhatsApp</h3>
+      <p class="wa-modal-desc">Dapatkan konsultasi gratis, tanya produk siap pakai, atau bantuan implementasi server langsung dari builder.</p>
+      
+      <div class="wa-modal-options">
+        <a class="wa-modal-opt-btn" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20ingin%20konsultasi%20gratis%20mengenai%20software%20siap%20pakai" target="_blank" rel="noopener">
+          <span>1. Konsultasi Gratis &amp; Tanya Produk</span>
+          <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="wa-modal-opt-btn" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20butuh%20jasa%20implementasi%20dan%20deploy%20software%20di%20server%20VPS%20saya" target="_blank" rel="noopener">
+          <span>2. Jasa Implementasi &amp; Deploy VPS</span>
+          <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="wa-modal-opt-btn" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20tertarik%20dengan%20solusi%20AI%20otomasi%20dan%20bot%20WhatsApp" target="_blank" rel="noopener">
+          <span>3. Solusi AI &amp; Otomasi WhatsApp</span>
+          <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="wa-modal-features">
+        <span>&bull; Respon cepat</span>
+        <span>&bull; Konsultasi gratis</span>
+        <span>&bull; Bebas tanya</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ========================================================================
        FLOATING WHATSAPP BUTTON (FAB ala Exelsatu)
@@ -3624,6 +4683,83 @@
           if (termCmdInput) termCmdInput.focus();
         });
       });
+
+
+      /* ---------- 7. ARTICLE READER & WHATSAPP MODAL HANDLERS ---------- */
+      var ARTICLES_DATA = {
+        1: {
+          tag: "Bisnis & Software",
+          date: "12 Sep 2026 &middot; 5 menit baca",
+          title: "5 Cara Meningkatkan Penjualan Toko Online dengan Sistem Chat-First",
+          content: "<p>Banyak pemilik toko online UMKM mengeluhkan rendahnya tingkat konversi website e-commerce tradisional. Pengunjung masuk, melihat produk, namun mundur teratur saat dihadapkan pada formulir checkout yang panjang dan rumit.</p><h4>1. Ubah Friksi Menjadi Percakapan</h4><p>Pelanggan Indonesia terbiasa berinteraksi personal sebelum mentransfer uang. Dengan arsitektur Chat-First seperti yang diusung oleh <b>Payu Toko Online</b>, setiap klik 'Beli' langsung mengalirkan data keranjang ke percakapan WhatsApp yang telah diformat rapi.</p><h4>2. Gunakan QRIS Dinamis Otomatis</h4><p>Metode transfer manual sering kali tersendat pada validasi bukti struk pembayaran. Penerapan QRIS dinamis yang mencantumkan nominal tepat hingga digit terakhir memangkas waktu rekonsiliasi dan verifikasi dari hitungan jam menjadi hitungan detik.</p><h4>3. Live Order Tracking yang Transparan</h4><p>Pelanggan merasa aman ketika mereka dapat memantau status pesanan mereka secara mandiri melalui 6 tahapan pelacakan: Pesanan Diterima &rarr; Pembayaran Terverifikasi &rarr; Dikemas &rarr; Diserahkan ke Kurir &rarr; Dalam Perjalanan &rarr; Selesai.</p><h4>4. Dashboard Admin Terpusat Tanpa Aplikasi Pihak Ketiga</h4><p>Hindari berpindah-pindah antar aplikasi chat dan pencatatan buku kas. Gunakan Admin Desk berbasis web yang menyatukan histori chat, pesanan, dan update resi dalam satu layar.</p><h4>5. Kontrol Penuh Tanpa Biaya Berlangganan Bulanan</h4><p>Menjalankan sistem toko online di server VPS sendiri memastikan tidak ada potongan komisi persentase per transaksi atau tagihan sewa SaaS yang membengkak seiring bertumbuhnya omzet Anda.</p>"
+        },
+        2: {
+          tag: "AI & Otomasi",
+          date: "10 Sep 2026 &middot; 6 menit baca",
+          title: "Penerapan Agen AI & LLM Gateway untuk Otomasi Bisnis Riil di 2026",
+          content: "<p>Kecerdasan Buatan (AI) bukan lagi sekadar mainan untuk membuat teks puisi atau gambar acak. Di lingkungan bisnis modern, AI telah bertransformasi menjadi tenaga kerja digital yang mampu menangani ratusan interaksi pelanggan sekaligus tanpa pernah merasa lelah.</p><h4>1. LLM Proxy Gateway Terpusat</h4><p>Mengintegrasikan AI langsung ke banyak aplikasi sering kali menimbulkan risiko kebocoran API Key dan pemborosan kuota. Melalui gateway proksi seperti <b>9Router</b>, semua permintaan LLM (GPT-4o, Claude 3.5 Sonnet, Gemini Flash) melewati satu pintu dengan monitoring kuota dan fallback cerdas.</p><h4>2. Knowledge Ingestion (RAG) untuk Ketepatan Data</h4><p>Salah satu kelemahan AI adalah 'halusinasi'. Untuk menjamin bot WhatsApp hanya menjawab sesuai katalog dan SOP perusahaan Anda, terapkan teknik Retrieval-Augmented Generation (RAG) berbasis database vektor atau Supabase Lexis.</p><h4>3. Agen AI WhatsApp dengan Respon < 3 Detik</h4><p>Kecepatan membalas pesan adalah kunci memenangkan persaingan penjualan. Agen AI yang dikonfigurasi dengan baik dapat menjawab pertanyaan stok, menghitung ongkir, dan menyiapkan invoice secara instan bahkan di tengah malam.</p><h4>4. Human-in-the-Loop Safeguard</h4><p>Sistem otomatisasi yang matang selalu menyediakan pintu eskalasi ke operator manusia jika mendeteksi komplain sensitif atau pertanyaan khusus yang membutuhkan empati tinggi.</p>"
+        },
+        3: {
+          tag: "UI/UX & Desain",
+          date: "08 Sep 2026 &middot; 4 menit baca",
+          title: "Filosofi UI/UX Anti-Slop: Desain Web Cepat, Bersih & Berdaya Konversi",
+          content: "<p>Era internet dipenuhi oleh website yang tampak seperti salinan generic satu sama lain: template berat penuh animasi berlebihan, popup yang menghalangi konten utama, dan dekorasi emoji yang mengaburkan pesan penting.</p><h4>1. Zero Emojis Policy untuk Keanggunan Antarmuka</h4><p>Emoji Unicode sering kali tampak tidak konsisten di berbagai sistem operasi (Android, iOS, Windows). Kami menerapkan 100% inline SVG vector icons yang tajam, terukur, dan selaras dengan hierarki warna desain.</p><h4>2. Tipografi Plus Jakarta Sans & JetBrains Mono</h4><p>Keterbacaan teks adalah fondasi utama pengalaman pengguna. Pemilihan font yang tepat dengan kontras rasio minimal 4.5:1 memastikan pengunjung dapat membaca pesan penawaran dengan mudah di bawah terik matahari sekalipun.</p><h4>3. Kecepatan Render dan Zero Bloatware</h4><p>Setiap milidetik keterlambatan loading mengurangi tingkat konversi. Desain anti-slop dibangun dengan native CSS dan vanilla JavaScript yang dieksekusi dalam tempo O(1), memastikan skor performa Google PageSpeed mendekati 100.</p><h4>4. Mobile-First Ergonomics</h4><p>Lebih dari 80% calon pembeli mengakses website melalui ponsel pintar. Tata letak tombol, jarak tap target minimal 44px, dan gestur swipe alami pada katalog produk dirancang agar nyaman digunakan dengan satu ibu jari.</p>"
+        }
+      };
+
+      window.openArticleModal = function (id) {
+        var a = ARTICLES_DATA[id];
+        if (!a) return;
+        var container = document.getElementById("articleModalContent");
+        var overlay = document.getElementById("articleModalOverlay");
+        if (container && overlay) {
+          container.innerHTML = '<span class="section-tag" style="margin-bottom:8px;">' + a.tag + '</span>' +
+            '<div class="blog-meta-row" style="margin-bottom:12px;"><span>' + a.date + '</span></div>' +
+            '<h2 class="section-title" id="articleModalTitle" style="font-size:1.6rem; margin-bottom:16px;">' + a.title + '</h2>' +
+            '<div class="article-modal-body">' + a.content + '</div>' +
+            '<div style="margin-top:28px; padding-top:18px; border-top:1px solid var(--border-card); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">' +
+            '<button class="btn btn-outline btn-sm" onclick="closeArticleModal()">Tutup Artikel</button>' +
+            '<a class="btn btn-emerald btn-sm" href="https://wa.me/6281212686654?text=Halo%20Farid,%20saya%20baru%20membaca%20artikel%20Anda:%20' + encodeURIComponent(a.title) + '" target="_blank" rel="noopener">Diskusi di WhatsApp</a>' +
+            '</div>';
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+      };
+
+      window.closeArticleModal = function () {
+        var overlay = document.getElementById("articleModalOverlay");
+        if (overlay) overlay.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      window.openWaModal = function (e) {
+        if (e) e.preventDefault();
+        var overlay = document.getElementById("waModalOverlay");
+        if (overlay) {
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+      };
+
+      window.closeWaModal = function () {
+        var overlay = document.getElementById("waModalOverlay");
+        if (overlay) overlay.classList.remove("active");
+        document.body.style.overflow = "";
+      };
+
+      var articleOverlay = document.getElementById("articleModalOverlay");
+      if (articleOverlay) {
+        articleOverlay.addEventListener("click", function (e) {
+          if (e.target === articleOverlay) window.closeArticleModal();
+        });
+      }
+
+      var waOverlay = document.getElementById("waModalOverlay");
+      if (waOverlay) {
+        waOverlay.addEventListener("click", function (e) {
+          if (e.target === waOverlay) window.closeWaModal();
+        });
+      }
 
     })();
   </script>
