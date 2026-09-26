@@ -592,7 +592,213 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-card);
       border-radius: var(--radius-card);
-      margin-bottom: 48px;
+      margin-bottom: 36px;
+    }
+
+    /* Like Button */
+    .btn-like {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-body);
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-like:hover {
+      border-color: #ef4444;
+      color: #ef4444;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+    }
+    .btn-like.liked {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: #ef4444;
+      color: #ef4444;
+    }
+    .btn-like .like-icon {
+      transition: all 0.2s ease;
+    }
+    .btn-like.liked .like-icon {
+      fill: #ef4444;
+      stroke: #ef4444;
+      animation: heartPop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes heartPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.35); }
+      100% { transform: scale(1); }
+    }
+    .like-badge {
+      background: var(--bg-subtle);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 11.5px;
+      font-family: var(--font-mono);
+      transition: all 0.2s ease;
+    }
+    .btn-like.liked .like-badge {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    /* Comments Section */
+    .comments-section {
+      margin: 36px 0 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-card);
+    }
+    .comments-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .comments-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .comments-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .comment-form-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 22px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .comment-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .comment-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+    .comment-label .required { color: #ef4444; }
+    .comment-label .optional { font-size: 11px; font-weight: 400; color: var(--text-muted); }
+    .comment-input, .comment-textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-card);
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 13.5px;
+      transition: all 0.15s ease;
+    }
+    .comment-input:focus, .comment-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: var(--bg-surface);
+      box-shadow: 0 0 0 3px var(--primary-subtle);
+    }
+    .comment-form-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .comment-notice {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .comment-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      transition: border-color 0.2s ease;
+    }
+    .comment-item:hover {
+      border-color: var(--border-subtle);
+    }
+    .comment-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-subtle);
+      color: var(--primary-text);
+      font-weight: 800;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      text-transform: uppercase;
+    }
+    .comment-avatar.is-author {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    .comment-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .comment-author-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .author-badge {
+      background: var(--primary-subtle);
+      color: var(--primary-text);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+    .comment-date {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+    .comment-text {
+      font-size: 13.5px;
+      color: var(--text-body);
+      line-height: 1.6;
+      word-break: break-word;
+    }
+    .comments-empty {
+      text-align: center;
+      padding: 32px 20px;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-card);
+      border-radius: var(--radius-card);
+      color: var(--text-muted);
+      font-size: 13px;
     }
 
     /* Related Articles */
@@ -771,6 +977,16 @@
           <span id="articleReadTime">5 menit baca</span>
           <span>&bull;</span>
           <span id="articleWordCount">800 kata</span>
+          <span>&bull;</span>
+          <span id="articleLikesMeta" style="color:var(--text-muted);display:inline-flex;align-items:center;gap:4px;">
+            <svg class="icon icon-xs" style="stroke:#ef4444;fill:#ef4444;" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <span id="articleLikesMetaCount">0</span> suka
+          </span>
+          <span>&bull;</span>
+          <span id="articleCommentsMeta" style="color:var(--text-muted);display:inline-flex;align-items:center;gap:4px;">
+            <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span id="articleCommentsMetaCount">0</span> komentar
+          </span>
         </div>
       </div>
     </header>
@@ -800,8 +1016,16 @@
 
           <!-- Share & Actions -->
           <div class="article-actions-bar">
-            <div style="font-size:13.5px; font-weight:700; color:var(--text-main);">Bagikan atau diskusikan artikel ini:</div>
-            <div style="display:flex; gap:10px;">
+            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+              <button class="btn-like" id="likeBtn" type="button" aria-label="Sukai artikel ini">
+                <svg class="icon icon-sm like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span id="likeBtnLabel">Suka</span>
+                <span class="like-badge" id="likeCountBadge">0</span>
+              </button>
+              <span style="font-size:12.5px; color:var(--text-muted);" id="likeStatusMsg">Beri apresiasi jika bermanfaat</span>
+            </div>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
               <button class="btn btn-outline" id="copyLinkBtn" type="button">
                 <svg class="icon icon-sm" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
                 <span id="copyLinkText">Salin Tautan</span>
@@ -812,6 +1036,47 @@
               </a>
             </div>
           </div>
+
+          <!-- Comments & Discussion Section -->
+          <section class="comments-section" id="commentsSection">
+            <div class="comments-header">
+              <div class="comments-title-wrap">
+                <svg class="icon icon-md" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <h3 class="comments-title">Diskusi &amp; Komentar (<span id="commentsCountText">0</span>)</h3>
+              </div>
+              <span class="comments-subtitle" style="font-size:12.5px;color:var(--text-muted);">Tuliskan opini, tanggapan, atau pengalaman Anda</span>
+            </div>
+
+            <!-- Comment Form -->
+            <form class="comment-form-card" id="commentForm">
+              <div class="comment-form-grid">
+                <div>
+                  <label class="comment-label">Nama Lengkap / Panggilan <span class="required">*</span></label>
+                  <input type="text" class="comment-input" id="commentAuthor" placeholder="Misal: Budi Santoso" required />
+                </div>
+                <div>
+                  <label class="comment-label">Email / WhatsApp <span class="optional">(opsional, tidak dipublikasikan)</span></label>
+                  <input type="text" class="comment-input" id="commentContact" placeholder="budi@example.com / 0812..." />
+                </div>
+              </div>
+              <div style="margin-top:14px;">
+                <label class="comment-label">Isi Komentar <span class="required">*</span></label>
+                <textarea class="comment-textarea" id="commentContent" rows="3" placeholder="Tuliskan komentar atau pertanyaan Anda secara sopan dan konstruktif..." required></textarea>
+              </div>
+              <div class="comment-form-actions">
+                <span class="comment-notice" id="commentFeedback">Komentar langsung tayang secara publik setelah dikirim.</span>
+                <button type="submit" class="btn btn-primary" id="btnSubmitComment">
+                  <svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  <span>Kirim Komentar</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Comments List -->
+            <div class="comments-list" id="commentsList">
+              <div class="comments-empty">Memuat komentar...</div>
+            </div>
+          </section>
         </article>
 
         <!-- Sticky Sidebar Column -->
@@ -1082,6 +1347,214 @@
             '</a>';
           });
           relatedGrid.innerHTML = relHtml;
+        }
+
+        // Initialize Likes & Comments
+        initLikes(art);
+        initComments(art);
+      }
+
+      function initLikes(art) {
+        var slug = art.slug || art.id;
+        var likeBtn = document.getElementById("likeBtn");
+        var likeBadge = document.getElementById("likeCountBadge");
+        var likeLabel = document.getElementById("likeBtnLabel");
+        var likeStatus = document.getElementById("likeStatusMsg");
+        var likesMeta = document.getElementById("articleLikesMetaCount");
+        if (!likeBtn) return;
+
+        var likesCount = parseInt(art.likes || 0, 10);
+        var storageKey = "fa_blog_liked_" + slug;
+        var hasLiked = false;
+        try {
+          hasLiked = localStorage.getItem(storageKey) === "1";
+        } catch (e) {}
+
+        function updateUI(liked, count) {
+          if (likeBadge) likeBadge.textContent = count;
+          if (likesMeta) likesMeta.textContent = count;
+          if (liked) {
+            likeBtn.classList.add("liked");
+            if (likeLabel) likeLabel.textContent = "Disukai";
+            if (likeStatus) likeStatus.textContent = "Terima kasih atas apresiasi Anda!";
+          } else {
+            likeBtn.classList.remove("liked");
+            if (likeLabel) likeLabel.textContent = "Suka";
+            if (likeStatus) likeStatus.textContent = "Beri apresiasi jika artikel ini bermanfaat";
+          }
+        }
+
+        updateUI(hasLiked, likesCount);
+
+        var isProcessing = false;
+        likeBtn.onclick = function () {
+          if (isProcessing) return;
+          isProcessing = true;
+
+          var nextLiked = !hasLiked;
+          var nextCount = nextLiked ? likesCount + 1 : Math.max(0, likesCount - 1);
+          hasLiked = nextLiked;
+          likesCount = nextCount;
+          updateUI(hasLiked, likesCount);
+
+          try {
+            if (hasLiked) {
+              localStorage.setItem(storageKey, "1");
+            } else {
+              localStorage.removeItem(storageKey);
+            }
+          } catch (e) {}
+
+          fetch("/api/blog/like", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ slug: slug, action: hasLiked ? "like" : "unlike" })
+          })
+          .then(function (r) { return r.json(); })
+          .then(function (res) {
+            isProcessing = false;
+            if (res.ok && typeof res.likes === "number") {
+              likesCount = res.likes;
+              updateUI(hasLiked, likesCount);
+            }
+          })
+          .catch(function () {
+            isProcessing = false;
+          });
+        };
+      }
+
+      function initComments(art) {
+        var slug = art.slug || art.id;
+        var commentsCountText = document.getElementById("commentsCountText");
+        var commentsMeta = document.getElementById("articleCommentsMetaCount");
+        var commentsList = document.getElementById("commentsList");
+        var commentForm = document.getElementById("commentForm");
+        var commentAuthor = document.getElementById("commentAuthor");
+        var commentContact = document.getElementById("commentContact");
+        var commentContent = document.getElementById("commentContent");
+        var commentFeedback = document.getElementById("commentFeedback");
+        var btnSubmit = document.getElementById("btnSubmitComment");
+
+        function timeAgo(dateString) {
+          try {
+            var date = new Date(dateString);
+            var now = new Date();
+            var seconds = Math.floor((now - date) / 1000);
+            if (seconds < 60) return "Baru saja";
+            var minutes = Math.floor(seconds / 60);
+            if (minutes < 60) return minutes + " mnt lalu";
+            var hours = Math.floor(minutes / 60);
+            if (hours < 24) return hours + " jam lalu";
+            var days = Math.floor(hours / 24);
+            return days + " hari lalu";
+          } catch (e) {
+            return "";
+          }
+        }
+
+        function getInitials(name) {
+          if (!name) return "U";
+          var parts = name.trim().split(/\s+/);
+          if (parts.length >= 2) {
+            return (parts[0][0] + parts[1][0]).toUpperCase();
+          }
+          return name.substring(0, 2).toUpperCase();
+        }
+
+        function renderComments(comments) {
+          var count = comments.length;
+          if (commentsCountText) commentsCountText.textContent = count;
+          if (commentsMeta) commentsMeta.textContent = count;
+
+          if (count === 0) {
+            commentsList.innerHTML = '<div class="comments-empty">Belum ada komentar untuk artikel ini. Jadilah orang pertama yang berdiskusi!</div>';
+            return;
+          }
+
+          var html = "";
+          comments.forEach(function (c) {
+            var isAuthor = c.is_author || (c.author && c.author.toLowerCase().indexOf("farid adam") !== -1);
+            var initials = getInitials(c.author);
+            var relTime = timeAgo(c.created_at) || c.date_formatted || "";
+
+            html += '<div class="comment-item">' +
+              '<div class="comment-avatar ' + (isAuthor ? 'is-author' : '') + '">' + initials + '</div>' +
+              '<div class="comment-body">' +
+                '<div class="comment-meta">' +
+                  '<span class="comment-author-name">' + c.author + '</span>' +
+                  (isAuthor ? '<span class="author-badge">Penulis</span>' : '') +
+                  '<span class="comment-date">&bull; ' + relTime + '</span>' +
+                '</div>' +
+                '<div class="comment-text">' + c.content + '</div>' +
+              '</div>' +
+            '</div>';
+          });
+          commentsList.innerHTML = html;
+        }
+
+        function fetchComments() {
+          fetch("/api/blog/comments?slug=" + encodeURIComponent(slug))
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+              if (res.ok && Array.isArray(res.comments)) {
+                renderComments(res.comments);
+              }
+            })
+            .catch(function () {
+              commentsList.innerHTML = '<div class="comments-empty">Gagal memuat komentar. Periksa koneksi internet Anda.</div>';
+            });
+        }
+
+        fetchComments();
+
+        // Form submit
+        if (commentForm) {
+          commentForm.onsubmit = function (e) {
+            e.preventDefault();
+            var author = commentAuthor.value.trim();
+            var contact = commentContact.value.trim();
+            var content = commentContent.value.trim();
+            if (!author || !content) return;
+
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = '<span>Mengirim...</span>';
+
+            fetch("/api/blog/comments", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                slug: slug,
+                author: author,
+                contact: contact,
+                content: content
+              })
+            })
+            .then(function (r) { return r.json(); })
+            .then(function (res) {
+              btnSubmit.disabled = false;
+              btnSubmit.innerHTML = '<svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Kirim Komentar</span>';
+              if (res.ok) {
+                commentContent.value = "";
+                if (commentFeedback) {
+                  commentFeedback.textContent = "✓ Terima kasih! Komentar Anda berhasil ditambahkan.";
+                  commentFeedback.style.color = "#10b981";
+                  setTimeout(function () {
+                    commentFeedback.textContent = "Komentar langsung tayang secara publik setelah dikirim.";
+                    commentFeedback.style.color = "";
+                  }, 4000);
+                }
+                fetchComments();
+              } else {
+                alert("Gagal mengirim komentar: " + (res.error || "Terjadi kesalahan."));
+              }
+            })
+            .catch(function (err) {
+              btnSubmit.disabled = false;
+              btnSubmit.innerHTML = '<svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span>Kirim Komentar</span>';
+              alert("Koneksi gagal: " + err);
+            });
+          };
         }
       }
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import html
 import json
 import os
 import re
@@ -15,6 +16,7 @@ AUTH_TOKEN = "cWST8dH8B45Yme38m4Acsg"
 BASE_DIR = "/var/www/faridadamn-landing" if os.path.exists("/var/www/faridadamn-landing") else "/root/faridadamn"
 DATA_DIR = os.path.join(BASE_DIR, "data")
 ARTICLES_JSON = os.path.join(DATA_DIR, "articles.json")
+COMMENTS_JSON = os.path.join(DATA_DIR, "comments.json")
 ANALYTICS_EVENTS_JSON = os.path.join(DATA_DIR, "analytics_events.json")
 SITEMAP_XML = os.path.join(BASE_DIR, "sitemap.xml")
 ROBOTS_TXT = os.path.join(BASE_DIR, "robots.txt")
@@ -27,6 +29,7 @@ def ensure_files():
     generate_sitemap()
     generate_robots()
     seed_analytics_if_needed()
+    seed_comments_and_likes_if_needed()
 
 def load_articles():
     try:
@@ -61,6 +64,24 @@ def save_analytics_events(events):
             json.dump(events, f, ensure_ascii=False, indent=2)
     except Exception as e:
         print(f"Error saving analytics: {e}", file=sys.stderr)
+
+def load_comments():
+    try:
+        if os.path.exists(COMMENTS_JSON):
+            with open(COMMENTS_JSON, "r", encoding="utf-8") as f:
+                return json.load(f)
+    except Exception as e:
+        print(f"Error loading comments: {e}", file=sys.stderr)
+    return []
+
+def save_comments(comments):
+    try:
+        if os.path.exists(COMMENTS_JSON):
+            shutil.copy2(COMMENTS_JSON, COMMENTS_JSON + ".bak")
+        with open(COMMENTS_JSON, "w", encoding="utf-8") as f:
+            json.dump(comments, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f"Error saving comments: {e}", file=sys.stderr)
 
 def parse_ua(ua):
     ua_lower = (ua or "").lower()
@@ -220,6 +241,149 @@ def seed_analytics_if_needed():
     save_analytics_events(events)
     print(f"Seeded {len(events)} sample analytics events.", file=sys.stderr)
 
+def seed_comments_and_likes_if_needed():
+    articles = load_articles()
+    articles_modified = False
+
+    sample_key_points = {
+        "penyebab-susah-dapat-kerja-solusi-praktis": (
+            "- Masalah saturasi pelamar umum & resume generik yang disaring ATS tanpa dibaca manusia\n"
+            "- Jebakan portofolio 'tutorial clone' (to-do list / e-commerce tiruan) yang minim problem-solving\n"
+            "- Mentalitas pencari kerja 'siap dilatih' vs 'solusionis bisnis' yang langsung memberi dampak ROI\n"
+            "- Solusi praktis 1: Bangun proof-of-work riil dengan pengguna aktif dan metrik terukur\n"
+            "- Solusi praktis 2: Kuasai end-to-end deployment (VPS Linux, domain, Docker, CI/CD) bukan cuma localhost\n"
+            "- Solusi praktis 3: Strategi cold outreach terkurasi langsung ke decision maker (CTO / Founder)"
+        ),
+        "meningkatkan-penjualan-toko-online-chat-first": (
+            "- Masalah friction belanja e-commerce tradisional (form checkout berbelit, download app tambahan)\n"
+            "- Mengapa pola belanja orang Indonesia adalah 'Chat-First' berbasis trust WhatsApp\n"
+            "- 5 pilar sistem chat-first: katalog cepat, QRIS dinamis otomatis, invoice transparan, broadcast segmented, live CS responsif\n"
+            "- Arsitektur Payu: zero-bloat, tanpa server berat, konversi naik hingga 3x lipat"
+        ),
+        "penerapan-agen-ai-llm-gateway-otomasi-bisnis-2026": (
+            "- Fase evolusi AI dari sekadar chatbot teks menjadi AI agents yang mengeksekusi aksi riil\n"
+            "- 3 jebakan integrasi API langsung: tagihan token bocor, halusinasi produk, dan downtime vendor\n"
+            "- Solusi 3 layer produksi: Proxy Gateway (9Router), Mesin RAG Terverifikasi (Lexis), Tool Calling terisolasi\n"
+            "- Penghematan biaya hingga 68% dengan semantic caching & dynamic model routing"
+        ),
+        "filosofi-ui-ux-anti-slop-desain-web-cepat-konversi": (
+            "- Fenomena web modern penuh dekorasi sia-sia, layout melar, dan emoji berlebih (AI Slop)\n"
+            "- Standar emas anti-slop: tipografi hierarki tajam, 100% SVG crisp icons, kontras ramah manusia\n"
+            "- Performa mobile: First Contentful Paint < 0.8 detik dan zero layout shift\n"
+            "- Desain yang melayani konversi bisnis, bukan memuaskan ego desainer semata"
+        )
+    }
+
+    sample_likes = {
+        "penyebab-susah-dapat-kerja-solusi-praktis": 42,
+        "meningkatkan-penjualan-toko-online-chat-first": 38,
+        "penerapan-agen-ai-llm-gateway-otomasi-bisnis-2026": 29,
+        "filosofi-ui-ux-anti-slop-desain-web-cepat-konversi": 35
+    }
+
+    for a in articles:
+        slug = a.get("slug", "")
+        if "likes" not in a:
+            a["likes"] = sample_likes.get(slug, 20)
+            articles_modified = True
+        if "key_points" not in a or not a.get("key_points"):
+            if slug in sample_key_points:
+                a["key_points"] = sample_key_points[slug]
+                articles_modified = True
+
+    # Seed comments
+    existing_comments = load_comments()
+    if not existing_comments:
+        now = datetime.now()
+        initial_comments = [
+            {
+                "id": "cmt-1",
+                "slug": "penyebab-susah-dapat-kerja-solusi-praktis",
+                "article_title": "7 Penyebab Utama Kenapa Susah Dapat Kerja & Solusi Praktis!",
+                "author": "Budi Santoso",
+                "contact": "budi.s@gmail.com",
+                "content": "Poin nomor 2 dan 3 bener banget Mas Farid. Portofolio dummy proyek clone emang udah gak mempan di mata hiring manager. Begitu gw beralih bikin micro-SaaS mini yang beneran dipakai orang, langsung dapat panggilan interview.",
+                "created_at": (now - timedelta(days=1, hours=4)).isoformat(),
+                "date_formatted": (now - timedelta(days=1, hours=4)).strftime("%d %b %Y, %H:%M WIB"),
+                "status": "approved",
+                "is_author": False
+            },
+            {
+                "id": "cmt-2",
+                "slug": "penyebab-susah-dapat-kerja-solusi-praktis",
+                "article_title": "7 Penyebab Utama Kenapa Susah Dapat Kerja & Solusi Praktis!",
+                "author": "Rian Pratama",
+                "contact": "rian@techcorp.id",
+                "content": "Keren ulasannya mas, sangat daging. Btw untuk portfolio web production, lebih disarankan self-host VPS mandiri atau pakai platform PaaS seperti Vercel/Render?",
+                "created_at": (now - timedelta(hours=18)).isoformat(),
+                "date_formatted": (now - timedelta(hours=18)).strftime("%d %b %Y, %H:%M WIB"),
+                "status": "approved",
+                "is_author": False
+            },
+            {
+                "id": "cmt-3",
+                "slug": "penyebab-susah-dapat-kerja-solusi-praktis",
+                "article_title": "7 Penyebab Utama Kenapa Susah Dapat Kerja & Solusi Praktis!",
+                "author": "Farid Adam",
+                "contact": "me@faridadamn.my.id",
+                "content": "Saran saya untuk awal fokus ke Cloud VPS mandiri mas Rian. Selain biayanya flat dan murah ($4-$5/bln), pemahaman tentang Linux, reverse proxy, SSL, dan Docker jadi nilai pembeda yang sangat tinggi saat rekruter ngecek kedalaman teknis kita.",
+                "created_at": (now - timedelta(hours=14)).isoformat(),
+                "date_formatted": (now - timedelta(hours=14)).strftime("%d %b %Y, %H:%M WIB"),
+                "status": "approved",
+                "is_author": True
+            },
+            {
+                "id": "cmt-4",
+                "slug": "penerapan-agen-ai-llm-gateway-otomasi-bisnis-2026",
+                "article_title": "Penerapan Agen AI & LLM Gateway untuk Otomasi Bisnis Riil di 2026",
+                "author": "Hendro Wijaya",
+                "contact": "hendro@wijayagroup.com",
+                "content": "Arsitektur 9Router-nya mantap bre. Semantic caching beneran bisa motong 60-70% biaya token ya? Menarik banget untuk toko online yang trafficnya ribuan tanya harga dan stok yang sama.",
+                "created_at": (now - timedelta(days=2)).isoformat(),
+                "date_formatted": (now - timedelta(days=2)).strftime("%d %b %Y, %H:%M WIB"),
+                "status": "approved",
+                "is_author": False
+            },
+            {
+                "id": "cmt-5",
+                "slug": "filosofi-ui-ux-anti-slop-desain-web-cepat-konversi",
+                "article_title": "Filosofi UI/UX Anti-Slop: Desain Web Cepat, Bersih & Berdaya Konversi",
+                "author": "Maya Putri",
+                "contact": "maya.ux@designlab.co",
+                "content": "Setuju banget sama zero emojis dan typography hierarchy! Web masa kini sering kali terlalu banyak animasi bling-bling yang malah bikin lemot dan ngabisin kuota mobile pengunjung.",
+                "created_at": (now - timedelta(days=1)).isoformat(),
+                "date_formatted": (now - timedelta(days=1)).strftime("%d %b %Y, %H:%M WIB"),
+                "status": "approved",
+                "is_author": False
+            },
+            {
+                "id": "cmt-6",
+                "slug": "meningkatkan-penjualan-toko-online-chat-first",
+                "article_title": "5 Cara Meningkatkan Penjualan Toko Online dengan Sistem Chat-First",
+                "author": "Agus Salim",
+                "contact": "agus@distrobandung.com",
+                "content": "Solusi Payu bener-bener ngebantu banget om Farid. Checkout langsung diarahkan ke invoice WhatsApp dengan QRIS otomatis bikin closing rate toko saya naik hampir 2.5x lipat!",
+                "created_at": (now - timedelta(days=3)).isoformat(),
+                "date_formatted": (now - timedelta(days=3)).strftime("%d %b %Y, %H:%M WIB"),
+                "status": "approved",
+                "is_author": False
+            }
+        ]
+        save_comments(initial_comments)
+        print(f"Seeded {len(initial_comments)} initial comments.", file=sys.stderr)
+
+    # Sync comments_count in articles
+    all_comments = load_comments()
+    for a in articles:
+        slug = a.get("slug", "")
+        c_count = len([c for c in all_comments if c.get("slug") == slug])
+        if a.get("comments_count") != c_count:
+            a["comments_count"] = c_count
+            articles_modified = True
+
+    if articles_modified:
+        save_articles(articles)
+
 def generate_sitemap():
     try:
         articles = load_articles()
@@ -315,15 +479,16 @@ def call_gemini_copilot(action, prompt, article, history=None):
 Gaya komunikasimu: Cerdas, santai, akrab (panggil user 'bre'), praktis, to-the-point, dan berbobot tanpa basa-basi korporat.
 
 PRINSIP ARTIKEL SEO RANKING TINGGI FARID ADAMN:
-1. H1 Judul: Mengandung focus keyword, bikin penasaran, tidak clickbait murahan.
-2. Meta Deskripsi: 130-155 karakter, memancing klik di hasil pencarian Google, mengandung focus keyword.
-3. Paragraf Pembuka (Hook): Langsung to the point ke inti masalah dalam 100 kata pertama, sebutkan keyword secara natural.
-4. Struktur Heading: Hierarki jelas H2 dan H3. Hindari bab terlalu panjang tanpa pemecah visual.
-5. Daging & Kedalaman (>800 kata): Berikan perbandingan nyata, arsitektur, cara kerja, checklist, atau skenario konkret. Bukan teori mengambang.
-6. Format Kaya: Gunakan bullet points, callout box (<div class="article-callout"><div class="callout-title">...</div><p>...</p></div>), dan tabel perbandingan jika relevan.
-7. Bagian FAQ: 2-3 pertanyaan umum yang dicari audiens di Google (People Also Ask).
-8. CTA Penutup: Selalu sediakan ajakan konsultasi WhatsApp direct (https://wa.me/6281212686654).
-9. ANTI-SLOP RULE: Dilarang menggunakan frasa klise AI seperti: "Di era digital yang serba cepat", "Mari kita selami", "Bukan rahasia lagi bahwa", "Sebagai kesimpulan", "Menapaki jalan". Gunakan bahasa Indonesia lugas, tajam, dan natural.
+1. MANDAT UTAMA POIN PENJELASAN (MUTLAK): Jika user menyertakan 'Poin Penjelasan', seluruh alur dan isi konten artikel WAJIB berakar dari poin-poin tersebut. Setiap butir poin penjelasan harus diangkat menjadi sub-bab (H2/H3) atau pembahasan daging secara tuntas tanpa ada satu poin pun yang dilewati!
+2. H1 Judul: Mengandung focus keyword, bikin penasaran, tidak clickbait murahan.
+3. Meta Deskripsi: 130-155 karakter, memancing klik di hasil pencarian Google, mengandung focus keyword.
+4. Paragraf Pembuka (Hook): Langsung to the point ke inti masalah dalam 100 kata pertama, sebutkan keyword secara natural.
+5. Struktur Heading: Hierarki jelas H2 dan H3. Hindari bab terlalu panjang tanpa pemecah visual.
+6. Daging & Kedalaman (>800 kata): Berikan perbandingan nyata, arsitektur, cara kerja, checklist, atau skenario konkret. Bukan teori mengambang.
+7. Format Kaya: Gunakan bullet points, callout box (<div class="article-callout"><div class="callout-title">...</div><p>...</p></div>), dan tabel perbandingan jika relevan.
+8. Bagian FAQ: 2-3 pertanyaan umum yang dicari audiens di Google (People Also Ask).
+9. CTA Penutup: Selalu sediakan ajakan konsultasi WhatsApp direct (https://wa.me/6281212686654).
+10. ANTI-SLOP RULE: Dilarang menggunakan frasa klise AI seperti: "Di era digital yang serba cepat", "Mari kita selami", "Bukan rahasia lagi bahwa", "Sebagai kesimpulan", "Menapaki jalan". Gunakan bahasa Indonesia lugas, tajam, dan natural.
 
 FORMAT OUTPUT:
 Kembalikan JSON valid dengan struktur:
@@ -332,18 +497,32 @@ Kembalikan JSON valid dengan struktur:
   "slug": "slug-url-ramah-seo",
   "category": "Bisnis & Software / AI & Otomasi / UI/UX & Desain / DevOps & Server",
   "focus_keyword": "keyword utama",
+  "key_points": "Poin penjelasan yang dipertahankan atau dirapihkan...",
   "description": "Meta deskripsi 130-155 karakter...",
   "content": "Konten artikel lengkap dalam format HTML...",
   "summary_notes": "Rangkuman singkat perbaikan SEO yang dilakukan..."
 }"""
 
+    key_points = article.get("key_points", "").strip()
+    key_points_directive = ""
+    if key_points:
+        key_points_directive = (
+            f"*** MANDAT POIN PENJELASAN (WAJIB DIBUATKAN SUB-BAB DI KONTEN) ***\n"
+            f"User mewajibkan artikel disusun berdasarkan poin-poin berikut:\n"
+            f"{key_points}\n\n"
+            f"ATURAN: Setiap poin di atas WAJIB dijabarkan secara mendalam menjadi sub-heading H2 atau H3 dalam artikel. "
+            f"Jangan melewatkan satupun poin!\n"
+        )
+
     user_msg = (
         f"Aksi: {action}\n"
         f"Instruksi Khusus: {prompt or 'Optimasi penuh untuk standar SEO Google'}\n\n"
+        f"{key_points_directive}\n"
         f"Draft Saat Ini:\n"
         f"- Judul: {article.get('title', '')}\n"
         f"- Kategori: {article.get('category', 'Bisnis & Software')}\n"
         f"- Focus Keyword: {article.get('focus_keyword', '')}\n"
+        f"- Poin Penjelasan User:\n{key_points or '(Belum ada poin khusus)'}\n"
         f"- Meta Deskripsi: {article.get('description', '')}\n"
         f"- Isi Konten:\n{article.get('content', '')}"
     )
@@ -490,6 +669,28 @@ class BlogHandler(BaseHTTPRequestHandler):
             })
             return
 
+        # Public: list comments for article (or all for admin)
+        if path == "/comments" or path.startswith("/comments"):
+            query_str = self.path.split("?", 1)[1] if "?" in self.path else ""
+            params = {}
+            if query_str:
+                for pair in query_str.split("&"):
+                    if "=" in pair:
+                        k, v = pair.split("=", 1)
+                        params[k] = v
+            slug = params.get("slug")
+            comments = load_comments()
+            if slug:
+                filtered = [c for c in comments if c.get("slug") == slug and c.get("status", "approved") == "approved"]
+                self._send_json({"ok": True, "comments": filtered, "count": len(filtered)})
+            else:
+                is_admin = self._is_authenticated()
+                if not is_admin:
+                    self._send_json({"ok": False, "error": "Unauthorized"}, 401)
+                    return
+                self._send_json({"ok": True, "comments": comments, "count": len(comments)})
+            return
+
         self._send_json({"ok": False, "error": "Not Found"}, 404)
 
     def do_POST(self):
@@ -563,6 +764,106 @@ class BlogHandler(BaseHTTPRequestHandler):
                 self._send_json({"ok": False, "error": str(e)}, 500)
             return
 
+        # Public: like article
+        if path == "/like":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                raw = self.rfile.read(length).decode("utf-8")
+                body = json.loads(raw) if raw else {}
+
+                slug = body.get("slug", "").strip()
+                action = body.get("action", "toggle")
+                if not slug:
+                    self._send_json({"ok": False, "error": "Slug required"}, 400)
+                    return
+
+                articles = load_articles()
+                art = next((a for a in articles if a.get("slug") == slug or a.get("id") == slug), None)
+                if not art:
+                    self._send_json({"ok": False, "error": "Article not found"}, 404)
+                    return
+
+                cur_likes = int(art.get("likes", 0))
+                if action == "like":
+                    art["likes"] = cur_likes + 1
+                    liked = True
+                elif action == "unlike":
+                    art["likes"] = max(0, cur_likes - 1)
+                    liked = False
+                else:
+                    liked = bool(body.get("liked", True))
+                    if liked:
+                        art["likes"] = cur_likes + 1
+                    else:
+                        art["likes"] = max(0, cur_likes - 1)
+
+                save_articles(articles)
+                self._send_json({"ok": True, "likes": art["likes"], "liked": liked, "slug": slug})
+            except Exception as e:
+                self._send_json({"ok": False, "error": str(e)}, 500)
+            return
+
+        # Public: submit comment
+        if path == "/comments":
+            try:
+                length = int(self.headers.get("Content-Length", 0))
+                raw = self.rfile.read(length).decode("utf-8")
+                body = json.loads(raw) if raw else {}
+
+                slug = body.get("slug", "").strip()
+                author = body.get("author", "").strip()
+                contact = body.get("contact", "").strip()
+                content = body.get("content", "").strip()
+
+                if not slug or not author or not content:
+                    self._send_json({"ok": False, "error": "Nama, artikel, dan isi komentar wajib diisi."}, 400)
+                    return
+
+                if len(author) > 50:
+                    author = author[:50]
+                if len(contact) > 80:
+                    contact = contact[:80]
+                if len(content) > 3000:
+                    content = content[:3000]
+
+                safe_author = html.escape(author)
+                safe_contact = html.escape(contact)
+                safe_content = html.escape(content).replace("\n", "<br>")
+
+                articles = load_articles()
+                art = next((a for a in articles if a.get("slug") == slug or a.get("id") == slug), None)
+                art_title = art.get("title", slug) if art else slug
+
+                now = datetime.now()
+                is_admin = self._is_authenticated()
+                new_comment = {
+                    "id": "cmt-" + uuid.uuid4().hex[:10],
+                    "slug": slug,
+                    "article_title": art_title,
+                    "author": safe_author,
+                    "contact": safe_contact,
+                    "content": safe_content,
+                    "created_at": now.isoformat(),
+                    "date_formatted": now.strftime("%d %b %Y, %H:%M WIB"),
+                    "status": "approved",
+                    "is_author": is_admin or author.lower() in ("farid adam", "farid adamn")
+                }
+
+                comments = load_comments()
+                comments.insert(0, new_comment)
+                save_comments(comments)
+
+                # Increment article comment count
+                if art:
+                    art["comments_count"] = art.get("comments_count", 0) + 1
+                    save_articles(articles)
+
+                total_for_slug = len([c for c in comments if c.get("slug") == slug and c.get("status") == "approved"])
+                self._send_json({"ok": True, "comment": new_comment, "comments_count": total_for_slug, "message": "Komentar berhasil dikirim!"})
+            except Exception as e:
+                self._send_json({"ok": False, "error": str(e)}, 500)
+            return
+
         # Protected: /articles
         if path in ("/articles", "/articles/save"):
             if not self._is_authenticated():
@@ -601,6 +902,7 @@ class BlogHandler(BaseHTTPRequestHandler):
                     "category": data.get("category", "Bisnis & Software"),
                     "tags": data.get("tags", []),
                     "focus_keyword": data.get("focus_keyword", "").strip(),
+                    "key_points": data.get("key_points", "").strip(),
                     "author": data.get("author", "Farid Adam"),
                     "date": data.get("date") or datetime.now().strftime("%d %b %Y"),
                     "published_at": data.get("published_at") or datetime.now().isoformat(),
@@ -610,6 +912,8 @@ class BlogHandler(BaseHTTPRequestHandler):
                     "status": data.get("status", "published"),
                     "image": data.get("image", "/assets/previews/payu.webp"),
                     "views": data.get("views", 0) if existing_idx is None else articles[existing_idx].get("views", 0),
+                    "likes": data.get("likes", 0) if existing_idx is None else articles[existing_idx].get("likes", 0),
+                    "comments_count": data.get("comments_count", 0) if existing_idx is None else articles[existing_idx].get("comments_count", 0),
                     "content": content
                 }
 
@@ -644,6 +948,18 @@ class BlogHandler(BaseHTTPRequestHandler):
                 self._send_json({"ok": True, "message": "Article deleted"})
             else:
                 self._send_json({"ok": False, "error": "Article not found"}, 404)
+            return
+
+        if len(parts) == 2 and parts[0] == "comments":
+            target = parts[1]
+            comments = load_comments()
+            orig_len = len(comments)
+            comments = [c for c in comments if c.get("id") != target]
+            if len(comments) < orig_len:
+                save_comments(comments)
+                self._send_json({"ok": True, "message": "Comment deleted"})
+            else:
+                self._send_json({"ok": False, "error": "Comment not found"}, 404)
             return
 
         self._send_json({"ok": False, "error": "Endpoint not found"}, 404)

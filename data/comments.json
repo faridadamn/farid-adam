@@ -1,0 +1,74 @@
+[
+  {
+    "id": "cmt-1",
+    "slug": "penyebab-susah-dapat-kerja-solusi-praktis",
+    "article_title": "7 Penyebab Utama Kenapa Susah Dapat Kerja & Solusi Praktis!",
+    "author": "Budi Santoso",
+    "contact": "budi.s@gmail.com",
+    "content": "Poin nomor 2 dan 3 bener banget Mas Farid. Portofolio dummy proyek clone emang udah gak mempan di mata hiring manager. Begitu gw beralih bikin micro-SaaS mini yang beneran dipakai orang, langsung dapat panggilan interview.",
+    "created_at": "2026-09-25T01:11:44.637250",
+    "date_formatted": "25 Sep 2026, 01:11 WIB",
+    "status": "approved",
+    "is_author": false
+  },
+  {
+    "id": "cmt-2",
+    "slug": "penyebab-susah-dapat-kerja-solusi-praktis",
+    "article_title": "7 Penyebab Utama Kenapa Susah Dapat Kerja & Solusi Praktis!",
+    "author": "Rian Pratama",
+    "contact": "rian@techcorp.id",
+    "content": "Keren ulasannya mas, sangat daging. Btw untuk portfolio web production, lebih disarankan self-host VPS mandiri atau pakai platform PaaS seperti Vercel/Render?",
+    "created_at": "2026-09-25T11:11:44.637250",
+    "date_formatted": "25 Sep 2026, 11:11 WIB",
+    "status": "approved",
+    "is_author": false
+  },
+  {
+    "id": "cmt-3",
+    "slug": "penyebab-susah-dapat-kerja-solusi-praktis",
+    "article_title": "7 Penyebab Utama Kenapa Susah Dapat Kerja & Solusi Praktis!",
+    "author": "Farid Adam",
+    "contact": "me@faridadamn.my.id",
+    "content": "Saran saya untuk awal fokus ke Cloud VPS mandiri mas Rian. Selain biayanya flat dan murah ($4-$5/bln), pemahaman tentang Linux, reverse proxy, SSL, dan Docker jadi nilai pembeda yang sangat tinggi saat rekruter ngecek kedalaman teknis kita.",
+    "created_at": "2026-09-25T15:11:44.637250",
+    "date_formatted": "25 Sep 2026, 15:11 WIB",
+    "status": "approved",
+    "is_author": true
+  },
+  {
+    "id": "cmt-4",
+    "slug": "penerapan-agen-ai-llm-gateway-otomasi-bisnis-2026",
+    "article_title": "Penerapan Agen AI & LLM Gateway untuk Otomasi Bisnis Riil di 2026",
+    "author": "Hendro Wijaya",
+    "contact": "hendro@wijayagroup.com",
+    "content": "Arsitektur 9Router-nya mantap bre. Semantic caching beneran bisa motong 60-70% biaya token ya? Menarik banget untuk toko online yang trafficnya ribuan tanya harga dan stok yang sama.",
+    "created_at": "2026-09-24T05:11:44.637250",
+    "date_formatted": "24 Sep 2026, 05:11 WIB",
+    "status": "approved",
+    "is_author": false
+  },
+  {
+    "id": "cmt-5",
+    "slug": "filosofi-ui-ux-anti-slop-desain-web-cepat-konversi",
+    "article_title": "Filosofi UI/UX Anti-Slop: Desain Web Cepat, Bersih & Berdaya Konversi",
+    "author": "Maya Putri",
+    "contact": "maya.ux@designlab.co",
+    "content": "Setuju banget sama zero emojis dan typography hierarchy! Web masa kini sering kali terlalu banyak animasi bling-bling yang malah bikin lemot dan ngabisin kuota mobile pengunjung.",
+    "created_at": "2026-09-25T05:11:44.637250",
+    "date_formatted": "25 Sep 2026, 05:11 WIB",
+    "status": "approved",
+    "is_author": false
+  },
+  {
+    "id": "cmt-6",
+    "slug": "meningkatkan-penjualan-toko-online-chat-first",
+    "article_title": "5 Cara Meningkatkan Penjualan Toko Online dengan Sistem Chat-First",
+    "author": "Agus Salim",
+    "contact": "agus@distrobandung.com",
+    "content": "Solusi Payu bener-bener ngebantu banget om Farid. Checkout langsung diarahkan ke invoice WhatsApp dengan QRIS otomatis bikin closing rate toko saya naik hampir 2.5x lipat!",
+    "created_at": "2026-09-23T05:11:44.637250",
+    "date_formatted": "23 Sep 2026, 05:11 WIB",
+    "status": "approved",
+    "is_author": false
+  }
+]
