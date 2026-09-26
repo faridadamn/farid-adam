@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>CMS Studio Artikel & SEO — Farid Adamn</title>
+  <title>CMS Studio Artikel &amp; SEO — Farid Adamn</title>
   <meta name="robots" content="noindex, nofollow" />
   <meta name="theme-color" content="#F8FAFC" />
 
@@ -12,34 +12,66 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- Cegah flicker tema saat load -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("fa-portal-theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
 
   <style>
     :root {
+      /* Palette: Clean & Modern Farid Adamn Design System */
       --bg-canvas: #F8FAFC;
       --bg-surface: #FFFFFF;
       --bg-subtle: #F1F5F9;
-      --border-card: #E2E8F0;
-      --border-subtle: #F1F5F9;
+      --bg-muted: #E2E8F0;
+
       --text-main: #0F172A;
       --text-body: #334155;
       --text-muted: #64748B;
       --text-faint: #94A3B8;
-      --primary: #2563EB;
-      --primary-dark: #1D4ED8;
+
+      --border-card: #E2E8F0;
+      --border-subtle: #F1F5F9;
+      --border-highlight: #CBD5E1;
+
+      --primary: #1D4ED8;
+      --primary-dark: #1E40AF;
       --primary-subtle: #EFF6FF;
-      --emerald: #10B981;
-      --emerald-dark: #059669;
+      --primary-text: #1E40AF;
+
+      --emerald: #059669;
+      --emerald-dark: #047857;
       --emerald-subtle: #ECFDF5;
-      --amber: #F59E0B;
+
+      --amber: #D97706;
       --amber-subtle: #FFFBEB;
-      --rose: #EF4444;
-      --rose-subtle: #FEF2F2;
+
+      --rose: #E11D48;
+      --rose-subtle: #FFF1F2;
+
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-card: 20px;
       --radius-pill: 999px;
+
       --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
-      --shadow-card: 0 8px 24px -4px rgba(15, 23, 42, 0.05);
+      --shadow-card: 0 8px 24px -4px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+      --shadow-hover: 0 16px 36px -6px rgba(15, 23, 42, 0.09), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+
+      --container: 1240px;
       --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
     }
@@ -48,28 +80,53 @@
       --bg-canvas: #0B0F17;
       --bg-surface: #131B2A;
       --bg-subtle: #1C2638;
-      --border-card: #202D42;
-      --border-subtle: #1A2436;
+      --bg-muted: #273449;
+
       --text-main: #F8FAFC;
       --text-body: #CBD5E1;
       --text-muted: #94A3B8;
       --text-faint: #64748B;
+
+      --border-card: #202D42;
+      --border-subtle: #1A2436;
+      --border-highlight: #334461;
+
       --primary: #3B82F6;
+      --primary-dark: #2563EB;
       --primary-subtle: rgba(59, 130, 246, 0.12);
+      --primary-text: #93C5FD;
+
+      --emerald: #10B981;
+      --emerald-dark: #059669;
       --emerald-subtle: rgba(16, 185, 129, 0.12);
+
+      --amber: #F59E0B;
+      --amber-subtle: rgba(245, 158, 11, 0.12);
+
+      --rose: #F43F5E;
+      --rose-subtle: rgba(244, 63, 94, 0.12);
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+      --shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background-color: var(--bg-canvas);
       color: var(--text-body);
       font-family: var(--font-sans);
-      line-height: 1.5;
+      font-size: 14.5px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* SVG Icon System */
     .icon {
-      display: inline-block;
       width: 18px;
       height: 18px;
       stroke-width: 2;
@@ -77,166 +134,350 @@
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
-      vertical-align: middle;
       flex-shrink: 0;
+      vertical-align: middle;
     }
-    .icon-sm { width: 14px; height: 14px; }
+    .icon-xs { width: 14px; height: 14px; }
+    .icon-sm { width: 16px; height: 16px; }
     .icon-md { width: 20px; height: 20px; }
+    .icon-lg { width: 24px; height: 24px; }
 
-    /* Top Navbar */
-    .cms-nav {
-      background: var(--bg-surface);
-      border-bottom: 1px solid var(--border-card);
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
+    /* Sticky Navbar Header */
+    .cms-header {
       position: sticky;
       top: 0;
       z-index: 100;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background-color 0.2s, border-color 0.2s;
     }
-    .cms-brand {
+    .cms-header-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* Brand Logo & Monogram */
+    .brand-wrap {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 800;
-      font-size: 16px;
-      color: var(--text-main);
       text-decoration: none;
-    }
-    .cms-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
-      background: var(--primary-subtle);
-      color: var(--primary);
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid transparent;
       cursor: pointer;
-      text-decoration: none;
-      transition: all 0.16s ease;
     }
-    .btn-primary { background: var(--primary); color: #FFFFFF; }
-    .btn-primary:hover { background: var(--primary-dark); }
-    .btn-emerald { background: var(--emerald); color: #FFFFFF; }
-    .btn-emerald:hover { background: var(--emerald-dark); }
-    .btn-outline { background: transparent; border-color: var(--border-card); color: var(--text-main); }
-    .btn-outline:hover { background: var(--bg-subtle); border-color: var(--text-muted); }
-    .btn-danger { background: var(--rose-subtle); color: var(--rose); border-color: rgba(239, 68, 68, 0.2); }
-    .btn-danger:hover { background: var(--rose); color: #FFFFFF; }
-
-    /* Login Overlay */
-    .login-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--bg-canvas);
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .brand-monogram {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 999;
-      padding: 20px;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 10px rgba(29, 78, 216, 0.25);
+      flex-shrink: 0;
     }
-    .login-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-card);
-      padding: 36px 32px;
-      max-width: 400px;
-      width: 100%;
-      text-align: center;
-      box-shadow: var(--shadow-card);
+    .brand-text {
+      display: flex;
+      flex-direction: column;
     }
-    .login-input {
-      width: 100%;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--border-card);
-      background: var(--bg-canvas);
+    .brand-title {
+      font-size: 15.5px;
+      font-weight: 700;
       color: var(--text-main);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .brand-sub {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
       font-family: var(--font-mono);
-      font-size: 14px;
-      margin: 18px 0;
-      outline: none;
     }
-    .login-input:focus { border-color: var(--primary); }
 
-    /* App Container */
+    /* Header Nav Actions */
+    .cms-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-blog-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-blog-link:hover {
+      color: var(--primary);
+      background: var(--primary-subtle);
+    }
+
+    /* Theme Toggle Button */
+    .theme-toggle-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--bg-subtle);
+      border-color: var(--border-highlight);
+      color: var(--primary);
+    }
+
+    /* Standard Button Styles */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12.5px;
+      border-radius: var(--radius-sm);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(29, 78, 216, 0.25);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      background: var(--bg-surface);
+      border-color: var(--border-card);
+      color: var(--text-body);
+    }
+    .btn-outline:hover {
+      background: var(--bg-subtle);
+      border-color: var(--border-highlight);
+      color: var(--text-main);
+    }
+    .btn-emerald {
+      background: var(--emerald);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(5, 150, 105, 0.25);
+    }
+    .btn-emerald:hover {
+      background: var(--emerald-dark);
+      transform: translateY(-1px);
+    }
+    .btn-danger {
+      background: var(--rose-subtle);
+      color: var(--rose);
+      border: 1px solid rgba(225, 29, 72, 0.2);
+    }
+    .btn-danger:hover {
+      background: var(--rose);
+      color: #FFFFFF;
+    }
+    .btn-ai {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+      border: none;
+    }
+    .btn-ai:hover {
+      box-shadow: 0 6px 18px rgba(124, 58, 237, 0.45);
+      transform: translateY(-1px);
+    }
+
+    /* Container */
     .cms-container {
-      max-width: 1400px;
+      max-width: var(--container);
       margin: 0 auto;
-      padding: 24px;
+      padding: 24px 20px 48px;
+      width: 100%;
+      flex: 1;
     }
 
-    /* Dashboard Metrics */
-    .metrics-row {
+    /* Dashboard Metrics Cards */
+    .metrics-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
       gap: 16px;
       margin-bottom: 24px;
     }
     .metric-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
+      border-radius: var(--radius-card);
+      padding: 20px;
       box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, border-color 0.15s;
     }
-    .metric-val {
-      font-family: var(--font-mono);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--text-main);
-      line-height: 1.2;
+    .metric-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-highlight);
+    }
+    .metric-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
     }
     .metric-label {
       font-size: 12px;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .metric-val {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+    .metric-sub {
+      font-size: 12px;
       color: var(--text-muted);
       margin-top: 4px;
     }
 
-    /* Articles Table */
-    .table-card {
+    /* Table & Card Wrapper */
+    .content-card {
       background: var(--bg-surface);
       border: 1px solid var(--border-card);
       border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
     }
-    .table-head-bar {
+    .table-toolbar {
       padding: 16px 20px;
       border-bottom: 1px solid var(--border-card);
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 16px;
       flex-wrap: wrap;
-      gap: 12px;
+    }
+    .search-input-wrap {
+      position: relative;
+      min-width: 240px;
+      max-width: 360px;
+      flex: 1;
+    }
+    .search-input-wrap .icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-faint);
+    }
+    .search-input {
+      width: 100%;
+      padding: 8px 14px 8px 36px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-card);
+      background: var(--bg-canvas);
+      color: var(--text-main);
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-subtle);
+    }
+
+    /* Category & Status Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-chip:hover {
+      color: var(--text-main);
+      border-color: var(--border-highlight);
+    }
+    .filter-chip.active {
+      background: var(--primary-subtle);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* CMS Table */
+    .table-responsive {
+      overflow-x: auto;
+      width: 100%;
     }
     .cms-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13.5px;
       text-align: left;
+      font-size: 13.5px;
     }
     .cms-table th {
-      background: var(--bg-subtle);
-      color: var(--text-main);
-      font-weight: 700;
       padding: 12px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
       border-bottom: 1px solid var(--border-card);
     }
     .cms-table td {
@@ -244,205 +485,663 @@
       border-bottom: 1px solid var(--border-subtle);
       vertical-align: middle;
     }
-    .cms-table tr:hover td { background: var(--bg-subtle); }
-    .status-pill {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: var(--radius-pill);
+    .cms-table tr:hover td {
+      background: var(--bg-subtle);
     }
-    .status-pill.published { background: var(--emerald-subtle); color: var(--emerald-dark); }
-    .status-pill.draft { background: var(--amber-subtle); color: var(--amber); }
+    .cms-table tr:last-child td {
+      border-bottom: none;
+    }
 
-    /* Editor View (Dual-Pane) */
+    /* Badges & Pills */
+    .cms-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border-card);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+    .status-pill.published {
+      background: var(--emerald-subtle);
+      color: var(--emerald);
+      border: 1px solid rgba(5, 150, 105, 0.25);
+    }
+    .status-pill.draft {
+      background: var(--amber-subtle);
+      color: var(--amber);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+    }
+
+    /* ========================================================================
+       EDITOR VIEW STYLING
+       ======================================================================== */
     .editor-view {
       display: none;
     }
+    .editor-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .editor-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .editor-topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Editor Split Layout */
     .editor-layout {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr;
       gap: 24px;
-      margin-top: 18px;
+      align-items: start;
+    }
+
+    /* Form Card */
+    .form-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
     }
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .form-label {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       margin-bottom: 6px;
     }
     .form-counter {
-      font-family: var(--font-mono);
       font-size: 11px;
+      font-weight: 600;
       color: var(--text-muted);
+      font-family: var(--font-mono);
     }
     .form-input, .form-select, .form-textarea {
       width: 100%;
-      padding: 9px 12px;
-      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      border-radius: 10px;
       border: 1px solid var(--border-card);
-      background: var(--bg-surface);
+      background: var(--bg-canvas);
       color: var(--text-main);
-      font-family: var(--font-sans);
-      font-size: 13.5px;
+      font-size: 14px;
+      font-family: inherit;
       outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
     }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--primary); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-subtle);
+    }
     .form-textarea {
       font-family: var(--font-mono);
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: 13.5px;
+      line-height: 1.65;
       resize: vertical;
+      min-height: 380px;
     }
 
-    /* Toolbar */
-    .format-toolbar {
+    /* Toolbar for Content Formatting */
+    .editor-toolbar {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       gap: 4px;
+      padding: 8px 10px;
       background: var(--bg-subtle);
       border: 1px solid var(--border-card);
       border-bottom: none;
-      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-      padding: 6px;
+      border-radius: 10px 10px 0 0;
+      flex-wrap: wrap;
     }
     .tb-btn {
       padding: 4px 8px;
-      border-radius: 4px;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-body);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.12s;
+    }
+    .tb-btn:hover {
+      background: var(--primary-subtle);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .form-textarea-attached {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    /* Right Sidecar Panel (Tabs for AI Copilot & SEO Auditor) */
+    .sidecar-panel {
+      position: sticky;
+      top: 84px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidecar-nav-tabs {
+      display: flex;
+      border-bottom: 2px solid var(--border-card);
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .sidecar-tab {
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sidecar-tab:hover {
+      color: var(--text-main);
+    }
+    .sidecar-tab.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .sidecar-tab.ai-tab.active {
+      color: #7c3aed;
+      border-bottom-color: #7c3aed;
+    }
+
+    /* AI Copilot Card */
+    .copilot-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .copilot-ribbon {
+      padding: 9px 14px;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .copilot-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      display: inline-block;
+      margin-right: 6px;
+      box-shadow: 0 0 8px #10b981;
+    }
+    .copilot-superpowers {
+      padding: 12px 14px;
+      background: var(--bg-canvas);
+      border-bottom: 1px solid var(--border-card);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .sp-chip {
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid var(--border-card);
+      background: var(--bg-surface);
+      color: var(--text-body);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .sp-chip:hover {
+      border-color: #7c3aed;
+      color: #7c3aed;
+      background: rgba(124, 58, 237, 0.06);
+    }
+    .sp-chip.primary-action {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(124, 58, 237, 0.14) 100%);
+      border-color: rgba(124, 58, 237, 0.35);
+      color: #6d28d9;
+    }
+    [data-theme="dark"] .sp-chip.primary-action {
+      color: #c4b5fd;
+      border-color: rgba(196, 181, 253, 0.3);
+    }
+
+    /* Copilot Chat Feed */
+    .copilot-chat-box {
+      padding: 16px;
+      height: 380px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      background: var(--bg-surface);
+    }
+    .copilot-msg {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 95%;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .copilot-msg.assistant {
+      align-self: flex-start;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-card);
+      padding: 12px 14px;
+      border-radius: 12px 12px 12px 2px;
+      color: var(--text-body);
+    }
+    .copilot-msg.user {
+      align-self: flex-end;
+      background: var(--primary);
+      color: #FFFFFF;
+      padding: 10px 14px;
+      border-radius: 12px 12px 2px 12px;
+    }
+    .copilot-action-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      margin-top: 8px;
+    }
+    .copilot-action-card .title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .copilot-action-card .desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* Copilot Input Footer */
+    .copilot-input-area {
+      padding: 12px 14px;
+      border-top: 1px solid var(--border-card);
+      background: var(--bg-canvas);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .copilot-input {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
       border: 1px solid var(--border-card);
       background: var(--bg-surface);
       color: var(--text-main);
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
+      font-size: 13px;
+      outline: none;
     }
-    .tb-btn:hover { background: var(--primary-subtle); color: var(--primary); }
+    .copilot-input:focus {
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+    }
 
-    /* SEO Auditor Scorecard */
+    /* SEO Auditor Card */
     .seo-auditor-card {
       background: var(--bg-surface);
-      border: 1.5px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 18px 20px;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      padding: 18px;
       box-shadow: var(--shadow-sm);
-      margin-bottom: 20px;
     }
     .seo-score-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
     .seo-score-badge {
-      font-family: var(--font-mono);
-      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
       font-weight: 800;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-family: var(--font-mono);
     }
-    .seo-score-badge.good { background: var(--emerald-subtle); color: var(--emerald-dark); }
-    .seo-score-badge.warn { background: var(--amber-subtle); color: var(--amber); }
-    .seo-score-badge.bad { background: var(--rose-subtle); color: var(--rose); }
+    .seo-score-badge.good { background: var(--emerald-subtle); color: var(--emerald); border: 2px solid var(--emerald); }
+    .seo-score-badge.warn { background: var(--amber-subtle); color: var(--amber); border: 2px solid var(--amber); }
+    .seo-score-badge.bad { background: var(--rose-subtle); color: var(--rose); border: 2px solid var(--rose); }
 
     .seo-check-list {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      font-size: 12px;
+      gap: 8px;
     }
     .seo-check-item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--text-body);
     }
     .seo-check-item.pass { color: var(--emerald); }
-    .seo-check-item.fail { color: var(--rose); }
+    .seo-check-item.fail { color: var(--text-muted); }
 
     /* Live Preview Box */
     .preview-box {
       background: var(--bg-surface);
       border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      max-height: 700px;
+      border-radius: var(--radius-card);
+      padding: 20px;
+      max-height: 450px;
       overflow-y: auto;
-      box-shadow: var(--shadow-sm);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .preview-box h1 { font-size: 1.4rem; font-weight: 800; color: var(--text-main); margin-bottom: 8px; }
+    .preview-box h2 { font-size: 1.2rem; font-weight: 700; color: var(--text-main); margin: 18px 0 8px; }
+    .preview-box h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-main); margin: 14px 0 6px; }
+    .preview-box p { margin-bottom: 12px; }
+    .preview-box blockquote {
+      border-left: 3px solid var(--primary);
+      padding-left: 14px;
+      font-style: italic;
+      color: var(--text-muted);
+      margin: 14px 0;
+    }
+    .preview-box .article-callout {
+      background: var(--primary-subtle);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 10px;
+      padding: 14px;
+      margin: 16px 0;
+    }
+    .preview-box .callout-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      margin-bottom: 4px;
     }
 
-    @media (max-width: 1024px) {
-      .editor-layout { grid-template-columns: 1fr; }
-      .metrics-row { grid-template-columns: repeat(2, 1fr); }
+    /* Login Modal Overlay */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 15, 23, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-hover);
+      padding: 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .login-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--primary-subtle);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .login-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border-card);
+      background: var(--bg-canvas);
+      color: var(--text-main);
+      font-size: 14px;
+      margin: 18px 0 12px;
+      outline: none;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .login-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-subtle);
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-main);
+      color: var(--bg-surface);
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: var(--shadow-hover);
+      display: none;
+      z-index: 2000;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ========================================================================
+       RESPONSIVE & MOBILE POLISH INVARIANTS
+       ======================================================================== */
+    @media (max-width: 992px) {
+      .editor-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidecar-panel {
+        position: static;
+      }
+    }
+
+    /* Strict Mobile Invariant: When header doesn't fit on mobile, 
+       keep ONLY the FA Logo on the left and + Tulis Artikel on the right! */
+    @media (max-width: 640px) {
+      .brand-text { display: none !important; }
+      #navBlogLink { display: none !important; }
+      #btnLogout { display: none !important; }
+      #themeToggleBtn { display: none !important; }
+      .cms-header-inner {
+        padding: 0 16px;
+        height: 56px;
+      }
+      #btnNewArticle {
+        padding: 6px 12px;
+        font-size: 12.5px;
+      }
+      #btnNewArticle .btn-text-full {
+        display: none;
+      }
+      #btnNewArticle .btn-text-short {
+        display: inline !important;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .cms-table th:nth-child(4),
+      .cms-table td:nth-child(4) {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Login Modal -->
-  <div class="login-overlay" id="loginOverlay">
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice">
+    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span id="toastMsg">Berhasil</span>
+  </div>
+
+  <!-- Login Modal Overlay -->
+  <div class="login-overlay" id="loginOverlay" style="display:none;">
     <div class="login-card">
-      <div style="width:48px;height:48px;border-radius:12px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-weight:800;font-size:20px;">FA</div>
-      <h2 style="font-size:1.35rem;font-weight:800;color:var(--text-main);margin-bottom:6px;">CMS Studio Artikel</h2>
-      <p style="font-size:13px;color:var(--text-muted);">Masukkan Token Admin Farid Adam untuk mengelola publikasi &amp; SEO artikel.</p>
+      <div class="login-icon">
+        <svg class="icon icon-md" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h3 style="font-size:1.25rem;font-weight:800;color:var(--text-main);margin-bottom:6px;">CMS Studio Login</h3>
+      <p style="font-size:13px;color:var(--text-muted);">Masukkan Token Admin Farid Adam untuk mengelola publikasi &amp; optimasi SEO artikel.</p>
       
       <input type="password" class="login-input" id="tokenInput" placeholder="Masukkan Admin Token..." autocomplete="off" />
-      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;" id="loginSubmitBtn">Masuk ke CMS</button>
-      <div id="loginError" style="font-size:12px;color:var(--rose);margin-top:10px;display:none;">Token tidak valid. Cek token di server.</div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;padding:11px;" id="loginSubmitBtn">Masuk ke Studio</button>
+      <div id="loginError" style="font-size:12px;color:var(--rose);margin-top:10px;display:none;">Token tidak valid. Silakan periksa kembali.</div>
     </div>
   </div>
 
-  <!-- Top Navbar -->
-  <header class="cms-nav">
-    <div style="display:flex;align-items:center;gap:16px;">
-      <a class="cms-brand" href="/cms">
-        <span>Farid Adamn</span>
-        <span class="cms-tag">CMS STUDIO</span>
+  <!-- Sticky Navbar Header -->
+  <header class="cms-header">
+    <div class="cms-header-inner">
+      <a class="brand-wrap" href="/cms">
+        <img class="brand-logo-img" src="/assets/fa-logo-cropped.png" alt="FA Logo" onerror="this.style.display='none';document.getElementById('brandMono').style.display='flex';" />
+        <div class="brand-monogram" id="brandMono" style="display:none;">FA</div>
+        <div class="brand-text">
+          <span class="brand-title">Farid Adamn</span>
+          <span class="brand-sub">CMS STUDIO &bull; BLOG SEO</span>
+        </div>
       </a>
-      <a href="/blog/" target="_blank" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Buka Blog Live &nearr;</a>
-    </div>
 
-    <div style="display:flex;align-items:center;gap:12px;">
-      <button class="btn btn-primary" id="btnNewArticle">
-        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        <span>Tulis Artikel Baru</span>
-      </button>
-      <button class="btn btn-outline" id="btnLogout">Keluar</button>
+      <div class="cms-nav-actions">
+        <a class="nav-blog-link" id="navBlogLink" href="/blog/" target="_blank">
+          <span>Buka Blog Live</span>
+          <svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+
+        <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Ganti Tema Terang/Gelap" title="Ganti Tema">
+          <svg class="icon icon-sm" id="themeIconSvg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+
+        <button class="btn btn-primary" id="btnNewArticle">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <span class="btn-text-full">Tulis Artikel Baru</span>
+          <span class="btn-text-short" style="display:none;">Artikel</span>
+        </button>
+
+        <button class="btn btn-outline" id="btnLogout" title="Keluar dari CMS">
+          <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Keluar</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="cms-container">
 
-    <!-- 1. DASHBOARD VIEW -->
+    <!-- ========================================================================
+         1. DASHBOARD VIEW
+         ======================================================================== -->
     <div id="dashboardView">
-      <div class="metrics-row">
+      <div class="metrics-grid">
         <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-label">Total Artikel</span>
+            <svg class="icon icon-sm" style="color:var(--primary);" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
           <div class="metric-val" id="metricTotal">0</div>
-          <div class="metric-label">Total Artikel</div>
+          <div class="metric-sub">Katalog konten terdaftar</div>
         </div>
+
         <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-label">Terbit di Google</span>
+            <svg class="icon icon-sm" style="color:var(--emerald);" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
           <div class="metric-val" id="metricPublished" style="color:var(--emerald);">0</div>
-          <div class="metric-label">Terbit di Google</div>
+          <div class="metric-sub">Terindeks &amp; siap ranking</div>
         </div>
+
         <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-label">Draft Disimpan</span>
+            <svg class="icon icon-sm" style="color:var(--amber);" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          </div>
           <div class="metric-val" id="metricDraft" style="color:var(--amber);">0</div>
-          <div class="metric-label">Draft Disimpan</div>
+          <div class="metric-sub">Belum dipublikasikan</div>
         </div>
+
         <div class="metric-card">
+          <div class="metric-head">
+            <span class="metric-label">Total Kata Ditulis</span>
+            <svg class="icon icon-sm" style="color:var(--primary);" viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+          </div>
           <div class="metric-val" id="metricWords">0</div>
-          <div class="metric-label">Total Kata Ditulis</div>
+          <div class="metric-sub">Daging konten organik</div>
         </div>
       </div>
 
-      <div class="table-card">
-        <div class="table-head-bar">
-          <h3 style="font-size:1.1rem;font-weight:800;color:var(--text-main);">Daftar Seluruh Artikel</h3>
-          <input type="search" id="tableSearch" placeholder="Cari artikel..." style="padding:6px 12px;border-radius:var(--radius-pill);border:1px solid var(--border-card);font-size:13px;outline:none;" />
+      <div class="content-card">
+        <div class="table-toolbar">
+          <div class="search-input-wrap">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" class="search-input" id="tableSearch" placeholder="Cari judul, kategori, atau keyword..." />
+          </div>
+
+          <div class="filter-tabs" id="categoryFilterTabs">
+            <span class="filter-chip active" data-cat="all">Semua</span>
+            <span class="filter-chip" data-cat="Bisnis & Software">Bisnis &amp; Software</span>
+            <span class="filter-chip" data-cat="AI & Otomasi">AI &amp; Otomasi</span>
+            <span class="filter-chip" data-cat="UI/UX & Desain">UI/UX &amp; Desain</span>
+            <span class="filter-chip" data-cat="DevOps & Server">DevOps</span>
+          </div>
         </div>
-        <div style="overflow-x:auto;">
+
+        <div class="table-responsive">
           <table class="cms-table">
             <thead>
               <tr>
@@ -462,43 +1161,49 @@
       </div>
     </div>
 
-    <!-- 2. EDITOR VIEW -->
+    <!-- ========================================================================
+         2. EDITOR VIEW (WRITE & EDIT WITH AI COPILOT)
+         ======================================================================== -->
     <div class="editor-view" id="editorView">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
-        <button class="btn btn-outline" id="btnBackToDash">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          <span>Kembali ke Dashboard</span>
-        </button>
-        <div style="display:flex;gap:10px;">
+      <div class="editor-topbar">
+        <div class="editor-topbar-left">
+          <button class="btn btn-outline" id="btnBackToDash">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>Dashboard</span>
+          </button>
+          <span class="cms-tag" id="editorModeTag">Artikel Baru</span>
+        </div>
+
+        <div class="editor-topbar-right">
           <button class="btn btn-outline" id="btnSaveDraft">Simpan Draft</button>
           <button class="btn btn-emerald" id="btnPublish">
             <svg class="icon icon-sm" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Terbitkan (Publish)</span>
+            <span>Publikasikan (Publish)</span>
           </button>
         </div>
       </div>
 
       <div class="editor-layout">
         <!-- Left: Form inputs -->
-        <div>
+        <div class="form-card">
           <input type="hidden" id="editArticleId" />
 
           <div class="form-group">
             <div class="form-label">
-              <span>Judul Artikel (H1)</span>
+              <span>Judul Artikel (H1 Headline)</span>
               <span class="form-counter" id="titleCount">0 / 60 char</span>
             </div>
-            <input type="text" class="form-input" id="inputTitle" placeholder="Contoh: 5 Cara Meningkatkan Penjualan Toko Online..." />
+            <input type="text" class="form-input" id="inputTitle" placeholder="Contoh: 5 Cara Meningkatkan Penjualan Toko Online dengan Chat WhatsApp..." />
           </div>
 
           <div class="form-group">
             <div class="form-label">
-              <span>Slug URL (/blog/slug-anda)</span>
+              <span>Slug URL (/blog/slug-artikel)</span>
             </div>
-            <input type="text" class="form-input" id="inputSlug" placeholder="meningkatkan-penjualan-toko-online..." />
+            <input type="text" class="form-input" id="inputSlug" placeholder="meningkatkan-penjualan-toko-online..." style="font-family:var(--font-mono);font-size:13px;" />
           </div>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
             <div class="form-group">
               <div class="form-label"><span>Kategori</span></div>
               <select class="form-select" id="selectCategory">
@@ -508,59 +1213,126 @@
                 <option value="DevOps & Server">DevOps &amp; Server</option>
               </select>
             </div>
+
             <div class="form-group">
-              <div class="form-label"><span>Focus Keyword (SEO)</span></div>
+              <div class="form-label"><span>Focus Keyword (Target SEO)</span></div>
               <input type="text" class="form-input" id="inputKeyword" placeholder="toko online chat-first" />
             </div>
           </div>
 
           <div class="form-group">
             <div class="form-label">
-              <span>Meta Deskripsi (Google Snippet)</span>
+              <span>Meta Deskripsi (Snippet Google Search)</span>
               <span class="form-counter" id="descCount">0 / 160 char</span>
             </div>
-            <textarea class="form-input" id="inputDesc" rows="3" placeholder="Deskripsi ringkas artikel untuk hasil pencarian Google (140-160 karakter)..."></textarea>
+            <textarea class="form-input" id="inputDesc" rows="3" placeholder="Deskripsi ringkas yang memikat pembaca Google (target 130-155 karakter)..."></textarea>
           </div>
 
-          <!-- Content Editor with Toolbar -->
+          <!-- Content Editor with Rich Toolbar -->
           <div class="form-group">
             <div class="form-label"><span>Isi Konten Artikel (Markdown &amp; HTML)</span></div>
-            <div class="format-toolbar">
+            <div class="editor-toolbar">
               <button class="tb-btn" type="button" onclick="insertTag('h2')">H2</button>
               <button class="tb-btn" type="button" onclick="insertTag('h3')">H3</button>
               <button class="tb-btn" type="button" onclick="insertTag('bold')"><b>B</b></button>
               <button class="tb-btn" type="button" onclick="insertTag('italic')"><i>I</i></button>
               <button class="tb-btn" type="button" onclick="insertTag('quote')">Kutipan</button>
-              <button class="tb-btn" type="button" onclick="insertTag('callout')">Callout Box</button>
-              <button class="tb-btn" type="button" onclick="insertTag('code')">Kode</button>
+              <button class="tb-btn" type="button" onclick="insertTag('callout')">Callout</button>
               <button class="tb-btn" type="button" onclick="insertTag('table')">Tabel</button>
-              <button class="tb-btn" type="button" onclick="insertTag('link')">Link</button>
+              <button class="tb-btn" type="button" onclick="insertTag('code')">Kode</button>
+              <button class="tb-btn" type="button" onclick="insertTag('faq')">FAQ Block</button>
+              <button class="tb-btn" type="button" onclick="insertTag('link')">Link WA</button>
             </div>
-            <textarea class="form-textarea" id="inputContent" rows="18" placeholder="Tulis artikel di sini menggunakan Markdown atau tag HTML..."></textarea>
+            <textarea class="form-textarea form-textarea-attached" id="inputContent" rows="18" placeholder="Tulis draft di sini secara bebas... Tidak perlu khawatir tentang SEO atau struktur, AI Kopilot di sebelah kanan siap merapihkan menjadi artikel berperingkat tinggi!"></textarea>
           </div>
         </div>
 
-        <!-- Right: Real-time SEO Auditor & Live Preview -->
-        <div>
-          <!-- Scorecard -->
-          <div class="seo-auditor-card">
-            <div class="seo-score-head">
-              <div>
-                <h4 style="font-size:14px;font-weight:800;color:var(--text-main);">SEO On-Page Auditor</h4>
-                <div style="font-size:12px;color:var(--text-muted);" id="seoStatsText">0 kata &bull; 0 menit baca</div>
-              </div>
-              <div class="seo-score-badge good" id="seoScoreBadge">100/100</div>
+        <!-- Right Sidecar: Tabbed AI Kopilot & SEO Auditor -->
+        <div class="sidecar-panel">
+          <div class="sidecar-nav-tabs">
+            <div class="sidecar-tab ai-tab active" id="tabBtnCopilot" onclick="switchSidecarTab('copilot')">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>AI Kopilot SEO</span>
             </div>
-
-            <div class="seo-check-list" id="seoCheckList">
-              <!-- Checklist items rendered by JS -->
+            <div class="sidecar-tab" id="tabBtnAuditor" onclick="switchSidecarTab('auditor')">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>SEO Score &amp; Preview</span>
             </div>
           </div>
 
-          <!-- Live Preview Box -->
-          <h4 style="font-size:13px;font-weight:800;color:var(--text-muted);text-transform:uppercase;margin-bottom:8px;">Pratinjau Langsung (Live Preview)</h4>
-          <div class="preview-box" id="livePreviewBox">
-            <p style="color:var(--text-faint);">Ketik di sebelah kiri untuk melihat pratinjau...</p>
+          <!-- TAB 1: AI KOPILOT SEO -->
+          <div id="sidecarCopilotView" class="copilot-card">
+            <div class="copilot-ribbon">
+              <div>
+                <span class="copilot-status-dot"></span>
+                <span>AI Partner Nulis &bull; Gemini 2.5 Flash</span>
+              </div>
+              <span class="cms-tag" style="font-size:10px;">Anti-Slop Mode</span>
+            </div>
+
+            <!-- Superpower Quick Chips -->
+            <div class="copilot-superpowers">
+              <button class="sp-chip primary-action" type="button" onclick="triggerCopilotAction('full_optimize')" title="Otomatis rapihkan artikel, H1, slug, meta desc, H2/H3, dan tambahkan daging">
+                <svg class="icon icon-xs" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>⚡ Rapihkan &amp; Full SEO</span>
+              </button>
+              <button class="sp-chip" type="button" onclick="triggerCopilotAction('headlines')">
+                <span>🎯 Judul &amp; Meta Snippet</span>
+              </button>
+              <button class="sp-chip" type="button" onclick="triggerCopilotAction('outline')">
+                <span>📑 Buat Outline H2/H3</span>
+              </button>
+              <button class="sp-chip" type="button" onclick="triggerCopilotAction('expand')">
+                <span>📈 Tambah Daging (>800 kata)</span>
+              </button>
+              <button class="sp-chip" type="button" onclick="triggerCopilotAction('anti_slop')">
+                <span>🛡️ Bersihkan AI Slop</span>
+              </button>
+              <button class="sp-chip" type="button" onclick="triggerCopilotAction('faq')">
+                <span>❓ Buat 3 FAQ PAA</span>
+              </button>
+            </div>
+
+            <!-- Chat Stream -->
+            <div class="copilot-chat-box" id="copilotChatBox">
+              <div class="copilot-msg assistant">
+                <div>Halo bre! Tulis aja ide atau draft kasarmu di sebelah kiri tanpa mikirin prinsip SEO. Nanti klik tombol <b>⚡ Rapihkan &amp; Full SEO</b> di atas atau ketik instruksi di bawah, gw yang bakal rapihin struktur H1-H3, meta snippet, keyword density, dan nambahin dagingnya agar tembus standar Google!</div>
+              </div>
+            </div>
+
+            <!-- Copilot Input -->
+            <div class="copilot-input-area">
+              <input type="text" class="copilot-input" id="copilotInput" placeholder="Ketik instruksi khusus (misal: 'Tambahin studi kasus nyata')..." />
+              <button class="btn btn-ai btn-sm" id="btnSendCopilot" type="button" title="Kirim instruksi">
+                <svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- TAB 2: SEO AUDITOR & LIVE PREVIEW -->
+          <div id="sidecarAuditorView" style="display:none;flex-direction:column;gap:16px;">
+            <!-- Scorecard -->
+            <div class="seo-auditor-card">
+              <div class="seo-score-head">
+                <div>
+                  <h4 style="font-size:14px;font-weight:800;color:var(--text-main);">SEO On-Page Auditor</h4>
+                  <div style="font-size:12px;color:var(--text-muted);" id="seoStatsText">0 kata &bull; 0 menit baca</div>
+                </div>
+                <div class="seo-score-badge good" id="seoScoreBadge">100/100</div>
+              </div>
+
+              <div class="seo-check-list" id="seoCheckList">
+                <!-- Checklist items rendered by JS -->
+              </div>
+            </div>
+
+            <!-- Live Reader Preview -->
+            <div class="content-card" style="padding:16px;">
+              <h4 style="font-size:12px;font-weight:800;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;">Pratinjau Langsung (Reader Simulation)</h4>
+              <div class="preview-box" id="livePreviewBox">
+                <p style="color:var(--text-faint);">Tulis konten di sebelah kiri untuk melihat simulasi tampilan artikel di website...</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -584,8 +1356,19 @@
       var editorView = document.getElementById("editorView");
 
       var articles = [];
+      var activeCategoryFilter = "all";
+      var lastCopilotResult = null;
 
-      // Check auth on start
+      // Theme toggle functionality
+      var themeToggleBtn = document.getElementById("themeToggleBtn");
+      themeToggleBtn.addEventListener("click", function () {
+        var current = document.documentElement.getAttribute("data-theme") || "light";
+        var next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("fa-portal-theme", next);
+      });
+
+      // Check auth on load
       if (token) {
         verifyToken(token);
       } else {
@@ -606,6 +1389,13 @@
         location.reload();
       });
 
+      function showToast(msg) {
+        var el = document.getElementById("toastNotice");
+        document.getElementById("toastMsg").textContent = msg;
+        el.style.display = "inline-flex";
+        setTimeout(function () { el.style.display = "none"; }, 3000);
+      }
+
       function verifyToken(t) {
         fetch(API_BASE + "/auth", {
           method: "POST",
@@ -625,7 +1415,7 @@
           }
         })
         .catch(function () {
-          // If offline/testing fallback:
+          // Fallback verify for known token
           if (t === "cWST8dH8B45Yme38m4Acsg") {
             token = t;
             localStorage.setItem("fa_cms_token", t);
@@ -668,27 +1458,59 @@
         document.getElementById("metricDraft").textContent = draft;
         document.getElementById("metricWords").textContent = words.toLocaleString("id-ID");
 
+        renderArticlesTable();
+      }
+
+      function renderArticlesTable() {
+        var query = (document.getElementById("tableSearch").value || "").toLowerCase().trim();
+        var filtered = articles.filter(function (a) {
+          var matchCat = (activeCategoryFilter === "all" || a.category === activeCategoryFilter);
+          var matchQuery = !query || 
+            (a.title && a.title.toLowerCase().indexOf(query) !== -1) ||
+            (a.slug && a.slug.toLowerCase().indexOf(query) !== -1) ||
+            (a.focus_keyword && a.focus_keyword.toLowerCase().indexOf(query) !== -1);
+          return matchCat && matchQuery;
+        });
+
         var tbody = document.getElementById("articlesTableBody");
+        if (filtered.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--text-muted);">Tidak ada artikel yang cocok dengan filter.</td></tr>';
+          return;
+        }
+
         var html = "";
-        articles.forEach(function (a) {
+        filtered.forEach(function (a) {
           var isPub = a.status === "published";
           html += '<tr>' +
-            '<td><b style="color:var(--text-main);">' + a.title + '</b><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--text-muted);">/blog/' + a.slug + '</div></td>' +
+            '<td><b style="color:var(--text-main);font-size:14px;">' + a.title + '</b><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--text-muted);margin-top:2px;">/blog/' + a.slug + '</div></td>' +
             '<td><span class="cms-tag">' + (a.category || "General") + '</span></td>' +
             '<td><span class="status-pill ' + (isPub ? 'published' : 'draft') + '">' + (isPub ? 'Published' : 'Draft') + '</span></td>' +
             '<td style="font-size:12px;color:var(--text-muted);">' + (a.word_count || 0) + ' kata &bull; ' + (a.read_time || '') + '</td>' +
             '<td style="font-size:12px;color:var(--text-muted);">' + (a.date || '') + '</td>' +
             '<td style="text-align:right;white-space:nowrap;">' +
-              '<button class="btn btn-outline" style="padding:4px 10px;font-size:12px;margin-right:6px;" onclick="editArticle(\'' + a.id + '\')">Edit</button>' +
-              '<a class="btn btn-outline" style="padding:4px 10px;font-size:12px;margin-right:6px;" href="/blog/' + a.slug + '" target="_blank">&nearr;</a>' +
-              '<button class="btn btn-danger" style="padding:4px 10px;font-size:12px;" onclick="deleteArticle(\'' + a.id + '\')">Hapus</button>' +
+              '<button class="btn btn-outline btn-sm" style="margin-right:6px;" onclick="editArticle(\'' + a.id + '\')">Edit</button>' +
+              '<a class="btn btn-outline btn-sm" style="margin-right:6px;" href="/blog/' + a.slug + '" target="_blank" title="Lihat Live">&nearr;</a>' +
+              '<button class="btn btn-danger btn-sm" onclick="deleteArticle(\'' + a.id + '\')">Hapus</button>' +
             '</td>' +
           '</tr>';
         });
         tbody.innerHTML = html;
       }
 
-      // Switch views
+      // Filter events
+      document.getElementById("tableSearch").addEventListener("input", renderArticlesTable);
+
+      var categoryChips = document.querySelectorAll("#categoryFilterTabs .filter-chip");
+      categoryChips.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          categoryChips.forEach(function (c) { c.classList.remove("active"); });
+          chip.classList.add("active");
+          activeCategoryFilter = chip.getAttribute("data-cat");
+          renderArticlesTable();
+        });
+      });
+
+      // View switching
       document.getElementById("btnNewArticle").addEventListener("click", function () {
         openEditor(null);
       });
@@ -703,16 +1525,18 @@
       };
 
       window.deleteArticle = function (id) {
-        if (!confirm("Yakin ingin menghapus artikel ini?")) return;
+        if (!confirm("Yakin ingin menghapus artikel ini? Data akan dihapus dari server dan sitemap akan diperbarui.")) return;
         fetch(API_BASE + "/articles/" + id, {
           method: "DELETE",
           headers: { "Authorization": "Bearer " + token }
         })
         .then(function () {
+          showToast("Artikel berhasil dihapus");
           loadArticles();
         });
       };
 
+      // Form elements
       var inputTitle = document.getElementById("inputTitle");
       var inputSlug = document.getElementById("inputSlug");
       var selectCategory = document.getElementById("selectCategory");
@@ -720,12 +1544,15 @@
       var inputDesc = document.getElementById("inputDesc");
       var inputContent = document.getElementById("inputContent");
       var editArticleId = document.getElementById("editArticleId");
+      var editorModeTag = document.getElementById("editorModeTag");
 
       function openEditor(art) {
         dashboardView.style.display = "none";
         editorView.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
         if (art) {
+          editorModeTag.textContent = "Edit Artikel";
           editArticleId.value = art.id || "";
           inputTitle.value = art.title || "";
           inputSlug.value = art.slug || "";
@@ -734,6 +1561,7 @@
           inputDesc.value = art.description || "";
           inputContent.value = art.content || "";
         } else {
+          editorModeTag.textContent = "Artikel Baru";
           editArticleId.value = "";
           inputTitle.value = "";
           inputSlug.value = "";
@@ -745,7 +1573,7 @@
         updateAuditor();
       }
 
-      // Auto slug from title
+      // Auto-slug generator
       inputTitle.addEventListener("input", function () {
         if (!editArticleId.value) {
           inputSlug.value = inputTitle.value.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/[\s-]+/g, '-').replace(/^-|-$/g, '');
@@ -776,7 +1604,7 @@
         var checks = [
           { label: "Focus Keyword di Judul H1", pass: kw && title.toLowerCase().indexOf(kw) !== -1 },
           { label: "Focus Keyword di Meta Deskripsi", pass: kw && desc.toLowerCase().indexOf(kw) !== -1 },
-          { label: "Focus Keyword di paragraf pembuka", pass: kw && content.toLowerCase().slice(0, 400).indexOf(kw) !== -1 },
+          { label: "Focus Keyword di paragraf pembuka (100 kata awal)", pass: kw && content.toLowerCase().slice(0, 500).indexOf(kw) !== -1 },
           { label: "Focus Keyword di minimal satu Subheading H2", pass: kw && (content.indexOf("<h2>") !== -1 || content.indexOf("## ")) && content.toLowerCase().indexOf(kw) !== -1 },
           { label: "Panjang Meta Deskripsi optimal (120-160 char)", pass: desc.length >= 120 && desc.length <= 165 },
           { label: "Panjang Konten >= 800 kata untuk Google Ranking", pass: words >= 800 }
@@ -799,9 +1627,9 @@
         document.getElementById("seoCheckList").innerHTML = listHtml;
 
         // Update live preview
-        document.getElementById("livePreviewBox").innerHTML = '<h1 style="font-size:1.6rem;font-weight:800;color:var(--text-main);margin-bottom:12px;">' + (title || "Judul Artikel") + '</h1>' +
+        document.getElementById("livePreviewBox").innerHTML = '<h1 style="font-size:1.4rem;font-weight:800;color:var(--text-main);margin-bottom:8px;">' + (title || "Judul Artikel") + '</h1>' +
           '<div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">' + selectCategory.value + ' &bull; ' + readTime + ' menit baca &bull; ' + words + ' kata</div>' +
-          '<div style="line-height:1.7;color:var(--text-body);font-size:14.5px;">' + (content || '<p style="color:var(--text-faint);">Konten kosong...</p>') + '</div>';
+          '<div style="line-height:1.7;color:var(--text-body);font-size:14px;">' + (content || '<p style="color:var(--text-faint);">Konten masih kosong...</p>') + '</div>';
       }
 
       function saveArticleData(status) {
@@ -832,12 +1660,12 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (res.ok) {
-            alert(status === "published" ? "Artikel berhasil diterbitkan!" : "Draft berhasil disimpan!");
+            showToast(status === "published" ? "Artikel berhasil diterbitkan ke publik!" : "Draft berhasil disimpan!");
             editorView.style.display = "none";
             dashboardView.style.display = "block";
             loadArticles();
           } else {
-            alert("Error: " + (res.error || "Gagal menyimpan"));
+            alert("Error: " + (res.error || "Gagal menyimpan artikel"));
           }
         })
         .catch(function (err) {
@@ -848,6 +1676,7 @@
       document.getElementById("btnSaveDraft").addEventListener("click", function () { saveArticleData("draft"); });
       document.getElementById("btnPublish").addEventListener("click", function () { saveArticleData("published"); });
 
+      // Formatting Toolbar Tags
       window.insertTag = function (type) {
         var ta = inputContent;
         var start = ta.selectionStart;
@@ -855,20 +1684,178 @@
         var sel = ta.value.substring(start, end);
         var repl = "";
 
-        if (type === "h2") repl = "<h2>" + (sel || "Subheading H2") + "</h2>\n";
-        else if (type === "h3") repl = "<h3>" + (sel || "Subheading H3") + "</h3>\n";
-        else if (type === "bold") repl = "<strong>" + (sel || "teks tebal") + "</strong>";
+        if (type === "h2") repl = "<h2>" + (sel || "Subheading H2 Berbobot") + "</h2>\n";
+        else if (type === "h3") repl = "<h3>" + (sel || "Subheading H3 Spesifik") + "</h3>\n";
+        else if (type === "bold") repl = "<strong>" + (sel || "poin kunci") + "</strong>";
         else if (type === "italic") repl = "<em>" + (sel || "teks miring") + "</em>";
-        else if (type === "quote") repl = "<blockquote>" + (sel || "Kutipan penting...") + "</blockquote>\n";
-        else if (type === "callout") repl = '<div class="article-callout"><div class="callout-title">Poin Kunci</div><p>' + (sel || "Penjelasan...") + '</p></div>\n';
-        else if (type === "code") repl = "<pre><code>" + (sel || "// Kode di sini") + "</code></pre>\n";
-        else if (type === "table") repl = '<div class="article-table-wrap"><table class="article-table"><thead><tr><th>Fitur</th><th>Keterangan</th></tr></thead><tbody><tr><td>Poin 1</td><td>Nilai</td></tr></tbody></table></div>\n';
-        else if (type === "link") repl = '<a href="https://wa.me/6281212686654" target="_blank">' + (sel || "Tautan Konsultasi") + '</a>';
+        else if (type === "quote") repl = "<blockquote>" + (sel || "Kutipan atau kaidah penting...") + "</blockquote>\n";
+        else if (type === "callout") repl = '<div class="article-callout"><div class="callout-title">Poin Kunci &amp; Takeaway</div><p>' + (sel || "Penjelasan mendalam tanpa basa-basi...") + '</p></div>\n';
+        else if (type === "table") repl = '<div class="article-table-wrap"><table class="article-table"><thead><tr><th>Kriteria</th><th>Solusi Tradisional</th><th>Solusi Farid Adamn</th></tr></thead><tbody><tr><td>Biaya Operasional</td><td>Langganan Bulanan Mahal</td><td>Zero Vendor Lock-in (VPS Sendiri)</td></tr></tbody></table></div>\n';
+        else if (type === "code") repl = "<pre><code>" + (sel || "// Masukkan konfigurasi atau skrip di sini") + "</code></pre>\n";
+        else if (type === "faq") repl = '<h2>Pertanyaan yang Sering Diajukan (FAQ)</h2>\n<h3>Apakah sistem ini bisa langsung diintegrasikan?</h3>\n<p>Ya, seluruh arsitektur dirancang plug-and-play dan siap pakai dalam hitungan jam.</p>\n';
+        else if (type === "link") repl = '<a href="https://wa.me/6281212686654" target="_blank">' + (sel || "Konsultasikan Kebutuhan Anda via WhatsApp &rarr;") + '</a>';
 
         ta.value = ta.value.substring(0, start) + repl + ta.value.substring(end);
         ta.focus();
         updateAuditor();
       };
+
+      // ========================================================================
+      // AI KOPILOT SEO INTEGRATION
+      // ========================================================================
+      window.switchSidecarTab = function (tab) {
+        var copilotView = document.getElementById("sidecarCopilotView");
+        var auditorView = document.getElementById("sidecarAuditorView");
+        var tabCopilot = document.getElementById("tabBtnCopilot");
+        var tabAuditor = document.getElementById("tabBtnAuditor");
+
+        if (tab === "copilot") {
+          copilotView.style.display = "flex";
+          auditorView.style.display = "none";
+          tabCopilot.classList.add("active");
+          tabAuditor.classList.remove("active");
+        } else {
+          copilotView.style.display = "none";
+          auditorView.style.display = "flex";
+          tabCopilot.classList.remove("active");
+          tabAuditor.classList.add("active");
+        }
+      };
+
+      var copilotChatBox = document.getElementById("copilotChatBox");
+      var copilotInput = document.getElementById("copilotInput");
+      var btnSendCopilot = document.getElementById("btnSendCopilot");
+
+      btnSendCopilot.addEventListener("click", function () {
+        var text = copilotInput.value.trim();
+        if (!text) return;
+        copilotInput.value = "";
+        triggerCopilotAction("custom_chat", text);
+      });
+
+      copilotInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") btnSendCopilot.click();
+      });
+
+      window.triggerCopilotAction = function (action, customPrompt) {
+        var currentArticle = {
+          title: inputTitle.value,
+          slug: inputSlug.value,
+          category: selectCategory.value,
+          focus_keyword: inputKeyword.value,
+          description: inputDesc.value,
+          content: inputContent.value
+        };
+
+        // Render user prompt in chat
+        var userText = customPrompt || getActionLabel(action);
+        appendCopilotMsg("user", userText);
+
+        // Render loading indicator
+        var loadingId = "load_" + Date.now();
+        var loadingEl = document.createElement("div");
+        loadingEl.className = "copilot-msg assistant";
+        loadingEl.id = loadingId;
+        loadingEl.innerHTML = '<div style="display:flex;align-items:center;gap:8px;">' +
+          '<svg class="icon icon-sm" style="animation:spin 1s linear infinite;" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>' +
+          '<span>Sedang menganalisis &amp; merapihkan konten SEO...</span>' +
+        '</div>';
+        copilotChatBox.appendChild(loadingEl);
+        copilotChatBox.scrollTop = copilotChatBox.scrollHeight;
+
+        // Send to backend API
+        fetch(API_BASE + "/ai-copilot", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + token
+          },
+          body: JSON.stringify({
+            action: action,
+            prompt: customPrompt || "",
+            article: currentArticle
+          })
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          var loadEl = document.getElementById(loadingId);
+          if (loadEl) loadEl.remove();
+
+          if (res.ok && res.result) {
+            handleCopilotSuccess(res.result);
+          } else {
+            appendCopilotMsg("assistant", "Waduh bre, ada kendala: " + (res.error || "Gagal mendapatkan respons AI. Cek koneksi server."));
+          }
+        })
+        .catch(function (err) {
+          var loadEl = document.getElementById(loadingId);
+          if (loadEl) loadEl.remove();
+          appendCopilotMsg("assistant", "Waduh bre, gagal terhubung ke backend: " + err);
+        });
+      };
+
+      function getActionLabel(action) {
+        if (action === "full_optimize") return "⚡ Rapihkan seluruh artikel & optimasi SEO penuh!";
+        if (action === "headlines") return "🎯 Buatkan rekomendasi judul H1 dan meta snippet Google!";
+        if (action === "outline") return "📑 Susunkan struktur outline heading H2 dan H3!";
+        if (action === "expand") return "📈 Perluas dan tambahkan daging artikel (>800 kata)!";
+        if (action === "anti_slop") return "🛡️ Bersihkan kalimat klise AI (jadikan gaya lugas Farid Adamn)!";
+        if (action === "faq") return "❓ Buatkan 3 pertanyaan FAQ umum (People Also Ask)!";
+        return "Tolong bantu optimasi draft ini";
+      }
+
+      function appendCopilotMsg(role, text) {
+        var el = document.createElement("div");
+        el.className = "copilot-msg " + role;
+        el.innerHTML = '<div>' + text.replace(/\n/g, '<br>') + '</div>';
+        copilotChatBox.appendChild(el);
+        copilotChatBox.scrollTop = copilotChatBox.scrollHeight;
+      }
+
+      function handleCopilotSuccess(data) {
+        lastCopilotResult = data;
+
+        var el = document.createElement("div");
+        el.className = "copilot-msg assistant";
+
+        var wordCount = (data.content || "").replace(/<[^>]*?>/g, ' ').split(/\s+/).filter(Boolean).length;
+
+        var html = '<div><b>Beres bre!</b> ' + (data.summary_notes || 'Berikut artikel yang sudah dirapihkan dengan standar SEO Google & anti-slop.') + '</div>' +
+          '<div class="copilot-action-card">' +
+            '<div class="title">' + (data.title || "Judul Baru") + '</div>' +
+            '<div class="desc"><b>Keyword:</b> ' + (data.focus_keyword || '-') + ' &bull; <b>Estimasi:</b> ' + wordCount + ' kata</div>' +
+            '<div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;font-style:italic;">&ldquo;' + (data.description || '') + '&rdquo;</div>' +
+            '<div style="display:flex;gap:6px;flex-wrap:wrap;">' +
+              '<button class="btn btn-emerald btn-sm" onclick="applyCopilotResult(\'all\')">&#10004; Terapkan Seluruhnya</button>' +
+              '<button class="btn btn-outline btn-sm" onclick="applyCopilotResult(\'content\')">Konten Saja</button>' +
+              '<button class="btn btn-outline btn-sm" onclick="applyCopilotResult(\'seo\')">SEO Meta Saja</button>' +
+            '</div>' +
+          '</div>';
+
+        el.innerHTML = html;
+        copilotChatBox.appendChild(el);
+        copilotChatBox.scrollTop = copilotChatBox.scrollHeight;
+      }
+
+      window.applyCopilotResult = function (part) {
+        if (!lastCopilotResult) return;
+
+        if (part === "all" || part === "seo") {
+          if (lastCopilotResult.title) inputTitle.value = lastCopilotResult.title;
+          if (lastCopilotResult.slug) inputSlug.value = lastCopilotResult.slug;
+          if (lastCopilotResult.category) selectCategory.value = lastCopilotResult.category;
+          if (lastCopilotResult.focus_keyword) inputKeyword.value = lastCopilotResult.focus_keyword;
+          if (lastCopilotResult.description) inputDesc.value = lastCopilotResult.description;
+        }
+
+        if (part === "all" || part === "content") {
+          if (lastCopilotResult.content) inputContent.value = lastCopilotResult.content;
+        }
+
+        updateAuditor();
+        showToast("✓ Hasil AI Kopilot berhasil diterapkan ke editor!");
+      };
+
     })();
   </script>
 </body>
