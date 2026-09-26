@@ -469,6 +469,131 @@ def get_gemini_key():
     import base64
     return base64.b64decode("QVEuQWI4Uk42S3V1cjNNdFFqMldkNjNMdmhuaU16dG1IaGVqOUEwV0tRM3EwWm5SZ3hBb2c=").decode("utf-8")
 
+def get_kenari_key():
+    k = os.environ.get("KENARI_API_KEY")
+    if k:
+        return k
+    env_paths = [
+        "/home/ubuntu/.hermes/.env",
+        "/root/.hermes/.env",
+        os.path.expanduser("~/.hermes/.env")
+    ]
+    for p in env_paths:
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    for line in f:
+                        if line.startswith("KENARI_API_KEY="):
+                            return line.strip().split("=", 1)[1].strip("\"'")
+            except Exception:
+                pass
+    import base64
+    return base64.b64decode("a24tZTI5OWY1OWM3NzQ2MTQ4MmU4YzM0MjY4YjcwOTI4MDJmN2RjMjJkYzRiNjYzOWE4").decode("utf-8")
+
+def extract_json_from_text(text):
+    text = (text or "").strip()
+    m = re.search(r"(\{[\s\S]*\})", text)
+    if m:
+        text = m.group(1)
+    return json.loads(text)
+
+def call_kenari_deepseek(action, prompt, article, history=None):
+    import requests
+    key = get_kenari_key()
+    if not key:
+        raise Exception("KENARI_API_KEY tidak ditemukan")
+
+    url = "https://kenari.id/v1/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json"
+    }
+
+    system_prompt = """Kamu adalah 'AI Kopilot SEO & Anti-Slop Writing Partner' untuk Farid Adamn (Solo Builder, Software & Automasi AI).
+Gaya komunikasimu: Cerdas, santai, akrab (panggil user 'bre'), praktis, to-the-point, dan berbobot tanpa basa-basi korporat.
+
+PRINSIP ARTIKEL SEO RANKING TINGGI FARID ADAMN:
+1. MANDAT UTAMA POIN PENJELASAN (MUTLAK): Jika user menyertakan 'Poin Penjelasan', seluruh alur dan isi konten artikel WAJIB berakar dari poin-poin tersebut. Setiap butir poin penjelasan harus diangkat menjadi sub-bab (H2/H3) atau pembahasan daging secara tuntas tanpa ada satu poin pun yang dilewati!
+2. H1 Judul: Mengandung focus keyword, bikin penasaran, tidak clickbait murahan.
+3. Meta Deskripsi: 130-155 karakter, memancing klik di hasil pencarian Google, mengandung focus keyword.
+4. Paragraf Pembuka (Hook): Langsung to the point ke inti masalah dalam 100 kata pertama, sebutkan keyword secara natural.
+5. Struktur Heading: Hierarki jelas H2 dan H3. Hindari bab terlalu panjang tanpa pemecah visual.
+6. Daging & Kedalaman (>800 kata): Berikan perbandingan nyata, arsitektur, cara kerja, checklist, atau skenario konkret. Bukan teori mengambang.
+7. Format Kaya: Gunakan bullet points, callout box (<div class="article-callout"><div class="callout-title">...</div><p>...</p></div>), dan tabel perbandingan jika relevan.
+8. Bagian FAQ: 2-3 pertanyaan umum yang dicari audiens di Google (People Also Ask).
+9. CTA Penutup: Selalu sediakan ajakan konsultasi WhatsApp direct (https://wa.me/6281212686654).
+10. ANTI-SLOP RULE: Dilarang menggunakan frasa klise AI seperti: "Di era digital yang serba cepat", "Mari kita selami", "Bukan rahasia lagi bahwa", "Sebagai kesimpulan", "Menapaki jalan". Gunakan bahasa Indonesia lugas, tajam, dan natural.
+
+FORMAT OUTPUT:
+Kembalikan HANYA JSON valid dengan struktur:
+{
+  "title": "Judul H1 lengkap...",
+  "slug": "slug-url-ramah-seo",
+  "category": "Bisnis & Software / AI & Otomasi / UI/UX & Desain / DevOps & Server",
+  "focus_keyword": "keyword utama",
+  "key_points": "Poin penjelasan yang dipertahankan atau dirapihkan...",
+  "description": "Meta deskripsi 130-155 karakter...",
+  "content": "Konten artikel lengkap dalam format HTML...",
+  "summary_notes": "Rangkuman singkat perbaikan SEO yang dilakukan..."
+}"""
+
+    key_points = article.get("key_points", "").strip()
+    key_points_directive = ""
+    if key_points:
+        key_points_directive = (
+            f"*** MANDAT POIN PENJELASAN (WAJIB DIBUATKAN SUB-BAB DI KONTEN) ***\n"
+            f"User mewajibkan artikel disusun berdasarkan poin-poin berikut:\n"
+            f"{key_points}\n\n"
+            f"ATURAN: Setiap poin di atas WAJIB dijabarkan secara mendalam menjadi sub-heading H2 atau H3 dalam artikel. "
+            f"Jangan melewatkan satupun poin!\n"
+        )
+
+    user_msg = (
+        f"Aksi: {action}\n"
+        f"Instruksi Khusus: {prompt or 'Optimasi penuh untuk standar SEO Google'}\n\n"
+        f"{key_points_directive}\n"
+        f"Draft Saat Ini:\n"
+        f"- Judul: {article.get('title', '')}\n"
+        f"- Kategori: {article.get('category', 'Bisnis & Software')}\n"
+        f"- Focus Keyword: {article.get('focus_keyword', '')}\n"
+        f"- Poin Penjelasan User:\n{key_points or '(Belum ada poin khusus)'}\n"
+        f"- Meta Deskripsi: {article.get('description', '')}\n"
+        f"- Isi Konten:\n{article.get('content', '')}"
+    )
+
+    payload = {
+        "model": "deepseek-v4-1-flash",
+        "messages": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_msg}
+        ],
+        "response_format": {"type": "json_object"},
+        "temperature": 0.7
+    }
+
+    resp = requests.post(url, headers=headers, json=payload, timeout=45)
+    if resp.status_code == 200:
+        d = resp.json()
+        raw_text = d["choices"][0]["message"]["content"]
+        res = extract_json_from_text(raw_text)
+        res["provider"] = "kenari"
+        res["model"] = "deepseek-v4-1-flash"
+        return res
+    raise Exception(f"Kenari API error: HTTP {resp.status_code} - {resp.text[:200]}")
+
+def call_copilot(action, prompt, article, history=None):
+    # 1. Primary: Kenari Provider (DeepSeek 4.1 Flash)
+    try:
+        print("Calling Kenari DeepSeek 4.1 Flash...", file=sys.stderr)
+        return call_kenari_deepseek(action, prompt, article, history)
+    except Exception as e:
+        print(f"Kenari DeepSeek failed: {e}. Falling back to Gemini 3.5/3.1...", file=sys.stderr)
+
+    # 2. Fallback: Gemini Provider (Gemini 3.5 Flash-Lite / 3.1 Flash-Lite)
+    res = call_gemini_copilot(action, prompt, article, history)
+    res["provider"] = "gemini_fallback"
+    return res
+
 def call_gemini_copilot(action, prompt, article, history=None):
     import requests
     key = get_gemini_key()
@@ -758,7 +883,7 @@ class BlogHandler(BaseHTTPRequestHandler):
                 article = data.get("article", {})
                 history = data.get("history", [])
 
-                result = call_gemini_copilot(action, prompt, article, history)
+                result = call_copilot(action, prompt, article, history)
                 self._send_json({"ok": True, "result": result})
             except Exception as e:
                 self._send_json({"ok": False, "error": str(e)}, 500)
