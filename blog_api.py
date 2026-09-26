@@ -472,8 +472,8 @@ def get_gemini_key():
 def call_gemini_copilot(action, prompt, article, history=None):
     import requests
     key = get_gemini_key()
-    primary_model = "gemini-2.5-flash"
-    fallback_model = "gemini-2.0-flash"
+    primary_model = "gemini-3.5-flash-lite"
+    fallback_model = "gemini-3.1-flash-lite"
 
     system_prompt = """Kamu adalah 'AI Kopilot SEO & Anti-Slop Writing Partner' untuk Farid Adamn (Solo Builder, Software & Automasi AI).
 Gaya komunikasimu: Cerdas, santai, akrab (panggil user 'bre'), praktis, to-the-point, dan berbobot tanpa basa-basi korporat.
